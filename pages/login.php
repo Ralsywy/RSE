@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<html>
+<head>
+</head>
+<body>
+
+>>>>>>> f6b33ddcb7561d0b5cec8e394b232deb22c5ae6f
 <div class="wrapper">
     <div class="form-box login">
         <h2>Connexion</h2>
