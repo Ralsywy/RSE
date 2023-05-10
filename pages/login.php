@@ -15,7 +15,7 @@ include("../navbar.php")
         <form action="#">
             <div class="input-box">
                 <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-                <input type="email" required>
+                <input type="username" required>
                 <label>Nom d'utilisateur</label>
             </div>
             <div class="input-box">
@@ -28,6 +28,7 @@ include("../navbar.php")
                     <input type="checkbox"> Se souvenir
                 </label>
             </div>
+            <button type="submit" class="btn">Login</button>
         </form>
     </div>
 </div>
