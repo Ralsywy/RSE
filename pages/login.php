@@ -1,14 +1,3 @@
-<html>
-<head>
-<?php
-include("header.php")
-?>
-<?php
-include("navbar.php")
-?>
-</head>
-<body>
-
 <div class="wrapper">
     <div class="form-box login">
         <h2>Connexion</h2>
@@ -31,5 +20,3 @@ include("navbar.php")
         </form>
     </div>
 </div>
-</body>
-</html>
