@@ -1,11 +1,5 @@
 <html>
 <head>
-<?php
-include("../header.php")
-?>
-<?php
-include("../navbar.php")
-?>
 </head>
 <body>
 
