@@ -7,11 +7,12 @@ if(isset($_SESSION['auth'])) {
 <?php
 include("header.php")
 ?>
-</head>
-<body>
 <?php
 include("navbar_full.php")
 ?>
+</head>
+<body>
+
 
 </body>
 </html>

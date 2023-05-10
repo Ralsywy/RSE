@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<?php include("header.php") ?>
-</head>
-<body>
+<header>
 <nav class="navbar navbar-expand-lg" style="background-color: #ff7dc8;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -27,5 +22,4 @@
     </div>
   </div>
 </nav>
-</body>
-</html>
+</header>
