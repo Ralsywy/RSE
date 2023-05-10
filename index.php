@@ -18,6 +18,6 @@ include("navbar_full.php")
 </html>
 <?php
 } else {
-    include("login.php");
+    include("pages/login.php");
 }
 ?>
