@@ -10,12 +10,11 @@
     <script src='main.js'></script>
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
-  <div class="container">
+<nav class="navbar" style="background-color: #ff7dc8;">
+<div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+    <img src="img/rdc.png" alt="Bootstrap" width="50" height="50">
     </a>
-  </div>
 </nav>
 </body>
 </html>
