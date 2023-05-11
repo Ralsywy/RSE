@@ -1,14 +1,22 @@
 <div class="grille">
     <div class="grid-item">
+        <p class="nom">Nom</p>
+        <p class="prenom">Prénom</p>
         <a href="#" class="btn1">Modifier</a>
     </div>
     <div class="grid-item">
+    <p class="nom">Nom</p>
+    <p class="prenom">Prénom</p>
         <a href="#" class="btn1">Modifier</a>
     </div>
     <div class="grid-item">
+    <p class="nom">Nom</p>
+    <p class="prenom">Prénom</p>
         <a href="#" class="btn1">Modifier</a>
     </div>
     <div class="grid-item">
+    <p class="nom">Nom</p>
+    <p class="prenom">Prénom</p>
         <a href="#" class="btn1">Modifier</a>
     </div>
 </div>
@@ -36,6 +44,16 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     position: relative;
     border-radius: 20px;
+}
+.grille p.nom {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+.grille p.prenom {
+    position: absolute;
+    left: 15px;
+    top: 40px;
 }
 .grille a {
     position: absolute;

@@ -53,6 +53,7 @@ if(isset($_SESSION['auth'])) {
 </nav>
 </header>
 
+
 <!-- FIN NAVBAR -->
 </head>
 
