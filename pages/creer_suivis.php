@@ -1,5 +1,5 @@
 <?php
-session_start();
-
 $_SESSION["auth"]=1;
 ?>
+
+<p>test 2</p>
