@@ -27,10 +27,10 @@ if(isset($_SESSION['auth'])) {
     </a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php?route=login"><span class="nav_msg">Page d'accueil</span></a>
-        </li>
-        <li class="nav-item">
+      <?php 
+          if(isset($_SESSION["login"])){
+            ?>
+            <li class="nav-item">
           <a class="nav-link" href="index.php?route=list_suivis"><span class="nav_msg">Liste des suivis</span></a>
         </li>
         <li class="nav-item">
@@ -39,6 +39,14 @@ if(isset($_SESSION['auth'])) {
         <li class="nav-item">
           <a class="nav-link" href="index.php?route=creer_accompagnateur"><span class="nav_msg">Gérer un accompagnateur</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?route=logout"><span class="nav_msg">Se déconnecter</span></a>
+        </li>
+        <?php } else {?>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php?route=login"><span class="nav_msg">Page d'accueil</span></a>
+        </li>
+        <?php }?>
       </ul>
     </div>
   </div>
@@ -50,9 +58,22 @@ if(isset($_SESSION['auth'])) {
 
 <body>
 <?php
-if(isset($_GET["route"])){
+// BASE DE DONNEES
+include("config/database.php");
 
-              
+// ERREURS
+if (isset($_SESSION["error"])){
+  ?>
+  <div class="alert alert-danger" role="alert">
+    <?php 
+      echo $_SESSION["error"];
+      unset($_SESSION["error"]);
+    ?>
+  </div>
+
+  <?php
+}
+if(isset($_GET["route"])){
 switch ($_GET["route"]){
   case "login":
     include("pages/login.php");
@@ -66,6 +87,12 @@ switch ($_GET["route"]){
   case "creer_accompagnateur":
       include("pages/creer_accompagnateur.php");
       break;
+  case "check_login":
+    include("pages/check_login.php");
+    break;
+  case "logout":
+    include("pages/logout.php");
+    break;
 
   }}
 ?>
