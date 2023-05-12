@@ -51,11 +51,10 @@ session_start();
   </div>
 </nav>
 </header>
-
-
 <!-- FIN NAVBAR -->
 </head>
 
+<body>
 <!-- LOGIN -->
 <?php 
 if(isset($_SESSION["login"])){}
@@ -86,7 +85,7 @@ if(isset($_SESSION["login"])){}
 </div>
  <?php } ?>
 
-<body>
+
 <?php
 // BASE DE DONNEES
 include("config/database.php");
