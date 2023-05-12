@@ -124,4 +124,5 @@ switch ($_GET["route"]){
 ?>
 
 </body>
+
 </html>
