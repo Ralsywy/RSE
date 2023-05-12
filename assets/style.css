@@ -1,5 +1,4 @@
 
-
 .navbar-nav > li{
     padding-left:80px;
     padding-right:80px;
@@ -15,6 +14,7 @@ body {
   background: url(../img/background.jpg) no-repeat;
   background-size: cover;
   background-position: center;
+  font-family: "Gill Sans MT";
 }
 header {
   position: fixed;
@@ -96,4 +96,18 @@ header {
   font-size: 1em;
   color: #fff;
   font-weight: 500;
+}
+
+.creation_accompagnateur{
+  display: flex;
+}
+
+.accompagnateur{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.accompagnateur_heading{
+  font-weight: bold;
 }
