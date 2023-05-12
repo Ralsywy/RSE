@@ -255,6 +255,7 @@ switch ($_GET["route"]){
     position: fixed;
     left: 0;
     bottom: 0;
+    height: 300px;
     width: 100%;
     color: white;
     text-align: center;
