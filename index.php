@@ -43,7 +43,7 @@ session_start();
         </li>
         <?php } else {?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php"><span class="nav_msg">Page d'accueil</span></a>
+          <a class="nav-link active" aria-current="page" href="index.php"><span class="nav_msg">Se connecter</span></a>
         </li>
         <?php }?>
       </ul>
