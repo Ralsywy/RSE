@@ -251,6 +251,7 @@ switch ($_GET["route"]){
 </div>
 <style>
   .pied_page{
+    z-index: -1;
     position: fixed;
     left: 0;
     bottom: 0;
