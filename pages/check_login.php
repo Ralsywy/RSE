@@ -6,7 +6,7 @@
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 
-// ordre de mission
+// ordre de missionn
 $requete = $mysqlConnection->prepare('SELECT * FROM accompagnateur where login = :login and password=:password');
 //execution de la requete
 $requete->execute(["login"=>$_POST["login"],"password"=>($_POST["password"])]);
