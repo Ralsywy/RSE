@@ -235,7 +235,7 @@ switch ($_GET["route"]){
         </div>
         <!-- Grid column -->
       </div>
-      <!-- Grid row -->
+      <!-- Grid roww -->
     </div>
   </section>
   <!-- Section: Links  -->
