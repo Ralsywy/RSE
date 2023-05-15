@@ -101,13 +101,3 @@ header {
 .creation_accompagnateur{
   display: flex;
 }
-
-.accompagnateur{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.accompagnateur_heading{
-  font-weight: bold;
-}
