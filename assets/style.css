@@ -172,20 +172,17 @@ transform: scale(1.1);
 }
 }
 
-.creation_accompagnateur{
-  display: flex;
-}
-
-.creer_accompagnateur{
-  position: relative;
-  max-width: 700px;
-  width: 100%;
+.creer_acc{
+  position:relative;
+  width: 140%;
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  margin-bottom:3rem ;
 }
 
-.creer_accompagnateur header{
+.creer_acc .titre_acc{
   font-size: 1.5rem;
   font-weight: 500
 }
