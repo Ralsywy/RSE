@@ -184,7 +184,9 @@ transform: scale(1.1);
 
 .creer_acc .titre_acc{
   font-size: 1.5rem;
-  font-weight: 500
+  font-weight:bold;
+  text-align: center;
+  padding-bottom:13px ;
 }
 .addsuivis {
   border: 2px solid black;
