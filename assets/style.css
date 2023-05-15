@@ -172,20 +172,156 @@ transform: scale(1.1);
 }
 }
 
-.creation_accompagnateur{
-  display: flex;
-}
-
-.creer_accompagnateur{
-  position: relative;
-  max-width: 700px;
-  width: 100%;
+.creer_acc{
+  position:relative;
+  width: 140%;
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  margin-bottom:3rem ;
 }
 
-.creer_accompagnateur header{
+.creer_acc .titre_acc{
   font-size: 1.5rem;
-  font-weight: 500
+  font-weight:bold;
+  text-align: center;
+}
+
+.liste_acc .titre_acc{
+  font-size: 1.5rem;
+  font-weight:bold;
+  text-align: center;
+  padding-bottom:13px ;
+}
+
+.form_acc .input-box_acc{
+  width:100%;
+}
+
+.input-box_acc .tbx_acc{
+  position: relative;
+  height: 50px;
+  width:50%;
+  outline: none;
+  font-size:1rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+
+
+.input-box_acc{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+}
+
+.input-box_acc .acc_name{
+  margin-top:13px;
+}
+
+.btn_acc_c {
+  font-size: 15px;
+  font-weight: bold;
+  background: #2ed219;
+  width: 120px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.liste_acc{
+  position:relative;
+  width: 140%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.titre_liste_acc{
+  margin-bottom:2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.box_liste_acc{
+  position: relative;
+  height: 50px;
+  width:100%;
+  outline: none;
+  font-size:1rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  margin:10px;
+}
+
+.box_liste_acc .liste_name_acc{
+  margin-top:11px;
+  position:relative;
+  color:#000000;
+}
+.btn_liste_acc{
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_acc_m {
+  font-size: 15px;
+  margin:10px;
+  font-weight: bold;
+  background: #1e90ff;
+  width: 120px;
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.btn_acc_s {
+  margin:10px;
+  font-size: 15px;
+  font-weight: bold;
+  background: #ff1e1e;
+  width: 120px;
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.un_acc{
+  display: flex;
+  flex-direction: row;
 }
