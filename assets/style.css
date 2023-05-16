@@ -3,6 +3,9 @@
   padding-left:80px;
   padding-right:80px;
 }
+.navbar{
+  background-color: #ff7dc8;
+}
 .nav_msg {
   font-size: larger;
 }
@@ -174,7 +177,7 @@ transform: scale(1.1);
 
 .creer_acc{
   position:relative;
-  width: 140%;
+  width: 100%;
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
@@ -249,7 +252,7 @@ transform: scale(1.1);
 
 .liste_acc{
   position:relative;
-  width: 140%;
+  width: 100%;
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
@@ -330,4 +333,10 @@ transform: scale(1.1);
 .un_acc{
   display: flex;
   flex-direction: row;
+}
+
+.page_acc{
+  margin-top:6rem;
+  width: 40%;
+  padding: 10px;
 }
