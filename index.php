@@ -15,6 +15,10 @@ session_start();
     <script src='main.js'></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+</svg>
 <!-- FIN HEADER -->
 
 <!-- DEBUT NAVBAR -->
@@ -56,6 +60,11 @@ session_start();
 </head>
 
 <body>
+  
+
+<!-- bouton retourner en haut -->
+<a href="#"> <i class="bi bi-arrow-up-square-fill"></i> </a>
+
 <!-- LOGIN -->
 <?php 
 if(isset($_SESSION["login"])){}
@@ -72,7 +81,7 @@ if(isset($_SESSION["login"])){}
             </div>
             <div class="input-box">
                 <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="pwd_acc" name="pwd_acc" required>
                 <label>Mot de passe</label>
             </div>
             <div class="remember">
@@ -119,6 +128,12 @@ switch ($_GET["route"]){
     break;
   case "logout":
     include("pages/logout.php");
+    break;
+  case "store_accompagnateur":
+    include("pages/store_accompagnateur.php");
+    break;
+  case "supp_accompagnateur":
+    include("pages/supp_accompagnateur.php");
     break;
 
   }}
