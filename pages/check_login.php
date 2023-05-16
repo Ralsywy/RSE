@@ -7,9 +7,9 @@
     );
 
 // ordre de missionn
-$requete = $mysqlConnection->prepare('SELECT * FROM accompagnateur where login = :login and password=:password');
+$requete = $mysqlConnection->prepare('SELECT * FROM accompagnateur where login = :login and pwd_acc=:pwd_acc');
 //execution de la requete
-$requete->execute(["login"=>$_POST["login"],"password"=>($_POST["password"])]);
+$requete->execute(["login"=>$_POST["login"],"pwd_acc"=>($_POST["pwd_acc"])]);
 $accompagnateur = $requete->fetch();
 if ($accompagnateur){
   
