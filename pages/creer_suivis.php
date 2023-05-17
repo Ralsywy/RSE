@@ -1,36 +1,64 @@
-
 <div class="addsuivis">
 <h1 class="titrecreer">création du suivis</h1>
+<h2 class="information">Informations personnelles</h2>
     <form class="form">
     <!--    Information personnelles    -->
+<div class="block_enligne">
+    <div class="input_boxe">
     <label for="dcontact">Date du contact : </label>
     <input type="date" id="dcontact" required>
+    </div>
+    <div class="input_boxe">
     <label for="ocontact">Origine du contact : </label>
     <input type="text" name="ocontact" id="ocontact" required>
+    </div>
+</div>
+
+<div class="radio_button">
     <label for="inscrit">Inscrit aux resto du coeur : </label>
-    <select name="inscrit" id="inscrit" required>
-        <option value="rien"> -- Veuillez selectionner une option -- </option>
-        <option value="oui">oui</option>
-        <option value="non">non</option>
+    <input type="radio" id="inscrit_oui" name="inscrit" class="inscrit">
+    <label for="inscrit_oui">oui</label>
+    <input type="radio" id="inscrit_non" name="inscrit" class="inscrit">
+    <label for="inscrit_non">non</label>
     </select>
 
-<div class="off">
-    <!--    Si oui   -->
-    <label for="num">N° : </label>
-    <input type="text" id="num">
-    <label for="centre">Centre : </label>
-    <input type="text" id="centre">
-    <!--    Si non    -->
-    <label for="date_r">Date de réalisation : </label>
-    <input type="date" id="date_r">
 
-    <label for="accompagnateur">Accompagnateur SRE : </label>
-    <select name="accompagnateur" id="accompagnateur" required>
+
+    <!--    Si oui   -->
+
+
+    <label class="decale" for="num">N° : </label>
+    <input class="input_suivis" type="text" id="num">
+
+    <label for="centre">Centre : </label>
+    <input class="input_suivis" type="text" id="centre">
+
+
+    <!--    Si non    -->
+
+    <label class="decale" for="date_r">Date de réalisation : </label>
+    <input class="input_suivis" type="date" id="date_r">
+</div>
+    <div class="input_boxe">
+    <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
+    <select name="accompagnateur" id="accompagnateur" class="accompagnateur" required>
         <option value="rien"> -- Veuillez selectionner un accompagnateur -- </option>
     </select>
+    </div>
+
+
+    <hr>
+
+
+
     <!--    
         Information personnelles : Coordonnées de la personne accueillie
     -->
+    
+<h2 class="information">Coordonnées</h2>
+<h2 class="information2">Situation personelle</h2>
+    <div class="block_enligne">
+<div class="input_boxe">
     <label for="civilite">Civilité : </label>
     <select name="civilite" id="civilite" required>
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -38,28 +66,52 @@
         <option value="mademoiselle">Mademoiselle</option>
         <option value="monsieur">Monsieur</option>
     </select>
+    <div class="input_boxe">
+
     <label for="nom">Nom : </label>
     <input type="text" id="nom" required>
-    <label for="prenom">Prénom : </label>
-    <input type="text" id="prenom" required>
+
+
+    <label class="decale" for="prenom">Prénom : </label>
+    <input class="decale" type="text" id="prenom" required>
+    </div>
+    <div class="input_boxe">
+
     <label for="birth">Date de naissance : </label>
     <input type="date" id="birth" required>
+
     <label for="age">Age : </label>
     <input type="text" disabled id="age">
-    <label for="nationalite">Nationalité : </label>
+    </div>
+    <div class="input_boxe">
+
+    <label for="nationalite" id="nationalite">Nationalité : </label>
     <?php
     include('pays.php')
     ?>
-        <label for="adresse">Adresse : </label>
-    <input type="text" required>
-    <label for="postal">Code Postal : </label>
-    <input type="text" id="postal" required>
-    <label for="ville">Ville : </label>
-    <input type="text" id="ville" required>
-    <label for="tel">Téléphone : </label>
-    <input type="text" id="tel">
-    <label for="email">E-mail : </label>
-    <input type="mail" id="email">
+</div>
+<div class="input_boxe">
+    <label id="adresse" for="adresse">Adresse : </label>
+    <input type="text" id="adresse" required>
+
+
+    <label class="decaler" for="postal">Code Postal : </label>
+    <input class="decaler" type="text" id="postal" required>
+
+
+    <label class="decaler" for="ville">Ville : </label>
+    <input class="decaler" type="text" id="ville" required>
+    </div>
+    <div class="input_boxe">
+
+    <label class="decaler" for="tel">Téléphone : </label>
+    <input class="decaler" type="text" id="tel">
+
+    <label class="decaler" for="email">E-mail : </label>
+    <input class="decaler" type="mail" id="email">
+    </div>
+    
+</div>
     <!--    Situation personnelle    -->
     <label for="statue">Statue : </label>
     <select name="statue" id="statut" required>
@@ -70,6 +122,7 @@
         <option value="veuf">Veuf(ve)</option>
         <option value="pacse">Pacsé(e)</option>
     </select>
+    <div class="off">
     <!--    
         Enfants à charge  ------------------------------------------------------------------
     -->
@@ -204,6 +257,7 @@
         <option value="d1">D1</option>
         <option value="d1e">D1E</option>
     </select>
+
     <!--    
         Véhicule disponible  -------------------------------------------------------------
     -->
