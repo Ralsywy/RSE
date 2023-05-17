@@ -394,7 +394,6 @@ html{
   justify-content: center;
   top: 0;
 }
-<<<<<<< HEAD
 
 .btn_top{
   position: fixed;
@@ -408,7 +407,7 @@ html{
 }
 .btn_top:hover{
   transform: scale(1.4);
-=======
+}
 .form {
   position: block;
   margin: 50px;
@@ -478,5 +477,4 @@ html{
 }
 #nationalite label {
   margin-left: 150px;
->>>>>>> 0b3704538bd1efc0f755885c3da5ce216ec2eb8b
 }
