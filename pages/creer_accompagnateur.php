@@ -45,7 +45,6 @@ if (isset($_SESSION["login"])){
                 <label class="liste_name_acc"><?= $ligne["name_acc"] ?></label>
             </div>
             <div class="btn_liste_acc">
-                <a href="#" class="btn_acc_m">Modifier</a>
                 <a href="index.php?route=supp_accompagnateur&id=<?= $ligne["id_accompagnateur"] ?>" class="btn_acc_s">Supprimer</a>
             </div>
             </div>
