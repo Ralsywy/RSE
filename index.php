@@ -14,9 +14,8 @@ session_start();
     <link rel='stylesheet' type='text/css' media='screen' href='../assets/style.css'>
     <script src='main.js'></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/db7501469c.js" crossorigin="anonymous"></script>
 <!-- FIN HEADER -->
 
 <!-- DEBUT NAVBAR -->
@@ -61,9 +60,8 @@ session_start();
   
 
 <!-- bouton retourner en haut -->
-<div class="arrow_btn">
-  <a href="#"><span class="fas fa-angle-up"></span></a>
-</div>
+<a href="#" class="btn_top"><i class="fa-solid fa-circle-chevron-up"></i></a>
+
 <!-- LOGIN -->
 <?php 
 if(isset($_SESSION["login"])){}

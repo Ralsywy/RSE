@@ -1,6 +1,7 @@
 <?php
+
 if (isset($_POST["name_acc"])==false || empty($_POST["name_acc"]) || isset($_POST["pwd_acc"])==false || empty($_POST["pwd_acc"])){
-    $_SESSION["error"]="Le NOM Prénom et le mot de passe sont obligatoires";
+    $_SESSION["error"]="NOM Prénom et mot de passe obligatoires";
     header("location:index.php?route=creer_accompagnateur");
 }
 else
@@ -13,13 +14,34 @@ else
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 
+    //création du nom de login
+    $nom = $_POST["name_acc"];
+    $compteur = 0;
+    $max=strlen($nom);
+    $lenom = "";
+    $i=0;
+    
+    while($nom[$i] != " ")
+    {
+        $i++;
+        $compteur = $compteur + 1;
+    }
+    
+    for($s=0; $s < $compteur; $s++)
+    {
+        $lenom = $lenom . $nom[$s];
+    }
+
+    $compteur = $compteur + 1;
+    $login = strtolower($nom[$compteur].$lenom);
+    
 // ordre de mission
-$requete = $mysqlConnection->prepare('INSERT INTO accompagnateur(name_acc,pwd_acc) values(:name_acc,:pwd_acc)');
+$requete = $mysqlConnection->prepare('INSERT INTO accompagnateur(login,name_acc,pwd_acc) values(:login,:name_acc,:pwd_acc)');
 //execution de la requete
-$requete->execute( ["name_acc"=>$_POST["name_acc"],"pwd_acc"=>$_POST["pwd_acc"]]);
+$requete->execute( ["login"=>$login,"name_acc"=>$_POST["name_acc"],"pwd_acc"=>$_POST["pwd_acc"]]);
 $mysqlConnection = null;
 $requete = null;
-$_SESSION["success"]="Accompagnateur crée avec succès";
+
    
 header("location:index.php?route=creer_accompagnateur");
 }
