@@ -26,7 +26,6 @@ align-items: center;
 min-height: 100vh;
 background: url(../img/fond.png) no-repeat;
 background-size: cover;
-background-position: center;
 font-family: "Gill Sans MT";
 background-repeat: no-repeat;
 }
@@ -213,9 +212,10 @@ transform: scale(1.1);
   text-align: center;
 }
 .addsuivis {
+  margin-top: 150px;
   border-radius: 8px;
   width: 80%;
-  height: 80%;
+  height: 120%;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
@@ -394,6 +394,7 @@ html{
   justify-content: center;
   top: 0;
 }
+<<<<<<< HEAD
 
 .btn_top{
   position: fixed;
@@ -407,4 +408,75 @@ html{
 }
 .btn_top:hover{
   transform: scale(1.4);
+=======
+.form {
+  position: block;
+  margin: 50px;
+}
+.block_enligne {
+  position: block;
+
+
+}
+.block_enligne input {
+  margin-top: 10px;
+} 
+.addsuivis form {
+  margin: 20px;
+  
+}
+.accompagnateur {
+  margin-top: 10px;
+}
+.input_boxe input {
+  position: relative;
+  height: 30px;
+  width: 150px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.input_suivis {
+  margin-top: 10px;
+  position: relative;
+  height: 30px;
+  width: 150px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 0 5px;
+  border-radius: 8px;
+}
+.inscrit {
+  margin-left: 10px;
+}
+.decale {
+  margin-left: 10px;
+}
+.accompagnateur {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.addsuivis {
+  background: url(../img/suivis_background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.information {
+  position: relative;
+  left: 150px;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+.information2 {
+  position: relative;
+  top: -35px;
+  margin-left: 1000px;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+#nationalite label {
+  margin-left: 150px;
+>>>>>>> 0b3704538bd1efc0f755885c3da5ce216ec2eb8b
 }

@@ -1,4 +1,4 @@
-<select name="pays">
+<select name="pays" id="nationalite">
     <optgroup label="A">
 <option value="rien">-- Veuillez choisir une nationalité --</option>
 <option value="afghanistan">Afghanistan</option>
