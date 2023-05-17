@@ -1,8 +1,7 @@
-<style>
 
-</style>
 <div class="addsuivis">
-    <form>
+<h1 class="titrecreer">création du suivis</h1>
+    <form class="form">
     <!--    Information personnelles    -->
     <label for="dcontact">Date du contact : </label>
     <input type="date" id="dcontact" required>
@@ -14,6 +13,8 @@
         <option value="oui">oui</option>
         <option value="non">non</option>
     </select>
+
+<div class="off">
     <!--    Si oui   -->
     <label for="num">N° : </label>
     <input type="text" id="num">
@@ -436,4 +437,5 @@
     <label for="autre_situ">Expliquez : </label>
     <input type="text" id="autre_situ">
 </form>
+</div>
 </div>
