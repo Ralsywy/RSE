@@ -1,3 +1,4 @@
+
 <div class="addsuivis">
 <h1 class="titrecreer">création du suivis</h1>
 <h2 class="information">Informations personnelles</h2>
@@ -16,12 +17,11 @@
 
 <div class="radio_button">
     <label for="inscrit">Inscrit aux resto du coeur : </label>
-    <input type="radio" id="inscrit_oui" name="inscrit" class="inscrit">
+    <input type="radio" id="radio_oui" name="inscrit" class="radio_oui" value="inscrit_oui">
     <label for="inscrit_oui">oui</label>
-    <input type="radio" id="inscrit_non" name="inscrit" class="inscrit">
+    <input type="radio" id="radio_non" name="inscrit" class="radio_non" value="inscrit_non">
     <label for="inscrit_non">non</label>
     </select>
-
 
 
     <!--    Si oui   -->
@@ -122,25 +122,31 @@
         <option value="veuf">Veuf(ve)</option>
         <option value="pacse">Pacsé(e)</option>
     </select>
-    <div class="off">
+ 
     <!--    
         Enfants à charge  ------------------------------------------------------------------
     -->
+
+    <div class="sit_perso">
     <label>Enfants à charge : </label>
     <input type="radio" id="enfant_oui" name="enfant">
     <label for="enfant_oui">Oui</label>
     <label for="enfant_non">Non</label>
+
     <input type="radio" id="enfant_non" name="enfant">
+    <div class="input_boxe">
     <!--    Si oui    -->
     <label for="nombre_enfant">Nombre d'enfants à charge : </label>
     <input type="text" id="nombre_enfant">
     <label for="date_naissance_enfant">Date de naissance</label>
     <input type="date">
+    </div>
     <!--    Si non (rien)    -->
 
     <!--    
         Nature des revenus  ---------------------------------------------------------------
     -->
+    <div class="input_boxe">
     <label for="revenus">Nature des revenus : </label>
     <select name="revenus" id="revenus">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -155,6 +161,7 @@
     <!--    Si "autre"    -->
     <label for="preciser">Préciser : </label>
     <input type="text" id="preciser">
+    </div>
     <!--    
         Pôle emplois  --------------------------------------------------------------------
     -->
@@ -164,6 +171,7 @@
     <input type="radio" id="pole_non" name="pole_emplois">
     <label for="pole_non">non</label>
     <!--    Si oui    -->
+    <div class="input_boxe">
     <label for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : </label>
     <input type="text" id="date_inscription_pole_emplois">
     <label for="nom_ref">Nom du référent</label>
@@ -171,6 +179,7 @@
     <!--    Si non    -->
     <label for="date_r2">Date de réalisation : </label>
     <input type="date" id="date_r2">
+    </div>
     <!--    
         Mission local   -------------------------------------------------------------------
     -->
@@ -180,13 +189,17 @@
     <input type="radio" id="mission_non" name="mission">
     <label for="mission_non">non</label>
     <!--    Si oui    -->
+    <div class="input_boxe">
     <label for="ref_mission">Nom du référent de la mission locale pour l'emplois</label>
     <input type="text" id="ref_mission">
+         <div class="input_boxe">
     <label for="date_mission">Date d'inscription : </label>
     <input type="date" id="date_mission">
     <!--    Si non    -->
     <label for="date_r3">Date de réalisation : </label>
     <input type="date" id="date_r3">
+    </div>
+        </div>
     <!--    
         CAP emplois  ----------------------------------------------------------------------
     -->
@@ -196,13 +209,15 @@
     <input type="radio" id="cap_non" name="cap_emplois">
     <label for="cap_oui">non</label>
     <!--    Si oui   -->
+    <div class="input_boxe">
     <label for="date_inscription_cap_emplois">Date d'inscription au CAP emplois : </label>
     <input type="text" id="date_inscription_cap_emplois">
-    <label for="nom_ref2">Nom du référent</label>
+    <label for="nom_ref2">Nom du référent : </label>
     <input type="text" id="nom_ref2">
     <!--    Si non    -->
     <label for="date_r4">Date de réalisation : </label>
     <input type="date" id="date_r4">
+    </div>
     <!--    
         CV  -------------------------------------------------------------------------------
     -->
@@ -211,15 +226,22 @@
     <label for="cv_oui">oui</label>
     <input type="radio" id="cv_non" name="cv_inscrit">
     <label for="cv_non">non</label>
+    <div class="input_boxe">
     <!--    Si oui   -->
-    <label for="cv">Insérer le cv scanné (format PDF uniquement) : </label>
+    <label for="cv">Insérer le cv scanné (format PDF uniquement) : </label> 
+   </div>
     <input type="file" id="cv" name="cv" accept="cv/pdf">
+
     <!--    Si non   -->
+    <div class="input_boxe">
     <label for="date_cv">Date programmé pour travailler le CV : </label>
     <input type="date" id="date_cv">
+    </div>
+
     <!--    
         Permis de conduire  ---------------------------------------------------------------
     -->
+    <div class="input_boxe">
     <label for="permis">Permis : </label>
     <select name="permis" id="permis">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -228,7 +250,9 @@
         <option value="march">Permis marchandises ou de personnes</option>
         <option value="aucun">aucun</option>
     </select>
+    </div>
     <!--    Si motos   -->
+    <div class="input_boxe">
     <label for="moto">Permis motos : </label>
     <select name="moto" id="moto">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -236,7 +260,9 @@
         <option value="a1">A1</option>
         <option value="a2">A2</option>
     </select>
+    </div>
     <!--    Si auto   -->
+    <div class="input_boxe">
     <label for="aut">Permis autos : </label>
     <select name="aut" id="aut">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -244,7 +270,9 @@
         <option value="b1">B1</option>
         <option value="be">BE</option>
     </select>
+    </div>
     <!--    Si march   -->
+    <div class="input_boxe">
     <label for="marchandise">Permis pour le transport de marchandises ou de personnes : </label>
     <select name="marchandise" id="marchandise">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -257,11 +285,14 @@
         <option value="d1">D1</option>
         <option value="d1e">D1E</option>
     </select>
+    </div>
 
     <!--    
         Véhicule disponible  -------------------------------------------------------------
     -->
+    <div class="input_boxe">
     <label for="vehicule">Véhicule disponible : </label>
+    </div>
     <input type="radio" id="vehicule_oui" name="vehicule">
     <label for="vehicule_oui">oui</label>
     <input type="radio" id="vehicule_non" name="vehicule">
@@ -269,11 +300,17 @@
     <!--    Si oui (rien)  -->
 
     <!--    Si non   -->
+    <div class="input_boxe">
     <label for="achat_vehicule">Achat prévu d'un véhicule ?</label>
+    </div>
     <input type="radio" id="achat_oui" name="achat_vehicule">
     <label for="achat_oui">oui</label>
     <input type="radio" id="achat_non" name="achat_vehicule">
     <label for="achat_non">non</label>
+    </div>
+    <hr>
+    <div class="off">
+
     <!--    
         Diplome  -------------------------------------------------------------------------
     -->

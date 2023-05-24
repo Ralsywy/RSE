@@ -215,7 +215,7 @@ transform: scale(1.1);
   margin-top: 150px;
   border-radius: 8px;
   width: 80%;
-  height: 120%;
+  height: 140%;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
@@ -477,4 +477,14 @@ html{
 }
 #nationalite label {
   margin-left: 150px;
+}
+.sit_perso {
+  position: relative;
+  top: -280px;
+  margin-left: 50%;
+  width: 50%;
+  border-radius: 1px solid black;
+}
+.sit_perso label {
+  
 }
