@@ -1,103 +1,52 @@
-<form method="GET">
+<?php
+if (isset($_SESSION["login"])){
 
-</form>
+    // création de le lien entre serv web et serv bd
+    $mysqlConnection = new PDO(
+        'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
+        USER,
+        PASSWORD,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
+    );
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM inscrit');
 
-<div class="grille">
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
+    //execution de la requete
+    $requete->execute();
+    $inscrits = $requete->fetchAll();
+    $mysqlConnection = null;
+    $requete = null;
+    ?>
+
+    <!--BARRE DE RECHERCHE-->
+    <div class="barre_recherche">
+    <form method="post">
+        <input type="text" name ="search" placeholder="Rechercher un inscrit">
+        <input type="submit" name="submit">
+    </form>
     </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
+
+    <div class="grille">
+        <!-- UN INSCRIT -->
+        <?php
+            foreach ($inscrits as $ligne){
+        ?>
+        <div class="grid-item">
+            <p class="nom"><?= $ligne["nom"] ?></p>
+            <p class="prenom"><?= $ligne["prenom"] ?></p>
+            <a href="#" class="btn1">Modifier</a>
+        </div>
+        <?php
+        }
+        ?>
+        <!-- FIN D'UN INSCRIT -->
     </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    <div class="grid-item">
-        <p class="nom">Nom</p>
-        <p class="prenom">Prénom</p>
-        <p class="sexe">Sexe</p>
-        <a href="#" class="btn1">Modifier</a>
-    </div>
-    
-</div>
+
+<?php
+}
+else
+{
+    $_SESSION["error"]="il faut être connecté pour avoir acces";
+    header("location:index.php");
+}
+?>

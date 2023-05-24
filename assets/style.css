@@ -1,7 +1,6 @@
 
 .navbar-nav > li{
-  padding-left:80px;
-  padding-right:80px;
+  padding-right:100px;
 }
 
 .navbar a:hover,
@@ -111,7 +110,7 @@ color: #fff;
 font-weight: 500;
 }
 .grille {
-margin-top: 100px;
+margin-top: 140px;
 width: 100%;
 height: auto;
 align-items: center;
@@ -126,7 +125,7 @@ flex-flow: wrap;
 
 .grid-item {
 width: 20%;
-height: 175px;
+height: 150px;
 background: #ffffff;
 margin: 18px;
 box-sizing: border-box;
@@ -477,4 +476,18 @@ html{
 }
 #nationalite label {
   margin-left: 150px;
+}
+
+.barre_recherche{
+  position: absolute;
+  top: 102px;
+  right: 55px;
+}
+
+.dropdown{
+  font-size: 20px;
+}
+
+.dropdown-item:active{
+  background-color: #a7a7a7;
 }
