@@ -17,27 +17,54 @@
 
 <div class="radio_button">
     <label for="inscrit">Inscrit aux resto du coeur : </label>
-    <input type="radio" id="radio_oui" name="inscrit" class="radio_oui" value="inscrit_oui">
+    <input type="radio" id="radio_oui" name="inscrit" class="radio_oui" value="inscrit_oui" onclick="hideShowDiv(1)">
     <label for="inscrit_oui">oui</label>
-    <input type="radio" id="radio_non" name="inscrit" class="radio_non" value="inscrit_non">
+    <input type="radio" id="radio_non" name="inscrit" class="radio_non" value="inscrit_non" onclick="hideShowDiv(2)">
     <label for="inscrit_non">non</label>
     </select>
 
 
     <!--    Si oui   -->
+    <script>
+    function hideShowDiv(val) {
+        if(val==1) {
+            document.getElementById('num_').style.visibility='visible';
+            document.getElementById('input_num').style.visibility='visible';
+            document.getElementById('centre').style.visibility='visible';
+            document.getElementById('input_centre').style.visibility='visible';
+            document.getElementById('date_rea1').style.visibility='hidden';
+            document.getElementById('input_date_rea1').style.visibility='hidden';
+        }
+        if(val==2) {
+            document.getElementById('num_').style.visibility='hidden';
+            document.getElementById('input_num').style.visibility='hidden';
+            document.getElementById('centre').style.visibility='hidden';
+            document.getElementById('input_centre').style.visibility='hidden';
+            document.getElementById('date_rea1').style.visibility='visible';
+            document.getElementById('input_date_rea1').style.visibility='visible';
+        }
+    }
 
 
-    <label class="decale" for="num">N° : </label>
-    <input class="input_suivis" type="text" id="num">
 
-    <label for="centre">Centre : </label>
-    <input class="input_suivis" type="text" id="centre">
+
+
+
+</script>
+
+    <label id="num_" class="decale" for="num" visibility="false">N° : </label>
+    <input id="input_num" class="input_suivis" type="text" id="num">
+
+    <label id="centre" for="centre">Centre : </label>
+    <input id="input_centre" class="input_suivis" type="text" id="centre">
 
 
     <!--    Si non    -->
+    <div class="input_boxe">
 
-    <label class="decale" for="date_r">Date de réalisation : </label>
-    <input class="input_suivis" type="date" id="date_r">
+    <label id="date_rea1" class="decale" for="date_r">Date de réalisation : </label>
+    <input id="input_date_rea1" class="input_suivis" type="date" id="date_r">
+    </div>
 </div>
     <div class="input_boxe">
     <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
@@ -98,9 +125,10 @@
     <label class="decaler" for="postal">Code Postal : </label>
     <input class="decaler" type="text" id="postal" required>
 
-
+    <div class="input_boxe">
     <label class="decaler" for="ville">Ville : </label>
     <input class="decaler" type="text" id="ville" required>
+    </div>
     </div>
     <div class="input_boxe">
 
@@ -129,17 +157,40 @@
 
     <div class="sit_perso">
     <label>Enfants à charge : </label>
-    <input type="radio" id="enfant_oui" name="enfant">
-    <label for="enfant_oui">Oui</label>
-    <label for="enfant_non">Non</label>
+    <input type="radio" id="enfant_oui" name="enfant" onclick="hideshowkid(1)">
+    <label for="enfant_oui">oui</label>
 
-    <input type="radio" id="enfant_non" name="enfant">
+
+    <input type="radio" id="enfant_non" name="enfant" onclick="hideshowkid(2)">
+    <label for="enfant_non">non</label>
+    <script>
+    function hideshowkid(val) {
+        if(val==1) {
+            document.getElementById('enfant').style.visibility='visible';
+            document.getElementById('input_enfant').style.visibility='visible';
+            document.getElementById('naissance').style.visibility='visible';
+            document.getElementById('input_naissance').style.visibility='visible';
+        }
+        if(val==2) {
+            document.getElementById('enfant').style.visibility='hidden';
+            document.getElementById('input_enfant').style.visibility='hidden';
+            document.getElementById('naissance').style.visibility='hidden';
+            document.getElementById('input_naissance').style.visibility='hidden';
+        }
+    }
+
+
+
+
+
+
+</script>
     <div class="input_boxe">
     <!--    Si oui    -->
-    <label for="nombre_enfant">Nombre d'enfants à charge : </label>
-    <input type="text" id="nombre_enfant">
-    <label for="date_naissance_enfant">Date de naissance</label>
-    <input type="date">
+    <label id="enfant" for="nombre_enfant">Nombre d'enfants à charge : </label>
+    <input id="input_enfant" type="text" id="nombre_enfant">
+    <label id="naissance" for="date_naissance_enfant">Date de naissance</label>
+    <input id="input_naissance" type="date">
     </div>
     <!--    Si non (rien)    -->
 
@@ -148,58 +199,131 @@
     -->
     <div class="input_boxe">
     <label for="revenus">Nature des revenus : </label>
-    <select name="revenus" id="revenus">
+    <select name="revenus" id="revenus" onchange="hideshowautre()">
         <option value="rien">-- Veuillez selectionner une option --</option>
         <option value="salaire">Salaire</option>
         <option value="RSA">RSA</option>
         <option value="ARE">ARE</option>
         <option value="AAH">AAH</option>
         <option value="retraite">Pension de retraite</option>
-        <option value="autre">Autre</option>
+        <option value="autre" id="autre">Autre</option>
         <option value="aucun">Aucun</option>
     </select>
+    
     <!--    Si "autre"    -->
-    <label for="preciser">Préciser : </label>
-    <input type="text" id="preciser">
+    <script>
+    function hideshowautre() {
+    var autre = document.getElementById("revenus").value;
+        if(autre == "autre") {
+            document.getElementById('preciser').style.visibility='visible';
+            document.getElementById('input_preciser').style.visibility='visible';
+        } else {
+            document.getElementById('preciser').style.visibility='hidden';
+            document.getElementById('input_preciser').style.visibility='hidden';
+        }
+    }
+        
+
+    </script>
+    <div class="input_boxe">
+    <label id="preciser" for="preciser">Préciser : </label>
+    <input id="input_preciser" type="text" id="preciser">
+    </div>
     </div>
     <!--    
         Pôle emplois  --------------------------------------------------------------------
     -->
     <label for="pole_emploie">Inscrit à pôle emplois : </label>
-    <input type="radio" id="pole_oui" name="pole_emplois">
+    <input type="radio" id="pole_oui" name="pole_emplois" onclick="showhideemplois(1)">
     <label for="pole_oui">oui</label>
-    <input type="radio" id="pole_non" name="pole_emplois">
+    <input type="radio" id="pole_non" name="pole_emplois" onclick="showhideemplois(2)">
     <label for="pole_non">non</label>
     <!--    Si oui    -->
+    <script>
+    function showhideemplois(val) {
+        if(val==1) {
+            document.getElementById('inscri_emplois').style.visibility='visible';
+            document.getElementById('input_inscri_emplois').style.visibility='visible';
+            document.getElementById('ref').style.visibility='visible';
+            document.getElementById('input_ref').style.visibility='visible';
+            document.getElementById('date_rea2').style.visibility='hidden';
+            document.getElementById('input_date_rea2').style.visibility='hidden';
+        }
+        if(val==2) {
+            document.getElementById('inscri_emplois').style.visibility='hidden';
+            document.getElementById('input_inscri_emplois').style.visibility='hidden';
+            document.getElementById('ref').style.visibility='hidden';
+            document.getElementById('input_ref').style.visibility='hidden';
+            document.getElementById('date_rea2').style.visibility='visible';
+            document.getElementById('input_date_rea2').style.visibility='visible';
+        }
+    }
+
+
+
+
+
+
+</script>
     <div class="input_boxe">
-    <label for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : </label>
-    <input type="text" id="date_inscription_pole_emplois">
-    <label for="nom_ref">Nom du référent</label>
-    <input type="text" id="nom_ref">
+    <label id="inscri_emplois" for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : </label>
+    <input id="input_inscri_emplois" type="text" id="date_inscription_pole_emplois">
+    <div class="input_boxe">
+    <label id="ref" for="nom_ref">Nom du référent</label>
+    <input id="input_ref" type="text" id="nom_ref">
+    </div>
     <!--    Si non    -->
-    <label for="date_r2">Date de réalisation : </label>
-    <input type="date" id="date_r2">
+    <label id="date_rea2" for="date_r2">Date de réalisation : </label>
+    <input id="input_date_rea2" type="date" id="date_r2">
     </div>
     <!--    
         Mission local   -------------------------------------------------------------------
     -->
     <label for="local">Inscrit à la mission local : </label>
-    <input type="radio" id="mission_oui" name="mission">
+    <input type="radio" id="mission_oui" name="mission" onclick="showhidemission(1)">
     <label for="mission_oui">oui</label>
-    <input type="radio" id="mission_non" name="mission">
+    <input type="radio" id="mission_non" name="mission" onclick="showhidemission(2)">
     <label for="mission_non">non</label>
     <!--    Si oui    -->
+    <script>
+    function showhidemission(val) {
+        if(val==1) {
+            document.getElementById('ref_m').style.visibility='visible';
+            document.getElementById('ref_mission').style.visibility='visible';
+            document.getElementById('datem').style.visibility='visible';
+            document.getElementById('input_datem').style.visibility='visible';
+            document.getElementById('date_rea3').style.visibility='hidden';
+            document.getElementById('input_date_rea3').style.visibility='hidden';
+        }
+        if(val==2) {
+            document.getElementById('ref_m').style.visibility='hidden';
+            document.getElementById('ref_mission').style.visibility='hidden';
+            document.getElementById('datem').style.visibility='hidden';
+            document.getElementById('input_datem').style.visibility='hidden';
+            document.getElementById('date_rea3').style.visibility='visible';
+            document.getElementById('input_date_rea3').style.visibility='visible';
+        }
+    }
+
+
+
+
+
+
+</script>
     <div class="input_boxe">
-    <label for="ref_mission">Nom du référent de la mission locale pour l'emplois</label>
+    <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emplois : </label>
     <input type="text" id="ref_mission">
          <div class="input_boxe">
-    <label for="date_mission">Date d'inscription : </label>
-    <input type="date" id="date_mission">
+    <label id="datem" for="date_mission">Date d'inscription : </label>
+    <input id="input_datem" type="date" id="date_mission">
     <!--    Si non    -->
-    <label for="date_r3">Date de réalisation : </label>
-    <input type="date" id="date_r3">
+    <div class="input_boxe">
+    <label id="date_rea3" for="date_r3">Date de réalisation : </label>
+    <input id="input_date_rea3" type="date" id="date_r3">
     </div>
-        </div>
+    </div>
+</div>
     <!--    
         CAP emplois  ----------------------------------------------------------------------
     -->

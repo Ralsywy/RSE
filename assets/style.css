@@ -497,3 +497,84 @@ html{
 .dropdown-item:active{
   background-color: #a7a7a7;
 }
+#num_ {
+  visibility: hidden;
+}
+
+#input_num {
+  visibility: hidden;
+
+}
+
+#centre {
+  visibility: hidden;
+
+}
+
+#input_centre {
+  visibility: hidden;
+}
+#date_rea1 {
+  visibility: hidden;
+}
+
+#input_date_rea1 {
+  visibility: hidden;
+}
+#enfant {
+  visibility: hidden;
+}
+#input_enfant {
+  visibility: hidden;
+}
+#naissance {
+  visibility: hidden;
+}
+#input_naissance {
+  visibility: hidden;
+}
+#preciser {
+  visibility: hidden;
+}
+#input_preciser {
+  visibility: hidden;
+}
+#inscri_emplois {
+  visibility: hidden;
+}
+#input_inscri_emplois {
+  visibility: hidden;
+
+}
+#ref {
+  visibility: hidden;
+
+}
+#input_ref {
+  visibility: hidden;
+}
+#date_rea2 {
+  visibility: hidden;
+}
+#input_date_rea2 {
+  visibility: hidden;
+}
+
+#ref_m {
+  visibility: hidden;
+}
+#ref_mission {
+  visibility: hidden;
+}
+#datem {
+  visibility: hidden;
+}
+#input_datem {
+  visibility: hidden;
+}
+#date_rea3 {
+  visibility: hidden;
+}
+#input_date_rea3 {
+  visibility: hidden;
+}
