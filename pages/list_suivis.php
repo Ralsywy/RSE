@@ -20,10 +20,10 @@ if (isset($_SESSION["login"])){
 
     <!--BARRE DE RECHERCHE-->
     <div class="barre_recherche">
-    <form method="post">
-        <input type="text" name ="search" placeholder="Rechercher un inscrit">
-        <input type="submit" name="submit">
-    </form>
+        <label for="search">
+            <img src="img/search.png" id="img_search">
+        </label>
+        <input type="text" id="getName" placeholder="Rechercher un inscrit">
     </div>
 
     <div class="grille">
