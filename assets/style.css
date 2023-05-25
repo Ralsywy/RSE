@@ -488,6 +488,10 @@ html{
   position: absolute;
   top: 102px;
   right: 55px;
+  max-width: 450px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  padding: 12px;
 }
 
 .dropdown{
@@ -496,4 +500,18 @@ html{
 
 .dropdown-item:active{
   background-color: #a7a7a7;
+}
+
+#img_search{
+  width: 16px;
+  position: relative;
+}
+
+.barre_recherche input{
+  font-size: 15px;
+  padding-left: 10px;
+  outline: 0px;
+  border: 0px;
+  color: #000;
+  background-color: #f4f4f4;
 }
