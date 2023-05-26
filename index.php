@@ -34,7 +34,7 @@ session_start();
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="index.php?route=list_suivis">En cours</a></li>
-                <li><a class="dropdown-item" href="#">Terminé</a></li>
+                <li><a class="dropdown-item" href="index.php?route=list_terminee">Terminé</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -134,6 +134,9 @@ switch ($_GET["route"]){
     break;
   case "supp_accompagnateur":
     include("pages/supp_accompagnateur.php");
+    break;
+  case "list_terminee":
+    include("pages/list_terminee.php");
     break;
 
   }}
