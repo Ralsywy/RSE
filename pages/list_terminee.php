@@ -42,7 +42,7 @@ if (isset($_SESSION["login"])){
                 <!-- UN INSCRIT -->
                 <?php
                     foreach ($inscrits as $ligne){
-                        if($ligne["statut"] == 0){
+                        if($ligne["statut"] == 1){
                             ?>
                             <tr>
                                 <th scope="row"><?= $ligne["id_inscrit"]?></th>

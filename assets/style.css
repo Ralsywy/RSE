@@ -109,73 +109,30 @@ font-size: 1em;
 color: #fff;
 font-weight: 500;
 }
-.grille {
-margin-top: 140px;
-width: 100%;
-height: auto;
-align-items: center;
-
-display: flex;
-flex-direction: row;
-justify-content:space-evenly;
-flex-flow: wrap;
-
-
-}
-
-.grid-item {
-width: 20%;
-height: 150px;
-background: #ffffff;
-margin: 18px;
-box-sizing: border-box;
-font-size: 20px;
-box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-position: relative;
-border-radius: 20px;
-}
-.grille p.nom {
-position: absolute;
-left: 15px;
-top: 10px;
-}
-.grille p.prenom {
-position: absolute;
-left: 15px;
-top: 40px;
-}
-.grille p.sexe {
-  position: absolute;
-  left: 15px;
-  top: 70px;
-}
-.grille a {
-position: absolute;
-right:30px;
-bottom: 10px;
-}
-.btn1 {
-font-size: 15px;
-font-weight: bold;
-background: #1e90ff;
-width: 120px;
-height: 50px;
-padding: 14px;
-margin-bottom: 10px;
-text-align: center;
-text-decoration: none;
-text-transform: uppercase;
-color: #fff;
-border-radius: 25px;
-cursor: pointer;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
--webkit-transition-duration: 0.3s;
-transition-duration: 0.3s;
--webkit-transition-property: box-shadow, transform;
-transition-property: box-shadow, transform;
+.btn_modifier {
+  font-size: 13px;
+  font-weight: bold;
+  background: #1e90ff;
+  width: 110px;
+  height: 40px;
+  padding: 12px;
+  margin-bottom: 13px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
 
 }
-.btn1:hover, .btn1:focus, .btn1:active{
+.btn_modifier:hover, .btn_modifier:focus, .btn_modifier:active{
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 -webkit-transform: scale(1.1);
 transform: scale(1.1);
@@ -199,7 +156,7 @@ transform: scale(1.1);
   position:relative;
   width: 100%;
   padding-top: 25px;
-  background: #ffffff;
+  background: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
   margin-bottom:3rem ;
@@ -223,7 +180,7 @@ transform: scale(1.1);
   font-size: 1.5rem;
   font-weight:bold;
   text-align: center;
-  padding-bottom:13px ;
+  padding-bottom:13px;
 }
 
 .form_acc .input-box_acc{
@@ -281,7 +238,7 @@ transform: scale(1.1);
 .liste_acc{
   position:relative;
   width: 100%;
-  background: #ffffff;
+  background: #f4f4f4;
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
@@ -300,6 +257,7 @@ transform: scale(1.1);
   outline: none;
   font-size:1rem;
   color: #707070;
+  background-color: #FFFFFF;
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 0 15px;
@@ -485,9 +443,9 @@ html{
   border-radius: 1px solid black;
 }
 .barre_recherche{
-  position: absolute;
-  top: 102px;
-  right: 55px;
+  margin-top: 95px;
+  z-index: 2;
+  position: relative;
   max-width: 450px;
   background-color: #f4f4f4;
   border-radius: 6px;
@@ -594,4 +552,71 @@ html{
   border: 0px;
   color: #000;
   background-color: #f4f4f4;
+}
+
+.btn_term {
+  font-size: 13px;
+  font-weight: bold;
+  background: #1e90ff;
+  width: 110px;
+  height: 40px;
+  padding: 12px;
+  margin-bottom: 13px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  
+  }
+  .btn_term:hover, .btn_term:focus, .btn_term:active{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  }
+  .table{
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    background: #FFFFFF;
+    text-align: center;
+  }
+  th,td{
+    padding: 12px 15px;
+  }
+
+  thead{
+    background-color: #ffffff;
+    text-transform: uppercase;
+  }
+
+tr:nth-child(odd){
+  background-color: #eeeeee;
+}
+
+
+
+td{
+  font-size: 20px;
+}
+
+.table tr{
+  padding: 20px;
+}
+
+.page_liste_suivis{
+  padding: 50px;
 }
