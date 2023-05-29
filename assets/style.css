@@ -450,6 +450,7 @@ html{
   background-color: #f4f4f4;
   border-radius: 6px;
   padding: 12px;
+  width: 50%;
 }
 
 .dropdown{
@@ -582,6 +583,7 @@ html{
     box-shadow: 0 2px 12px rgba(32,32,32,.3);
     background: #FFFFFF;
     text-align: center;
+    vertical-align:middle;
   }
   th,td{
     padding: 12px 15px;
@@ -609,3 +611,8 @@ td{
 .page_liste_suivis{
   padding: 50px;
 }
+
+.tableau .btn_modifier{
+  margin-top: 10px;
+}
+
