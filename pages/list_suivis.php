@@ -26,6 +26,7 @@ if (isset($_SESSION["login"])){
             <input type="text" id="getName" placeholder="Rechercher un inscrit">
         </div>
 
+        <!--TABLEAU-->
         <div class="tableau">
             <div class="col">
             <table class="table">
