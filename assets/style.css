@@ -167,14 +167,6 @@ transform: scale(1.1);
   font-weight:bold;
   text-align: center;
 }
-.addsuivis {
-  margin-top: 150px;
-  border-radius: 8px;
-  width: 80%;
-  height: 140%;
-  background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-}
 
 .liste_acc .titre_acc{
   font-size: 1.5rem;
@@ -343,7 +335,7 @@ html{
   top: 75px;
 }
 .off {
-  visibility: hidden;
+  display: none;
 }
 .addsuivis .titrecreer {
   position: relative;
@@ -418,12 +410,23 @@ html{
   background: url(../img/suivis_background.jpg) no-repeat;
   background-position: center;
   background-size: cover;
+  margin-top: 150px;
+  border-radius: 8px;
+  width: 80%;
+  height: 140%;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
 .information {
   position: relative;
   left: 150px;
   font-size: 1.5em;
   font-style: oblique;
+}
+.niveau_form {
+  font-size: 1.5em;
+  font-style: oblique;
+  margin-left: 10%;
 }
 .information2 {
   position: relative;
@@ -437,8 +440,8 @@ html{
 }
 .sit_perso {
   position: relative;
-  top: -280px;
-  margin-left: 50%;
+  top: -20em;
+  margin-left: 55%;
   width: 50%;
   border-radius: 1px solid black;
 }
