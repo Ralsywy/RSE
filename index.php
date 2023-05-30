@@ -115,28 +115,28 @@ if (isset($_SESSION["error"])){
 if(isset($_GET["route"])){
 switch ($_GET["route"]){
   case "list_suivis":
-      include("pages/list_suivis.php");
+      include("pages/lister_suivis/liste.php");
       break;
   case "creer_suivis":
-      include("pages/creer_suivis.php");
+      include("pages/creer_suivis/creer.php");
       break;
   case "creer_accompagnateur":
-      include("pages/creer_accompagnateur.php");
+      include("pages/accompagnateur/creer.php");
       break;
   case "check_login":
-    include("pages/check_login.php");
+    include("pages/auth/check_login.php");
     break;
   case "logout":
-    include("pages/logout.php");
+    include("pages/auth/logout.php");
     break;
   case "store_accompagnateur":
-    include("pages/store_accompagnateur.php");
+    include("pages/accompagnateur/store.php");
     break;
   case "supp_accompagnateur":
-    include("pages/supp_accompagnateur.php");
+    include("pages/accompagnateur/supprimer.php");
     break;
   case "list_terminee":
-    include("pages/list_terminee.php");
+    include("pages/lister_suivis/liste_termine.php");
     break;
 
   }}

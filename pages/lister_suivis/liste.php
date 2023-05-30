@@ -28,7 +28,6 @@ if (isset($_SESSION["login"])){
 
         <!--TABLEAU-->
         <div class="tableau">
-            <div class="col">
             <table class="table">
             <thead>
                 <tr>
@@ -51,7 +50,7 @@ if (isset($_SESSION["login"])){
                                 <td><?= $ligne["prenom"]?></td>
                                 <td><?= $ligne["name_acc"]?></td>
                                 <td>
-                                    <a href="#"><button class="btn_modifier">Modifier</button></a>
+                                    <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
                                     <a href="#"><button class="btn_term">Terminer</button></a>
                                 </td>
                             </tr>
@@ -61,7 +60,6 @@ if (isset($_SESSION["login"])){
                     }?><!-- FIN D'UN INSCRIT -->
             </tbody>
             </table>    
-            </div>
         </div>
     </div>
 <?php

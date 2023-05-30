@@ -547,7 +547,7 @@ html{
 .btn_term {
   font-size: 13px;
   font-weight: bold;
-  background: #1e90ff;
+  background: #ff9100;
   width: 110px;
   height: 40px;
   padding: 12px;
@@ -573,20 +573,15 @@ html{
   transform: scale(1.1);
   }
   .table{
-    position: relative;
+    position:relative;
     margin-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
+    width: 50%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(32,32,32,.3);
     background: #FFFFFF;
     text-align: center;
     vertical-align:middle;
-  }
-  th,td{
-    padding: 12px 15px;
   }
 
   thead{
@@ -604,15 +599,27 @@ td{
   font-size: 20px;
 }
 
-.table tr{
-  padding: 20px;
-}
-
-.page_liste_suivis{
-  padding: 50px;
-}
-
 .tableau .btn_modifier{
   margin-top: 10px;
 }
 
+.tableau{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.page_list_suivis{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.table>:not(caption)>*>* {
+  padding: 20px;
+}
