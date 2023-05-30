@@ -50,7 +50,7 @@ if (isset($_SESSION["login"])){
                                 <td><?= $ligne["prenom"]?></td>
                                 <td><?= $ligne["name_acc"]?></td>
                                 <td>
-                                    <a href="#"><button class="btn_reprendre">Reprendre</button></a>
+                                    <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                                 </td>
                             </tr>
                             <?php
