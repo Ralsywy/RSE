@@ -1,4 +1,3 @@
-
 <div class="addsuivis">
 <h1 class="titrecreer">création du suivis</h1>
 <h2 class="information">Informations personnelles</h2>
@@ -74,7 +73,7 @@
     <!--    
         Information personnelles : Coordonnées de la personne accueillie
     -->
-    
+    <div class="infor_pers">  
 <h2 class="information">Coordonnées</h2>
 <h2 class="information2">Situation personelle</h2>
     <div class="block_enligne">
@@ -97,14 +96,14 @@
     </div>
     <div class="input_boxe">
 
-    <label for="birth">Date de naissance : </label>
-    <input type="date" id="birth" required>
+    <label for="birth_date">Date de naissance : </label>
+    
+    <input type="date" id="birth_date" required>
 
     <label for="age">Age : </label>
     <input type="text" disabled id="age">
     </div>
     <div class="input_boxe">
-
     <label for="nationalite" id="nationalite">Nationalité : </label>
     <?php
     include('pays.php')
@@ -133,7 +132,7 @@
     </div>
     
 </div>
-    <!--    Situation personnelle    -->
+
     <label for="statue">Statue : </label>
     <select name="statue" id="statut" required>
         <option value="rien">-- Veuillez selectionner un statut --</option>
@@ -143,7 +142,8 @@
         <option value="veuf">Veuf(ve)</option>
         <option value="pacse">Pacsé(e)</option>
     </select>
- 
+ </div>
+      <!--    Situation personnelle    -->
     <!--    
         Enfants à charge  ------------------------------------------------------------------
     -->
@@ -228,11 +228,11 @@
     function showhideemplois(val) {
         if(val==1) {
             document.getElementById('pole_emplois').style.display='block';
-            document.getElementById('date_rea3').style.display='none';
+            document.getElementById('date_rea2').style.display='none';
         }
         if(val==2) {
             document.getElementById('pole_emplois').style.display='none';
-            document.getElementById('date_rea3').style.display='hidden';
+            document.getElementById('date_rea2').style.display='block';
         }
     }
 
@@ -252,7 +252,7 @@
     </div>
 </div>
     <!--    Si non    -->
-    <div id="date_rea3">
+    <div id="date_rea2">
     <label for="date_r2">Date de réalisation : </label>
     <input type="date" id="date_r2">
     </div>
@@ -284,7 +284,13 @@
 
 
 </script>
-<div id="mission">
+<div id="date_rea3">
+    <div class="input_boxe">
+    <label for="date_r3">Date de réalisation : </label>
+    <input id="input_date_rea3" type="date" id="date_r3">
+</div>
+    </div>
+    <div id="mission">
     <div class="input_boxe">
     <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emplois : </label>
     <input type="text" id="ref_mission">
@@ -293,10 +299,7 @@
     <input id="input_datem" type="date" id="date_mission">
 </div>
     <!--    Si non    -->
-    <div class="input_boxe">
-    <label id="date_rea3" for="date_r3">Date de réalisation : </label>
-    <input id="input_date_rea3" type="date" id="date_r3">
-    </div>
+
     </div>
 </div>
     <!--    
@@ -497,15 +500,16 @@
     <label for="achat_non">non</label>
     </div>
 </div>
-    <hr>
-
-
+   
+<div class="partie3">
+ <hr>
     <!--    
         Diplome  -------------------------------------------------------------------------
     -->
     <h2 class="niveau_form">Niveau de formation : </h2>
+    <div class="input_boxe">
     <label for="dipl">Diplôme obtenus :</label>
-    <select name="dipl" id="dipl">
+    <select name="dipl" id="dipl" onchange="hideshowdipl()">
         <option value="rien">-- Veuillez selectionner une option --</option>
         <option value="aucun">aucun diplôme</option>
         <option value="cap">CAP</option>
@@ -518,20 +522,40 @@
         <option value="autre">Autre</option>
     </select>
     <!--    Si autre   -->
-    <div class="input_boxe">
-    <label for="dipl_autre">Renseigner le nom : </label>
+<script>
+        function hideshowdipl() {
+    var dipl = document.getElementById("dipl").value;
+        if(dipl == "autre") {
+            document.getElementById('motos').style.display='block';
+            document.getElementById('auto').style.display='none';
+            document.getElementById('march').style.display='none';
+        }
+        if (dipl == "auto1") {
+            document.getElementById('auto').style.display='block';
+            document.getElementById('motos').style.display='none';
+            document.getElementById('march').style.display='none';
+        }
+    }
+        
+
+    </script>
+</script>
+    <label for="dipl_autre">Renseigner le diplôme : </label>
     <input type="text" id="dipl_autre">
-    </div>
+
     <!--    Si aucun   -->
-    <div class="input_boxe">
+
     <label for="dipl_aucun">Nombre d'années d'études : </label>
     <input type="text" id="dipl_aucun">
+
     <label for="dipl_niveau">Renseigner le niveau : </label>
     <input type="text" id="dipl_niveau">
-    </div>
+</div>
+<hr>
     <!--    
         Connaissance de la langue française  ----------------------------------------------
     -->
+    <div class="input_boxe">
     <label for="efrancais">Connaissance de la langue française (écrite) : </label>
     <select name="efrancais" id="efrancais">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -541,6 +565,7 @@
         <option value="e4">4</option>
         <option value="e5">5</option>
     </select>
+    </div>
     <label for="pfrancais">Connaissance de la langue française (parlée) : </label>
     <select name="pfrancais" id="pfrancais">
         <option value="rien">-- Veuillez selectionner une option --</option>
@@ -564,6 +589,7 @@
     -->
     <label for="empl_occ">Emplois précédemment occupés : </label>
     <textarea name="empl_occ" id="empl_occ" cols="50" rows="3"></textarea>
+    </div>
     <div class="off">
     <!--    
         Projet professionel de la personne  ------------------------------------------------
