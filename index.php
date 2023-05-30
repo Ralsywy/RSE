@@ -138,6 +138,9 @@ switch ($_GET["route"]){
   case "list_terminee":
     include("pages/lister_suivis/liste_termine.php");
     break;
+  case "edit_statut":
+    include("pages/lister_suivis/terminer.php");
+    break;
 
   }}
 ?>
