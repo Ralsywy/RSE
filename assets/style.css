@@ -384,6 +384,8 @@ html{
 .accompagnateur {
   margin-top: 10px;
 }
+.input_boxe {
+}
 .input_boxe input {
   position: relative;
   height: 30px;
@@ -418,6 +420,12 @@ html{
   background: url(../img/suivis_background.jpg) no-repeat;
   background-position: center;
   background-size: cover;
+  margin-top: 150px;
+  border-radius: 8px;
+  width: 80%;
+  height: 200%;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
 .information {
   position: relative;
@@ -542,6 +550,11 @@ html{
 
 #date_rea5 {
   display: none;
+}
+
+.partie3 {
+  position: relative;
+  top: -150px;
 }
 
 .btn_term {
