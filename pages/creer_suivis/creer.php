@@ -476,10 +476,10 @@
     <script>
     function showhideachat(val) {
         if(val==1) {
-            document.getElementById('achat1').style.display='block';
+            document.getElementById('achat1').style.display='none';
         }
         if(val==2) {
-            document.getElementById('achat1').style.display='none';
+            document.getElementById('achat1').style.display='block';
         }
     }
 
@@ -498,12 +498,13 @@
     </div>
 </div>
     <hr>
-    <div class="off">
+
 
     <!--    
         Diplome  -------------------------------------------------------------------------
     -->
-    <label for="dipl">Diplôme obtenus</label>
+    <h2 class="niveau_form">Niveau de formation : </h2>
+    <label for="dipl">Diplôme obtenus :</label>
     <select name="dipl" id="dipl">
         <option value="rien">-- Veuillez selectionner une option --</option>
         <option value="aucun">aucun diplôme</option>
@@ -517,13 +518,17 @@
         <option value="autre">Autre</option>
     </select>
     <!--    Si autre   -->
+    <div class="input_boxe">
     <label for="dipl_autre">Renseigner le nom : </label>
     <input type="text" id="dipl_autre">
+    </div>
     <!--    Si aucun   -->
-    <label for="dipl_aucun">Nombre d'années d'études</label>
+    <div class="input_boxe">
+    <label for="dipl_aucun">Nombre d'années d'études : </label>
     <input type="text" id="dipl_aucun">
     <label for="dipl_niveau">Renseigner le niveau : </label>
     <input type="text" id="dipl_niveau">
+    </div>
     <!--    
         Connaissance de la langue française  ----------------------------------------------
     -->
@@ -559,6 +564,7 @@
     -->
     <label for="empl_occ">Emplois précédemment occupés : </label>
     <textarea name="empl_occ" id="empl_occ" cols="50" rows="3"></textarea>
+    <div class="off">
     <!--    
         Projet professionel de la personne  ------------------------------------------------
     -->
