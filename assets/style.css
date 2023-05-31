@@ -167,15 +167,6 @@ transform: scale(1.1);
   font-weight:bold;
   text-align: center;
 }
-.addsuivis {
-  margin-top: 150px;
-  border-radius: 8px;
-  width: 80%;
-  height: 140%;
-  background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-}
-
 .liste_acc .titre_acc{
   font-size: 1.5rem;
   font-weight:bold;
@@ -423,7 +414,7 @@ html{
   margin-top: 150px;
   border-radius: 8px;
   width: 80%;
-  height: 200%;
+  height: auto;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
@@ -437,6 +428,12 @@ html{
   position: relative;
   top: -35px;
   margin-left: 70%;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+.emplois_prec {
+  position: relative;
+  left: 150px;
   font-size: 1.5em;
   font-style: oblique;
 }
@@ -635,22 +632,20 @@ td{
   padding: 20px;
 }
 
-.form-control {
+select.form-control {
   display: inline;
-  width: auto;
   max-width: 300px;
+  width: auto;
   height: 40px;
 }
 
 select#accompagnateur.form-control {
   display: inline;
-  width: auto;
   max-width: 320px;
   height: 40px;
 }
 select#civilite.form-control {
   display: inline;
-  width: auto;
   max-width: 340px;
   height: 40px;
   padding: .5rem .5rem;
@@ -690,4 +685,46 @@ select#civilite.form-control {
 
 .tableau .btn_reprendre{
   margin-top: 10px;
+}
+#rens_dipl {
+  display: none;
+}
+#niveau {
+  display: none;
+}
+.niveau_form {
+  position: relative;
+  left: 150px;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+h2.org {
+  position: relative;
+  left: 150px;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+h2.entr {
+  position: relative;
+  left: 150px;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+.em44 {
+  height: 400px;
+}
+textarea {
+  resize: none;
+}
+textarea.form-control {
+    /* min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2)); */
+    height: 100;
+}
+.orga {
+  position: relative;
+  top: -120px;
+}
+.entr_c {
+  position: relative;
+  top: -90px;
 }

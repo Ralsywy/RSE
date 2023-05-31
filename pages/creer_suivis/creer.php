@@ -360,16 +360,19 @@
         <option value="autre">Autre</option>
     </select>
     <!--    Si autre   -->
+    <div id="rens_dipl">
     <label for="dipl_autre">Renseigner le diplôme : </label>
     <input type="text" id="dipl_autre">
-
+ 
     <!--    Si aucun   -->
 
     <label for="dipl_aucun">Nombre d'années d'études : </label>
     <input type="text" id="dipl_aucun">
-
+   </div>
+   <div id="niveau">
     <label for="dipl_niveau">Renseigner le niveau : </label>
     <input type="text" id="dipl_niveau">
+</div>
 </div>
 <hr>
     <!--    
@@ -395,8 +398,9 @@
         <option value="p4">4</option>
         <option value="p5">5</option>
     </select>
+    <div>
     <label for="lfrancais">Connaissance de la langue française (Lue) : </label>
-    <select name="lfrancais" id="lfrancais">
+    <select class="form-control" name="lfrancais" id="lfrancais">
         <option class="form-control" value="rien">-- Selectionner une option --</option>
         <option value="l1">1</option>
         <option value="l2">2</option>
@@ -404,16 +408,35 @@
         <option value="l4">4</option>
         <option value="l5">5</option>
     </select>
+    </div>
+    <hr>
     <!--    
         Emplois précédemment occupés (si pas de cv)  ---------------------------------------
     -->
-    <label for="empl_occ">Emplois précédemment occupés : </label>
-    <textarea name="empl_occ" id="empl_occ" cols="50" rows="3"></textarea>
+
+    <h2 class="emplois_prec">Emplois précédemment occupés : </h2>
+    <textarea class="form-control" name="empl_occ" id="empl_occ"></textarea>
     </div>
-    <div class="off">
+    <!--    
+        Organismes contactés et resultats  -----------------------------------------------------------------
+    -->
+    <div class="orga">
+    <hr>
+    <h2 class="org">Organismes contactés et résultats : </h2>
+    <textarea class="form-control" name="org" id="org"></textarea>
+    </div>
+    <!--    
+        Entreprises contactés et resultats  -----------------------------------------------------------------
+    -->
+    <div class="entr_c">
+    <hr>
+    <h2 class="entr">Entreprises contactés et résultats : </h2>
+    <textarea class="form-control" name="entr" id="entr"></textarea>
+    </div>
     <!--    
         Projet professionel de la personne  ------------------------------------------------
     -->
+    <hr>
     <label for="reconv">Reconversion professionelle ?</label>
     <input type="radio" id="oui_reconv" name="reconv">
     <label for="oui_reconv">oui</label>
@@ -439,6 +462,7 @@
     <input type="date" id="form_date">
     <label for="form_duree">Renseigner la durée : </label>
     <input type="text" id="form_duree">
+    <div class="off">
     <!--    
         Reprise d'étude  ------------------------------------------------------------------
     -->

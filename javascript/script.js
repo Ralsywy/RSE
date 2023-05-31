@@ -117,14 +117,14 @@ function hideshowpermis() {
 // Diplôme
 function hideshowdipl() {
   var dipl = document.getElementById("dipl").value;
-      if(dipl == "autre") {
-          document.getElementById('motos').style.display='block';
-          document.getElementById('auto').style.display='none';
-          document.getElementById('march').style.display='none';
-      }
-      if (dipl == "auto1") {
-          document.getElementById('auto').style.display='block';
-          document.getElementById('motos').style.display='none';
-          document.getElementById('march').style.display='none';
+      if(dipl == "aucun") {
+          document.getElementById('rens_dipl').style.display='block';
+          document.getElementById('niveau').style.display='none';
+      } else if (dipl == "autre") {
+          document.getElementById('rens_dipl').style.display='none';
+          document.getElementById('niveau').style.display='block';
+      } else {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
       }
   }
