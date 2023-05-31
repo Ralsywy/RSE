@@ -167,6 +167,15 @@ transform: scale(1.1);
   font-weight:bold;
   text-align: center;
 }
+.addsuivis {
+  margin-top: 150px;
+  border-radius: 8px;
+  width: 80%;
+  height: 140%;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
 .liste_acc .titre_acc{
   font-size: 1.5rem;
   font-weight:bold;
@@ -375,6 +384,7 @@ html{
 .accompagnateur {
   margin-top: 10px;
 }
+
 .input_boxe input {
   position: relative;
   height: 30px;
@@ -449,11 +459,11 @@ html{
   margin-top: 95px;
   z-index: 2;
   position: relative;
-  max-width: 450px;
+  max-width: 50%;
   background-color: #f4f4f4;
   border-radius: 6px;
   padding: 12px;
-  width: 50%;
+  width:fit-content;
 }
 
 .dropdown{
@@ -583,7 +593,7 @@ html{
   .table{
     position:relative;
     margin-top: 20px;
-    width: 50%;
+    width: 70%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(32,32,32,.3);
@@ -614,7 +624,6 @@ td{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
   align-items: center;
 }
 
@@ -627,7 +636,7 @@ td{
 }
 
 .table>:not(caption)>*>* {
-  padding: 20px;
+  padding: 10px;
 }
 
 select.form-control {
@@ -742,4 +751,7 @@ textarea.form-control {
 }
 #if_qual {
   display: none;
+}
+.barre_recherche form{
+  margin: 0px;
 }
