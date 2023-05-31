@@ -158,7 +158,10 @@ switch ($_GET["route"]){
 
   }}
 ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ce22ffb53f09210edfa4fcd400d50461ff3eea0
 </body>
 
 </html>
