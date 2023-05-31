@@ -171,7 +171,7 @@ transform: scale(1.1);
   margin-top: 150px;
   border-radius: 8px;
   width: 80%;
-  height: auto;
+  height: 140%;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
@@ -422,7 +422,7 @@ html{
   margin-top: 150px;
   border-radius: 8px;
   width: 80%;
-  height: 200%;
+  height: auto;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
@@ -436,6 +436,12 @@ html{
   position: relative;
   top: -35px;
   margin-left: 70%;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+.emplois_prec {
+  position: relative;
+  left: 150px;
   font-size: 1.5em;
   font-style: oblique;
 }
@@ -605,8 +611,6 @@ tr:nth-child(odd){
   background-color: #eeeeee;
 }
 
-
-
 td{
   font-size: 20px;
 }
@@ -635,22 +639,20 @@ td{
   padding: 10px;
 }
 
-.form-control {
+select.form-control {
   display: inline;
-  width: auto;
   max-width: 300px;
+  width: auto;
   height: 40px;
 }
 
 select#accompagnateur.form-control {
   display: inline;
-  width: auto;
   max-width: 320px;
   height: 40px;
 }
 select#civilite.form-control {
   display: inline;
-  width: auto;
   max-width: 340px;
   height: 40px;
   padding: .5rem .5rem;
@@ -690,8 +692,4 @@ select#civilite.form-control {
 
 .tableau .btn_reprendre{
   margin-top: 10px;
-}
-
-.barre_recherche form {
-  margin: 0px;
 }
