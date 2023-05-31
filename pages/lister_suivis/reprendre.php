@@ -7,12 +7,12 @@
     );
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM accompagnateur where id_accompagnateur=:id');
+    $requete = $mysqlConnection->prepare('UPDATE inscrit SET statut=0 where id_inscrit=:id');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     session_start();
 
 $mysqlConnection = null;
 $requete = null; 
-header("location:index.php?route=creer_accompagnateur");
+header("location:index.php?route=list_terminee");
 ?>

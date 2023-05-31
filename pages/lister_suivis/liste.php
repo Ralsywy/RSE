@@ -51,7 +51,7 @@ if (isset($_SESSION["login"])){
                                 <td><?= $ligne["name_acc"]?></td>
                                 <td>
                                     <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
-                                    <a href="#"><button class="btn_term">Terminer</button></a>
+                                    <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                                 </td>
                             </tr>
                             <?php
