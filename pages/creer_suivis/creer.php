@@ -6,11 +6,11 @@
 <div class="block_enligne">
     <div class="input_boxe">
     <label for="dcontact">Date du contact : </label>
-    <input type="date" id="dcontact" required>
+    <input type="date" id="dcontact"  >
     </div>
     <div class="input_boxe">
     <label for="ocontact">Origine du contact : </label>
-    <input type="text" name="ocontact" id="ocontact" required>
+    <input type="text" name="ocontact" id="ocontact"  >
     </div>
 </div>
 
@@ -40,7 +40,7 @@
 </div>
     <div class="input_boxe">
     <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
-    <select name="accompagnateur" id="accompagnateur" class="form-control" required>
+    <select name="accompagnateur" id="accompagnateur" class="form-control"  >
         <option value="rien"> -- Selectionner un accompagnateur -- </option>
     </select>
     </div>
@@ -59,7 +59,7 @@
     <div class="block_enligne">
 <div class="input_boxe">
     <label for="civilite">Civilité : </label>
-    <select class="form-control" name="civilite" id="civilite" required>
+    <select class="form-control" name="civilite" id="civilite"  >
         <option value="rien">-- Selectionner une option --</option>
         <option value="madame">Madame</option>
         <option value="mademoiselle">Mademoiselle</option>
@@ -68,17 +68,17 @@
     <div class="input_boxe">
 
     <label for="nom">Nom : </label>
-    <input type="text" id="nom" required>
+    <input type="text" id="nom"  >
 
 
     <label class="decale" for="prenom">Prénom : </label>
-    <input class="decale" type="text" id="prenom" required>
+    <input class="decale" type="text" id="prenom"  >
     </div>
     <div class="input_boxe">
 
     <label for="birth_date">Date de naissance : </label>
     
-    <input type="date" id="birth_date" required>
+    <input type="date" id="birth_date"  >
 
     <label for="age">Age : </label>
     <input type="text" disabled id="age">
@@ -91,11 +91,11 @@
 </div>
 <div class="input_boxe">
     <label id="adresse" for="adresse">Adresse : </label>
-    <input type="text" id="adresse" required>
+    <input type="text" id="adresse"  >
 
 
     <label class="decaler" for="zipcode">Code Postal : </label>
-    <input class="decaler" type="text" id="zipcode" name="zipcode" required>
+    <input class="decaler" type="text" id="zipcode" name="zipcode"  >
     <div id="error-message" style="display: none; color: #f55;"></div>
     <div class="input_boxe">
     <label class="decaler" for="city">Ville : </label>
@@ -114,7 +114,7 @@
 </div>
 
     <label for="statue">Statue : </label>
-    <select class="form-control" name="statue" id="statut" required>
+    <select class="form-control" name="statue" id="statut"  >
         <option value="rien">-- Selectionner un statut --</option>
         <option value="celibataire">Célibataire</option>
         <option value="marie">Marié(e)</option>
@@ -255,8 +255,9 @@
     <!--    Si oui   -->
 </div>
 <div id="cv">
-    <label for="cv">Insérer le cv scanné (format PDF uniquement) : </label> 
-    <input type="file" name="cv" accept="cv/pdf">
+    <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : </label> 
+    <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
+    <input type="submit" value="Envoyer">
 </div>
     <!--    Si non   -->
     <div id="date_cv">
@@ -437,66 +438,83 @@
         Projet professionel de la personne  ------------------------------------------------
     -->
     <hr>
-    <label for="reconv">Reconversion professionelle ?</label>
-    <input type="radio" id="oui_reconv" name="reconv">
+    <div>
+    <label for="reconv">Reconversion professionelle :</label>
+    <input type="radio" id="oui_reconv" name="reconv" onclick="showhidereconv(1)">
     <label for="oui_reconv">oui</label>
-    <input type="radio" id="non_reconv" name="reconv">
+    <input type="radio" id="non_reconv" name="reconv" onclick="showhidereconv(2)">
     <label for="non_reconv">non</label>
+    </div>
     <!--    Si non (rien)   -->
 
     <!--    
         Formation prévues  -----------------------------------------------------------------
     -->
     <!--    Si oui   -->
+    <div id="formati">
     <label for="form_prevue">Formation prévues ?</label>
-    <input type="radio" id="oui_form" name="form_prevue">
+    <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)">
     <label for="oui_form">oui</label>
-    <input type="radio" id="non_form" name="form_prevue">
+    <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)">
     <label for="non_form">non</label>
+    </div>
     <!--    Si non (rien)   -->
     
     <!--    Si oui   -->
+    <div class="input_boxe" id="renseign">
     <label for="form_nom">Renseigner le nom : </label>
     <input type="text" id="form_nom">
     <label for="form_date">Renseigner la date : </label>
     <input type="date" id="form_date">
     <label for="form_duree">Renseigner la durée : </label>
     <input type="text" id="form_duree">
-    <div class="off">
+    </div>
+    
     <!--    
         Reprise d'étude  ------------------------------------------------------------------
     -->
     <label for="etude">Reprise d'étude ?</label>
-    <input type="radio" id="oui_etude" name="etude">
+    <input type="radio" id="oui_etude" name="etude" onclick="showhidereprise(1)">
     <label for="oui_etude">oui</label>
-    <input type="radio" id="non_etude" name="etude">
+    <input type="radio" id="non_etude" name="etude" onclick="showhidereprise(2)">
     <label for="non_etude">non</label>
     <!--    Si oui   -->
-    <label for="dipl_prep">Diplôme préparé : </label>
-    <input type="text" id="dipl_prep">
+    <div class="input_boxe" id="dipl_prep">
+    <label for="dipl_prepa">Diplôme préparé : </label>
+    <input type="text" id="dipl_prepa">
+    </div>
     <!--    
         bénéficier formation pro  ------------------------------------------------------------------
     -->
+    <div>
     <label for="form_pro">La personne va-t-elle bénéficier d'une formation professionelle ?</label>
-    <input type="radio" id="form_pro_oui" name="form_pro">
+    <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)">
     <label for="form_pro_oui">oui</label>
-    <input type="radio" id="form_pro_non" name="form_pro">
+    <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)">
     <label for="form_pro_non">non</label>
+    </div>
     <!--    Si non (rien)   -->
 
     <!--    Si oui   -->
-    <select class="form-control" name="form_type" id="form_type">
+    <div class="input_boxe" id="oui_formpro">
+    <label for="form_type">Type de formation : </label>
+    <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()">
         <option value="rien">-- Selectionner une option --</option>
         <option value="qualfiante">Formation qualifiante</option>
         <option value="diplomante">Formation diplômante</option>
     </select>
+    </div>
     <!--    Si qualifiante   -->
+    <div class="input_boxe" id="if_qual">
     <label for="nom_form">Nom de la formation : </label>
     <input type="text" id="nom_form">
+    </div>
     <!--    Si diplômante   -->
+    <div class="input_boxe" id="if_dipl">
     <label for="nom_diplo">Nom du diplôme : </label>
     <input type="text" id="nom_diplo">
-
+    </div>
+    <div class="input_boxe">
     <label for="metier_s">Métier souhaité : </label>
     <input type="text" id="metier_s">
 
@@ -505,6 +523,7 @@
 
     <label for="secteur_geo">Secteur géographique souhaité</label>
     <input type="text" id="secteur_geo">
+    </div>
 
     <label for="horaire">Horaire de travail souhaité : </label>
     <select class="form-control" name="horaire" id="horaire">
@@ -518,6 +537,8 @@
         <option value="VSD">Travail en VSD</option>
         <option value="SD">Travail en SD</option>
     </select>
+    
+<div class="off">
         <!--    
         Plan d'action   ------------------------------------------------------------------
 

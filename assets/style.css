@@ -375,8 +375,6 @@ html{
 .accompagnateur {
   margin-top: 10px;
 }
-.input_boxe {
-}
 .input_boxe input {
   position: relative;
   height: 30px;
@@ -442,7 +440,7 @@ html{
 }
 .sit_perso {
   position: relative;
-  top: -280px;
+  top: -350px;
   margin-left: 50%;
   width: 50%;
   border-radius: 1px solid black;
@@ -717,7 +715,6 @@ textarea {
   resize: none;
 }
 textarea.form-control {
-    /* min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2)); */
     height: 100;
 }
 .orga {
@@ -727,4 +724,22 @@ textarea.form-control {
 .entr_c {
   position: relative;
   top: -90px;
+}
+#formati {
+  display: none;
+}
+#renseign {
+  display: none;
+}
+#dipl_prep {
+  display: none;
+}
+#oui_formpro {
+  display: none;
+}
+#if_dipl {
+  display: none;
+}
+#if_qual {
+  display: none;
 }

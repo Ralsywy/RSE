@@ -128,3 +128,57 @@ function hideshowdipl() {
         document.getElementById('niveau').style.display='none';
       }
   }
+// Reconversion pro
+  function showhidereconv(val) {
+    if(val==1) {
+        document.getElementById('formati').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('formati').style.display='none';
+    }
+  }
+// Formation prévue
+function showhideformp(val) {
+    if(val==1) {
+        document.getElementById('renseign').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('renseign').style.display='none';
+    }
+  }
+// Reprise d'étude
+function showhidereprise(val) {
+    if(val==1) {
+        document.getElementById('dipl_prep').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('dipl_prep').style.display='none';
+    }
+  }
+// Bénéficier d'une formation pro                oui non
+function showhideformpro(val) {
+    if(val==1) {
+        document.getElementById('oui_formpro').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('oui_formpro').style.display='none';
+    }
+  }
+// Bénéficier d'une formation pro               select
+
+
+function hideshowformqd() {
+    var formqd = document.getElementById("form_type").value;
+        if(formqd == "diplomante") {
+            document.getElementById('if_qual').style.display='none';
+            document.getElementById('if_dipl').style.display='block';
+        } 
+        if (formqd == "qualfiante") {
+            document.getElementById('if_qual').style.display='block';
+            document.getElementById('if_dipl').style.display='none';
+        }
+        if (formqd == "rien") {
+            document.getElementById('if_qual').style.display='none';
+            document.getElementById('if_dipl').style.display='none';
+        }
+    }
