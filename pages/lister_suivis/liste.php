@@ -18,23 +18,15 @@ if (isset($_SESSION["login"])){
     $requete = null;
     ?>
     <div class="page_list_suivis">
-        <!--BARRE DE RECHERCHE-->
-        <div class="barre_recherche">
-            <form method="post" type="search">
-                <label for="search">
-                    <img src="img/search.png" id="img_search">
-                </label>
-                <input type="text" name="getname" placeholder="Rechercher un inscrit">
-                <input type="submit" name="submit">
-            </form>
-        </div>
+        <?php
+        include("barre_recherche.php")
+        ?>
 
         <!--TABLEAU-->
         <div class="tableau">
         <?php
             if(isset($_POST['submit']) && ($_POST['getname']) != ""){
-                $search = $_POST['getname'];
-                strtolower($search)?>
+                $search = $_POST['getname'];?>
                 <table class="table">
                     <thead>
                         <tr>
@@ -49,7 +41,9 @@ if (isset($_SESSION["login"])){
                     <tbody>
                     <?php
                     foreach ($inscrits as $ligne){
-                        if($ligne["nom"] == $search){
+                        if($ligne["statut"] == 0)
+                        {
+                            if(strcasecmp($ligne["nom"],$search)==0 || strcasecmp($ligne["prenom"],$search)==0){
                             ?>
                             <tr>
                                 <th scope="row"><?= $ligne["id_inscrit"]?></th>
@@ -62,7 +56,8 @@ if (isset($_SESSION["login"])){
                                     <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                                 </td>
                             </tr>
-                        <?php
+                            <?php
+                            }
                         }
                     }?>
                     </tbody>

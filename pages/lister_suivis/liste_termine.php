@@ -18,47 +18,90 @@ if (isset($_SESSION["login"])){
     $requete = null;
     ?>
     <div class="page_list_suivis">
-        <!--BARRE DE RECHERCHE-->
-        <div class="barre_recherche">
-            <label for="search">
-                <img src="img/search.png" id="img_search">
-            </label>
-            <input type="text" id="getName" placeholder="Rechercher un inscrit">
-        </div>
+        <?php
+        include("barre_recherche.php")
+        ?>
 
         <!--TABLEAU-->
         <div class="tableau">
-            <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Accompagnateur</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- UN INSCRIT -->
-                <?php
+        <?php
+            if(isset($_POST['submit']) && ($_POST['getname']) != ""){
+                $search = $_POST['getname'];?>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prenom</th>
+                            <th scope="col">Accompagnateur</th>
+                            <th scope="col">Nombre de démarches</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
                     foreach ($inscrits as $ligne){
-                        if($ligne["statut"] == 1){
+                        if($ligne["statut"] == 1)
+                        {
+                            if(strcasecmp($ligne["nom"],$search)==0 || strcasecmp($ligne["prenom"],$search)==0){
                             ?>
                             <tr>
                                 <th scope="row"><?= $ligne["id_inscrit"]?></th>
                                 <td><?= $ligne["nom"]?></td>
                                 <td><?= $ligne["prenom"]?></td>
                                 <td><?= $ligne["name_acc"]?></td>
+                                <td><?= $ligne["nb_demarche"]?></td>
                                 <td>
                                     <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                                 </td>
                             </tr>
                             <?php
+                            }
                         }
-                
-                    }?><!-- FIN D'UN INSCRIT -->
-            </tbody>
-            </table>    
+                        
+                    }?>
+                    </tbody>
+                </table>
+                <?php
+            }
+            else
+            {?>
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Accompagnateur</th>
+                        <th scope="col">Nombre de démarches</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- UN INSCRIT -->
+                    <?php
+                        foreach ($inscrits as $ligne){
+                            if($ligne["statut"] == 1){
+                                ?>
+                                <tr>
+                                    <th scope="row"><?= $ligne["id_inscrit"]?></th>
+                                    <td><?= $ligne["nom"]?></td>
+                                    <td><?= $ligne["prenom"]?></td>
+                                    <td><?= $ligne["name_acc"]?></td>
+                                    <td><?= $ligne["nb_demarche"]?></td>
+                                    <td>
+                                        <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                        }?>
+                    <!-- FIN D'UN INSCRIT -->
+                </tbody>
+            </table>
+            <?php
+            }
+            ?>
         </div>
     </div>
 <?php

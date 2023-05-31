@@ -693,3 +693,7 @@ select#civilite.form-control {
 .tableau .btn_reprendre{
   margin-top: 10px;
 }
+
+.barre_recherche form{
+  margin: 0px;
+}
