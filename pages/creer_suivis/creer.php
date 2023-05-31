@@ -1,7 +1,7 @@
 <div class="addsuivis">
 <h1 class="titrecreer">création du suivis</h1>
 <h2 class="information">Informations personnelles</h2>
-    <form class="form">
+    <form class="form" method="post">
     <!--    Information personnelles    -->
 <div class="block_enligne">
     <div class="input_boxe">
@@ -20,30 +20,10 @@
     <label for="inscrit_oui">oui</label>
     <input type="radio" id="radio_non" name="inscrit" class="radio_non" value="inscrit_non" onclick="hideShowDiv(2)">
     <label for="inscrit_non">non</label>
-    </select>
+
 
 
     <!--    Si oui   -->
-    <script>
-    function hideShowDiv(val) {
-        if(val==1) {
-            document.getElementById('centre_num').style.display='block';
-            document.getElementById('date_rea1').style.display='none';
-
-        }
-        if(val==2) {
-            document.getElementById('centre_num').style.display='none';
-            document.getElementById('date_rea1').style.display='block';
-
-        }
-    }
-
-
-
-
-
-
-</script>
 <div id="centre_num">
     <label id="num_" class="decale" for="num" visibility="false">N° : </label>
     <input id="input_num" class="input_suivis" type="text" id="num">
@@ -60,8 +40,8 @@
 </div>
     <div class="input_boxe">
     <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
-    <select name="accompagnateur" id="accompagnateur" class="accompagnateur" required>
-        <option value="rien"> -- Veuillez selectionner un accompagnateur -- </option>
+    <select name="accompagnateur" id="accompagnateur" class="form-control" required>
+        <option value="rien"> -- Selectionner un accompagnateur -- </option>
     </select>
     </div>
 
@@ -79,8 +59,8 @@
     <div class="block_enligne">
 <div class="input_boxe">
     <label for="civilite">Civilité : </label>
-    <select name="civilite" id="civilite" required>
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="civilite" id="civilite" required>
+        <option value="rien">-- Selectionner une option --</option>
         <option value="madame">Madame</option>
         <option value="mademoiselle">Mademoiselle</option>
         <option value="monsieur">Monsieur</option>
@@ -114,12 +94,12 @@
     <input type="text" id="adresse" required>
 
 
-    <label class="decaler" for="postal">Code Postal : </label>
-    <input class="decaler" type="text" id="postal" required>
-
+    <label class="decaler" for="zipcode">Code Postal : </label>
+    <input class="decaler" type="text" id="zipcode" name="zipcode" required>
+    <div id="error-message" style="display: none; color: #f55;"></div>
     <div class="input_boxe">
-    <label class="decaler" for="ville">Ville : </label>
-    <input class="decaler" type="text" id="ville" required>
+    <label class="decaler" for="city">Ville : </label>
+    <select class="form-control" id="city" placeholder="Ville" name="city"></select>
     </div>
     </div>
     <div class="input_boxe">
@@ -134,8 +114,8 @@
 </div>
 
     <label for="statue">Statue : </label>
-    <select name="statue" id="statut" required>
-        <option value="rien">-- Veuillez selectionner un statut --</option>
+    <select class="form-control" name="statue" id="statut" required>
+        <option value="rien">-- Selectionner un statut --</option>
         <option value="celibataire">Célibataire</option>
         <option value="marie">Marié(e)</option>
         <option value="divorce">Concubin(e)</option>
@@ -156,22 +136,6 @@
 
     <input type="radio" id="enfant_non" name="enfant" onclick="hideshowkid(2)">
     <label for="enfant_non">non</label>
-    <script>
-    function hideshowkid(val) {
-        if(val==1) {
-            document.getElementById('enfant_naissance').style.display='block';
-        }
-        if(val==2) {
-            document.getElementById('enfant_naissance').style.display='none';
-        }
-    }
-
-
-
-
-
-
-</script>
     <div id="enfant_naissance" class="input_boxe">
     <!--    Si oui    -->
     <label for="nombre_enfant">Nombre d'enfants à charge : </label>
@@ -186,8 +150,8 @@
     -->
     <div class="input_boxe">
     <label for="revenus">Nature des revenus : </label>
-    <select name="revenus" id="revenus" onchange="hideshowautre()">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="revenus" id="revenus" onchange="hideshowautre()">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="salaire">Salaire</option>
         <option value="RSA">RSA</option>
         <option value="ARE">ARE</option>
@@ -198,18 +162,6 @@
     </select>
     
     <!--    Si "autre"    -->
-    <script>
-    function hideshowautre() {
-    var autre = document.getElementById("revenus").value;
-        if(autre == "autre") {
-            document.getElementById('preciser').style.display='block';
-        } else {
-            document.getElementById('preciser').style.display='none';
-        }
-    }
-        
-
-    </script>
     <div id="preciser" class="input_boxe">
     <label for="preciser">Préciser : </label>
     <input type="text">
@@ -224,24 +176,6 @@
     <input type="radio" id="pole_non" name="pole_emplois" onclick="showhideemplois(2)">
     <label for="pole_non">non</label>
     <!--    Si oui    -->
-    <script>
-    function showhideemplois(val) {
-        if(val==1) {
-            document.getElementById('pole_emplois').style.display='block';
-            document.getElementById('date_rea2').style.display='none';
-        }
-        if(val==2) {
-            document.getElementById('pole_emplois').style.display='none';
-            document.getElementById('date_rea2').style.display='block';
-        }
-    }
-
-
-
-
-
-
-</script>
     <div class="input_boxe">
         <div id="pole_emplois">
     <label id="inscri_emplois" for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : </label>
@@ -266,24 +200,6 @@
     <input type="radio" id="mission_non" name="mission" onclick="showhidemission(2)">
     <label for="mission_non">non</label>
     <!--    Si oui    -->
-    <script>
-    function showhidemission(val) {
-        if(val==1) {
-            document.getElementById('mission').style.display='block';
-            document.getElementById('date_rea3').style.display='none';
-        }
-        if(val==2) {
-            document.getElementById('mission').style.display='none';
-            document.getElementById('date_rea3').style.display='block';
-        }
-    }
-
-
-
-
-
-
-</script>
 <div id="date_rea3">
     <div class="input_boxe">
     <label for="date_r3">Date de réalisation : </label>
@@ -314,22 +230,6 @@
     <label for="cap_oui">non</label>
     </div>
     <!--    Si oui   -->
-    <script>
-    function showhidecap(val) {
-        if(val==1) {
-            document.getElementById('cap').style.display='block';
-            document.getElementById('date_rea4').style.display='none';
-        }
-        if(val==2) {
-            document.getElementById('cap').style.display='none';
-            document.getElementById('date_rea4').style.display='block';
-        }
-    }
-
-
-
-
-</script>
     <div class="input_boxe">
     <div id="cap">
     <label for="date_inscription_cap_emplois">Date d'inscription au CAP emplois : </label>
@@ -353,22 +253,6 @@
     <label for="cv_non">non</label>
     <div class="input_boxe">
     <!--    Si oui   -->
-    <script>
-    function showhidecv(val) {
-        if(val==1) {
-            document.getElementById('cv').style.display='block';
-            document.getElementById('date_cv').style.display='none';
-        }
-        if(val==2) {
-            document.getElementById('cv').style.display='none';
-            document.getElementById('date_cv').style.display='block';
-        }
-    }
-
-
-
-
-</script>
 </div>
 <div id="cv">
     <label for="cv">Insérer le cv scanné (format PDF uniquement) : </label> 
@@ -387,8 +271,8 @@
     -->
     <div class="input_boxe">
     <label for="permis">Permis : </label>
-    <select name="permis" id="permis" onchange="hideshowpermis()">
-        <option value="rien" id="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="permis" id="permis" onchange="hideshowpermis()">
+        <option value="rien" id="rien">-- Selectionner une option --</option>
         <option value="motos1" id="motos1">Permis motos</option>
         <option value="auto1" id="auto1">Permis auto</option>
         <option value="march1" id="march1">Permis marchandises ou de personnes</option>
@@ -396,42 +280,10 @@
     </select>
     </div>
     <!--    Si motos   -->
-    <script>
-    function hideshowpermis() {
-    var permis = document.getElementById("permis").value;
-        if(permis == "motos1") {
-            document.getElementById('motos').style.display='block';
-            document.getElementById('auto').style.display='none';
-            document.getElementById('march').style.display='none';
-        }
-        if (permis == "auto1") {
-            document.getElementById('auto').style.display='block';
-            document.getElementById('motos').style.display='none';
-            document.getElementById('march').style.display='none';
-        }
-        if (permis == "march1") {
-            document.getElementById('march').style.display='block';
-            document.getElementById('auto').style.display='none';
-            document.getElementById('motos').style.display='none';
-        } 
-        if (permis == "aucun") {
-            document.getElementById('march').style.display='none';
-            document.getElementById('auto').style.display='none';
-            document.getElementById('motos').style.display='none';
-        }
-        if (permis == "rien") {
-            document.getElementById('march').style.display='none';
-            document.getElementById('auto').style.display='none';
-            document.getElementById('motos').style.display='none';
-        }
-    }
-        
-
-    </script>
     <div class="input_boxe" id="motos">
     <label for="moto">Permis motos : </label>
-    <select name="moto">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="moto">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="a">A</option>
         <option value="a1">A1</option>
         <option value="a2">A2</option>
@@ -440,8 +292,8 @@
     <!--    Si auto   -->
     <div class="input_boxe" id="auto">
     <label for="aut">Permis autos : </label>
-    <select name="aut">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="aut">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="b">B</option>
         <option value="b1">B1</option>
         <option value="be">BE</option>
@@ -450,8 +302,8 @@
     <!--    Si march   -->
     <div class="input_boxe" id="march">
     <label for="marchandise">Permis pour le transport de marchandises ou de personnes : </label>
-    <select name="marchandise" id="marchandise">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="marchandise" id="marchandise">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="c">C</option>
         <option value="ce">CE</option>
         <option value="c1">C1</option>
@@ -476,20 +328,6 @@
     <!--    Si oui (rien)  -->
 
     <!--    Si non   -->
-    <script>
-    function showhideachat(val) {
-        if(val==1) {
-            document.getElementById('achat1').style.display='none';
-        }
-        if(val==2) {
-            document.getElementById('achat1').style.display='block';
-        }
-    }
-
-
-
-
-</script>
 <div id="achat1">
     <div class="input_boxe">
     <label for="achat_vehicule">Achat prévu d'un véhicule ?</label>
@@ -509,8 +347,8 @@
     <h2 class="niveau_form">Niveau de formation : </h2>
     <div class="input_boxe">
     <label for="dipl">Diplôme obtenus :</label>
-    <select name="dipl" id="dipl" onchange="hideshowdipl()">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="dipl" id="dipl" onchange="hideshowdipl()">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="aucun">aucun diplôme</option>
         <option value="cap">CAP</option>
         <option value="bep">BEP</option>
@@ -522,24 +360,6 @@
         <option value="autre">Autre</option>
     </select>
     <!--    Si autre   -->
-<script>
-        function hideshowdipl() {
-    var dipl = document.getElementById("dipl").value;
-        if(dipl == "autre") {
-            document.getElementById('motos').style.display='block';
-            document.getElementById('auto').style.display='none';
-            document.getElementById('march').style.display='none';
-        }
-        if (dipl == "auto1") {
-            document.getElementById('auto').style.display='block';
-            document.getElementById('motos').style.display='none';
-            document.getElementById('march').style.display='none';
-        }
-    }
-        
-
-    </script>
-</script>
     <label for="dipl_autre">Renseigner le diplôme : </label>
     <input type="text" id="dipl_autre">
 
@@ -557,8 +377,8 @@
     -->
     <div class="input_boxe">
     <label for="efrancais">Connaissance de la langue française (écrite) : </label>
-    <select name="efrancais" id="efrancais">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="efrancais" id="efrancais">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="e1">1</option>
         <option value="e2">2</option>
         <option value="e3">3</option>
@@ -567,8 +387,8 @@
     </select>
     </div>
     <label for="pfrancais">Connaissance de la langue française (parlée) : </label>
-    <select name="pfrancais" id="pfrancais">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="pfrancais" id="pfrancais">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="p1">1</option>
         <option value="p2">2</option>
         <option value="p3">3</option>
@@ -577,7 +397,7 @@
     </select>
     <label for="lfrancais">Connaissance de la langue française (Lue) : </label>
     <select name="lfrancais" id="lfrancais">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+        <option class="form-control" value="rien">-- Selectionner une option --</option>
         <option value="l1">1</option>
         <option value="l2">2</option>
         <option value="l3">3</option>
@@ -641,8 +461,8 @@
     <!--    Si non (rien)   -->
 
     <!--    Si oui   -->
-    <select name="form_type" id="form_type">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="form_type" id="form_type">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="qualfiante">Formation qualifiante</option>
         <option value="diplomante">Formation diplômante</option>
     </select>
@@ -663,8 +483,8 @@
     <input type="text" id="secteur_geo">
 
     <label for="horaire">Horaire de travail souhaité : </label>
-    <select name="horaire" id="horaire">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="horaire" id="horaire">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="jour">Travail la journée</option>
         <option value="matin">Travail le matin</option>
         <option value="nuit">Travail de nuit</option>
@@ -692,8 +512,8 @@
 
     <!--   Après cloture du plan d'action   -->
     <label for="situat_pro">Situation professionel après la cloture du plan d'action : </label>
-    <select name="situat_pro" id="situat_pro">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="situat_pro" id="situat_pro">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="cdi">C.D.I</option>
         <option value="cdd">C.D.D</option>
         <option value="formation">Formation</option>
@@ -727,8 +547,8 @@
     <input type="radio" id="help_non2" name="help_emploi2">
     <label for="help_non2">non</label>
     <!--   Si formation   -->
-    <select name="form_type1" id="form_type1">
-        <option value="rien">-- Veuillez selectionner une option --</option>
+    <select class="form-control" name="form_type1" id="form_type1">
+        <option value="rien">-- Selectionner une option --</option>
         <option value="qualfiante1">Formation qualifiante</option>
         <option value="diplomante1">Formation diplômante</option>
     </select>
@@ -751,45 +571,3 @@
 </form>
 </div>
 </div>
-
-<script>
-    // Séquence de lettres à détecter
-const sequence = "shrek";
-
-// Fonction appelée lorsque la séquence est détectée
-function afficherImage() {
-  const image = document.createElement("img");
-  image.src = "img/shrek.png";
-  document.body.appendChild(image);
-}
-
-// Variables pour stocker les caractères tapés
-let input = "";
-let timeout;
-
-// Fonction pour réinitialiser la séquence
-function resetSequence() {
-  input = "";
-  clearTimeout(timeout);
-}
-
-// Fonction appelée lors de la frappe d'une touche
-function handleKeyPress(event) {
-  // Ajouter la lettre tapée à la séquence
-  input += event.key.toLowerCase();
-
-  // Vérifier si la séquence correspond à la séquence recherchée
-  if (input === sequence) {
-    afficherImage();
-    resetSequence();
-  }
-
-  // Réinitialiser la séquence si aucune touche n'est tapée dans les 3 secondes
-  clearTimeout(timeout);
-  timeout = setTimeout(resetSequence, 3000);
-}
-
-// Écouter l'événement de frappe de touche
-document.addEventListener("keydown", handleKeyPress);
-
-</script>
