@@ -135,6 +135,9 @@ function hideshowdipl() {
     }
     if(val==2) {
         document.getElementById('formati').style.display='none';
+        document.getElementById('renseign').style.display='none';
+        non_form.checked = true;
+
     }
   }
 // Formation prévue
@@ -153,6 +156,7 @@ function showhidereprise(val) {
     }
     if(val==2) {
         document.getElementById('dipl_prep').style.display='none';
+        dipl_prepa.value = "";
     }
   }
 // Bénéficier d'une formation pro                oui non
@@ -162,6 +166,10 @@ function showhideformpro(val) {
     }
     if(val==2) {
         document.getElementById('oui_formpro').style.display='none';
+        document.getElementById('if_qual').style.display='none';
+        document.getElementById('if_dipl').style.display='none';
+        form_type.selectedIndex = 0;
+
     }
   }
 // Bénéficier d'une formation pro               select

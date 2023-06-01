@@ -755,3 +755,6 @@ textarea.form-control {
 .barre_recherche form{
   margin: 0px;
 }
+button#suppr_creer.btn_modifier {
+  background-color: red;
+}

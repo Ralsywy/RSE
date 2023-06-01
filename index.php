@@ -150,6 +150,12 @@ switch ($_GET["route"]){
   case "edit_reprendre":
     include("pages/lister_suivis/reprendre.php");
     break;
+  case "store_plan":
+    include("pages/creer_suivis/store_plan.php");
+    break;
+  case "delete_plan":
+    include("pages/creer_suivis/delete_plan.php");
+    break;
 
   }}
 ?>
