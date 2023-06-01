@@ -12,22 +12,14 @@ if (isset($_SESSION["login"])){
     ?>
     <div class="page_list_suivis">
         <!--BARRE DE RECHERCHE-->
-        <div class="barre_recherche">
-            <form method="post" type="search">
-                <label for="search">
-                    <img src="img/search.png" id="img_search">
-                </label>
-                <input type="text" name="getname" placeholder="Rechercher">
-                <input type="submit" name="submit" value="Valider">
-            </form>
-        </div>
         <?php
+        include("barre_recherche.php");
         $recherche = "";
         ?>
 
         <!--TABLEAU-->
         <div class="tableau">
-            <table class="table">
+            <table class="table table_sortable">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -60,6 +52,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
                             <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
+                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                         </td>
                     </tr>
@@ -87,6 +80,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
                             <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
+                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                         </td>
                     </tr>
@@ -95,6 +89,7 @@ if (isset($_SESSION["login"])){
             }
         } ?></div>
     </div>
+    <script src="javascript/tablesort.js"></script>
 <?php
 }
 else
