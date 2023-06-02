@@ -507,12 +507,12 @@
         </div>
         <!--    Si qualifiante   -->
         <div class="input_boxe" id="if_qual">
-        <label for="nom_form">Nom de la formation : </label>
+        <label for="nom_form">Nom de la formation qualifiante : </label>
         <input type="text" id="nom_form">
         </div>
         <!--    Si diplômante   -->
         <div class="input_boxe" id="if_dipl">
-        <label for="nom_diplo">Nom du diplôme : </label>
+        <label for="nom_diplo">Nom du diplôme diplômante : </label>
         <input type="text" id="nom_diplo">
         </div>
         <div class="input_boxe">

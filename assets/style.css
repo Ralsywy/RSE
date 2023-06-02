@@ -746,6 +746,12 @@ textarea.form-control {
 #if_qual {
   display: none;
 }
+#if_dipl1 {
+  display: none;
+}
+#if_qual1 {
+  display: none;
+}
 .barre_recherche form{
   margin: 0px;
 }

@@ -16,6 +16,7 @@
     ?>
 <div class="addsuivis">
     <h2 class="plan_act">Plan d'action</h2>
+    <a href="index.php?route=suivis_rdv">rdv page</a>
     <hr>
 <div class="tableau" id="tabl">
     <table class="table" id="monTableau">
@@ -104,11 +105,31 @@
         </div>
         <!--   Si formation   -->
         <div id="formation">
-        <select class="form-control" name="form_type1" id="form_type1">
+        <label for="form_type1">Type de formation : </label>
+        <select class="form-control" name="form_type1" id="form_type1" onchange="hideshowformqd1()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="qualfiante1">Formation qualifiante</option>
             <option value="diplomante1">Formation diplômante</option>
         </select>
+        </div>
+        <!--    Si qualifiante   -->
+        <div class="input_boxe" id="if_qual1">
+        <div>
+        <label for="nom_form">Nom de la formation qualifiante : </label>
+        <input type="text" id="nom_form">
+        </div>
+        <label for="duree_qual">Durée de la formation qualifiante : </label>
+        <input type="text" id="duree_qual">
+        </div>
+        <!--    Si diplômante   -->
+        <div class="input_boxe" id="if_dipl1">
+        <label for="nom_diplo1">Nom de la formation diplômante : </label>
+        <input type="text" id="nom_diplo1">
+        
+        <div class="input_boxe">
+        <label for="duree_dipl">Durée de la formation diplômante : </label>
+        <input type="text" id="duree_dipl">
+        </div>
         </div>
         <!--   Si stage   -->
         <div id="stage">

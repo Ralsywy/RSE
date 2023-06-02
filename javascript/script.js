@@ -200,6 +200,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "cdi") {
             document.getElementById('cdd').style.display='none';
@@ -209,6 +212,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "cdd") {
             document.getElementById('cdd').style.display='block';
@@ -218,6 +224,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "formation") {
             document.getElementById('cdd').style.display='none';
@@ -236,6 +245,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "abandon") {
             document.getElementById('cdd').style.display='none';
@@ -245,6 +257,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='block';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "non_retour") {
             document.getElementById('cdd').style.display='none';
@@ -254,6 +269,9 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='block';
             document.getElementById('siautre').style.display='none';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
         if(situa == "autre_s") {
             document.getElementById('cdd').style.display='none';
@@ -263,6 +281,23 @@ function hideshowsituationpro() {
             document.getElementById('abandon').style.display='none';
             document.getElementById('nonret').style.display='none';
             document.getElementById('siautre').style.display='block';
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+            form_type1.selectedIndex = 0;
         } 
     }
-    
+function hideshowformqd1() {
+    var formqd1 = document.getElementById("form_type1").value;
+        if(formqd1 == "diplomante1") {
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='block';
+        } 
+        if (formqd1 == "qualfiante1") {
+            document.getElementById('if_qual1').style.display='block';
+            document.getElementById('if_dipl1').style.display='none';
+        }
+        if (formqd1 == "rien") {
+            document.getElementById('if_qual1').style.display='none';
+            document.getElementById('if_dipl1').style.display='none';
+        }
+    }
