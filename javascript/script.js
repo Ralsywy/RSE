@@ -190,3 +190,79 @@ function hideshowformqd() {
             document.getElementById('if_dipl').style.display='none';
         }
     }
+function hideshowsituationpro() {
+    var situa = document.getElementById("situat_pro").value;
+        if(situa == "rien") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "cdi") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='block';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "cdd") {
+            document.getElementById('cdd').style.display='block';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "formation") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='block';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "stage") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='block';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "abandon") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='block';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "non_retour") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='block';
+            document.getElementById('siautre').style.display='none';
+        } 
+        if(situa == "autre_s") {
+            document.getElementById('cdd').style.display='none';
+            document.getElementById('cdi').style.display='none';
+            document.getElementById('formation').style.display='none';
+            document.getElementById('stage').style.display='none';
+            document.getElementById('abandon').style.display='none';
+            document.getElementById('nonret').style.display='none';
+            document.getElementById('siautre').style.display='block';
+        } 
+    }
+    
