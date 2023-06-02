@@ -167,14 +167,6 @@ transform: scale(1.1);
   font-weight:bold;
   text-align: center;
 }
-.addsuivis {
-  margin-top: 150px;
-  border-radius: 8px;
-  width: 80%;
-  height: 140%;
-  background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-}
 
 .liste_acc .titre_acc{
   font-size: 1.5rem;
@@ -417,6 +409,8 @@ html{
   margin-top: 20px;
 }
 .addsuivis {
+  position: flex;
+  flex-direction: column;
   background: url(../img/suivis_background.jpg) no-repeat;
   background-position: center;
   background-size: cover;
@@ -805,4 +799,52 @@ button#suppr_creer.btn_modifier {
 .table_sortable .th-sort-asc,
 .table_sortable .th-sort-desc{
   background: rgba(0,0,0,0.1);
+}
+div#tabl.tableau {
+  order: -10;
+}
+
+div.avance {
+  position: relative;
+  bottom: 0;
+}
+button#continuer.btn_modifier {
+  position: relative;
+  left: 80%;
+  width: 200px;
+  height: 70px;
+}
+.plan_act {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-style: bold;
+  font-size: 3em;
+}
+#cdd {
+  display: none;
+}
+
+#cdi {
+  display: none;
+}
+
+#formation {
+  display: none;
+}
+
+#stage {
+  display: none;
+}
+
+#abandon {
+  display: none;
+}
+
+#nonret {
+  display: none;
+}
+
+#siautre {
+  display: none;
 }

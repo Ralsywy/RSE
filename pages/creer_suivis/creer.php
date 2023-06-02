@@ -1,23 +1,8 @@
 <div class="addsuivis">
-    <?php
-    // création de le lien entre serv web et serv bd
-    $mysqlConnection = new PDO(
-        'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
-        USER,
-        PASSWORD,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
-    );
-    // ordre de mission
-    $requete = $mysqlConnection->prepare("SELECT * FROM plan_action");
-    //execution de la requete
-    $requete->execute();
-    $plans = $requete->fetchAll();
-    $mysqlConnection = null;
-    $requete = null;
-    ?>
+
     <h1 class="titrecreer">création du suivis</h1>
     <h2 class="information">Informations personnelles</h2>
-        <form class="form" method="post">
+        <form class="form" method="post" id="suiviss" action="index.php?route=creer2">
         <!--    Information personnelles    -->
     <div class="block_enligne">
         <div class="input_boxe">
@@ -553,8 +538,11 @@
             <option value="VSD">Travail en VSD</option>
             <option value="SD">Travail en SD</option>
         </select>
-        
-
+        <div>
+        <a href="index.php?route=creer2"><button class="btn_modifier" id="continuer">Continuer</button></a>
+        </div>
+      </form>      
+</div>
             <!--    
             Plan d'action   ------------------------------------------------------------------
 
@@ -562,103 +550,8 @@
 
 
         <!--   Après cloture du plan d'action   -->
-        <div class="off">
-        <label for="situat_pro">Situation professionel après la cloture du plan d'action : </label>
-        <select class="form-control" name="situat_pro" id="situat_pro">
-            <option value="rien">-- Selectionner une option --</option>
-            <option value="cdi">C.D.I</option>
-            <option value="cdd">C.D.D</option>
-            <option value="formation">Formation</option>
-            <option value="stage">Stage d'immersion</option>
-            <option value="abandon">Abandon du plan d'action</option>
-            <option value="non_retour">Non-retour à l'emploi</option>
-            <option value="autre_s">Autre situation</option>
-        </select>
-        <!--   Si cdi   -->
-        <label for="type_post">Poste occupé : </label>
-        <input type="text" id="type_post">
-        <label for="duree_hebdo">Durée hebdomadaire : </label>
-        <input type="text" id="duree_hebdo">
-        <label for="nom_societe">Nom de la société : </label>
-        <input type="text" id="nom_societe">
-        <label for="help_emploi">Emploi aidé : </label>
-        <input type="radio" id="help_oui" name="help_emploi">
-        <label for="help_oui">oui</label>
-        <input type="radio" id="help_non" name="help_emploi">
-        <label for="help_non">non</label>
-        <!--   Si cdd   -->
-        <label for="type_post2">Poste occupé : </label>
-        <input type="text" id="type_post2">
-        <label for="duree_hebdo2">Durée hebdomadaire : </label>
-        <input type="text" id="duree_hebdo2">
-        <label for="nom_societe2">Nom de la société : </label>
-        <input type="text" id="nom_societe2">
-        <label for="help_emploi2">Emploi aidé : </label>
-        <input type="radio" id="help_oui2" name="help_emploi2">
-        <label for="help_oui2">oui</label>
-        <input type="radio" id="help_non2" name="help_emploi2">
-        <label for="help_non2">non</label>
-        <!--   Si formation   -->
-        <select class="form-control" name="form_type1" id="form_type1">
-            <option value="rien">-- Selectionner une option --</option>
-            <option value="qualfiante1">Formation qualifiante</option>
-            <option value="diplomante1">Formation diplômante</option>
-        </select>
-        <!--   Si stage   -->
-        <label for="type_post2">Nom du stage : </label>
-        <input type="text" id="type_post3">
-        <label for="duree_hebdo3">Durée : </label>
-        <input type="text" id="duree_hebdo3">
-        <label for="nom_societe3">Nom de l'organisme : </label>
-        <input type="text" id="nom_societe3">
-        <!--   Si abandon   -->
-        <label for="abandon_raison">Raison de l'abandon : </label>
-        <input type="text" id="abandon_raison">
-        <!--   Si non retour emploi   -->
-        <label for="non_empl">Raison : </label>
-        <input type="text" id="non_empl">
-        <!--   Si autre   -->
-        <label for="autre_situ">Expliquez : </label>
-        <input type="text" id="autre_situ">
-    </form>
-    </div>
-</div>
 
-<div class="tableau">
-    <table class="table" id="monTableau">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Actions à mener</th>
-            <th scope="col">Objectifs</th>
-            <th scope="col">Moyens mis en oeuvre</th>
-            <th scope="col">échéance</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <form action="index.php?route=store_plan" method="post">
-                <td></td>
-                <td><input type="text" id="action_menee" name="action_menee"></td>
-                <td><input type="text" id="objectif" name="objectif"></td>
-                <td><input type="text" id="moyen_oeuvre" name="moyen_oeuvre"></td>
-                <td><input type="date" id="echeance" name="echeance"></td>
-                <td><button type="submit" class="btn_modifier">Ajouter</button></td>
-            </form>
-        </tr>
-        <?php
-        foreach ($plans as $ligne){
-        ?>
-            <tr>
-                <td><?= $ligne["id_plan_action"]?></td>
-                <td><?= $ligne["action_menee"]?></td>
-                <td><?= $ligne["objectif"]?></td>
-                <td><?= $ligne["moyen_oeuvre"]?></td>
-                <td><?= $ligne["echeance"]?></td>
-                <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
-            </tr>
-        <?php
-        }?>
-    </tbody>
-    </table>
+
+
+
+
