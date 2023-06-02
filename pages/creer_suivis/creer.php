@@ -1,17 +1,26 @@
+<?php
+// création de le lien entre serv web et serv bd
+    $mysqlConnection = new PDO(
+        'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
+        USER,
+        PASSWORD,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
+    );
+?>
 <div class="addsuivis">
 
     <h1 class="titrecreer">création du suivis</h1>
     <h2 class="information">Informations personnelles</h2>
-        <form class="form" method="post" id="suiviss" action="index.php?route=creer2">
+    <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit">
         <!--    Information personnelles    -->
     <div class="block_enligne">
         <div class="input_boxe">
-        <label for="dcontact">Date du contact : </label>
-        <input type="date" id="dcontact"  >
+        <label for="dte_contact">Date du contact : </label>
+        <input type="date" id="dte_contact"  name="dte_contact">
         </div>
         <div class="input_boxe">
-        <label for="ocontact">Origine du contact : </label>
-        <input type="text" name="ocontact" id="ocontact"  >
+        <label for="origine_contact">Origine du contact : </label>
+        <input type="text" name="origine_contact" id="origine_contact"  >
         </div>
     </div>
 
@@ -39,10 +48,25 @@
         <input class="input_suivis" type="date" id="date_r">
         </div>
     </div>
+    <?php
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM accompagnateur');
+    //execution de la requete
+    $requete->execute();
+    $accompagnateurs = $requete->fetchAll();
+    $mysqlConnection = null;
+    $requete = null;
+    ?>
         <div class="input_boxe">
         <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
         <select name="accompagnateur" id="accompagnateur" class="form-control"  >
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
+            <?php
+            foreach($accompagnateurs as $ligne){?>
+                <option value=<?= $ligne["id_accompagnateur"]?>><?= $ligne["name_acc"]?></option>
+            <?php
+            }
+            ?>
         </select>
         </div>
 
@@ -384,31 +408,34 @@
         <label for="efrancais">Connaissance de la langue française (écrite) : </label>
         <select class="form-control" name="efrancais" id="efrancais">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="e1">1</option>
-            <option value="e2">2</option>
-            <option value="e3">3</option>
-            <option value="e4">4</option>
-            <option value="e5">5</option>
+            <option value="e1">A1</option>
+            <option value="e2">A2</option>
+            <option value="e3">B1</option>
+            <option value="e4">B2</option>
+            <option value="e5">C1</option>
+            <option value="e5">C2</option>
         </select>
         </div>
         <label for="pfrancais">Connaissance de la langue française (parlée) : </label>
         <select class="form-control" name="pfrancais" id="pfrancais">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="p1">1</option>
-            <option value="p2">2</option>
-            <option value="p3">3</option>
-            <option value="p4">4</option>
-            <option value="p5">5</option>
+            <option value="e1">A1</option>
+            <option value="e2">A2</option>
+            <option value="e3">B1</option>
+            <option value="e4">B2</option>
+            <option value="e5">C1</option>
+            <option value="e5">C2</option>
         </select>
         <div>
         <label for="lfrancais">Connaissance de la langue française (Lue) : </label>
         <select class="form-control" name="lfrancais" id="lfrancais">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
-            <option value="l1">1</option>
-            <option value="l2">2</option>
-            <option value="l3">3</option>
-            <option value="l4">4</option>
-            <option value="l5">5</option>
+            <option value="e1">A1</option>
+            <option value="e2">A2</option>
+            <option value="e3">B1</option>
+            <option value="e4">B2</option>
+            <option value="e5">C1</option>
+            <option value="e5">C2</option>
         </select>
         </div>
         <hr>
@@ -539,9 +566,9 @@
             <option value="SD">Travail en SD</option>
         </select>
         <div>
-        <a href="index.php?route=creer2"><button class="btn_modifier" id="continuer">Continuer</button></a>
+        <button type="submit" class="btn_modifier" id="continuer">Continuer</button>
         </div>
-      </form>      
+    </form>      
 </div>
             <!--    
             Plan d'action   ------------------------------------------------------------------
