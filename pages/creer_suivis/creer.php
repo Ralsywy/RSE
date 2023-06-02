@@ -26,9 +26,9 @@
 
     <div class="radio_button">
         <label for="inscrit">Inscrit aux resto du coeur : </label>
-        <input type="radio" id="radio_oui" name="inscrit" class="radio_oui" value="inscrit_oui" onclick="hideShowDiv(1)">
+        <input type="radio" id="radio_oui" name="inscrit_rdc" class="radio_oui" value="oui" onclick="hideShowDiv(1)">
         <label for="inscrit_oui">oui</label>
-        <input type="radio" id="radio_non" name="inscrit" class="radio_non" value="inscrit_non" onclick="hideShowDiv(2)">
+        <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)">
         <label for="inscrit_non">non</label>
 
 
@@ -36,10 +36,10 @@
         <!--    Si oui   -->
     <div id="centre_num">
         <label id="num_" class="decale" for="num" visibility="false">N° : </label>
-        <input id="input_num" class="input_suivis" type="text" id="num">
+        <input id="input_num" class="input_suivis" type="text" id="num" name="numero">
 
         <label id="centre" for="centre">Centre : </label>
-        <input id="input_centre" class="input_suivis" type="text" id="centre">
+        <input id="input_centre" class="input_suivis" type="text" id="centre" name="centre">
     </div>
 
         <!--    Si non    -->
