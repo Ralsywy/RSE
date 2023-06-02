@@ -156,6 +156,9 @@ switch ($_GET["route"]){
   case "delete_plan":
     include("pages/creer_suivis/delete_plan.php");
     break;
+  case "creer2":
+    include("pages/creer_suivis/creer2.php");
+    break;
 
   }}
 ?>

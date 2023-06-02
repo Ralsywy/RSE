@@ -14,5 +14,5 @@
 
 $mysqlConnection = null;
 $requete = null; 
-header("location:index.php?route=creer_suivis");
+header("location:index.php?route=creer2");
 ?>

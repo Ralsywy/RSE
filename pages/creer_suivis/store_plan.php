@@ -2,7 +2,7 @@
 
 if (isset($_POST["action_menee"])==false || empty($_POST["action_menee"]) || isset($_POST["objectif"])==false || empty($_POST["objectif"]) || isset($_POST["moyen_oeuvre"])==false || empty($_POST["moyen_oeuvre"] || isset($_POST["echeance"])==false || empty($_POST["echeance"]))){
     $_SESSION["error"]="Tout les champs sont obligatoires";
-    header("location:index.php?route=creer_suivis");
+    header("location:index.php?route=creer2");
 }
 else
 {
@@ -22,6 +22,6 @@ else
     $requete = null;
 
    
-    header("location:index.php?route=creer_suivis");
+    header("location:index.php?route=creer2");
 }
 ?>
