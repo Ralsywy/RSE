@@ -67,7 +67,12 @@ if (isset($_SESSION["login"])){
             $requete = $mysqlConnection->prepare("SELECT * FROM inscrit INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur WHERE CONCAT(nom,prenom) LIKE '%$recherche%'");
             $requete->execute();
             $inscrits = $requete->fetchAll();
-            $mysqlConnection = null;
+            $requete = null;
+            // ordre de mission
+            $requete = $mysqlConnection->prepare('SELECT * FROM accompagnateur');
+            //execution de la requete
+            $requete->execute();
+            $accompagnateurs = $requete->fetchAll();
             $requete = null;
             foreach ($inscrits as $ligne){
                 if($ligne["statut"] == 0){
@@ -91,6 +96,7 @@ if (isset($_SESSION["login"])){
     </div>
     <script src="javascript/tablesort.js"></script>
 <?php
+$mysqlConnection = null;
 }
 else
 {
