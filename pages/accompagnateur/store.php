@@ -39,6 +39,7 @@ else
 $requete = $mysqlConnection->prepare('INSERT INTO accompagnateur(login,name_acc,pwd_acc) values(:login,:name_acc,:pwd_acc)');
 //execution de la requete
 $requete->execute( ["login"=>$login,"name_acc"=>$_POST["name_acc"],"pwd_acc"=>$_POST["pwd_acc"]]);
+$_SESSION["success"]="Accompagnateur crée avec succès";
 $mysqlConnection = null;
 $requete = null;
 

@@ -79,8 +79,11 @@ session_start();
 <!-- LOGIN -->
 <?php 
 if(isset($_SESSION["login"])){}
-  else { ?>
-
+else { 
+  ?><div class="alert_login">
+    <?php
+      $_SESSION["success"]="Nom d'utilisateur = première lettre du prénom + nom de famille complet (ex: DUPONT Pierre = pdupont)";?>
+    </div>
 <div class="wrapper">
     <div class="form-box login">
         <h2>Connexion</h2>
@@ -115,9 +118,21 @@ if (isset($_SESSION["error"])){
       unset($_SESSION["error"]);
     ?>
   </div>
-
   <?php
 }
+
+// SUCCES
+if (isset($_SESSION["success"])){
+    ?>
+    <div class="alert alert-success" role="alert">
+      <?php 
+        echo $_SESSION["success"];
+        unset($_SESSION["success"]);
+      ?>
+    </div>
+    <?php
+  }
+
 if(isset($_GET["route"])){
 switch ($_GET["route"]){
   case "list_suivis":
