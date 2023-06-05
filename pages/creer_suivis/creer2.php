@@ -61,7 +61,7 @@
     <div class="after_plan">
         <form action="method">
         <label for="situat_pro">Situation professionel après la cloture du plan d'action : </label>
-        <select class="form-control" name="situat_pro" id="situat_pro" onchange="hideshowsituationpro()">
+        <select class="form-control" name="type_formation" id="situat_pro" onchange="hideshowsituationpro()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="cdi">C.D.I</option>
             <option value="cdd">C.D.D</option>
@@ -75,38 +75,38 @@
         <div id="cdi">
         <div class="input_boxe">
         <label for="type_post">Poste occupé : </label>
-        <input type="text" id="type_post">
+        <input type="text" id="type_post" name="poste_occupe">
         <label for="duree_hebdo">Durée hebdomadaire : </label>
-        <input type="text" id="duree_hebdo">
+        <input type="text" id="duree_hebdo" name="duree_hebdo">
         <label for="nom_societe">Nom de la société : </label>
-        <input type="text" id="nom_societe">
+        <input type="text" id="nom_societe" name="nom_societe">
         </div>
-        <label for="help_emploi">Emploi aidé : </label>
-        <input type="radio" id="help_oui" name="help_emploi">
+        <label for="emploi_aide">Emploi aidé : </label>
+        <input type="radio" id="help_oui" name="emploi_aide">
         <label for="help_oui">oui</label>
-        <input type="radio" id="help_non" name="help_emploi">
+        <input type="radio" id="help_non" name="emploi_aide">
         <label for="help_non">non</label>
         </div>
         <!--   Si cdd   -->
         <div id="cdd">
         <div class="input_boxe">
         <label for="type_post2">Poste occupé : </label>
-        <input type="text" id="type_post2">
+        <input type="text" id="type_post2" name="poste_occupe_cdd">
         <label for="duree_hebdo2">Durée hebdomadaire : </label>
-        <input type="text" id="duree_hebdo2">
+        <input type="text" id="duree_hebdo2" name="duree_hebdo_cdd">
         <label for="nom_societe2">Nom de la société : </label>
-        <input type="text" id="nom_societe2">
+        <input type="text" id="nom_societe2" name="nom_societe_cdd">
         </div>
-        <label for="help_emploi2">Emploi aidé : </label>
-        <input type="radio" id="help_oui2" name="help_emploi2">
+        <label for="emploi_aide_cdd">Emploi aidé : </label>
+        <input type="radio" id="help_oui2" name="emploi_aide_cdd">
         <label for="help_oui2">oui</label>
-        <input type="radio" id="help_non2" name="help_emploi2">
+        <input type="radio" id="help_non2" name="emploi_aide_cdd">
         <label for="help_non2">non</label>
         </div>
         <!--   Si formation   -->
         <div id="formation">
         <label for="form_type1">Type de formation : </label>
-        <select class="form-control" name="form_type1" id="form_type1" onchange="hideshowformqd1()">
+        <select class="form-control" name="type_form_after" id="form_type1" onchange="hideshowformqd1()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="qualfiante1">Formation qualifiante</option>
             <option value="diplomante1">Formation diplômante</option>
@@ -116,51 +116,51 @@
         <div class="input_boxe" id="if_qual1">
         <div>
         <label for="nom_form">Nom de la formation qualifiante : </label>
-        <input type="text" id="nom_form">
+        <input type="text" id="nom_form" name="nom_form_qual">
         </div>
         <label for="duree_qual">Durée de la formation qualifiante : </label>
-        <input type="text" id="duree_qual">
+        <input type="text" id="duree_qual" name="duree_form_qual">
         </div>
         <!--    Si diplômante   -->
         <div class="input_boxe" id="if_dipl1">
         <label for="nom_diplo1">Nom de la formation diplômante : </label>
-        <input type="text" id="nom_diplo1">
+        <input type="text" id="nom_diplo1" name="nom_form_dipl">
         
         <div class="input_boxe">
         <label for="duree_dipl">Durée de la formation diplômante : </label>
-        <input type="text" id="duree_dipl">
+        <input type="text" id="duree_dipl" name="duree_form_dipl">
         </div>
         </div>
         <!--   Si stage   -->
         <div id="stage">
         <div class="input_boxe">
         <label for="type_post2">Nom du stage : </label>
-        <input type="text" id="type_post3">
+        <input type="text" id="type_post3" name="nom_stage">
         <label for="duree_hebdo3">Durée : </label>
-        <input type="text" id="duree_hebdo3">
+        <input type="text" id="duree_hebdo3" name="duree_stage">
         <label for="nom_societe3">Nom de l'organisme : </label>
-        <input type="text" id="nom_societe3">
+        <input type="text" id="nom_societe3" name="nom_org_stage">
         </div>
         </div>
         <!--   Si abandon   -->
         <div id="abandon">
         <div class="input_boxe">
         <label for="abandon_raison">Raison de l'abandon : </label>
-        <input type="text" id="abandon_raison">
+        <input type="text" id="abandon_raison" name="abandon">
         </div>
         </div>
         <!--   Si non retour emploi   -->
         <div id="nonret">
         <div class="input_boxe">
         <label for="non_empl">Raison : </label>
-        <input type="text" id="non_empl">
+        <input type="text" id="non_empl" name="non_retour">
         </div>
         </div>
         <!--   Si autre   -->
         <div id="siautre">
         <div class="input_boxe">
         <label for="autre_situ">Expliquez : </label>
-        <input type="text" id="autre_situ">
+        <input type="text" id="autre_situ" name="autre">
         </div>
         </div>
         </form>

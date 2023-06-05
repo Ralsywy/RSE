@@ -823,7 +823,6 @@ button#continuer.btn_modifier {
 .plan_act {
   margin-top: 20px;
   text-align: center;
-  font-size: 1.5em;
   font-style: bold;
   font-size: 3em;
 }
@@ -882,3 +881,25 @@ button#continuer.btn_modifier {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   }
+.suivis_rdv {
+  font-style: bold;
+  font-weight: 1.5em;
+}
+
+.rdv {
+  position: flex;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+}
+.suivis_rdv {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.rdv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
