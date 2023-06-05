@@ -8,7 +8,8 @@
     );
 ?>
 <div class="addsuivis">
-
+    <a href="index.php?route=suivis_rdv">Accès suivis rdv</a>
+    <a href="index.php?route=creer2">Accès suivis page 2</a>
     <h1 class="titrecreer">création du suivis</h1>
     <h2 class="information">Informations personnelles</h2>
     <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit">
