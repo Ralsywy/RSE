@@ -536,26 +536,26 @@
         <!--    Si qualifiante   -->
         <div class="input_boxe" id="if_qual">
         <label for="nom_form">Nom de la formation qualifiante : </label>
-        <input type="text" id="nom_form">
+        <input type="text" id="nom_form" name="form_qual">
         </div>
         <!--    Si diplômante   -->
         <div class="input_boxe" id="if_dipl">
         <label for="nom_diplo">Nom du diplôme diplômante : </label>
-        <input type="text" id="nom_diplo">
+        <input type="text" id="nom_diplo" name="form_dipl">
         </div>
         <div class="input_boxe">
         <label for="metier_s">Métier souhaité : </label>
-        <input type="text" id="metier_s">
+        <input type="text" id="metier_s" name="metier_souhaite">
 
         <label for="secteur_act">Secteur d'activité : </label>
-        <input type="text" id="secteur_act">
+        <input type="text" id="secteur_act" name="secteur_activite">
 
         <label for="secteur_geo">Secteur géographique souhaité</label>
-        <input type="text" id="secteur_geo">
+        <input type="text" id="secteur_geo" name="secteur_geo">
         </div>
 
         <label for="horaire">Horaire de travail souhaité : </label>
-        <select class="form-control" name="horaire" id="horaire">
+        <select class="form-control" name="moment_journee" id="horaire">
             <option value="rien">-- Selectionner une option --</option>
             <option value="jour">Travail la journée</option>
             <option value="matin">Travail le matin</option>
