@@ -165,6 +165,9 @@ switch ($_GET["route"]){
   case "edit_reprendre":
     include("pages/lister_suivis/reprendre.php");
     break;
+  case "supp_inscrit":
+    include("pages/lister_suivis/supp_inscrit.php");
+    break;
   case "store_plan":
     include("pages/creer_suivis/store_plan.php");
     break;

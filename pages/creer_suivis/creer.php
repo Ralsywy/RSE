@@ -45,7 +45,7 @@
         <!--    Si non    -->
         <div id="date_rea1">
         <label class="decale" for="date_r">Date de réalisation : </label>
-        <input class="input_suivis" type="date" id="date_r">
+        <input class="input_suivis" type="date" id="date_r" name="dte_realisation">
         </div>
     </div>
     <?php
@@ -570,6 +570,9 @@
         </div>
     </form>      
 </div>
+<?php
+$mysqlConnection = null;
+?>
             <!--    
             Plan d'action   ------------------------------------------------------------------
 
