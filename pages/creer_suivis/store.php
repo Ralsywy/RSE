@@ -10,14 +10,18 @@
 
 ////    Information personnelles    ////
 $choix_rdc = $_POST['inscrit_rdc'];
+$choix_enfant = $_POST['enfant_charge'];
 // ordre de mission
-$requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc) VALUES (:dte_contact,:origine_contact,:inscrit_rdc)");
+$requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge) VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge)");
 // execution de la requete
-$requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"]]);
+$requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"]]);
 $requete = null;
 
 $last_id = $mysqlConnection->lastInsertId();
 $id_rdc = $last_id;
+
+
+    
 
 if($choix_rdc == "oui"){
     // ordre de mission
@@ -34,14 +38,38 @@ else{
     $requete = null;
 }
 
-////    ACCOMPAGNATEURS    ////
-$accompagnateur = $_POST['accompagnateur'];
-// ordre de mission
-$requete = $mysqlConnection->prepare("SELECT id_accompagnateur FROM accompagnateur WHERE name_acc==$accompagnateur");
-// execution de la requete
-$requete->execute();
-$accompagnateur = $requete;
-$requete = null;
+
+if($choix_enfant == "oui"){
+    $nombreEnfant = isset($_POST['nb_enfant']) ? intval($_POST['nb_enfant']) : 0;
+    for ($i = 1; $i <= $nombreEnfant; $i++) {
+        // Récupération des données postées pour chaque enfant
+        $dte_naissance_enfant = $_POST["dte_naissance" . $i];
+        $nom_enfant = $_POST["nom_enfant" . $i];
+        // Préparation de la requête
+        $requete = $mysqlConnection->prepare("INSERT INTO enfant(id_enfant, dte_naissance_enfant, nom_enfant) VALUES (:id_enfant, :dte_naissance_enfant, :nom_enfant)");
+
+        
+
+        // Assignation des valeurs pour l'insertion
+        $requete->bindValue(':id_enfant', $id_enfant);
+        $requete->bindValue(':dte_naissance_enfant', $dte_naissance_enfant);
+        $requete->bindValue(':nom_enfant', $nom_enfant);
+
+        // Exécution de la requête
+        $requete->execute();
+    }
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO enfant(id_enfant,dte_naissance_enfant,nom_enfant) VALUES (:id_enfant,:dte_naissance_enfant,:nom_enfant)");
+    // execution de la requete
+    $requete->execute(["id_enfant"=>$id_enfant,"dte_naissance_enfant"=>$_POST["dte_naissance_enfant"],"nom_enfant"=>$_POST["nom_enfant"]]);
+    $requete = null;
+
+    
+}
+
+
+
+
 
 
 

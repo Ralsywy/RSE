@@ -156,11 +156,11 @@
 
         <div class="sit_perso">
         <label>Enfants à charge : </label>
-        <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)">
+        <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui">
         <label for="enfant_oui">oui</label>
 
 
-        <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)">
+        <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non">
         <label for="enfant_non">non</label>
         <div id="enfant_naissance" class="input_boxe">
         <!--    Si oui    -->
