@@ -10,7 +10,7 @@
 <div class="addsuivis">
     <a href="index.php?route=suivis_rdv">Accès suivis rdv</a>
     <a href="index.php?route=creer2">Accès suivis page 2</a>
-    <h1 class="titrecreer">création du suivis</h1>
+    <h1 class="titrecreer">Création du suivi</h1>
     <h2 class="information">Informations personnelles</h2>
     <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit">
         <!--    Information personnelles    -->
@@ -60,7 +60,7 @@
     ?>
         <div class="input_boxe">
         <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
-        <select name="accompagnateur" id="accompagnateur" class="form-control">
+        <select name="accompagnateurr" id="accompagnateur" class="form-control">
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
             foreach($accompagnateurs as $ligne){?>

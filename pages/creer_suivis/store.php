@@ -33,15 +33,14 @@ else{
     $requete->execute(["id_rdc"=>$id_rdc,"dte_realisation_rdc"=>$_POST["dte_realisation_rdc"]]);
     $requete = null;
 }
-
+/*
 ////    ACCOMPAGNATEURS    ////
 $accompagnateur = $_POST['accompagnateur'];
 // ordre de mission
-$requete = $mysqlConnection->prepare("SELECT id_accompagnateur FROM accompagnateur WHERE name_acc==$accompagnateur");
+$requete = $mysqlConnection->prepare("INSERT INTO inscrit(fk_id_accompagnateur) VALUES (:id_rdc) INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur");
 // execution de la requete
-$requete->execute();
-$accompagnateur = $requete;
-$requete = null;
+$requete->execute(["fk_id_accompagnateur"=>$id_rdc]);
+$requete = null; */
 
 
 
