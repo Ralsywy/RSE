@@ -8,6 +8,9 @@ var dipl_prepa = document.getElementById("dipl_prepa");
 var non_form = document.getElementById("non_form");
 var non_reconv = document.getElementById("non_reconv");
 var tableau = document.getElementById("monTableau");
+var nb_enfant = document.getElementById("nombre_enfant");
+
+
 
 
 });
