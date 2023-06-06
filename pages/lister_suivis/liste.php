@@ -54,6 +54,7 @@ if (isset($_SESSION["login"])){
                             <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
                             <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php
@@ -86,7 +87,8 @@ if (isset($_SESSION["login"])){
                         <td>
                             <a href="index.php?route=creer_suivis"><button class="btn_modifier">Modifier</button></a>
                             <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
-                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
+                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php

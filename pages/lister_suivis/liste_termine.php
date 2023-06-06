@@ -52,6 +52,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php
@@ -78,6 +79,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php

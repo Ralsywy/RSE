@@ -629,6 +629,9 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
     </form>      
 </div>
+<?php
+$mysqlConnection = null;
+?>
             <!--    
             Plan d'action   ------------------------------------------------------------------
 
