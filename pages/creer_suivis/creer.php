@@ -60,7 +60,7 @@
     ?>
         <div class="input_boxe">
         <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
-        <select name="accompagnateur" id="accompagnateur" class="form-control"  >
+        <select name="accompagnateur" id="accompagnateur" class="form-control">
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
             foreach($accompagnateurs as $ligne){?>
