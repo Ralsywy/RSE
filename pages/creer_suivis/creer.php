@@ -60,7 +60,7 @@
     ?>
         <div class="input_boxe">
         <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : </label>
-        <select name="accompagnateurr" id="accompagnateur" class="form-control">
+        <select name="accompagnateur" id="accompagnateur" class="form-control">
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
             foreach($accompagnateurs as $ligne){?>
@@ -87,9 +87,9 @@
         <label for="civilite">Civilité : </label>
         <select class="form-control" name="civilite" id="civilite">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="madame">Madame</option>
-            <option value="mademoiselle">Mademoiselle</option>
-            <option value="monsieur">Monsieur</option>
+            <option value="Madame">Madame</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Monsieur">Monsieur</option>
         </select>
         <div class="input_boxe">
 
@@ -98,7 +98,7 @@
 
 
         <label class="decale" for="prenom">Prénom : </label>
-        <input class="decale" type="text" id="prenom" name="nom">
+        <input class="decale" type="text" id="prenom" name="prenom">
         </div>
         <div class="input_boxe">
 
@@ -140,7 +140,7 @@
     </div>
 
         <label for="statue">Statue : </label>
-        <select class="form-control" name="statue" id="statut" name="situation_perso">
+        <select class="form-control" id="statut" name="situation_perso">
             <option value="rien">-- Selectionner un statut --</option>
             <option value="celibataire">Célibataire</option>
             <option value="marie">Marié(e)</option>

@@ -11,10 +11,19 @@
 ////    Information personnelles    ////
 $choix_rdc = $_POST['inscrit_rdc'];
 $choix_enfant = $_POST['enfant_charge'];
+$accompagnateur = $_POST['accompagnateur'];
+$civilite = $_POST['civilite'];
 // ordre de mission
-$requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge) VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge)");
+$requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge,fk_id_accompagnateur,civilite,
+nom,prenom,dte_naissance,nationalite,adresse,code_postal,ville,telephone,email,situation_perso,nature_revenus)
+VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge,:fk_id_accompagnateur,:civilite,:nom,:prenom,:dte_naissance,:nationalite,:adresse,
+:code_postal,:ville,:telephone,:email,:situation_perso,:nature_revenus)");
 // execution de la requete
-$requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"]]);
+$requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],
+"inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"],"fk_id_accompagnateur"=>$accompagnateur,"civilite"=>$_POST["civilite"],
+"nom"=>$_POST["nom"],"prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"nationalite"=>$_POST["nationalite"],
+"adresse"=>$_POST["adresse"],"code_postal"=>$_POST["code_postal"],"ville"=>$_POST["ville"],"telephone"=>$_POST["telephone"],
+"email"=>$_POST["email"],"situation_perso"=>$_POST["situation_perso"],"nature_revenus"=>$_POST["nature_revenus"]]);
 $requete = null;
 
 $last_id = $mysqlConnection->lastInsertId();
@@ -37,14 +46,7 @@ else{
     $requete->execute(["id_rdc"=>$id_rdc,"dte_realisation_rdc"=>$_POST["dte_realisation_rdc"]]);
     $requete = null;
 }
-/*
-////    ACCOMPAGNATEURS    ////
-$accompagnateur = $_POST['accompagnateur'];
-// ordre de mission
-$requete = $mysqlConnection->prepare("INSERT INTO inscrit(fk_id_accompagnateur) VALUES (:id_rdc) INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur");
-// execution de la requete
-$requete->execute(["fk_id_accompagnateur"=>$id_rdc]);
-$requete = null; */
+
 
 
 if($choix_enfant == "oui"){
