@@ -60,7 +60,7 @@
         <hr>
     <div class="after_plan">
         <form action="method">
-        <label for="situat_pro">Situation professionel après la cloture du plan d'action : </label>
+        <label for="situat_pro">Situation professionnelle après la clôture du plan d'action : </label>
         <select class="form-control" name="type_formation" id="situat_pro" onchange="hideshowsituationpro()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="cdi">C.D.I</option>

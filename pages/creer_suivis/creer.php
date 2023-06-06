@@ -166,8 +166,6 @@
         <!--    Si oui    -->
         <label for="nombre_enfant">Nombre d'enfants à charge : </label>
         <input type="number" id="nombre_enfant" name="nb_enfant">
-        <label for="date_naissance_enfant">Date de naissance</label>
-        <input type="date" name="dte_naissance_enfant">
         <div id="boite">
         </div>
 
@@ -254,7 +252,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Pôle emplois  --------------------------------------------------------------------
         -->
-        <label for="inscrit_pole_emploi">Inscrit à pôle emplois : </label>
+        <label for="inscrit_pole_emploi">Inscrit à pôle emploi : </label>
         <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)">
         <label for="pole_oui">oui</label>
         <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)">
@@ -278,7 +276,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Mission local   -------------------------------------------------------------------
         -->
-        <label for="inscrit_mission_local">Inscrit à la mission local : </label>
+        <label for="inscrit_mission_local">Inscrit à la mission locale : </label>
         <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)">
         <label for="mission_oui">oui</label>
         <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)">
@@ -292,7 +290,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div id="mission">
         <div class="input_boxe">
-        <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emplois : </label>
+        <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emploi : </label>
         <input type="text" id="ref_mission" name="nom_referent_mission">
             <div class="input_boxe">
         <label id="datem" for="date_mission">Date d'inscription : </label>
@@ -306,7 +304,7 @@ inputNombreEnfant.addEventListener('change', () => {
             CAP emplois  ----------------------------------------------------------------------
         -->
         <div>
-        <label for="inscrit_cap_emplois">Inscrit à CAP emplois : </label>
+        <label for="inscrit_cap_emplois">Inscrit à CAP emploi : </label>
         
         <input type="radio" id="cap_oui" name="inscrit_cap_emplois" onclick="showhidecap(1)">
         <label for="cap_oui">oui</label>
@@ -316,7 +314,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div class="input_boxe">
         <div id="cap">
-        <label for="date_inscription_cap_emplois">Date d'inscription au CAP emplois : </label>
+        <label for="date_inscription_cap_emplois">Date d'inscription à CAP emploi : </label>
         <input type="date" id="date_inscription_cap_emplois" name="dte_inscription_cap">
         <label for="nom_ref2">Nom du référent : </label>
         <input type="text" id="nom_ref2" name="nom_referent_cap">
