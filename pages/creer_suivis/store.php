@@ -221,9 +221,9 @@ else{
 ////    FORMATION    ////
 if($diplome =="aucun"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("INSERT INTO diplome(id_diplome,nom_diplome,nb_annee_scolarisation) VALUES (:id_diplome,:nom_diplome,:nb_annee_scolarisation)");
+    $requete = $mysqlConnection->prepare("INSERT INTO diplome(id_diplome,niveau_diplome,nb_annee_scolarisation) VALUES (:id_diplome,:niveau_diplome,:nb_annee_scolarisation)");
     // execution de la requete
-    $requete->execute(["id_diplome"=>$id_rdc,"nom_diplome"=>$_POST["nom_diplome"],"nb_annee_scolarisation"=>$_POST["nb_annee_scolarisation"]]);
+    $requete->execute(["id_diplome"=>$id_rdc,"niveau_diplome"=>$_POST["niveau_diplome"],"nb_annee_scolarisation"=>$_POST["nb_annee_scolarisation"]]);
     $requete = null;
 }
 
@@ -232,13 +232,6 @@ $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc,
 $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc]);
 $requete = null;
 
-
-
-// upload
-
-
-$chemin_pdf = $_FILES['pdfFile']['tmp_name'];
-$chemin_pdfdef = 'cv/'
 
 
 
