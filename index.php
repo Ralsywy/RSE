@@ -180,7 +180,6 @@ switch ($_GET["route"]){
   case "store_inscrit":
     include("pages/creer_suivis/store.php");
     break;
-
   }}
 ?>
 

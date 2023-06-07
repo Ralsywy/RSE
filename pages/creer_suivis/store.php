@@ -180,6 +180,22 @@ else{
 
 
 
+
+
+// upload
+
+
+$chemin_pdf = $_FILES['pdfFile']['tmp_name'];
+$chemin_pdfdef = 'cv/'
+
+
+
+
+
+
+
+
+
 $_SESSION["success"]="Première page du formulaire complétée";
 $mysqlConnection = null;
 header("location:index.php?route=creer2");
