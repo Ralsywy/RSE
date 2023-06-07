@@ -17,6 +17,8 @@ $nature_revenus = $_POST['nature_revenus'];
 $inscrit_pole_emploi = $_POST['inscrit_pole_emploi'];
 $inscrit_mission_local = $_POST['inscrit_mission_local'];
 $inscrit_cap_emploi = $_POST['inscrit_cap_emploi'];
+$inscrit_soelis = $_POST['inscrit_soelis'];
+
 // ordre de mission
 $requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge,fk_id_accompagnateur,civilite,
 nom,prenom,dte_naissance,nationalite,adresse,code_postal,ville,telephone,email,situation_perso,nature_revenus,inscrit_pole_emploi,
@@ -90,6 +92,22 @@ if($inscrit_pole_emploi == "oui"){
     $requete = $mysqlConnection->prepare("INSERT INTO pole_emploi(id_pole_emploi,dte_inscription,nom_referent) VALUES (:id_pole_emploi,:dte_inscription,:nom_referent)");
     // execution de la requete
     $requete->execute(["id_pole_emploi"=>$id_rdc,"dte_inscription"=>$_POST["dte_inscription"],"nom_referent"=>$_POST["nom_referent"]]);
+    $requete = null;
+}
+else{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO pole_emploi(id_pole_emploi,dte_realisation_pole) VALUES (:id_pole_emploi,:dte_realisation_pole)");
+    // execution de la requete
+    $requete->execute(["id_pole_emploi"=>$id_rdc,"dte_realisation_pole"=>$_POST["dte_realisation_pole"]]);
+    $requete = null;
+}
+
+/* SOLEIS */
+if($inscrit_soelis == "oui"){
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_inscription_soelis) VALUES (:id_soelis,:dte_inscription_soelis)");
+    // execution de la requete
+    $requete->execute(["id_soelis"=>$id_rdc,"dte_inscription_soelis"=>$_POST["dte_inscription_soelis"]]);
     $requete = null;
 }
 else{

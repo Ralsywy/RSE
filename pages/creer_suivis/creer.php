@@ -286,7 +286,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Soélis  --------------------------------------------------------------------
         -->
-        <label for="inscrit_soelis">Inscrit à soélis : </label>
+        <label for="inscrit_soelis">Inscrit à Soélis : </label>
         <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui">
         <label for="soelis_oui">oui</label>
         <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non">
