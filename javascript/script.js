@@ -62,8 +62,8 @@ function showhidesoelis(val) {
         document.getElementById('date_rea_soelis').style.display='none';
     }
     if(val==2) {
-        document.getElementById('inscrit_cma').style.display='none';
-        document.getElementById('date_rea_cma').style.display='block';
+        document.getElementById('inscrit_soelis').style.display='none';
+        document.getElementById('date_rea_soelis').style.display='block';
     }
   }
 // Mission locale
