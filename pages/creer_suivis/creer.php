@@ -543,11 +543,12 @@ inputNombreEnfant.addEventListener('change', () => {
         <input type="text" id="dipl_autre" name="nom_diplome">
     
         <!--    Si aucun   -->
-
+</div>
+<div id="niveau">
         <label for="dipl_aucun">Nombre d'années d'études : </label>
         <input type="text" id="dipl_aucun" name="nb_annee_scolarisation">
-    </div>
-    <div id="niveau">
+    
+    
         <label for="dipl_niveau">Renseigner le niveau : </label>
         <input type="text" id="dipl_niveau" name="niveau_diplome">
     </div>

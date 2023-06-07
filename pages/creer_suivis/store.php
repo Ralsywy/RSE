@@ -232,6 +232,22 @@ $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc,
 $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc]);
 $requete = null;
 
+
+
+// upload
+
+
+$chemin_pdf = $_FILES['pdfFile']['tmp_name'];
+$chemin_pdfdef = 'cv/'
+
+
+
+
+
+
+
+
+
 $_SESSION["success"]="Première page du formulaire complétée";
 $mysqlConnection = null;
 header("location:index.php?route=creer2");
