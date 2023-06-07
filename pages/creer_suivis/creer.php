@@ -561,7 +561,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </select>
         </div>
         <div id="lue">
-        <label for="lfrancais">Connaissance de la langue française (Lue) :   </label>
+        <label for="lfrancais" class="petit_lu">Connaissance de la langue française (Lue) :   </label>
         <select class="form-control" id="lfrancais" name="langue_fr_lue">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
             <option value="e1">A1</option>
