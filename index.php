@@ -177,9 +177,6 @@ switch ($_GET["route"]){
   case "creer2":
     include("pages/creer_suivis/creer2.php");
     break;
-  case "suivis_rdv":
-    include("pages/creer_suivis/suivis_rdv.php");
-    break;
   case "store_inscrit":
     include("pages/creer_suivis/store.php");
     break;

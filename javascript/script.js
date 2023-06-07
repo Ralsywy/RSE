@@ -1,7 +1,7 @@
 // Scripts créer suivis
 
 
-// Enfants à charge
+// centre num
 function hideShowDiv(val) {
   if(val==1) {
       document.getElementById('centre_num').style.display='block';
@@ -21,6 +21,7 @@ function hideshowkid(val) {
   }
   if(val==2) {
       document.getElementById('enfant_naissance').style.display='none';
+      nb_enfant.value = "0";
   }
 }
 // Nature des revenus
@@ -43,6 +44,28 @@ function showhideemplois(val) {
       document.getElementById('date_rea2').style.display='block';
   }
 }
+// CMA
+function showhidecma(val) {
+    if(val==1) {
+        document.getElementById('inscrit_cma').style.display='block';
+        document.getElementById('date_rea_cma').style.display='none';
+    }
+    if(val==2) {
+        document.getElementById('inscrit_cma').style.display='none';
+        document.getElementById('date_rea_cma').style.display='block';
+    }
+  }
+// Soélis
+function showhidesoelis(val) {
+    if(val==1) {
+        document.getElementById('inscrit_soelis').style.display='block';
+        document.getElementById('date_rea_soelis').style.display='none';
+    }
+    if(val==2) {
+        document.getElementById('inscrit_cma').style.display='none';
+        document.getElementById('date_rea_cma').style.display='block';
+    }
+  }
 // Mission locale
 function showhidemission(val) {
   if(val==1) {
@@ -119,13 +142,29 @@ function hideshowdipl() {
   var dipl = document.getElementById("dipl").value;
       if(dipl == "aucun") {
           document.getElementById('rens_dipl').style.display='block';
+          document.getElementById('form_continue').style.display='none';
+          document.getElementById('cap_metier').style.display='none';
           document.getElementById('niveau').style.display='none';
       } else if (dipl == "autre") {
+          document.getElementById('form_continue').style.display='none';
           document.getElementById('rens_dipl').style.display='none';
+          document.getElementById('cap_metier').style.display='none';
           document.getElementById('niveau').style.display='block';
-      } else {
+      } else if (dipl == "cap") {
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('cap_metier').style.display='block';
+    } else if (dipl == "forma_continue") {
+        document.getElementById('form_continue').style.display='block';
+        document.getElementById('cap_metier').style.display='none';
         document.getElementById('rens_dipl').style.display='none';
         document.getElementById('niveau').style.display='none';
+    } else {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
       }
   }
 // Reconversion pro

@@ -15,29 +15,24 @@
     $requete = null;
     ?>
 <div class="addsuivis">
-    <h2 class="plan_act">Plan d'action</h2>
-    <a href="index.php?route=suivis_rdv">rdv page</a>
+    <h2 class="plan_act">Suivi des rendez-vous</h2>
     <hr>
 <div class="tableau" id="tabl">
     <table class="table" id="monTableau">
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Actions à mener</th>
-            <th scope="col">Objectifs</th>
-            <th scope="col">Moyens mis en oeuvre</th>
             <th scope="col">échéance</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Actions à mener</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <form action="index.php?route=store_plan" method="post" id="plan_act">
                 <td></td>
-                <td><input type="text" id="action_menee" name="action_menee"></td>
-                <td><input type="text" id="objectif" name="objectif"></td>
-                <td><input type="text" id="moyen_oeuvre" name="moyen_oeuvre"></td>
                 <td><input type="date" id="echeance" name="echeance"></td>
+                <td><textarea class="form-control" id="action_menee" name="action_menee"></textarea></td>
                 <td><button type="submit" class="btn_modifier">Ajouter</button></td>
             </form>
         </tr>
@@ -46,10 +41,8 @@
         ?>
             <tr>
                 <td><?= $ligne["id_plan_action"]?></td>
-                <td><?= $ligne["action_menee"]?></td>
-                <td><?= $ligne["objectif"]?></td>
-                <td><?= $ligne["moyen_oeuvre"]?></td>
                 <td><?= $ligne["echeance"]?></td>
+                <td class="acti"><?= $ligne["action_menee"]?></td>
                 <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
@@ -163,6 +156,10 @@
         <input type="text" id="autre_situ" name="autre">
         </div>
         </div>
+        <hr>
+        <h2 class="info_cmpl">Informations complémentaires : </h2>
+        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
+        <button type="submit" class="btn_modifier" id="finir">Créer (2/2)</button>
         </form>
         </div>
     </div>

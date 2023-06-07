@@ -8,7 +8,6 @@
     );
 ?>
 <div class="addsuivis">
-    <a href="index.php?route=suivis_rdv">Accès suivis rdv</a>
     <a href="index.php?route=creer2">Accès suivis page 2</a>
     <h1 class="titrecreer">Création du suivi</h1>
     <h2 class="information">Informations personnelles</h2>
@@ -32,7 +31,13 @@
         <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)">
         <label for="inscrit_non">non</label>
 
-
+    <div>
+        <label for="benevole">Bénévole aux resto du coeur : </label>
+        <input type="radio" id="_oui" name="benevole" class="oui" value="oui">
+        <label for="benevole_oui">oui</label>
+        <input type="radio" id="_non" name="benevole" class="non" value="non">
+        <label for="benevole_non">non</label>
+    </div>
 
         <!--    Si oui   -->
     <div id="centre_num">
@@ -81,7 +86,7 @@
         -->
         <div class="infor_pers">  
     <h2 class="information">Coordonnées</h2>
-    <h2 class="information2">Situation personelle</h2>
+    <h2 class="information2">Situation personnelle</h2>
         <div class="block_enligne">
     <div class="input_boxe">
         <label for="civilite">Civilité : </label>
@@ -168,7 +173,7 @@
         <input type="number" id="nombre_enfant" name="nb_enfant">
         <div id="boite">
         </div>
-
+<br>
         </div>
         <script>
 // Récupérer la référence de l'input nombre_enfant
@@ -190,6 +195,8 @@ inputNombreEnfant.addEventListener('change', () => {
     // Créer un élément div
     const div = document.createElement('div');
     div.id = 'boite';
+    const div2 = document.createElement('div');
+    div2.id = 'boite2';
 
     // Créer un élément label pour le nom de l'enfant
     const labelNomEnfant = document.createElement('label');
@@ -206,6 +213,8 @@ inputNombreEnfant.addEventListener('change', () => {
     const labelDateNaissance = document.createElement('label');
     labelDateNaissance.htmlFor = 'dte_naissance_enfant';
     labelDateNaissance.textContent = `Date de naissance de l'enfant ${i + 1} : `;
+    labelDateNaissance.classList.add('dte_naissance_enfant');
+
 
     // Créer un élément input pour la date de naissance de l'enfant
     const inputDateNaissance = document.createElement('input');
@@ -216,11 +225,12 @@ inputNombreEnfant.addEventListener('change', () => {
     // Ajouter les éléments créés au div parent
     div.appendChild(labelNomEnfant);
     div.appendChild(inputNomEnfant);
-    div.appendChild(labelDateNaissance);
-    div.appendChild(inputDateNaissance);
+    div2.appendChild(labelDateNaissance);
+    div2.appendChild(inputDateNaissance);
 
     // Ajouter le div parent à l'élément parent
     parentElement.appendChild(div);
+    parentElement.appendChild(div2);
   }
 });
 
@@ -271,6 +281,54 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_rea2">
         <label for="date_r2">Date de réalisation : </label>
         <input type="date" id="date_r2" name="dte_realisation_pole">
+        </div>
+    </div>
+        <!--    
+            Soélis  --------------------------------------------------------------------
+        -->
+        <label for="inscrit_soelis">Inscrit à soélis : </label>
+        <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui">
+        <label for="soelis_oui">oui</label>
+        <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non">
+        <label for="soelis_non">non</label>
+        <!--    Si oui    -->
+        <div class="input_boxe">
+            <div id="inscrit_soelis">
+        <label id="inscri_soelis" for="date_inscription_soelis">Date d'inscription à soelis : </label>
+        <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis">
+        <div class="input_boxe" id="date_rea_soelis">
+        <label id="ref" for="nom_ref">Nom du référent</label>
+        <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis">
+        </div>
+    </div>
+        <!--    Si non    -->
+        <div id="date_rea_soelis">
+        <label for="date_rea_s">Date de réalisation : </label>
+        <input type="date" id="date_rea_s" name="dte_realisation_soelis">
+        </div>
+    </div>
+        <!--    
+            CMA  --------------------------------------------------------------------
+        -->
+        <label for="inscrit_cma">Inscrit à CMA : </label>
+        <input type="radio" id="cma_oui" name="inscrit_cma" onclick="showhidecma(1)" value="oui">
+        <label for="cma_oui">oui</label>
+        <input type="radio" id="cma_non" name="inscrit_cma" onclick="showhidecma(2)" value="non">
+        <label for="cma_non">non</label>
+        <!--    Si oui    -->
+        <div class="input_boxe">
+            <div id="inscrit_cma">
+        <label id="inscrit_cma1" for="date_inscription_pole_emplois">Date d'inscription à CMA : </label>
+        <input id="input_inscri_cma" type="date" id="date_inscription_cma" name="dte_inscription_cma">
+        <div class="input_boxe">
+        <label id="ref" for="nom_ref_cma">Nom du référent</label>
+        <input id="input_ref" type="text" id="nom_ref_cma" name="nom_referent_cma">
+        </div>
+    </div>
+        <!--    Si non    -->
+        <div id="date_rea_cma">
+        <label for="date_cma">Date de réalisation : </label>
+        <input type="date" id="date_cma" name="dte_realisation_cma">
         </div>
     </div>
         <!--    
@@ -404,9 +462,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="vehicule">Véhicule disponible : </label>
         </div>
-        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)">
+        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui">
         <label for="vehicule_oui">oui</label>
-        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)">
+        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non">
         <label for="vehicule_non">non</label>
         <!--    Si oui (rien)  -->
 
@@ -433,6 +491,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <select class="form-control" name="formation" id="dipl" onchange="hideshowdipl()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="aucun">aucun diplôme</option>
+            <option value="brevet">Brevet</option>
             <option value="cap">CAP</option>
             <option value="bep">BEP</option>
             <option value="bac">BAC</option>
@@ -441,7 +500,18 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="master1">Master 1</option>
             <option value="master2">Master 2</option>
             <option value="autre">Autre</option>
+            <option value="forma_continue">Formation continue</option>
         </select>
+        <!--    Si CAP   -->
+        <div class="input_boxe" id="cap_metier">
+        <label for="cap_metier">Renseigner le type de métier : </label>
+        <input type="text" id="input_cap_metier" name="cap_metier">
+        </div>
+        <!--    Si formation continue   -->
+        <div class="input_boxe" id="form_continue">
+        <label for="form_continue">Renseigner la formation : </label>
+        <input type="text" id="input_form_continue" name="form_continue">
+        </div>
         <!--    Si autre   -->
         <div id="rens_dipl">
         <label for="dipl_autre">Renseigner le diplôme : </label>
@@ -461,6 +531,11 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Connaissance de la langue française  ----------------------------------------------
         -->
+        <label for="atelier_fr">Inscrit aux ateliers de français : </label>
+        <input type="radio" id="fr_oui" name="atelier_fr">
+        <label for="fr_oui">oui</label>
+        <input type="radio" id="fr_non" name="atelier_fr">
+        <label for="fr_non">non</label>
         <div class="input_boxe">
         <label for="efrancais">Connaissance de la langue française (écrite) : </label>
         <select class="form-control" id="efrancais" name="langue_fr_ecrite">
@@ -623,7 +698,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="SD">Travail en SD</option>
         </select>
         <div>
-        <button type="submit" class="btn_modifier" id="continuer">Continuer</button>
+        <button type="submit" class="btn_modifier" id="continuer">Créer (1/2)</button>
         </div>
     </form>      
 </div>
