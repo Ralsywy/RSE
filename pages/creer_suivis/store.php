@@ -25,19 +25,19 @@ $achat_prevu = $_POST['achat_prevu'];
 $nom_diplome = $_POST['nom_diplome'];
 $reconversion = $_POST['reconversion'];
 $reprise = $_POST['reprise'];
-$formation = $_POST['formation'];
+$form_pro = $_POST['form_pro'];
 $form_type = $_POST['form_type'];
 
 // ordre de mission
 $requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge,fk_id_accompagnateur,civilite,
 nom,prenom,dte_naissance,nationalite,adresse,code_postal,ville,telephone,email,situation_perso,nature_revenus,inscrit_pole_emploi,
 inscrit_mission_local,inscrit_cap_emploi,benevole_rdc,vehicule_dispo,inscrit_soelis,inscrit_cma,cv_oui_non,achat_prevu,nom_diplome,atelier_fr,
-emploi_pre_occupe,organisme_contacte,entreprise_contactee,reconversion,reprise,formation,metier_souhaite,secteur_activite,secteur_geo,moment_journee,
+emploi_pre_occupe,organisme_contacte,entreprise_contactee,reconversion,reprise,form_pro,metier_souhaite,secteur_activite,secteur_geo,moment_journee,
 permis_voiture)
 VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge,:fk_id_accompagnateur,:civilite,:nom,:prenom,:dte_naissance,:nationalite,:adresse,
 :code_postal,:ville,:telephone,:email,:situation_perso,:nature_revenus,:inscrit_pole_emploi,:inscrit_mission_local,:inscrit_cap_emploi,:benevole_rdc,
 :vehicule_dispo,:inscrit_soelis,:inscrit_cma,:cv_oui_non,:achat_prevu,:nom_diplome,:atelier_fr,:emploi_pre_occupe,:organisme_contacte,:entreprise_contactee,
-:reconversion,:reprise,:formation,:metier_souhaite,:secteur_activite,:secteur_geo,:moment_journee,:permis_voiture)");
+:reconversion,:reprise,:form_pro,:metier_souhaite,:secteur_activite,:secteur_geo,:moment_journee,:permis_voiture)");
 // execution de la requete
 $requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],
 "inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"],"fk_id_accompagnateur"=>$accompagnateur,"civilite"=>$_POST["civilite"],
@@ -48,7 +48,7 @@ $requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POS
 "benevole_rdc"=>$benevole_rdc,"vehicule_dispo"=>$_POST["vehicule_dispo"],"inscrit_soelis"=>$_POST["inscrit_soelis"],"inscrit_cma"=>$_POST["inscrit_cma"],
 "cv_oui_non"=>$_POST["cv_oui_non"],"achat_prevu"=>$_POST["achat_prevu"],"nom_diplome"=>$_POST["nom_diplome"],"atelier_fr"=>$_POST["atelier_fr"],
 "emploi_pre_occupe"=>$_POST["emploi_pre_occupe"],"organisme_contacte"=>$_POST["organisme_contacte"],"entreprise_contactee"=>$_POST["entreprise_contactee"],
-"reconversion"=>$_POST["reconversion"],"reprise"=>$_POST["reprise"],"formation"=>$_POST["formation"],"metier_souhaite"=>$_POST["metier_souhaite"],
+"reconversion"=>$_POST["reconversion"],"reprise"=>$_POST["reprise"],"form_pro"=>$_POST["form_pro"],"metier_souhaite"=>$_POST["metier_souhaite"],
 "secteur_activite"=>$_POST["secteur_activite"],"secteur_geo"=>$_POST["secteur_geo"],"moment_journee"=>$_POST["moment_journee"],
 "permis_voiture"=>$_POST["permis_voiture"]]);
 $requete = null;
@@ -275,7 +275,7 @@ if($reconversion =="oui"){
         // ordre de mission
         $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_nom = :form_nom, form_date = :form_date, form_duree = :form_duree WHERE id_inscrit = '$id_rdc'");
         // execution de la requete
-        $requete->execute(["form_prevue"=>$_POST["form_prevue"],"form_date"=>$_POST["form_date"],"form_duree"=>$_POST["form_duree"]]);
+        $requete->execute(["form_nom"=>$_POST["form_nom"],"form_date"=>$_POST["form_date"],"form_duree"=>$_POST["form_duree"]]);
         $requete = null;
     }
 }
@@ -291,7 +291,7 @@ if($reprise =="oui"){
 
 
 ////    FORMATION PRO    //// 
-if($formation =="oui"){
+if($form_pro =="oui"){
     // ordre de mission
     $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_type = :form_type WHERE id_inscrit = '$id_rdc'");
     // execution de la requete
@@ -317,24 +317,6 @@ if($formation =="oui"){
 $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise WHERE id_inscrit = '$id_rdc'");
 $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc]);
 $requete = null;
-
-
-
-// upload
-
-
-$chemin_pdf = $_FILES['pdfFile']['tmp_name'];
-$chemin_pdfdef = 'cv/'.$_FILES['fichier']['name'];
-
-
-
-$moveIsOK = move_uploaded_file($chemin_pdf, $chemin_pdfdef);
-
-if ($moveIsOK) {
-    $message = "Fichier upload".$chemin_pdfdef;
-} else {
-    $message = "Erreur";
-}
 
 
 
