@@ -18,20 +18,28 @@ $inscrit_pole_emploi = $_POST['inscrit_pole_emploi'];
 $inscrit_mission_local = $_POST['inscrit_mission_local'];
 $inscrit_cap_emploi = $_POST['inscrit_cap_emploi'];
 $inscrit_soelis = $_POST['inscrit_soelis'];
+$inscrit_cma = $_POST['inscrit_cma'];
+$benevole_rdc = $_POST['benevole_rdc'];
+$cv_oui_non = $_POST['cv_oui_non'];
+$achat_prevu = $_POST['achat_prevu'];
+$diplome = $_POST['diplome'];
 
 // ordre de mission
 $requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge,fk_id_accompagnateur,civilite,
 nom,prenom,dte_naissance,nationalite,adresse,code_postal,ville,telephone,email,situation_perso,nature_revenus,inscrit_pole_emploi,
-inscrit_mission_local,inscrit_cap_emploi)
+inscrit_mission_local,inscrit_cap_emploi,benevole_rdc,vehicule_dispo,inscrit_soelis,inscrit_cma,cv_oui_non,achat_prevu,diplome)
 VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge,:fk_id_accompagnateur,:civilite,:nom,:prenom,:dte_naissance,:nationalite,:adresse,
-:code_postal,:ville,:telephone,:email,:situation_perso,:nature_revenus,:inscrit_pole_emploi,:inscrit_mission_local,:inscrit_cap_emploi)");
+:code_postal,:ville,:telephone,:email,:situation_perso,:nature_revenus,:inscrit_pole_emploi,:inscrit_mission_local,:inscrit_cap_emploi,:benevole_rdc,
+:vehicule_dispo,:inscrit_soelis,:inscrit_cma,:cv_oui_non,:achat_prevu,:diplome)");
 // execution de la requete
 $requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],
 "inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"],"fk_id_accompagnateur"=>$accompagnateur,"civilite"=>$_POST["civilite"],
 "nom"=>$_POST["nom"],"prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"nationalite"=>$_POST["nationalite"],
 "adresse"=>$_POST["adresse"],"code_postal"=>$_POST["code_postal"],"ville"=>$_POST["ville"],"telephone"=>$_POST["telephone"],
 "email"=>$_POST["email"],"situation_perso"=>$_POST["situation_perso"],"nature_revenus"=>$_POST["nature_revenus"],
-"inscrit_pole_emploi"=>$_POST["inscrit_pole_emploi"],"inscrit_mission_local"=>$_POST["inscrit_mission_local"],"inscrit_cap_emploi"=>$_POST["inscrit_cap_emploi"]]);
+"inscrit_pole_emploi"=>$_POST["inscrit_pole_emploi"],"inscrit_mission_local"=>$_POST["inscrit_mission_local"],"inscrit_cap_emploi"=>$_POST["inscrit_cap_emploi"],
+"benevole_rdc"=>$benevole_rdc,"vehicule_dispo"=>$_POST["vehicule_dispo"],"inscrit_soelis"=>$_POST["inscrit_soelis"],"inscrit_cma"=>$_POST["inscrit_cma"],
+"cv_oui_non"=>$_POST["cv_oui_non"],"achat_prevu"=>$_POST["achat_prevu"],"diplome"=>$_POST["diplome"]]);
 $requete = null;
 
 $last_id = $mysqlConnection->lastInsertId();
@@ -105,16 +113,32 @@ else{
 /* SOLEIS */
 if($inscrit_soelis == "oui"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_inscription_soelis) VALUES (:id_soelis,:dte_inscription_soelis)");
+    $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_inscription_soelis,nom_referent_soelis) VALUES (:id_soelis,:dte_inscription_soelis,:nom_referent_soelis)");
     // execution de la requete
-    $requete->execute(["id_soelis"=>$id_rdc,"dte_inscription_soelis"=>$_POST["dte_inscription_soelis"]]);
+    $requete->execute(["id_soelis"=>$id_rdc,"dte_inscription_soelis"=>$_POST["dte_inscription_soelis"],"nom_referent_soelis"=>$_POST["nom_referent_soelis"]]);
     $requete = null;
 }
 else{
     // ordre de mission
-    $requete = $mysqlConnection->prepare("INSERT INTO pole_emploi(id_pole_emploi,dte_realisation_pole) VALUES (:id_pole_emploi,:dte_realisation_pole)");
+    $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_realisation_soelis) VALUES (:id_soelis,:dte_realisation_soelis)");
     // execution de la requete
-    $requete->execute(["id_pole_emploi"=>$id_rdc,"dte_realisation_pole"=>$_POST["dte_realisation_pole"]]);
+    $requete->execute(["id_soelis"=>$id_rdc,"dte_realisation_soelis"=>$_POST["dte_realisation_soelis"]]);
+    $requete = null;
+}
+
+/* CMA */
+if($inscrit_cma == "oui"){
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO cma(id_cma,dte_inscription_cma,nom_referent_cma) VALUES (:id_cma,:dte_inscription_cma,:nom_referent_cma)");
+    // execution de la requete
+    $requete->execute(["id_cma"=>$id_rdc,"dte_inscription_cma"=>$_POST["dte_inscription_cma"],"nom_referent_cma"=>$_POST["nom_referent_cma"]]);
+    $requete = null;
+}
+else{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO cma(id_cma,dte_realisation_cma) VALUES (:id_cma,:dte_realisation_cma)");
+    // execution de la requete
+    $requete->execute(["id_cma"=>$id_rdc,"dte_realisation_cma"=>$_POST["dte_realisation_cma"]]);
     $requete = null;
 }
 
@@ -150,6 +174,22 @@ else{
     $requete = null;
 }
 
+/* CV */
+if($cv_oui_non == "oui"){
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv) VALUES (:id_cv)");
+    // execution de la requete
+    $requete->execute(["id_cv"=>$id_rdc]);
+    $requete = null;
+}
+else{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv,dte_travailler_cv) VALUES (:id_cv,:dte_travailler_cv)");
+    // execution de la requete
+    $requete->execute(["id_cv"=>$id_rdc,"dte_travailler_cv"=>$_POST["dte_travailler_cv"]]);
+    $requete = null;
+}
+
 /* PERMIS CONDUIRE */
 $permis_voiture = $_POST['permis_voiture'];
 if($permis_voiture == "motos1"){
@@ -178,7 +218,19 @@ else{
     }
 }
 
+////    FORMATION    ////
+if($diplome =="cap"){
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO diplome(nom_diplome,fk_id_inscrit_permis) VALUES (:marchandise,:fk_id_inscrit_permis)");
+    // execution de la requete
+    $requete->execute(["marchandise"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
+    $requete = null;
+}
 
+// Préparation de la requête
+$requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma WHERE id_inscrit = '$id_rdc'");
+$requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc]);
+$requete = null;
 
 
 

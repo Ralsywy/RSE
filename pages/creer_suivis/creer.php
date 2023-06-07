@@ -33,9 +33,9 @@
 
     <div>
         <label for="benevole">Bénévole aux resto du coeur : </label>
-        <input type="radio" id="_oui" name="benevole" class="oui" value="oui">
+        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
         <label for="benevole_oui">oui</label>
-        <input type="radio" id="_non" name="benevole" class="non" value="non">
+        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
         <label for="benevole_non">non</label>
     </div>
 
@@ -409,9 +409,9 @@ inputNombreEnfant.addEventListener('change', () => {
             CV  -------------------------------------------------------------------------------
         -->
         <label for="cv_oui_non">CV disponible : </label>
-        <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)">
+        <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)" value="oui">
         <label for="cv_oui">oui</label>
-        <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)">
+        <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)" value="non">
         <label for="cv_non">non</label>
         <div class="input_boxe">
         <!--    Si oui   -->
@@ -498,9 +498,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="achat_vehicule">Achat prévu d'un véhicule ?</label>
         </div>
-        <input type="radio" id="achat_oui" name="achat_prevu">
+        <input type="radio" id="achat_oui" name="achat_prevu" value="oui">
         <label for="achat_oui">oui</label>
-        <input type="radio" id="achat_non" name="achat_prevu">
+        <input type="radio" id="achat_non" name="achat_prevu" value="non">
         <label for="achat_non">non</label>
         </div>
     </div>
@@ -513,9 +513,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <h2 class="niveau_form">Niveau de formation : </h2>
         <div class="input_boxe">
         <label for="dipl">Diplôme obtenus :</label>
-        <select class="form-control" name="formation" id="dipl" onchange="hideshowdipl()">
+        <select class="form-control" name="diplome" id="dipl" onchange="hideshowdipl()">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="aucun">aucun diplôme</option>
+            <option value="aucun">Aucun diplôme</option>
             <option value="brevet">Brevet</option>
             <option value="cap">CAP</option>
             <option value="bep">BEP</option>
