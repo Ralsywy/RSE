@@ -483,72 +483,90 @@ html{
   background-color: #f4f4f4;
 }
 #centre_num {
+  margin-top: 10px;
   display: none;
 }
 #date_rea1 {
+  margin-top: 10px;
   display: none;
 }
 
 #enfant_naissance {
+  margin-top: 10px;
   display: none;
 }
 
 #preciser {
+  margin-top: 10px;
   display: none;
 }
 
 #pole_emplois {
+  margin-top: 10px;
   display: none;
 }
 
 #mission {
+  margin-top: 10px;
   display: none;
 }
 #cap {
+  margin-top: 10px;
   display: none;
 }
 
 #cv {
+  margin-top: 10px;
   display: none;
 }
 
 #date_cv{
+  margin-top: 10px;
   display: none;
 }
 
 #motos {
+  margin-top: 10px;
   display: none;
 }
 
 #auto {
+  margin-top: 10px;
   display: none;
 }
 
 #march {
+  margin-top: 10px;
   display: none;
 }
 
 #achat1 {
+  margin-top: 10px;
   display: none;
 }
 
 #date_rea1 {
+  margin-top: 10px;
   display: none;
 }
 
 #date_rea2 {
+  margin-top: 10px;
   display: none;
 }
 
 #date_rea3 {
+  margin-top: 10px;
   display: none;
 }
 
 #date_rea4 {
+  margin-top: 10px;
   display: none;
 }
 
 #date_rea5 {
+  margin-top: 10px;
   display: none;
 }
 
@@ -689,9 +707,11 @@ select#civilite.form-control {
   margin-top: 10px;
 }
 #rens_dipl {
+  margin-top: 10px;
   display: none;
 }
 #niveau {
+  margin-top: 10px;
   display: none;
 }
 .niveau_form {
@@ -730,27 +750,35 @@ textarea.form-control {
   top: -90px;
 }
 #formati {
+  margin-top: 10px;
   display: none;
 }
 #renseign {
+  margin-top: 10px;
   display: none;
 }
 #dipl_prep {
+  margin-top: 10px;
   display: none;
 }
 #oui_formpro {
+  margin-top: 10px;
   display: none;
 }
 #if_dipl {
+  margin-top: 10px;
   display: none;
 }
 #if_qual {
+  margin-top: 10px;
   display: none;
 }
 #if_dipl1 {
+  margin-top: 10px;
   display: none;
 }
 #if_qual1 {
+  margin-top: 10px;
   display: none;
 }
 .barre_recherche form{
@@ -827,30 +855,37 @@ button#continuer.btn_modifier {
   font-size: 3em;
 }
 #cdd {
+  margin-top: 10px;
   display: none;
 }
 
 #cdi {
+  margin-top: 10px;
   display: none;
 }
 
 #formation {
+  margin-top: 10px;
   display: none;
 }
 
 #stage {
+  margin-top: 10px;
   display: none;
 }
 
 #abandon {
+  margin-top: 10px;
   display: none;
 }
 
 #nonret {
+  margin-top: 10px;
   display: none;
 }
 
 #siautre {
+  margin-top: 10px;
   display: none;
 }
 
@@ -902,4 +937,59 @@ button#continuer.btn_modifier {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#cap_metier {
+  margin-top: 10px;
+  display: none;
+}
+
+#form_continue {
+  margin-top: 10px;
+  display: none;
+}
+
+#inscrit_cma {
+  margin-top: 10px;
+  display: none;
+}
+
+#date_rea_cma {
+  margin-top: 10px;
+  display: none;
+}
+
+#inscrit_soelis {
+  margin-top: 10px;
+  display: none;
+}
+
+#date_rea_soelis {
+  margin-top: 10px;
+  display: none;
+}
+
+textarea#action_menee {
+    height: 100;
+    max-width: 800px;
+}
+.acti {
+  width: 800px;
+  max-width: 800px;
+  word-wrap: break-word;
+}
+
+h2.info_cmpl {
+  position: relative;
+  left: 150px;
+  font-size: 2.5em;
+  font-style: oblique;
+}
+
+#finir {
+  margin-top: 30px;
+  position: relative;
+  left: 80%;
+  width: 200px;
+  height: 70px;
 }
