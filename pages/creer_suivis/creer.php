@@ -296,7 +296,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <div id="inscrit_soelis">
         <label id="inscri_soelis" for="date_inscription_soelis">Date d'inscription à soelis : </label>
         <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis">
-        <div class="input_boxe" id="date_rea_soelis">
+        <div class="input_boxe">
         <label id="ref" for="nom_ref">Nom du référent</label>
         <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis">
         </div>
@@ -536,7 +536,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="fr_oui">oui</label>
         <input type="radio" id="fr_non" name="atelier_fr">
         <label for="fr_non">non</label>
-        <div class="input_boxe">
+        <div class="input_boxe" id="ecrit">
         <label for="efrancais">Connaissance de la langue française (écrite) : </label>
         <select class="form-control" id="efrancais" name="langue_fr_ecrite">
             <option value="rien">-- Selectionner une option --</option>
@@ -548,6 +548,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="e5">C2</option>
         </select>
         </div>
+        <div id="parler">
         <label for="pfrancais">Connaissance de la langue française (parlée) : </label>
         <select class="form-control" id="pfrancais" name="langue_fr_parlee">
             <option value="rien">-- Selectionner une option --</option>
@@ -558,8 +559,9 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="e5">C1</option>
             <option value="e5">C2</option>
         </select>
-        <div>
-        <label for="lfrancais">Connaissance de la langue française (Lue) : </label>
+        </div>
+        <div id="lue">
+        <label for="lfrancais">Connaissance de la langue française (Lue) :   </label>
         <select class="form-control" id="lfrancais" name="langue_fr_lue">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
             <option value="e1">A1</option>
