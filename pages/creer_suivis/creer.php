@@ -462,9 +462,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="vehicule">Véhicule disponible : </label>
         </div>
-        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)">
+        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui">
         <label for="vehicule_oui">oui</label>
-        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)">
+        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non">
         <label for="vehicule_non">non</label>
         <!--    Si oui (rien)  -->
 
