@@ -513,7 +513,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <h2 class="niveau_form">Niveau de formation : </h2>
         <div class="input_boxe">
         <label for="dipl">Diplôme obtenus :</label>
-        <select class="form-control" name="diplome" id="dipl" onchange="hideshowdipl()">
+        <select class="form-control" name="nom_diplome" id="dipl" onchange="hideshowdipl()">
             <option value="rien">-- Selectionner une option --</option>
             <option value="aucun">Aucun diplôme</option>
             <option value="brevet">Brevet</option>
@@ -525,7 +525,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="master1">Master 1</option>
             <option value="master2">Master 2</option>
             <option value="autre">Autre</option>
-            <option value="forma_continue">Formation continue</option>
+            <option value="formation_continue">Formation continue</option>
         </select>
         <!--    Si CAP   -->
         <div class="input_boxe" id="cap_metier">

@@ -27,10 +27,10 @@ $diplome = $_POST['diplome'];
 // ordre de mission
 $requete = $mysqlConnection->prepare("INSERT INTO inscrit(dte_contact,origine_contact,inscrit_rdc,enfant_charge,fk_id_accompagnateur,civilite,
 nom,prenom,dte_naissance,nationalite,adresse,code_postal,ville,telephone,email,situation_perso,nature_revenus,inscrit_pole_emploi,
-inscrit_mission_local,inscrit_cap_emploi,benevole_rdc,vehicule_dispo,inscrit_soelis,inscrit_cma,cv_oui_non,achat_prevu,diplome)
+inscrit_mission_local,inscrit_cap_emploi,benevole_rdc,vehicule_dispo,inscrit_soelis,inscrit_cma,cv_oui_non,achat_prevu)
 VALUES (:dte_contact,:origine_contact,:inscrit_rdc,:enfant_charge,:fk_id_accompagnateur,:civilite,:nom,:prenom,:dte_naissance,:nationalite,:adresse,
 :code_postal,:ville,:telephone,:email,:situation_perso,:nature_revenus,:inscrit_pole_emploi,:inscrit_mission_local,:inscrit_cap_emploi,:benevole_rdc,
-:vehicule_dispo,:inscrit_soelis,:inscrit_cma,:cv_oui_non,:achat_prevu,:diplome)");
+:vehicule_dispo,:inscrit_soelis,:inscrit_cma,:cv_oui_non,:achat_prevu)");
 // execution de la requete
 $requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POST["origine_contact"],
 "inscrit_rdc"=>$_POST["inscrit_rdc"],"enfant_charge"=>$_POST["enfant_charge"],"fk_id_accompagnateur"=>$accompagnateur,"civilite"=>$_POST["civilite"],
@@ -39,7 +39,7 @@ $requete->execute(["dte_contact"=>$_POST["dte_contact"],"origine_contact"=>$_POS
 "email"=>$_POST["email"],"situation_perso"=>$_POST["situation_perso"],"nature_revenus"=>$_POST["nature_revenus"],
 "inscrit_pole_emploi"=>$_POST["inscrit_pole_emploi"],"inscrit_mission_local"=>$_POST["inscrit_mission_local"],"inscrit_cap_emploi"=>$_POST["inscrit_cap_emploi"],
 "benevole_rdc"=>$benevole_rdc,"vehicule_dispo"=>$_POST["vehicule_dispo"],"inscrit_soelis"=>$_POST["inscrit_soelis"],"inscrit_cma"=>$_POST["inscrit_cma"],
-"cv_oui_non"=>$_POST["cv_oui_non"],"achat_prevu"=>$_POST["achat_prevu"],"diplome"=>$_POST["diplome"]]);
+"cv_oui_non"=>$_POST["cv_oui_non"],"achat_prevu"=>$_POST["achat_prevu"]]);
 $requete = null;
 
 $last_id = $mysqlConnection->lastInsertId();
@@ -219,11 +219,11 @@ else{
 }
 
 ////    FORMATION    ////
-if($diplome =="cap"){
+if($diplome =="aucun"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("INSERT INTO diplome(nom_diplome,fk_id_inscrit_permis) VALUES (:marchandise,:fk_id_inscrit_permis)");
+    $requete = $mysqlConnection->prepare("INSERT INTO diplome(id_diplome,nom_diplome,nb_annee_scolarisation) VALUES (:id_diplome,:nom_diplome,:nb_annee_scolarisation)");
     // execution de la requete
-    $requete->execute(["marchandise"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
+    $requete->execute(["id_diplome"=>$id_rdc,"nom_diplome"=>$_POST["nom_diplome"],"nb_annee_scolarisation"=>$_POST["nb_annee_scolarisation"]]);
     $requete = null;
 }
 
