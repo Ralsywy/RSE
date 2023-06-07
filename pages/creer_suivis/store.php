@@ -238,13 +238,15 @@ $requete = null;
 
 
 $chemin_pdf = $_FILES['pdfFile']['tmp_name'];
-$chemin_pdfdef = 'cv/'
+$chemin_pdfdef = 'cv/'.$_FILES['fichier']['name'];
 
+$moveIsOK = move_uploaded_file($chemin_pdf, $chemin_pdfdef);
 
-
-
-
-
+if ($moveIsOK) {
+    $message = "Fichier upload".$chemin_pdfdef;
+} else {
+    $message = "Erreur";
+}
 
 
 
