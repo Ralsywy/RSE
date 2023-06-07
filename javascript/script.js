@@ -141,15 +141,15 @@ function hideshowpermis() {
 function hideshowdipl() {
   var dipl = document.getElementById("dipl").value;
       if(dipl == "aucun") {
-          document.getElementById('rens_dipl').style.display='block';
-          document.getElementById('form_continue').style.display='none';
-          document.getElementById('cap_metier').style.display='none';
-          document.getElementById('niveau').style.display='none';
-      } else if (dipl == "autre") {
-          document.getElementById('form_continue').style.display='none';
           document.getElementById('rens_dipl').style.display='none';
+          document.getElementById('form_continue').style.display='none';
           document.getElementById('cap_metier').style.display='none';
           document.getElementById('niveau').style.display='block';
+      } else if (dipl == "autre") {
+          document.getElementById('form_continue').style.display='none';
+          document.getElementById('rens_dipl').style.display='block';
+          document.getElementById('cap_metier').style.display='none';
+          document.getElementById('niveau').style.display='none';
       } else if (dipl == "cap") {
         document.getElementById('form_continue').style.display='none';
         document.getElementById('niveau').style.display='none';
