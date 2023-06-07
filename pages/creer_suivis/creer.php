@@ -106,13 +106,34 @@
         <input class="decale" type="text" id="prenom" name="prenom">
         </div>
         <div class="input_boxe">
-
+        
         <label for="birth_date">Date de naissance : </label>
         
-        <input type="date" id="birth_date" name="dte_naissance">
+        <input type="date" id="birthdate" name="dte_naissance">
+        <div class="div_age">
+        <p class="agee">Age : </p>
+        <p class="form-control" disabled id="age"></p>
+        </div>
+        <script>
+var inputDate = document.getElementById("birthdate");
+var ageElement = document.getElementById("age");
 
-        <label for="age">Age : </label>
-        <input type="text" disabled id="age">
+inputDate.addEventListener("input", calculerAge);
+
+function calculerAge() {
+   var dateNaissance = inputDate.value;
+   var dateActuelle = new Date();
+
+   var anneeNaissance = new Date(dateNaissance).getFullYear();
+   var anneeActuelle = dateActuelle.getFullYear();
+
+   var age = anneeActuelle - anneeNaissance;
+
+   ageElement.textContent = age + " ans";
+}
+
+        </script>
+
         </div>
         <div class="input_boxe">
         <label for="nationalite" id="nationalite">Nationalité : </label>
@@ -399,6 +420,10 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : </label> 
         <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
     </div>
+
+<?php
+
+?>
         <!--    Si non   -->
         <div id="date_cv">
         <div class="input_boxe">

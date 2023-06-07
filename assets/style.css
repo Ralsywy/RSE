@@ -1009,3 +1009,27 @@ h2.info_cmpl {
 .petit_lu {
   margin-right: 15px;
 }
+
+p.form-control {
+  width: 100px;
+  max-width: 100px;
+  height: 30px;
+  justify-content: center;
+  text-align: center;
+  vertical-align: center;
+}
+
+.div_age {
+  margin: 0;
+  display: inline-flex;
+}
+
+.agee {
+  max-width: 200px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+#age {
+  top: -20px;
+}
