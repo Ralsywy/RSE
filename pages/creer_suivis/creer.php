@@ -253,9 +253,9 @@ inputNombreEnfant.addEventListener('change', () => {
             Pôle emplois  --------------------------------------------------------------------
         -->
         <label for="inscrit_pole_emploi">Inscrit à pôle emploi : </label>
-        <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)">
+        <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui">
         <label for="pole_oui">oui</label>
-        <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)">
+        <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non">
         <label for="pole_non">non</label>
         <!--    Si oui    -->
         <div class="input_boxe">
@@ -277,9 +277,9 @@ inputNombreEnfant.addEventListener('change', () => {
             Mission local   -------------------------------------------------------------------
         -->
         <label for="inscrit_mission_local">Inscrit à la mission locale : </label>
-        <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)">
+        <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui">
         <label for="mission_oui">oui</label>
-        <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)">
+        <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non">
         <label for="mission_non">non</label>
         <!--    Si oui    -->
     <div id="date_rea3">
@@ -288,14 +288,15 @@ inputNombreEnfant.addEventListener('change', () => {
         <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission">
     </div>
         </div>
+        
         <div id="mission">
         <div class="input_boxe">
-        <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emploi : </label>
-        <input type="text" id="ref_mission" name="nom_referent_mission">
-            <div class="input_boxe">
+        <div class="input_boxe">
         <label id="datem" for="date_mission">Date d'inscription : </label>
         <input id="input_datem" type="date" id="date_mission" name="dte_inscription_mission">
-    </div>
+        </div>
+        <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emploi : </label>
+        <input type="text" id="ref_mission" name="nom_referent_mission">
         <!--    Si non    -->
 
         </div>
@@ -304,11 +305,11 @@ inputNombreEnfant.addEventListener('change', () => {
             CAP emplois  ----------------------------------------------------------------------
         -->
         <div>
-        <label for="inscrit_cap_emplois">Inscrit à CAP emploi : </label>
+        <label for="inscrit_cap_emploi">Inscrit à CAP emploi : </label>
         
-        <input type="radio" id="cap_oui" name="inscrit_cap_emplois" onclick="showhidecap(1)">
+        <input type="radio" id="cap_oui" name="inscrit_cap_emploi" onclick="showhidecap(1)" value="oui">
         <label for="cap_oui">oui</label>
-        <input type="radio" id="cap_non" name="inscrit_cap_emplois" onclick="showhidecap(2)">
+        <input type="radio" id="cap_non" name="inscrit_cap_emploi" onclick="showhidecap(2)" value="non">
         <label for="cap_oui">non</label>
         </div>
         <!--    Si oui   -->
@@ -339,7 +340,6 @@ inputNombreEnfant.addEventListener('change', () => {
     <div id="cv">
         <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : </label> 
         <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
-        <input type="submit" value="Envoyer">
     </div>
         <!--    Si non   -->
         <div id="date_cv">
@@ -359,7 +359,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="motos1" id="motos1">Permis motos</option>
             <option value="auto1" id="auto1">Permis auto</option>
             <option value="march1" id="march1">Permis marchandises ou de personnes</option>
-            <option value="aucun" id="aucun" >aucun</option>
+            <option value="aucun" id="aucun" >Aucun</option>
         </select>
         </div>
         <!--    Si motos   -->
@@ -385,7 +385,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si march   -->
         <div class="input_boxe" id="march">
         <label for="marchandise">Permis pour le transport de marchandises ou de personnes : </label>
-        <select class="form-control" name="transport" id="marchandise">
+        <select class="form-control" name="marchandise" id="marchandise">
             <option value="rien">-- Selectionner une option --</option>
             <option value="c">C</option>
             <option value="ce">CE</option>
