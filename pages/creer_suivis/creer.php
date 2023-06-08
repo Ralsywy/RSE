@@ -641,9 +641,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div id="formati">
         <label for="form_prevue">Formation prévues ?</label>
-        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)">
+        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui">
         <label for="oui_form">oui</label>
-        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)">
+        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non">
         <label for="non_form">non</label>
         </div>
         <!--    Si non (rien)   -->
