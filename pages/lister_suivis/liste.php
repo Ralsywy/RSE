@@ -51,8 +51,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
-                            <a href="index.php?route=creer_suivis"><button class="btn_modifier">Ajouter</button></a>
-                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
@@ -76,6 +75,13 @@ if (isset($_SESSION["login"])){
             $accompagnateurs = $requete->fetchAll();
             $requete = null;
             foreach ($inscrits as $ligne){
+                $id_insc = $ligne["id_inscrit"];
+                // ordre de mission
+                $requete = $mysqlConnection->prepare("SELECT COUNT(id_plan_action) FROM plan_action WHERE fk_id_inscrit_plan = '$id_insc'");
+                //execution de la requete
+                $requete->execute();
+                $nb_demarche = $requete->fetchAll();
+                $requete = null;
                 if($ligne["statut"] == 0){
                     ?>
                     <tr>
@@ -83,10 +89,9 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
-                        <td><?= $ligne["nb_demarche"]?></td>
+                        <td><?= $nb_demarche ?></td>
                         <td>
-                            <a href="index.php?route=creer_suivis"><button class="btn_modifier">Ajouter</button></a>
-                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>

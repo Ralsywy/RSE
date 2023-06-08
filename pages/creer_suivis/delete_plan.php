@@ -14,5 +14,5 @@
 
 $mysqlConnection = null;
 $requete = null; 
-header("location:index.php?route=creer2");
+header("location:$_SERVER[HTTP_REFERER]");
 ?>

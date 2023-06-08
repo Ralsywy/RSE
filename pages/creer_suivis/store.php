@@ -322,9 +322,8 @@ $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc,
 $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc]);
 $requete = null;
 
+$_SESSION["success"]="Formulaire complété";
 
 
-$_SESSION["success"]="Première page du formulaire complétée";
-$mysqlConnection = null;
-header("location:index.php?route=creer2");
+header("location:index.php?route=list_suivis");
 ?>
