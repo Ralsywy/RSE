@@ -220,7 +220,7 @@ function hideshowformqd() {
             document.getElementById('if_qual').style.display='none';
             document.getElementById('if_dipl').style.display='block';
         } 
-        if (formqd == "qualfiante") {
+        if (formqd == "qualifiante") {
             document.getElementById('if_qual').style.display='block';
             document.getElementById('if_dipl').style.display='none';
         }
@@ -331,7 +331,7 @@ function hideshowformqd1() {
             document.getElementById('if_qual1').style.display='none';
             document.getElementById('if_dipl1').style.display='block';
         } 
-        if (formqd1 == "qualfiante1") {
+        if (formqd1 == "qualifiante1") {
             document.getElementById('if_qual1').style.display='block';
             document.getElementById('if_dipl1').style.display='none';
         }

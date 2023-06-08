@@ -192,6 +192,10 @@ if($cv_oui_non == "oui"){
     // execution de la requete
     $requete->execute(["id_cv"=>$id_rdc]);
     $requete = null;
+
+
+
+    
 }
 else{
     // ordre de mission
