@@ -51,8 +51,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
-                            <a href="index.php?route=creer_suivis"><button class="btn_modifier">Ajouter</button></a>
-                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
@@ -85,8 +84,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= $ligne["nb_demarche"]?></td>
                         <td>
-                            <a href="index.php?route=creer_suivis"><button class="btn_modifier">Ajouter</button></a>
-                            <a href="index.php?route=creer_suivis"><button class="btn_dem">Ajouter démarche</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>

@@ -7,9 +7,9 @@
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
     // ordre de mission
-    $requete = $mysqlConnection->prepare("SELECT * FROM plan_action");
+    $requete = $mysqlConnection->prepare('SELECT * FROM plan_action where fk_id_inscrit_plan=:id');
     //execution de la requete
-    $requete->execute();
+    $requete->execute(["id"=>$_GET["id"]]);
     $plans = $requete->fetchAll();
     $mysqlConnection = null;
     $requete = null;
@@ -22,14 +22,14 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">échéance</th>
-            <th scope="col">Actions à mener</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <form action="index.php?route=store_plan" method="post" id="plan_act">
+            <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
                 <td></td>
                 <td><input type="date" id="echeance" name="echeance"></td>
                 <td><textarea class="form-control" id="action_menee" name="action_menee"></textarea></td>
