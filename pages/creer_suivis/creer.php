@@ -690,7 +690,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="form_type">Type de formation : </label>
         <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="qualfiante">Formation qualifiante</option>
+            <option value="qualifiante">Formation qualifiante</option>
             <option value="diplomante">Formation diplômante</option>
         </select>
         </div>
