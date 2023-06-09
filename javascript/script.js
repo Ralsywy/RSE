@@ -155,7 +155,7 @@ function hideshowdipl() {
         document.getElementById('niveau').style.display='none';
         document.getElementById('rens_dipl').style.display='none';
         document.getElementById('cap_metier').style.display='block';
-    } else if (dipl == "forma_continue") {
+    } else if (dipl == "formation_continue") {
         document.getElementById('form_continue').style.display='block';
         document.getElementById('cap_metier').style.display='none';
         document.getElementById('rens_dipl').style.display='none';

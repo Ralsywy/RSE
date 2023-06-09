@@ -187,15 +187,12 @@ else{
 
 /* CV */
 if($cv_oui_non == "oui"){
+    var_dump($_FILES, $_POST);
     // ordre de mission
     $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv) VALUES (:id_cv)");
     // execution de la requete
     $requete->execute(["id_cv"=>$id_rdc]);
     $requete = null;
-
-
-
-    
 }
 else{
     // ordre de mission
