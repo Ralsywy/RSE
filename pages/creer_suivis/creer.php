@@ -10,14 +10,11 @@
 
 
 ?>
-<?php
-    var_dump($_FILES);
-?>
 <div class="addsuivis">
     <a href="index.php?route=creer2">Accès suivis page 2</a>
     <h1 class="titrecreer">Création du suivi</h1>
     <h2 class="information">Informations personnelles</h2>
-    <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit">
+    <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit" enctype="multipart/form-data">
         <!--    Information personnelles    -->
     <div class="block_enligne">
         <div class="input_boxe">
@@ -427,6 +424,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
     </div>
 
+
+
         <!--    Si non   -->
         <div id="date_cv">
         <div class="input_boxe">
@@ -734,6 +733,7 @@ inputNombreEnfant.addEventListener('change', () => {
     </form>      
 </div>
 <?php
+    var_dump($_FILES, $_POST);
 $mysqlConnection = null;
 ?>
             <!--    

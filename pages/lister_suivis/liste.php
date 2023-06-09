@@ -59,6 +59,8 @@ if (isset($_SESSION["login"])){
                             <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <!-- Modification -->
+                            <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
                         </td>
                     </tr>
                     <?php
@@ -93,6 +95,9 @@ if (isset($_SESSION["login"])){
                             <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <!-- Modification -->
+                            <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
+
                         </td>
                     </tr>
                     <?php
