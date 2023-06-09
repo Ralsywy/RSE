@@ -252,9 +252,9 @@ else{
     else{
         if($nom_diplome =="autre"){
             // ordre de mission
-            $requete = $mysqlConnection->prepare("UPDATE inscrit SET nom_diplome = :nom_diplome WHERE id_inscrit = '$id_rdc'");
+            $requete = $mysqlConnection->prepare("UPDATE inscrit SET nom_diplome_autre = :nom_diplome_autre WHERE id_inscrit = '$id_rdc'");
             // execution de la requete
-            $requete->execute(["nom_diplome"=>$_POST["nom_diplome"]]);
+            $requete->execute(["nom_diplome_autre"=>$_POST["nom_diplome_autre"]]);
             $requete = null;
         }
     }
@@ -269,12 +269,12 @@ $requete = null;
 
 ////    RECONVERSION PRO    ////
 if($reconversion =="oui"){
+    $form_prevue = $_POST['form_prevue'];
     // ordre de mission
     $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_prevue = :form_prevue WHERE id_inscrit = '$id_rdc'");
     // execution de la requete
-    $requete->execute(["form_prevue"=>$_POST["form_prevue"]]);
+    $requete->execute(["form_prevue"=>$form_prevue]);
     $requete = null;
-    $form_prevue = $_POST['form_prevue'];
     if($form_prevue = "oui"){
         // ordre de mission
         $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_nom = :form_nom, form_date = :form_date, form_duree = :form_duree WHERE id_inscrit = '$id_rdc'");
@@ -304,14 +304,14 @@ if($form_pro =="oui"){
     if($form_type == "qualifiante"){
         $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_qual = :form_qual WHERE id_inscrit = '$id_rdc'");
         // execution de la requete
-        $requete->execute(["form_qual"=>$_POST["form_qual"]]);
+        $requete->execute(["form_qual"=>$form_type]);
         $requete = null;
     }
     else{
         if($form_type == "diplomante"){
             $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_dipl = :form_dipl WHERE id_inscrit = '$id_rdc'");
             // execution de la requete
-            $requete->execute(["form_dipl"=>$_POST["form_dipl"]]);
+            $requete->execute(["form_dipl"=>$form_type]);
             $requete = null;
         }
     }

@@ -542,7 +542,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si autre   -->
         <div id="rens_dipl">
         <label for="dipl_autre">Renseigner le diplôme : </label>
-        <input type="text" id="dipl_autre" name="nom_diplome">
+        <input type="text" id="dipl_autre" name="nom_diplome_autre">
     
         <!--    Si aucun   -->
 </div>
@@ -560,9 +560,9 @@ inputNombreEnfant.addEventListener('change', () => {
             Connaissance de la langue française  ----------------------------------------------
         -->
         <label for="atelier_fr">Inscrit aux ateliers de français : </label>
-        <input type="radio" id="fr_oui" name="atelier_fr">
+        <input type="radio" id="fr_oui" name="atelier_fr" value="oui">
         <label for="fr_oui">oui</label>
-        <input type="radio" id="fr_non" name="atelier_fr">
+        <input type="radio" id="fr_non" name="atelier_fr" value="non">
         <label for="fr_non">non</label>
         <div class="input_boxe" id="ecrit">
         <label for="efrancais">Connaissance de la langue française (écrite) : </label>
@@ -622,7 +622,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="entr_c">
         <hr>
         <h2 class="entr">Entreprises contactés et résultats : </h2>
-        <textarea class="form-control" name="entreprise_contacte" id="entr"></textarea>
+        <textarea class="form-control" name="entreprise_contactee" id="entr"></textarea>
         </div>
         <!--    
             Projet professionel de la personne  ------------------------------------------------
@@ -630,9 +630,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <hr>
         <div>
         <label for="reconv">Reconversion professionelle :</label>
-        <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)">
+        <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)" value="oui">
         <label for="oui_reconv">oui</label>
-        <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)">
+        <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)" value="non">
         <label for="non_reconv">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -643,9 +643,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div id="formati">
         <label for="form_prevue">Formation prévues ?</label>
-        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)">
+        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui">
         <label for="oui_form">oui</label>
-        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)">
+        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non">
         <label for="non_form">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -678,9 +678,9 @@ inputNombreEnfant.addEventListener('change', () => {
         -->
         <div>
         <label for="form_pro">La personne va-t-elle bénéficier d'une formation professionelle ?</label>
-        <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)">
+        <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)" value="oui">
         <label for="form_pro_oui">oui</label>
-        <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)">
+        <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)" value="non">
         <label for="form_pro_non">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -690,13 +690,13 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="form_type">Type de formation : </label>
         <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="qualfiante">Formation qualifiante</option>
+            <option value="qualifiante">Formation qualifiante</option>
             <option value="diplomante">Formation diplômante</option>
         </select>
         </div>
         <!--    Si qualifiante   -->
         <div class="input_boxe" id="if_qual">
-        <label for="nom_form">Nom de la formation qualifiante : </label>
+        <label for="nom_form">Nom de la formation qualiifiante : </label>
         <input type="text" id="nom_form" name="form_qual">
         </div>
         <!--    Si diplômante   -->

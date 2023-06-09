@@ -7,84 +7,92 @@ try{
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 
+    
     ////    PERMIS    //// 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM permis_conduire WHERE fk_id_inscrit_permis=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM permis_conduire WHERE fk_id_inscrit_permis=:id AND fk_id_inscrit_permis IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null;
+
 
     ////    ENFANT    //// 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM enfants WHERE fk_id_inscrit_enfant=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM enfant WHERE fk_id_inscrit_enfant=:id AND fk_id_inscrit_enfant IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
-
-    ////    formation pro    //// 
-    // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM formation_pro WHERE fk_id_inscrit_formation=:id');
-    //execution de la requete
-    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////    PLAN ACTION    //// 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM plan_action WHERE fk_id_inscrit_plan=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM plan_action WHERE fk_id_inscrit_plan=:id AND fk_id_inscrit_plan IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null;
 
     ////    INSCRIT    ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM inscrit where id_inscrit=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM inscrit where id_inscrit=:id AND id_inscrit IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
+
 
     ////    CAP EMPLOI    ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM cap_emploi where id_cap_emploi=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM cap_emploi where id_cap_emploi=:id AND id_cap_emploi IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
         ////    CMA EMPLOI    ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM cma where id_cma=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM cma where id_cma=:id AND id_cma IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
             ////    CV EMPLOI    ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM cv where id_cv=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM cv where id_cv=:id AND id_cv IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////    LANGUE FR    ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM langue_francaise where id_langue_francaise=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM langue_francaise where id_langue_francaise=:id AND id_langue_francaise IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////   mission locale   ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM mission_locale where id_mission_locale=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM mission_locale where id_mission_locale=:id AND id_mission_locale IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////   pole emploi   ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM pole_emploi where id_pole_emploi=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM pole_emploi where id_pole_emploi=:id AND id_pole_emploi IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////   RDC   ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM rdc where id_rdc=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM rdc where id_rdc=:id AND id_rdc IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
 
     ////   SOELIS   ////
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM soelis where id_soelis=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM soelis where id_soelis=:id AND id_soelis IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
-
+    $requete = null; 
 
     session_start();
     $_SESSION["success"]="Inscrit supprimé avec succès";
@@ -100,6 +108,5 @@ catch (Exception $e) {
 }
 
 $mysqlConnection = null;
-$requete = null; 
 header("location:index.php?route=list_suivis");
 ?>
