@@ -664,9 +664,9 @@ inputNombreEnfant.addEventListener('change', () => {
             Reprise d'étude  ------------------------------------------------------------------
         -->
         <label for="etude">Reprise d'étude ?</label>
-        <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)">
+        <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)" value="oui">
         <label for="oui_etude">oui</label>
-        <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)">
+        <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)" value="non">
         <label for="non_etude">non</label>
         <!--    Si oui   -->
         <div class="input_boxe" id="dipl_prep">
