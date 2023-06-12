@@ -55,13 +55,6 @@
         <label class="decale" for="date_r">Date de réalisation : </label>
         <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
         </div>
-    <div>
-        <label for="benevole">Bénévole aux resto du coeur : </label>
-        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
-        <label for="benevole_oui">oui</label>
-        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
-        <label for="benevole_non">non</label>
-    </div>
 
 
     </div>
