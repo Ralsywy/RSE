@@ -27,11 +27,10 @@ if (isset($_SESSION["login"])){
             <table class="table table_sortable">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Accompagnateur</th>
-                    <th scope="col">Nombre de démarches</th>
+                    <th scope="col">Nombre de rendez-vous</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -50,17 +49,16 @@ if (isset($_SESSION["login"])){
                 if($ligne["statut"] == 0){
                     ?>
                     <tr>
-                        <th scope="row"><?= $ligne["id_inscrit"]?></th>
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
-                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
-                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
-                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Rendez-vous</button></a>
                             <!-- Modification -->
                             <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
+                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php
@@ -86,18 +84,16 @@ if (isset($_SESSION["login"])){
                 if($ligne["statut"] == 0){
                     ?>
                     <tr>
-                        <th scope="row"><?= $ligne["id_inscrit"]?></th>
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
-                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Ajouter démarche</button></a>
-                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
-                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Rendez-vous</button></a>
                             <!-- Modification -->
                             <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
-
+                            <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
+                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                         </td>
                     </tr>
                     <?php

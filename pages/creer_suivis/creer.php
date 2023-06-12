@@ -126,22 +126,22 @@
         <p class="form-control" disabled id="age"></p>
         </div>
         <script>
-var inputDate = document.getElementById("birthdate");
-var ageElement = document.getElementById("age");
+        var inputDate = document.getElementById("birthdate");
+        var ageElement = document.getElementById("age");
 
-inputDate.addEventListener("input", calculerAge);
+        inputDate.addEventListener("input", calculerAge);
 
-function calculerAge() {
-   var dateNaissance = inputDate.value;
-   var dateActuelle = new Date();
+        function calculerAge() {
+        var dateNaissance = inputDate.value;
+        var dateActuelle = new Date();
 
-   var anneeNaissance = new Date(dateNaissance).getFullYear();
-   var anneeActuelle = dateActuelle.getFullYear();
+        var anneeNaissance = new Date(dateNaissance).getFullYear();
+        var anneeActuelle = dateActuelle.getFullYear();
 
-   var age = anneeActuelle - anneeNaissance;
+        var age = anneeActuelle - anneeNaissance;
 
-   ageElement.textContent = age + " ans";
-}
+        ageElement.textContent = age + " ans";
+        }
 
         </script>
 
@@ -576,36 +576,36 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="efrancais">Connaissance de la langue française (écrite) : </label>
         <select class="form-control" id="efrancais" name="langue_fr_ecrite">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="e1">A1</option>
-            <option value="e2">A2</option>
-            <option value="e3">B1</option>
-            <option value="e4">B2</option>
-            <option value="e5">C1</option>
-            <option value="e5">C2</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
         </select>
         </div>
         <div id="parler">
         <label for="pfrancais">Connaissance de la langue française (parlée) : </label>
         <select class="form-control" id="pfrancais" name="langue_fr_parlee">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="e1">A1</option>
-            <option value="e2">A2</option>
-            <option value="e3">B1</option>
-            <option value="e4">B2</option>
-            <option value="e5">C1</option>
-            <option value="e5">C2</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
         </select>
         </div>
         <div id="lue">
         <label for="lfrancais" class="petit_lu">Connaissance de la langue française (Lue) :   </label>
         <select class="form-control" id="lfrancais" name="langue_fr_lue">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
-            <option value="e1">A1</option>
-            <option value="e2">A2</option>
-            <option value="e3">B1</option>
-            <option value="e4">B2</option>
-            <option value="e5">C1</option>
-            <option value="e5">C2</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
         </select>
         </div>
         <hr>
@@ -661,11 +661,11 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div class="input_boxe" id="renseign">
         <label for="form_nom">Renseigner le nom : </label>
-        <input type="text" id="form_nom" name="nom_formation">
+        <input type="text" id="form_nom" name="form_nom">
         <label for="form_date">Renseigner la date : </label>
-        <input type="date" id="form_date" name="dte_commencement">
+        <input type="date" id="form_date" name="form_date">
         <label for="form_duree">Renseigner la durée : </label>
-        <input type="text" id="form_duree" name="duree">
+        <input type="text" id="form_duree" name="form_duree">
         </div>
         
         <!--    
@@ -704,7 +704,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <!--    Si qualifiante   -->
         <div class="input_boxe" id="if_qual">
-        <label for="nom_form">Nom de la formation qualiifiante : </label>
+        <label for="nom_form">Nom de la formation qualifiante : </label>
         <input type="text" id="nom_form" name="form_qual">
         </div>
         <!--    Si diplômante   -->
@@ -736,7 +736,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="SD">Travail en SD</option>
         </select>
         <div>
-        <button type="submit" class="btn_modifier" id="continuer">Créer (1/2)</button>
+        <button type="submit" class="btn_modifier" id="continuer">Créer</button>
         </div>
     </form>      
 </div>
