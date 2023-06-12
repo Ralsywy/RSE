@@ -15,6 +15,11 @@ if (isset($_SESSION["login"])){
         <?php
         include("barre_recherche.php");
         $recherche = "";
+        function rowCOUNT($mysqlConnection,$requete){
+            $stmt = $mysqlConnection->prepare($requete);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
         ?>
 
         <!--TABLEAU-->
@@ -22,7 +27,6 @@ if (isset($_SESSION["login"])){
             <table class="table table_sortable">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Accompagnateur</th>
@@ -38,18 +42,17 @@ if (isset($_SESSION["login"])){
             $requete = $mysqlConnection->prepare("SELECT * FROM inscrit INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur WHERE CONCAT(nom,prenom) LIKE '%$recherche%'");
             $requete->execute();
             $inscrits = $requete->fetchAll();
-            $mysqlConnection = null;
             $requete = null;
 
             foreach ($inscrits as $ligne){
+                $id_insc = $ligne["id_inscrit"];
                 if($ligne["statut"] == 1){
                     ?>
                     <tr>
-                        <th scope="row"><?= $ligne["id_inscrit"]?></th>
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
-                        <td><?= $ligne["nb_demarche"]?></td>
+                        <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
@@ -66,17 +69,16 @@ if (isset($_SESSION["login"])){
             $requete = $mysqlConnection->prepare("SELECT * FROM inscrit INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur WHERE CONCAT(nom,prenom) LIKE '%$recherche%'");
             $requete->execute();
             $inscrits = $requete->fetchAll();
-            $mysqlConnection = null;
             $requete = null;
             foreach ($inscrits as $ligne){
+                $id_insc = $ligne["id_inscrit"];
                 if($ligne["statut"] == 1){
                     ?>
                     <tr>
-                        <th scope="row"><?= $ligne["id_inscrit"]?></th>
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
-                        <td><?= $ligne["nb_demarche"]?></td>
+                        <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
@@ -88,7 +90,9 @@ if (isset($_SESSION["login"])){
         } ?></div>
     </div>
     <script src="javascript/tablesort.js"></script>
+    
 <?php
+$mysqlConnection = null;
 }
 else
 {

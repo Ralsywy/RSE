@@ -579,7 +579,7 @@ html{
   font-size: 13px;
   font-weight: bold;
   background: #ff9100;
-  width: 110px;
+  width: 100px;
   height: 40px;
   padding: 12px;
   margin-bottom: 13px;
@@ -792,7 +792,7 @@ button#suppr_creer.btn_modifier {
   font-size: 13px;
   font-weight: bold;
   background: #189fff;
-  width: 180px;
+  width: 130px;
   height: 40px;
   padding: 12px;
   margin-bottom: 13px;
@@ -1037,7 +1037,7 @@ p.form-control {
   font-size: 13px;
   font-weight: bold;
   background: #22cfff;
-  width: 110px;
+  width: 100px;
   height: 40px;
   padding: 12px;
   margin-bottom: 13px;
@@ -1055,4 +1055,8 @@ p.form-control {
   -webkit-transition-property: box-shadow, transform;
   transition-property: box-shadow, transform;
 }
-
+.btn_modif:hover, .btn_modif:focus, .btn_modif:active{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  }
