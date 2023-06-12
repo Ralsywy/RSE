@@ -33,15 +33,6 @@
         <label for="inscrit_oui">oui</label>
         <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)">
         <label for="inscrit_non">non</label>
-
-    <div>
-        <label for="benevole">Bénévole aux resto du coeur : </label>
-        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
-        <label for="benevole_oui">oui</label>
-        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
-        <label for="benevole_non">non</label>
-    </div>
-
         <!--    Si oui   -->
     <div id="centre_num">
         <label id="num_" class="decale" for="num">N° : </label>
@@ -56,6 +47,15 @@
         <label class="decale" for="date_r">Date de réalisation : </label>
         <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
         </div>
+    <div>
+        <label for="benevole">Bénévole aux resto du coeur : </label>
+        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
+        <label for="benevole_oui">oui</label>
+        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
+        <label for="benevole_non">non</label>
+    </div>
+
+
     </div>
     <?php
     // ordre de mission

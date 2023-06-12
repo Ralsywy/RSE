@@ -1,4 +1,6 @@
 <?php
+
+
 // création de le lien entre serv web et serv bd
     $mysqlConnection = new PDO(
         'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
@@ -6,6 +8,9 @@
         PASSWORD,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
+
+
+
 
 
 ////    Information personnelles    ////
@@ -187,8 +192,29 @@ else{
 
 /* CV */
 if($cv_oui_non == "oui"){
-    var_dump($_FILES, $_POST);
     // ordre de mission
+    if(!empty($_FILES)) {
+        $file_name = $_FILES['pdfFile']['name'];
+        $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
+        $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
+        $file_type = $_FILES['pdfFile']['type'];
+        $file_extension = strrchr($file_name, ".");
+
+        $extensions_autorisees = array('.pdf', '.PDF');
+
+        if(in_array($file_extension, $extensions_autorisees)) {
+            if(move_uploaded_file($file_tmp_name, $file_dest)) {
+                $requete = $mysqlConnection->prepare("INSERT INTO files(names, file_url) VALUES (?,?)");
+                $requete->execute(array($file_name, $file_dest));
+                $requete = null;
+
+
+                echo 'Fichier envoyé';
+            } else {
+            }
+        } else {
+        }
+    }
     $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv) VALUES (:id_cv)");
     // execution de la requete
     $requete->execute(["id_cv"=>$id_rdc]);
@@ -315,8 +341,8 @@ if($form_pro =="oui"){
 }
 
 // Préparation de la requête
-$requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise WHERE id_inscrit = '$id_rdc'");
-$requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc]);
+$requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise, fk_id_files = :fk_id_files WHERE id_inscrit = '$id_rdc'");
+$requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc, "fk_id_files" =>$id_rdc]);
 $requete = null;
 
 $_SESSION["success"]="Formulaire complété";
