@@ -203,26 +203,35 @@ else
         $requete = null;
     }
 
-/* CV */
-if($cv_oui_non == "oui"){
-    // ordre de mission
-    if(!empty($_FILES)) {
-        $file_name = $_FILES['pdfFile']['name'];
-        $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
-        $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
-        $file_type = $_FILES['pdfFile']['type'];
-        $file_extension = strrchr($file_name, ".");
-
-        $extensions_autorisees = array('.pdf', '.PDF');
-
-        if(in_array($file_extension, $extensions_autorisees)) {
-            if(move_uploaded_file($file_tmp_name, $file_dest)) {
-                $requete = $mysqlConnection->prepare("INSERT INTO files(names, file_url) VALUES (?,?)");
-                $requete->execute(array($file_name, $file_dest));
+    /* CV */
+    if($cv_oui_non == "oui"){
+        // ordre de mission
+        if(!empty($_FILES)) {
+            $file_name = $_FILES['pdfFile']['name'];
+            $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
+            $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
+            $file_type = $_FILES['pdfFile']['type'];
+            $file_extension = strrchr($file_name, ".");
+    
+            $extensions_autorisees = array('.pdf', '.PDF');
+    
+            if(in_array($file_extension, $extensions_autorisees)) {
+                if(move_uploaded_file($file_tmp_name, $file_dest)) {
+                    $requete = $mysqlConnection->prepare("INSERT INTO files(names, file_url) VALUES (?,?)");
+                    $requete->execute(array($file_name, $file_dest));
+                    $requete = null;
+    
+    
+                    echo 'Fichier envoyé';
+                } else {
+                }
             } else {
-
-        } else {
-                
+            }
+        }
+        $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv) VALUES (:id_cv)");
+        // execution de la requete
+        $requete->execute(["id_cv"=>$id_rdc]);
+        $requete = null;
     }
     } else {
         // ordre de mission
