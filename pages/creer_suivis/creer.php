@@ -285,7 +285,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Pôle emplois  --------------------------------------------------------------------
         -->
-        <label for="inscrit_pole_emploi">Inscrit à pôle emploi : </label>
+        <label for="inscrit_pole_emploi">Inscrit à Pôle Emploi : </label>
         <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui">
         <label for="pole_oui">oui</label>
         <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non">

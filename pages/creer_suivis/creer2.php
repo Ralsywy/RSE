@@ -159,7 +159,7 @@
         <hr>
         <h2 class="info_cmpl">Informations complémentaires : </h2>
         <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
-        <button type="submit" class="btn_modifier" id="finir">Créer (2/2)</button>
+        <button type="submit" class="btn_modifier" id="finir">Valider</button>
         </form>
         </div>
     </div>
