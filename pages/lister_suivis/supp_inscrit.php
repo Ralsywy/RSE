@@ -94,6 +94,13 @@ try{
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 
 
+    ////   FILES   ////
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('DELETE FROM files where id_files=:id AND id_files IS NOT NULL');
+    //execution de la requete
+    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
+
     session_start();
     $_SESSION["success"]="Inscrit supprimé avec succès";
 
