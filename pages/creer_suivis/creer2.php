@@ -8,10 +8,10 @@ if (isset($_SESSION["login"])){
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
     // ordre de mission
-    $requete = $mysqlConnection->prepare('SELECT * FROM plan_action where fk_id_inscrit_plan=:id');
+    $requete = $mysqlConnection->prepare('SELECT * FROM rdv where fk_id_inscrit_rdv=:id');
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
-    $plans = $requete->fetchAll();
+    $rdv = $requete->fetchAll();
     $mysqlConnection = null;
     $requete = null;
     ?>
@@ -38,13 +38,13 @@ if (isset($_SESSION["login"])){
             </form>
         </tr>
         <?php
-        foreach ($plans as $ligne){
+        foreach ($rdv as $ligne){
         ?>
             <tr>
-                <td><?= $ligne["id_plan_action"]?></td>
+                <td><?= $ligne["id_rdv"]?></td>
                 <td><?= $ligne["echeance"]?></td>
                 <td class="acti"><?= $ligne["action_menee"]?></td>
-                <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+                <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
         }?>
@@ -169,7 +169,7 @@ if (isset($_SESSION["login"])){
         </div>
         </div>
         
-        <button type="submit" class="btn_modifier" id="finir">Créer (2/2)</button>
+        <button type="submit" class="btn_modifier" id="finir">Valider</button>
         </form>
         </div>
     </div>

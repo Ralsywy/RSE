@@ -7,7 +7,7 @@
     );
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM plan_action where id_plan_action=:id');
+    $requete = $mysqlConnection->prepare('DELETE FROM rdv where id_rdv=:id');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     session_start();

@@ -52,7 +52,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
-                        <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
+                        <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Rendez-vous</button></a>
                             <!-- Modification -->
@@ -93,7 +93,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["nom"]?></td>
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
-                        <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
+                        <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=creer2&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_dem">Rendez-vous</button></a>
                             <!-- Modification -->
