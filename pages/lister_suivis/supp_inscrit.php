@@ -25,7 +25,7 @@ try{
 
     ////    PLAN ACTION    //// 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM plan_action WHERE fk_id_inscrit_plan=:id AND fk_id_inscrit_plan IS NOT NULL');
+    $requete = $mysqlConnection->prepare('DELETE FROM rdv WHERE fk_id_inscrit_rdv=:id AND fk_id_inscrit_rdv IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null;
