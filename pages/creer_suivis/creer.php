@@ -508,13 +508,22 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="achat_vehicule">Achat prévu d'un véhicule ? <span class="obligatoire">*</span></label>
         </div>
-        <input type="radio" id="achat_oui" name="achat_prevu" value="oui">
+        <input type="radio" id="achat_oui" name="achat_prevu" value="oui" onclick="showhidedatevehi(1)">
         <label for="achat_oui">oui</label>
-        <input type="radio" id="achat_non" name="achat_prevu" value="non">
+        <input type="radio" id="achat_non" name="achat_prevu" value="non" onclick="showhidedatevehi(2)">
         <label for="achat_non">non</label>
         </div>
-    </div>
     
+    <!--    Si oui (achat véhicule)  -->
+    <div id="date_achat_vehicule" class="input_boxe">
+    <label for="date_vehicule">Date d'achat prévue : </label>
+    <input type="date" name="date_vehicule" id="achat_vehicule">
+    </div>
+</div>
+
+
+
+
     <div class="partie3">
     <hr>
         <!--    
@@ -572,17 +581,20 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="fr_oui">oui</label>
         <input type="radio" id="fr_non" name="atelier_fr" value="non">
         <label for="fr_non">non</label>
+        <div>
+            <p class="ital">1 à 6 | du plus bas au plus haut niveau</p>
+        </div>
         <div class="input_boxe">
             <div class="ecrit">
         <label for="efrancais">Connaissance de la langue française (écrite) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="efrancais" name="langue_fr_ecrite">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         </div>
@@ -590,24 +602,24 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="pfrancais">Connaissance de la langue française (parlée) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="pfrancais" name="langue_fr_parlee">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         <div class="lue">
         <label for="lfrancais" class="petit_lu">Connaissance de la langue française (Lue) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="lfrancais" name="langue_fr_lue">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         <!--    
@@ -619,12 +631,12 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="efrancais">Connaissance de la langue anglaise (écrite) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="eanglais" name="langue_en_ecrite">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         </div>
@@ -632,24 +644,24 @@ inputNombreEnfant.addEventListener('change', () => {
         <label for="panglais">Connaissance de la langue anglaise (parlée) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="panglais" name="langue_en_parlee">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         <div class="lue">
         <label for="langlais" class="petit_lu">Connaissance de la langue anglaise (Lue) : <span class="obligatoire">*</span></label>
         <select class="form-control" id="langlais" name="langue_en_lue">
             <option class="form-control" value="rien">-- Selectionner une option --</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
+            <option value="A1">A1 | 1</option>
+            <option value="A2">A2 | 2</option>
+            <option value="B1">B1 | 3</option>
+            <option value="B2">B2 | 4</option>
+            <option value="C1">C1 | 5</option>
+            <option value="C2">C2 | 6</option>
         </select>
         </div>
         </div>

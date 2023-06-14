@@ -1092,3 +1092,13 @@ p.form-control {
   position: relative;
   top: -120px;
 }
+.ital {
+  font-style: italic;
+  font-size: 1em;
+  position: relative;
+  top: 10px;
+}
+
+#date_achat_vehicule {
+  display: none;
+}
