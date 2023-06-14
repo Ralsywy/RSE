@@ -23,35 +23,27 @@ if (isset($_SESSION["login"])){
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Actions menées</th>
-            <th scope="col">Objectifs</th>
-            <th scope="col">Moyens mis en oeuvre</th>
-            <th scope="col">Echeance</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <div>
             <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
                 <td></td>
-                <td><textarea class="form-control" id="action_menee" name="action_menee"></textarea></td>
-                <td><input type="text" id="objectif" name="objectif"></td>
-                <td><input type="text" id="moyen_oeuvre" name="moyen_oeuvre"></td>
                 <td><input type="date" id="echeance" name="echeance"></td>
+                <td><textarea class="form-control" id="action_menee" name="action_menee"></textarea></td>
                 <td><button type="submit" class="btn_modifier">Ajouter</button></td>
             </form>
-        </div>
         </tr>
         <?php
         foreach ($plans as $ligne){
         ?>
             <tr>
                 <td><?= $ligne["id_plan_action"]?></td>
-                <td class="acti"><?= $ligne["action_menee"]?></td>
-                <td><?= $ligne["objectif"]?></td>
-                <td><?= $ligne["moyen_oeuvre"]?></td>
                 <td><?= $ligne["echeance"]?></td>
+                <td class="acti"><?= $ligne["action_menee"]?></td>
                 <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
