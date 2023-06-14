@@ -72,10 +72,12 @@ if (isset($_SESSION["login"])){
         <select name="accompagnateur" id="accompagnateur" class="form-control">
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
-            foreach($accompagnateurs as $ligne){?>
+            foreach($accompagnateurs as $ligne){
+            if($ligne["is_admin"]==0){
+            ?>
                 <option value=<?= $ligne["id_accompagnateur"]?>><?= $ligne["name_acc"]?></option>
             <?php
-            }
+            }}
             ?>
         </select>
          <p class="oblig">(<span class="obligatoire">*</span> : obligatoire)</p>
