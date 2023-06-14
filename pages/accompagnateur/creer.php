@@ -39,16 +39,18 @@ if (isset($_SESSION["login"])){
             <!-- UN ACCOMPAGNATEUR -->
             <?php
             foreach ($accompagnateurs as $ligne){
-            ?>
-            <div class="un_acc">
-            <div class="box_liste_acc">
-                <label class="liste_name_acc"><?= $ligne["name_acc"] ?></label>
-            </div>
-            <div class="btn_liste_acc">
-                <a href="index.php?route=supp_accompagnateur&id=<?= $ligne["id_accompagnateur"] ?>" class="btn_acc_s">Supprimer</a>
-            </div>
-            </div>
-            <?php
+                if($ligne["is_admin"]==0){
+                    ?>
+                    <div class="un_acc">
+                    <div class="box_liste_acc">
+                        <label class="liste_name_acc"><?= $ligne["name_acc"] ?></label>
+                    </div>
+                    <div class="btn_liste_acc">
+                        <a href="index.php?route=supp_accompagnateur&id=<?= $ligne["id_accompagnateur"] ?>" class="btn_acc_s">Supprimer</a>
+                    </div>
+                    </div>
+                <?php
+                }
             }
             ?>
             <!-- FIN D'UN ACCOMPAGNATEUR -->

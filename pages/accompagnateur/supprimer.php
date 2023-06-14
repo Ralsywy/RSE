@@ -13,6 +13,8 @@ try{
     $requete = $mysqlConnection->prepare('DELETE FROM accompagnateur where id_accompagnateur=:id');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null;
+    
     session_start();
     $_SESSION["success"]="Accompagnateur supprimé avec succès";
 }
@@ -26,6 +28,6 @@ catch (Exception $e) {
 }
 
 $mysqlConnection = null;
-$requete = null; 
+
 header("location:index.php?route=creer_accompagnateur");
 ?>

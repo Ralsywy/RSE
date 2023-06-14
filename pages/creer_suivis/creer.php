@@ -1,4 +1,5 @@
 <?php
+if (isset($_SESSION["login"])){
 // création de le lien entre serv web et serv bd
     $mysqlConnection = new PDO(
         'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
@@ -42,20 +43,19 @@
         <label id="centre" for="centre">Centre : <span class="obligatoire">*</span></label>
         <input id="input_centre" class="input_suivis" type="text" id="centre" name="centre">
     </div>
-    <div>
-        <label for="benevole">Bénévole aux resto du coeur : <span class="obligatoire">*</span></label>
-        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
-        <label for="benevole_oui">oui</label>
-        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
-        <label for="benevole_non">non</label>
-    </div>
 
         <!--    Si non    -->
         <div id="date_rea1">
         <label class="decale" for="date_r">Date de réalisation : </label>
         <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
         </div>
-
+        <div>
+        <label for="benevole">Bénévole aux resto du coeur : </label>
+        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
+        <label for="benevole_oui">oui</label>
+        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
+        <label for="benevole_non">non</label>
+        </div>
 
     </div>
     <?php
@@ -780,6 +780,7 @@ inputNombreEnfant.addEventListener('change', () => {
 </div>
 <?php
 $mysqlConnection = null;
+}
 ?>
             <!--    
             Plan d'action   ------------------------------------------------------------------

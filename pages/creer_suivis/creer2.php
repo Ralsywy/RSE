@@ -1,4 +1,5 @@
 <?php
+if (isset($_SESSION["login"])){
     // création de le lien entre serv web et serv bd
     $mysqlConnection = new PDO(
         'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
@@ -172,3 +173,6 @@
         </form>
         </div>
     </div>
+<?php
+}
+?>

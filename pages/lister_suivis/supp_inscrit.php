@@ -21,7 +21,7 @@ try{
     $requete = $mysqlConnection->prepare('DELETE FROM enfant WHERE fk_id_inscrit_enfant=:id AND fk_id_inscrit_enfant IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
-    $requete = null; 
+    $requete = null;
 
     ////    PLAN ACTION    //// 
     // ordre de mission
@@ -90,6 +90,13 @@ try{
     ////   SOELIS   ////
     // ordre de mission
     $requete = $mysqlConnection->prepare('DELETE FROM soelis where id_soelis=:id AND id_soelis IS NOT NULL');
+    //execution de la requete
+    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
+
+    ////   FILES   ////
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('DELETE FROM files where id_files=:id AND id_files IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 

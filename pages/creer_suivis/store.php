@@ -11,7 +11,8 @@ if (isset($_POST["dte_contact"])==false || empty($_POST["dte_contact"]) || isset
 || isset($_POST["benevole_rdc"])==false || empty($_POST["benevole_rdc"]) || isset($_POST["vehicule_dispo"])==false || empty($_POST["vehicule_dispo"])
 || isset($_POST["inscrit_soelis"])==false || empty($_POST["inscrit_soelis"]) || isset($_POST["inscrit_cma"])==false || empty($_POST["inscrit_cma"])
 || isset($_POST["cv_oui_non"])==false || empty($_POST["cv_oui_non"]) || isset($_POST["atelier_fr"])==false || empty($_POST["atelier_fr"])
-|| isset($_POST["reprise"])==false || empty($_POST["reprise"]) || isset($_POST["reprise"])==false || empty($_POST["reprise"])){
+|| isset($_POST["reprise"])==false || empty($_POST["reprise"]) || isset($_POST["reprise"])==false || empty($_POST["reprise"]))
+{
     $_SESSION["error"]="Tout les champs sont obligatoires";
     header("location:index.php?route=creer_suivis");
 }
@@ -233,14 +234,14 @@ else
         // execution de la requete
         $requete->execute(["id_cv"=>$id_rdc]);
         $requete = null;
-    } else {
+    }
+    else {
         // ordre de mission
         $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv,dte_travailler_cv) VALUES (:id_cv,:dte_travailler_cv)");
         // execution de la requete
         $requete->execute(["id_cv"=>$id_rdc,"dte_travailler_cv"=>$_POST["dte_travailler_cv"]]);
         $requete = null;
     }
-
 
     /* PERMIS CONDUIRE */
     $permis_voiture = $_POST['permis_voiture'];
