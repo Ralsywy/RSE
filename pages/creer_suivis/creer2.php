@@ -54,6 +54,17 @@ if (isset($_SESSION["login"])){
         <hr>
     <div class="after_plan">
         <form action="method">
+
+        <h2 class="info_cmpl">Informations complémentaires : </h2>
+        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
+
+
+        <hr>
+
+
+
+
+
         <label for="situat_pro">Situation professionnelle après la clôture du plan d'action : </label>
         <select class="form-control" name="type_formation" id="situat_pro" onchange="hideshowsituationpro()">
             <option value="rien">-- Selectionner une option --</option>
@@ -157,10 +168,8 @@ if (isset($_SESSION["login"])){
         <input type="text" id="autre_situ" name="autre">
         </div>
         </div>
-        <hr>
-        <h2 class="info_cmpl">Informations complémentaires : </h2>
-        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
-        <button type="submit" class="btn_modifier" id="finir">Valider</button>
+        
+        <button type="submit" class="btn_modifier" id="finir">Créer (2/2)</button>
         </form>
         </div>
     </div>

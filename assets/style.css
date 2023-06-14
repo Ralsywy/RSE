@@ -988,21 +988,21 @@ h2.info_cmpl {
 
 #finir {
   margin-top: 30px;
-  position: relative;
+  margin-left: 80%;
   left: 80%;
   width: 200px;
   height: 70px;
 }
 
-#ecrit {
+.ecrit {
   margin-top: 20px;
 }
 
-#lue {
+.lue {
   margin-top: 20px;
 }
 
-#parler {
+.parler {
   margin-top: 20px;
 }
 
@@ -1060,3 +1060,34 @@ p.form-control {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   }
+.langue_anglais {
+  position: relative;
+  top: -178px;
+  left: 50%;
+}
+
+.obligatoire {
+  color: red;
+}
+.oblig {
+  position: relative;
+  left: 20%;
+  top: -188px;
+}
+
+.decal {
+  margin-top: 20px;
+}
+
+#autre_langue1 {
+  position: relative;
+  top: -170px;
+}
+
+#oui_langue_autre {
+  display: none;
+}
+.-top {
+  position: relative;
+  top: -120px;
+}
