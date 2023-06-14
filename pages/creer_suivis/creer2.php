@@ -12,7 +12,7 @@ if (isset($_SESSION["login"])){
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
     $rdv = $requete->fetchAll();
-    $mysqlConnection = null;
+
     $requete = null;
     ?>
 <div class="addsuivis">
@@ -52,11 +52,23 @@ if (isset($_SESSION["login"])){
     </table>
     </div>
         <hr>
+    <?php
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM inscrit WHERE id_inscrit=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $info_comp = $requete->fetchAll();
+    $requete = null;
+    
+    foreach($info_comp as $ligne2){
+
+    
+    ?>
     <div class="after_plan">
-    <form class="form" method="post" action="index.php?route=store_inscrit2">
+    <form class="form" method="post" action="index.php?route=store_inscrit2&id=<?=$_GET["id"]?>">
 
         <h2 class="info_cmpl">Informations complémentaires : </h2>
-        <textarea class="form-control" name="info_comp" id="empl_occ"></textarea>
+        <textarea class="form-control" name="info_comp" id="empl_occ"><?php echo $ligne2["info_comp"] ?></textarea>
 
         <hr>
 
@@ -161,13 +173,16 @@ if (isset($_SESSION["login"])){
         <div class="input_boxe">
         <label for="autre_situ">Expliquez : </label>
         <input type="text" id="autre_situ" name="autre">
+        <?php
+        }
+        ?>
         </div>
         </div>
-        
-        <button type="submit" class="btn_modifier" id="finir">Valider</button>
+        <button type="submit" class="btn_modifier" id="finir">Valider</button></a>
         </form>
         </div>
     </div>
 <?php
 }
+$mysqlConnection = null;
 ?>

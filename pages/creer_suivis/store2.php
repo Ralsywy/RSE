@@ -15,6 +15,9 @@ else
     );
 
     $id = $_GET["id"];
+    $type_formation = $_GET["type_formation"];
+
+    ////    INFORMATIONS COMPLEMENTAIRES    ////
 
     if(isset($_POST["info_comp"])){
         // ordre de mission
@@ -23,6 +26,18 @@ else
         $requete->execute(["info_comp"=>$_POST["info_comp"]]);
         $requete = null;
     }
+
+    ////    SITUATION PRO APRES   ////
+    if($type_formation == "rien"){
+    }
+    else{
+        // ordre de mission
+        $requete = $mysqlConnection->prepare("UPDATE resultat SET type_formation = :type_formation WHERE id_resultat = '$id'");
+        // execution de la requete
+        $requete->execute(["type_formation"=>$_POST["type_formation"]]);
+        $requete = null;
+    }
+
    
     header("location:index.php?route=creer2&id=".$_GET["id"]);
 }

@@ -374,9 +374,16 @@ else
         }
     }
 
+    ////    RESULTAT    ////
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("INSERT INTO resultat(id_resultat) VALUES (:id_resultat)");
+    // execution de la requete
+    $requete->execute(["id_resultat"=>$id_rdc]);
+    $requete = null;
+
     // Préparation de la requête
-    $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise WHERE id_inscrit = '$id_rdc'");
-    $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc]);
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise, fk_id_resultat = :fk_id_resultat WHERE id_inscrit = '$id_rdc'");
+    $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc,"fk_id_resultat"=>$id_rdc]);
     $requete = null;
 
 
