@@ -177,7 +177,7 @@ if (isset($_SESSION["login"])){
         </div>
         </div>
         
-        <button type="submit" class="btn_modifier" id="finir">Créer (2/2)</button>
+        <button type="submit" class="btn_modifier" id="finir">Valider</button>
         </form>
         </div>
     </div>
