@@ -38,10 +38,13 @@ if (isset($_SESSION["login"])){
         <!--    Si oui   -->
     <div id="centre_num">
         <label id="num_" class="decale" for="num">N° : <span class="obligatoire">*</span></label>
-        <input id="input_num" class="input_suivis" type="text" id="num" name="numero">
+        <input class="input_suivis" type="text" id="num" name="numero">
 
         <label id="centre" for="centre">Centre : <span class="obligatoire">*</span></label>
-        <input id="input_centre" class="input_suivis" type="text" id="centre" name="centre">
+        <input class="input_suivis" type="text" id="centre" name="centre">
+
+        <label id="jour" for="jour">Jour : <span class="obligatoire">*</span></label>
+        <input class="input_suivis" type="text" id="jour" name="jour">
     </div>
 
         <!--    Si non    -->
@@ -50,7 +53,7 @@ if (isset($_SESSION["login"])){
         <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
         </div>
         <div>
-        <label for="benevole">Bénévole aux resto du coeur : </label>
+        <label for="benevole">Bénévole aux resto du coeur : <span class="obligatoire">*</span></label>
         <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
         <label for="benevole_oui">oui</label>
         <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
