@@ -132,6 +132,8 @@ function hideshowpermis() {
   function showhideachat(val) {
     if(val==1) {
         document.getElementById('achat1').style.display='none';
+        document.getElementById('date_achat_vehicule').style.display='none';
+        achat_non.checked = true;
     }
     if(val==2) {
         document.getElementById('achat1').style.display='block';
@@ -347,6 +349,14 @@ function showhideautrelang(val) {
     if(val==2) {
         document.getElementById('oui_langue_autre').style.display='none';
 
+    }
+  }
+  function showhidedatevehi(val) {
+    if(val==1) {
+        document.getElementById('date_achat_vehicule').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('date_achat_vehicule').style.display='none';
     }
   }
 
