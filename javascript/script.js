@@ -340,4 +340,13 @@ function hideshowformqd1() {
             document.getElementById('if_dipl1').style.display='none';
         }
     }
+function showhideautrelang(val) {
+    if(val==1) {
+        document.getElementById('oui_langue_autre').style.display='block';
+    }
+    if(val==2) {
+        document.getElementById('oui_langue_autre').style.display='none';
+
+    }
+  }
 
