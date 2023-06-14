@@ -363,7 +363,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Mission local   -------------------------------------------------------------------
         -->
-        <label for="inscrit_mission_local">Inscrit à la mission locale : <span class="obligatoire">*</span></label>
+        <label for="inscrit_mission_local">Inscrit à la Mission Locale : <span class="obligatoire">*</span></label>
         <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui">
         <label for="mission_oui">oui</label>
         <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non">
