@@ -733,7 +733,6 @@ inputNombreEnfant.addEventListener('change', () => {
     </form>      
 </div>
 <?php
-    var_dump($_FILES, $_POST);
 $mysqlConnection = null;
 }
 ?>
