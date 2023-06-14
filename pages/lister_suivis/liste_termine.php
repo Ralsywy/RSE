@@ -30,7 +30,7 @@ if (isset($_SESSION["login"])){
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Accompagnateur</th>
-                    <th scope="col">Nombre de démarches</th>
+                    <th scope="col">Nombre de rendez-vous</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -55,7 +55,13 @@ if (isset($_SESSION["login"])){
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
+                            <?php
+                            if (isset($_SESSION["is_admin"])){
+                            ?>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php
@@ -81,7 +87,13 @@ if (isset($_SESSION["login"])){
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM plan_action WHERE fk_id_inscrit_plan = $id_insc") ?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
+                            <?php
+                            if (isset($_SESSION["is_admin"])){
+                            ?>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php

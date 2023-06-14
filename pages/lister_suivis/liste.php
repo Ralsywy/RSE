@@ -58,7 +58,13 @@ if (isset($_SESSION["login"])){
                             <!-- Modification -->
                             <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_term">Terminer</button></a>
+                            <?php
+                            if (isset($_SESSION["is_admin"])){
+                            ?>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php
@@ -93,7 +99,13 @@ if (isset($_SESSION["login"])){
                             <!-- Modification -->
                             <a href="index.php?route=update&id=<?= $ligne["id_inscrit"]?>"><button class="btn_modif">Ajouter</button></a>
                             <a href="index.php?route=edit_statut&id=<?= $ligne["id_inscrit"]?>"><button class="btn_term">Terminer</button></a>
+                            <?php
+                            if (isset($_SESSION["is_admin"])){
+                            ?>
                             <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php

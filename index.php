@@ -52,9 +52,15 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="index.php?route=creer_suivis"><span class="nav_msg">Créer un suivi</span></a>
             </li>
+            <?php
+            if (isset($_SESSION["is_admin"])){
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="index.php?route=creer_accompagnateur"><span class="nav_msg">Gérer un accompagnateur</span></a>
             </li>
+            <?php
+            }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="index.php?route=logout"><span class="nav_msg">Se déconnecter</span></a>
             </li>

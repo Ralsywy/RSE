@@ -21,7 +21,7 @@ try{
     $requete = $mysqlConnection->prepare('DELETE FROM enfant WHERE fk_id_inscrit_enfant=:id AND fk_id_inscrit_enfant IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
-    $requete = null; 
+    $requete = null;
 
     ////    PLAN ACTION    //// 
     // ordre de mission
