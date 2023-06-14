@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_POST["emploi_pre_occupe"])==false && empty($_POST["emploi_pre_occupe"]) && isset($_POST["echeance"])==false && empty($_POST["echeance"])){
-    $_SESSION["error"]="La date et le champs ";
+if (isset($_POST["info_comp"])==false && empty($_POST["info_comp"]) && isset($_POST["echeance"])==false && empty($_POST["echeance"])){
+    $_SESSION["error"]="Remplissez au moins un champs";
     header("location:index.php?route=creer2&id=".$_GET["id"]);
 }
 else
@@ -14,12 +14,15 @@ else
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 
-    // ordre de mission
-    $requete = $mysqlConnection->prepare('INSERT INTO plan_action(action_menee,echeance,fk_id_inscrit_plan) values(:action_menee,:echeance,:fk_id_inscrit_plan)');
-    //execution de la requete
-    $requete->execute(["action_menee"=>$_POST["action_menee"],"echeance"=>$_POST["echeance"],"fk_id_inscrit_plan"=>$_GET["id"]]);
-    $requete = null;
+    $id = $_GET["id"];
 
+    if(isset($_POST["info_comp"])){
+        // ordre de mission
+        $requete = $mysqlConnection->prepare("UPDATE inscrit SET info_comp = :info_comp WHERE id_inscrit = '$id'");
+        // execution de la requete
+        $requete->execute(["info_comp"=>$_POST["info_comp"]]);
+        $requete = null;
+    }
    
     header("location:index.php?route=creer2&id=".$_GET["id"]);
 }

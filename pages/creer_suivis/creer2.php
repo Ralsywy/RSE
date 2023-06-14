@@ -53,17 +53,12 @@ if (isset($_SESSION["login"])){
     </div>
         <hr>
     <div class="after_plan">
-        <form action="method">
+    <form class="form" method="post" action="index.php?route=store_inscrit2">
 
         <h2 class="info_cmpl">Informations complémentaires : </h2>
-        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
-
+        <textarea class="form-control" name="info_comp" id="empl_occ"></textarea>
 
         <hr>
-
-
-
-
 
         <label for="situat_pro">Situation professionnelle après la clôture du plan d'action : </label>
         <select class="form-control" name="type_formation" id="situat_pro" onchange="hideshowsituationpro()">
