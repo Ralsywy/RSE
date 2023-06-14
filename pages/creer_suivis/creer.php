@@ -75,10 +75,12 @@ if (isset($_SESSION["login"])){
         <select name="accompagnateur" id="accompagnateur" class="form-control">
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
-            foreach($accompagnateurs as $ligne){?>
+            foreach($accompagnateurs as $ligne){
+            if($ligne["is_admin"]==0){
+            ?>
                 <option value=<?= $ligne["id_accompagnateur"]?>><?= $ligne["name_acc"]?></option>
             <?php
-            }
+            }}
             ?>
         </select>
          <p class="oblig">(<span class="obligatoire">*</span> : obligatoire)</p>
@@ -364,7 +366,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    
             Mission local   -------------------------------------------------------------------
         -->
-        <label for="inscrit_mission_local">Inscrit à la mission locale : <span class="obligatoire">*</span></label>
+        <label for="inscrit_mission_local">Inscrit à la Mission Locale : <span class="obligatoire">*</span></label>
         <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui">
         <label for="mission_oui">oui</label>
         <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non">
