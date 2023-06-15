@@ -50,10 +50,8 @@ function hideshowkid(val) {
 window.addEventListener('DOMContentLoaded', function() {
     hideshowautre();
   });
-  
   function hideshowautre() {
     var autre = document.getElementById("revenus").value;
-    document.getElementById("revenus").value;
     if (autre == "autre") {
       document.getElementById('preciser').style.display = 'block';
     } else {
@@ -62,67 +60,127 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   
 // Pole emplois
+window.addEventListener('DOMContentLoaded', function() {
+    var pole_oui = document.getElementById('pole_oui');
+    var pole_non = document.getElementById('pole_non');
+    
+    if (pole_oui.checked) {
+        showhideemplois(1);
+    } else if (pole_non.checked) {
+        showhideemplois(2);
+    }
+  });
 function showhideemplois(val) {
-  if(val==1) {
+  if(val==1 || document.getElementById('pole_oui').checked) {
       document.getElementById('pole_emplois').style.display='block';
       document.getElementById('date_rea2').style.display='none';
   }
-  if(val==2) {
+  if(val==2 || document.getElementById('pole_non').checked) {
       document.getElementById('pole_emplois').style.display='none';
       document.getElementById('date_rea2').style.display='block';
   }
 }
 // CMA
+window.addEventListener('DOMContentLoaded', function() {
+    var cma_oui = document.getElementById('cma_oui');
+    var cma_non = document.getElementById('cma_non');
+    
+    if (cma_oui.checked) {
+        showhideemplois(1);
+    } else if (cma_non.checked) {
+        showhideemplois(2);
+    }
+  });
 function showhidecma(val) {
-    if(val==1) {
+    if(val==1 || document.getElementById('cma_non').checked) {
         document.getElementById('inscrit_cma').style.display='block';
         document.getElementById('date_rea_cma').style.display='none';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('cma_oui').checked) {
         document.getElementById('inscrit_cma').style.display='none';
         document.getElementById('date_rea_cma').style.display='block';
     }
   }
 // Soélis
 function showhidesoelis(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var soelis_oui = document.getElementById('soelis_oui');
+        var soelis_non = document.getElementById('soelis_non');
+        
+        if (soelis_oui.checked) {
+            showhideemplois(1);
+        } else if (soelis_non.checked) {
+            showhideemplois(2);
+        }
+      });
+    if(val==1 || document.getElementById('soelis_oui').checked) {
         document.getElementById('inscrit_soelis').style.display='block';
         document.getElementById('date_rea_soelis').style.display='none';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('soelis_non').checked) {
         document.getElementById('inscrit_soelis').style.display='none';
         document.getElementById('date_rea_soelis').style.display='block';
     }
   }
 // Mission locale
 function showhidemission(val) {
-  if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var mission_oui = document.getElementById('mission_oui');
+        var mission_non = document.getElementById('mission_non');
+        
+        if (mission_oui.checked) {
+            showhideemplois(1);
+        } else if (mission_non.checked) {
+            showhideemplois(2);
+        }
+      });
+  if(val==1 || document.getElementById('mission_oui').checked) {
       document.getElementById('mission').style.display='block';
       document.getElementById('date_rea3').style.display='none';
   }
-  if(val==2) {
+  if(val==2 || document.getElementById('mission_non').checked) {
       document.getElementById('mission').style.display='none';
       document.getElementById('date_rea3').style.display='block';
   }
 }
 // Cap Emlois
 function showhidecap(val) {
-  if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var cap_oui = document.getElementById('cap_oui');
+        var cap_non = document.getElementById('cap_non');
+        
+        if (cap_oui.checked) {
+            showhideemplois(1);
+        } else if (cap_non.checked) {
+            showhideemplois(2);
+        }
+      });
+  if(val==1 || document.getElementById('cap_oui').checked) {
       document.getElementById('cap').style.display='block';
       document.getElementById('date_rea4').style.display='none';
   }
-  if(val==2) {
+  if(val==2 || document.getElementById('cap_non').checked) {
       document.getElementById('cap').style.display='none';
       document.getElementById('date_rea4').style.display='block';
   }
 }
 // CV
 function showhidecv(val) {
-  if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var cv_oui = document.getElementById('cv_oui');
+        var cv_non = document.getElementById('cv_non');
+        
+        if (cv_oui.checked) {
+            showhideemplois(1);
+        } else if (cv_non.checked) {
+            showhideemplois(2);
+        }
+      });
+  if(val==1 || document.getElementById('cv_oui').checked) {
       document.getElementById('cv').style.display='block';
       document.getElementById('date_cv').style.display='none';
   }
-  if(val==2) {
+  if(val==2 || document.getElementById('cv_non').checked) {
       document.getElementById('cv').style.display='none';
       document.getElementById('date_cv').style.display='block';
   }

@@ -14,6 +14,8 @@ var radio_non = document.getElementById("radio_non");
 var radio_oui = document.getElementById("radio_oui");
 
 
+// test
+
 
 
 });
