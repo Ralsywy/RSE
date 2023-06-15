@@ -88,16 +88,16 @@ else
     /* RESTOS DU COEUR */
     if($choix_rdc == "oui"){
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO rdc(id_rdc,numero,centre) VALUES (:id_rdc,:numero,:centre)");
+        $requete = $mysqlConnection->prepare("INSERT INTO rdc(id_rdc,numero,centre,jour) VALUES (:id_rdc,:numero,:centre,:jour)");
         // execution de la requete
-        $requete->execute(["id_rdc"=>$id_rdc,"numero"=>$_POST["numero"],"centre"=>$_POST["centre"]]);
+        $requete->execute(["id_rdc"=>$id_rdc,"numero"=>$_POST["numero"],"centre"=>$_POST["centre"],"jour"=>$_POST["jour"]]);
         $requete = null;
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO rdc(id_rdc,dte_realisation_rdc) VALUES (:id_rdc,:dte_realisation_rdc)");
+        $requete = $mysqlConnection->prepare("INSERT INTO rdc(id_rdc,dte_realisation_rdc,commentaire_inscrit) VALUES (:id_rdc,:dte_realisation_rdc,:commentaire_inscrit)");
         // execution de la requete
-        $requete->execute(["id_rdc"=>$id_rdc,"dte_realisation_rdc"=>$_POST["dte_realisation_rdc"]]);
+        $requete->execute(["id_rdc"=>$id_rdc,"dte_realisation_rdc"=>$_POST["dte_realisation_rdc"],"commentaire_inscrit"=>$_POST["commentaire_inscrit"]]);
         $requete = null;
     }
 
@@ -142,9 +142,9 @@ else
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO pole_emploi(id_pole_emploi,dte_realisation_pole) VALUES (:id_pole_emploi,:dte_realisation_pole)");
+        $requete = $mysqlConnection->prepare("INSERT INTO pole_emploi(id_pole_emploi,dte_realisation_pole,commentaire_pole) VALUES (:id_pole_emploi,:dte_realisation_pole,:commentaire_pole)");
         // execution de la requete
-        $requete->execute(["id_pole_emploi"=>$id_rdc,"dte_realisation_pole"=>$_POST["dte_realisation_pole"]]);
+        $requete->execute(["id_pole_emploi"=>$id_rdc,"dte_realisation_pole"=>$_POST["dte_realisation_pole"],"commentaire_pole"=>$_POST["commentaire_pole"]]);
         $requete = null;
     }
 
@@ -158,9 +158,9 @@ else
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_realisation_soelis) VALUES (:id_soelis,:dte_realisation_soelis)");
+        $requete = $mysqlConnection->prepare("INSERT INTO soelis(id_soelis,dte_realisation_soelis,commentaire_soelis) VALUES (:id_soelis,:dte_realisation_soelis,:commentaire_soelis)");
         // execution de la requete
-        $requete->execute(["id_soelis"=>$id_rdc,"dte_realisation_soelis"=>$_POST["dte_realisation_soelis"]]);
+        $requete->execute(["id_soelis"=>$id_rdc,"dte_realisation_soelis"=>$_POST["dte_realisation_soelis"],"commentaire_soelis"=>$_POST["commentaire_soelis"]]);
         $requete = null;
     }
 
@@ -174,9 +174,9 @@ else
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO cma(id_cma,dte_realisation_cma) VALUES (:id_cma,:dte_realisation_cma)");
+        $requete = $mysqlConnection->prepare("INSERT INTO cma(id_cma,dte_realisation_cma,commentaire_cma) VALUES (:id_cma,:dte_realisation_cma,:commentaire_cma)");
         // execution de la requete
-        $requete->execute(["id_cma"=>$id_rdc,"dte_realisation_cma"=>$_POST["dte_realisation_cma"]]);
+        $requete->execute(["id_cma"=>$id_rdc,"dte_realisation_cma"=>$_POST["dte_realisation_cma"],"commentaire_cma"=>$_POST["commentaire_cma"]]);
         $requete = null;
     }
 
@@ -190,9 +190,9 @@ else
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO mission_locale(id_mission_locale,dte_realisation_mission) VALUES (:id_mission_locale,:dte_realisation_mission)");
+        $requete = $mysqlConnection->prepare("INSERT INTO mission_locale(id_mission_locale,dte_realisation_mission,commentaire_mission) VALUES (:id_mission_locale,:dte_realisation_mission,:commentaire_mission)");
         // execution de la requete
-        $requete->execute(["id_mission_locale"=>$id_rdc,"dte_realisation_mission"=>$_POST["dte_realisation_mission"]]);
+        $requete->execute(["id_mission_locale"=>$id_rdc,"dte_realisation_mission"=>$_POST["dte_realisation_mission"],"commentaire_mission"=>$_POST["commentaire_mission"]]);
         $requete = null;
     }
 
@@ -206,9 +206,9 @@ else
     }
     else{
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO cap_emploi(id_cap_emploi,dte_realisation_cap) VALUES (:id_cap_emploi,:dte_realisation_cap)");
+        $requete = $mysqlConnection->prepare("INSERT INTO cap_emploi(id_cap_emploi,dte_realisation_cap,commentaire_cap) VALUES (:id_cap_emploi,:dte_realisation_cap,:commentaire_cap)");
         // execution de la requete
-        $requete->execute(["id_cap_emploi"=>$id_rdc,"dte_realisation_cap"=>$_POST["dte_realisation_cap"]]);
+        $requete->execute(["id_cap_emploi"=>$id_rdc,"dte_realisation_cap"=>$_POST["dte_realisation_cap"],"commentaire_cap"=>$_POST["commentaire_cap"]]);
         $requete = null;
     }
 
@@ -279,6 +279,13 @@ else
                 $requete = null;
             }
         }
+    }
+    if($achat_prevu == "oui"){
+        // ordre de mission
+        $requete = $mysqlConnection->prepare("UPDATE inscrit SET date_vehicule = :date_vehicule WHERE id_inscrit = '$id_rdc'");
+        // execution de la requete
+        $requete->execute(["date_vehicule"=>$_POST["date_vehicule"]]);
+        $requete = null;
     }
 
     ////    FORMATION    ////

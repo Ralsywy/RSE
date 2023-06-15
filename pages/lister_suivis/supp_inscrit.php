@@ -115,5 +115,5 @@ catch (Exception $e) {
 }
 
 $mysqlConnection = null;
-header("location:index.php?route=list_suivis");
+header("location:$_SERVER[HTTP_REFERER]");
 ?>
