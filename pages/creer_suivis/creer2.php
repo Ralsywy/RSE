@@ -130,12 +130,36 @@ if (isset($_SESSION["login"])){
             echo "selected";
         }
         ?>>C.D.I</option>
-            <option value="cdd">C.D.D</option>
-            <option value="formation">Formation</option>
-            <option value="stage">Stage d'immersion</option>
-            <option value="abandon">Abandon du plan d'action</option>
-            <option value="non_retour">Non-retour à l'emploi</option>
-            <option value="autre_s">Autre situation</option>
+            <option value="cdd" <?php
+        if($ligne3["type_formation"]=="cdd"){
+            echo "selected";
+        }
+        ?>>C.D.D</option>
+            <option value="formation" <?php
+        if($ligne3["type_formation"]=="formation"){
+            echo "selected";
+        }
+        ?>>Formation</option>
+            <option value="stage" <?php
+        if($ligne3["type_formation"]=="stage"){
+            echo "selected";
+        }
+        ?>>Stage d'immersion</option>
+            <option value="abandon" <?php
+        if($ligne3["type_formation"]=="abandon"){
+            echo "selected";
+        }
+        ?>>Abandon du plan d'action</option>
+            <option value="non_retour"<?php
+        if($ligne3["type_formation"]=="non_retour"){
+            echo "selected";
+        }
+        ?>>Non-retour à l'emploi</option>
+            <option value="autre_s" <?php
+        if($ligne3["type_formation"]=="autre_s"){
+            echo "selected";
+        }
+        ?>>Autre situation</option>
         </select>
         <!--   Si cdi   -->
         <div id="cdi">
