@@ -19,14 +19,16 @@ nav{
 }
 
 body {
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-background: url(../img/fond.png) no-repeat;
-background-size: cover;
-font-family: "Gill Sans MT";
-background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../img/fond.png) no-repeat;
+  background-size: cover;
+  font-family: "Gill Sans MT";
+  background-repeat: no-repeat;
+  align-content: stretch;
+  flex-wrap: wrap;
 }
 header {
 position:absolute;

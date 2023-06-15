@@ -2,18 +2,29 @@
 
 
 // centre num
-function hideShowDiv(val) {
-  if(val==1 || radio_oui.checked == true) {
-      document.getElementById('centre_num').style.display='block';
-      document.getElementById('date_rea1').style.display='none';
-
+// Vérifier l'état initial des boutons radio au chargement de la page
+window.addEventListener('DOMContentLoaded', function() {
+    var radioOui = document.getElementById('radio_oui');
+    var radioNon = document.getElementById('radio_non');
+    
+    if (radioOui.checked) {
+      hideShowDiv(1);
+    } else if (radioNon.checked) {
+      hideShowDiv(2);
+    }
+  });
+  
+  function hideShowDiv(val) {
+    if (val == 1 || document.getElementById('radio_oui').checked) {
+      document.getElementById('centre_num').style.display = 'block';
+      document.getElementById('date_rea1').style.display = 'none';
+    }
+    if (val == 2 || document.getElementById('radio_non').checked) {
+      document.getElementById('centre_num').style.display = 'none';
+      document.getElementById('date_rea1').style.display = 'block';
+    }
   }
-  if(val==2) {
-      document.getElementById('centre_num').style.display='none';
-      document.getElementById('date_rea1').style.display='block';
-
-  }
-}
+  
 // Enfants à charge
 function hideshowkid(val) {
   if(val==1) {
