@@ -26,24 +26,41 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   
 // Enfants à charge
+window.addEventListener('DOMContentLoaded', function() {
+    var enfant_oui = document.getElementById('enfant_oui');
+    var enfant_non = document.getElementById('enfant_non');
+    
+    if (enfant_oui.checked) {
+        hideshowkid(1);
+    } else if (enfant_non.checked) {
+        hideshowkid(2);
+    }
+  });
 function hideshowkid(val) {
-  if(val==1) {
+  if(val==1 || document.getElementById('enfant_oui').checked) {
       document.getElementById('enfant_naissance').style.display='block';
   }
-  if(val==2) {
+  if(val==2 || document.getElementById('enfant_non').checked) {
       document.getElementById('enfant_naissance').style.display='none';
       nb_enfant.value = "0";
   }
 }
 // Nature des revenus
-function hideshowautre() {
-var autre = document.getElementById("revenus").value;
-  if(autre == "autre") {
-      document.getElementById('preciser').style.display='block';
-  } else {
-      document.getElementById('preciser').style.display='none';
+// Appeler hideshowautre() une fois au chargement de la page
+window.addEventListener('DOMContentLoaded', function() {
+    hideshowautre();
+  });
+  
+  function hideshowautre() {
+    var autre = document.getElementById("revenus").value;
+    document.getElementById("revenus").value;
+    if (autre == "autre") {
+      document.getElementById('preciser').style.display = 'block';
+    } else {
+      document.getElementById('preciser').style.display = 'none';
+    }
   }
-}
+  
 // Pole emplois
 function showhideemplois(val) {
   if(val==1) {
@@ -274,6 +291,17 @@ function hideshowdipl() {
         document.getElementById('licence_metier').style.display='none';
         document.getElementById('master_metier').style.display='none';
         document.getElementById('master2_metier').style.display='block';
+    } else if (dipl == "brevet") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
     }
   }
 // Reconversion pro
