@@ -175,11 +175,11 @@ switch ($_GET["route"]){
   case "supp_inscrit":
     include("pages/lister_suivis/supp_inscrit.php");
     break;
-  case "store_plan":
-    include("pages/creer_suivis/store_plan.php");
+  case "store_rdv":
+    include("pages/creer_suivis/store_rdv.php");
     break;
-  case "delete_plan":
-    include("pages/creer_suivis/delete_plan.php");
+  case "delete_rdv":
+    include("pages/creer_suivis/delete_rdv.php");
     break;
   case "creer2":
     include("pages/creer_suivis/creer2.php");

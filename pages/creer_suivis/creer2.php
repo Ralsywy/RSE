@@ -68,7 +68,7 @@ if (isset($_SESSION["login"])){
     </thead>
     <tbody>
         <tr>
-            <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
+            <form method="post" id="plan_act" action="index.php?route=store_rdv&id=<?=$_GET["id"]?>">
                 <td></td>
                 <td><input type="date" id="rdv" name="rdv"></td>
                 <td><textarea class="form-control" id="context" name="context"></textarea></td>
@@ -82,7 +82,7 @@ if (isset($_SESSION["login"])){
                 <td><?= $ligne["id_rdv"]?></td>
                 <td><?= $ligne["rdv"]?></td>
                 <td class="acti"><?= $ligne["context"]?></td>
-                <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+                <td><a href="index.php?route=delete_rdv&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
         }?>
