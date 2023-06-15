@@ -146,28 +146,124 @@ function hideshowdipl() {
           document.getElementById('rens_dipl').style.display='none';
           document.getElementById('form_continue').style.display='none';
           document.getElementById('cap_metier').style.display='none';
+          document.getElementById('bep_metier').style.display='none';
+          document.getElementById('bac_metier').style.display='none';
+          document.getElementById('bac2_metier').style.display='none';
+          document.getElementById('licence_metier').style.display='none';
+          document.getElementById('master_metier').style.display='none';
+          document.getElementById('master2_metier').style.display='none';
           document.getElementById('niveau').style.display='block';
       } else if (dipl == "autre") {
           document.getElementById('form_continue').style.display='none';
           document.getElementById('rens_dipl').style.display='block';
           document.getElementById('cap_metier').style.display='none';
           document.getElementById('niveau').style.display='none';
+          document.getElementById('bep_metier').style.display='none';
+          document.getElementById('bac_metier').style.display='none';
+          document.getElementById('bac2_metier').style.display='none';
+          document.getElementById('licence_metier').style.display='none';
+          document.getElementById('master_metier').style.display='none';
+          document.getElementById('master2_metier').style.display='none';
       } else if (dipl == "cap") {
         document.getElementById('form_continue').style.display='none';
         document.getElementById('niveau').style.display='none';
         document.getElementById('rens_dipl').style.display='none';
         document.getElementById('cap_metier').style.display='block';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
     } else if (dipl == "formation_continue") {
         document.getElementById('form_continue').style.display='block';
         document.getElementById('cap_metier').style.display='none';
         document.getElementById('rens_dipl').style.display='none';
         document.getElementById('niveau').style.display='none';
-    } else {
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "rien") {
         document.getElementById('rens_dipl').style.display='none';
         document.getElementById('niveau').style.display='none';
         document.getElementById('form_continue').style.display='none';
         document.getElementById('cap_metier').style.display='none';
-      }
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "bep") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='block';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "bac") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='block';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "bac+2") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='block';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "licence") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='block';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "master") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='block';
+        document.getElementById('master2_metier').style.display='none';
+    } else if (dipl == "master2") {
+        document.getElementById('rens_dipl').style.display='none';
+        document.getElementById('niveau').style.display='none';
+        document.getElementById('form_continue').style.display='none';
+        document.getElementById('cap_metier').style.display='none';
+        document.getElementById('bep_metier').style.display='none';
+        document.getElementById('bac_metier').style.display='none';
+        document.getElementById('bac2_metier').style.display='none';
+        document.getElementById('licence_metier').style.display='none';
+        document.getElementById('master_metier').style.display='none';
+        document.getElementById('master2_metier').style.display='block';
+    }
   }
 // Reconversion pro
   function showhidereconv(val) {
