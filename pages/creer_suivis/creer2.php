@@ -7,15 +7,17 @@ if (isset($_SESSION["login"])){
         PASSWORD,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
+    ?>
+<div class="addsuivis">
+<?php
     // ordre de mission
-    $requete = $mysqlConnection->prepare('SELECT * FROM rdv where fk_id_inscrit_rdv=:id');
+    $requete = $mysqlConnection->prepare('SELECT * FROM plan_action WHERE fk_id_inscrit_plan=:id');
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
-    $rdv = $requete->fetchAll();
+    $plan_action = $requete->fetchAll();
 
     $requete = null;
     ?>
-<div class="addsuivis">
 <h2 class="plan_act">Suivi du plan d'actions</h2>
 <div class="tableau" id="tabl">
     <table class="table" id="monTableau">
@@ -40,20 +42,32 @@ if (isset($_SESSION["login"])){
                 <td><button type="submit" class="btn_modifier">Ajouter</button></td>
             </form>
         </tr>
-     <!--
+        <?php
+        foreach ($plan_action as $ligne){
+        ?>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="acti"></td>
-                <td><a href="index.php?route=delete_plan&id="><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+                <td><?= $ligne["id_plan_action"]?></td>
+                <td><?= $ligne["action_menee"]?></td>
+                <td><?= $ligne["objectif"]?></td>
+                <td><?= $ligne["moyen_oeuvre"]?></td>
+                <td><?= $ligne["echeance"]?></td>
+                <td><a href="index.php?route=delete_plan_action&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
-    -->
+        <?php
+        }?>
     </tbody>
     </table>
     </div>
-           <hr> 
+    <hr>
+    <?php
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM rdv WHERE fk_id_inscrit_rdv=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $rdv = $requete->fetchAll();
+
+    $requete = null;
+    ?>
     <h2 class="plan_act">Suivi des rendez-vous</h2>
 
 <div class="tableau" id="tabl">
