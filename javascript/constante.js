@@ -10,6 +10,8 @@ var non_reconv = document.getElementById("non_reconv");
 var tableau = document.getElementById("monTableau");
 var nb_enfant = document.getElementById("nombre_enfant");
 var achat_non = document.getElementById("achat_non");
+var radio_non = document.getElementById("radio_non");
+var radio_oui = document.getElementById("radio_oui");
 
 
 

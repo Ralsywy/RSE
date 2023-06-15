@@ -193,6 +193,9 @@ switch ($_GET["route"]){
   case "update":
     include("pages/creer_suivis/update.php");
     break;
+  case "affichage":
+    include("pages/creer_suivis/affichage.php");
+    break;
   }}
 ?>
 

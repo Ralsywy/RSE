@@ -3,7 +3,7 @@
 
 // centre num
 function hideShowDiv(val) {
-  if(val==1) {
+  if(val==1 || radio_oui.checked == true) {
       document.getElementById('centre_num').style.display='block';
       document.getElementById('date_rea1').style.display='none';
 
