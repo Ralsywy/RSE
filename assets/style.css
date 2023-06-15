@@ -1102,3 +1102,31 @@ p.form-control {
 #date_achat_vehicule {
   display: none;
 }
+
+#bep_metier {
+  display: none;
+}
+
+#bac_metier {
+  display: none;
+}
+
+#bac2_metier {
+  display: none;
+}
+
+#licence_metier {
+  display: none;
+}
+
+#master_metier {
+  display: none;
+}
+
+#master2_metier {
+  display: none;
+}
+
+#dipl {
+  margin: 20px;
+}

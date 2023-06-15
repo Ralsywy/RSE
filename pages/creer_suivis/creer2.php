@@ -16,6 +16,45 @@ if (isset($_SESSION["login"])){
     $requete = null;
     ?>
 <div class="addsuivis">
+<h2 class="plan_act">Suivi du plan d'actions</h2>
+    <hr>
+<div class="tableau" id="tabl">
+    <table class="table" id="monTableau">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Actions à mener</th>
+            <th scope="col">Objectifs</th>
+            <th scope="col">Moyens mis en oeuvre</th>
+            <th scope="col">Echeance</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
+                <td></td>
+                <td><input type="text" class="form-control" id="action_menee" name="action_menee"></td>
+                <td><input type="text" class="form-control" id="action_menee" name="action_menee"></td>
+                <td><input type="text" class="form-control" id="moyen_oeuvre" name="moyen_oeuvre"></td>
+                <td><input type="date" id="echeance" name="echeance"></td>
+                <td><button type="submit" class="btn_modifier">Ajouter</button></td>
+            </form>
+        </tr>
+     <!--
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="acti"></td>
+                <td><a href="index.php?route=delete_plan&id="><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+            </tr>
+    -->
+    </tbody>
+    </table>
+    </div>
+        
     <h2 class="plan_act">Suivi des rendez-vous</h2>
     <hr>
 <div class="tableau" id="tabl">
@@ -120,7 +159,7 @@ if (isset($_SESSION["login"])){
         <label for="form_type1">Type de formation : </label>
         <select class="form-control" name="type_form_after" id="form_type1" onchange="hideshowformqd1()">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="qualfiante1">Formation qualifiante</option>
+            <option value="qualifiante1">Formation qualifiante</option>
             <option value="diplomante1">Formation diplômante</option>
         </select>
         </div>

@@ -51,6 +51,8 @@ if (isset($_SESSION["login"])){
         <div id="date_rea1">
         <label class="decale" for="date_r">Date de réalisation : </label>
         <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
+        <label for="commentaire_inscrit">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_inscrit">
         </div>
         <div>
         <label for="benevole">Bénévole aux resto du coeur : <span class="obligatoire">*</span></label>
@@ -313,6 +315,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_rea2">
         <label for="date_r2">Date de réalisation : <span class="obligatoire">*</span></label>
         <input type="date" id="date_r2" name="dte_realisation_pole">
+        <label for="commentaire_pole">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_pole">
         </div>
     </div>
         <!--    
@@ -337,6 +341,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_rea_soelis">
         <label for="date_rea_s">Date de réalisation : <span class="obligatoire">*</span></label>
         <input type="date" id="date_rea_s" name="dte_realisation_soelis">
+        <label for="commentaire_soelis">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_soelis">
         </div>
     </div>
         <!--    
@@ -361,6 +367,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_rea_cma">
         <label for="date_cma">Date de réalisation : <span class="obligatoire">*</span></label>
         <input type="date" id="date_cma" name="dte_realisation_cma">
+        <label for="commentaire_cma">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_cma">
         </div>
     </div>
         <!--    
@@ -376,6 +384,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="date_r3">Date de réalisation : <span class="obligatoire">*</span></label>
         <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission">
+        <label for="commentaire_mission">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_mission">
     </div>
         </div>
         
@@ -414,6 +424,8 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_rea4">
         <label for="date_r4">Date de réalisation : <span class="obligatoire">*</span></label>
         <input type="date" id="date_r4" name="dte_realisation_cap">
+        <label for="commentaire_cap">Commentaire : </label>
+        <input type="text" class="input_suivis" name="commentaire_cap">
         </div>
         </div>
         <!--    
@@ -541,7 +553,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="bac">BAC</option>
             <option value="bac+2">BAC +2</option>
             <option value="licence">Licence</option>
-            <option value="master1">Master 1</option>
+            <option value="master">Master 1</option>
             <option value="master2">Master 2</option>
             <option value="autre">Autre</option>
             <option value="formation_continue">Formation continue</option>
@@ -550,6 +562,36 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe" id="cap_metier">
         <label for="cap_metier">Renseigner le type de métier : <span class="obligatoire">*</span></label>
         <input type="text" id="input_cap_metier" name="cap_metier">
+        </div>
+        <!--    Si BEP   -->
+        <div class="input_boxe" id="bep_metier">
+        <label for="bep_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="bep_metier">
+        </div>
+        <!--    Si BAC   -->
+        <div class="input_boxe" id="bac_metier">
+        <label for="bac_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="bac_metier">
+        </div>
+        <!--    Si BAC+2   -->
+        <div class="input_boxe" id="bac2_metier">
+        <label for="bac2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="bac2_metier">
+        </div>
+        <!--    Si Licence   -->
+        <div class="input_boxe" id="licence_metier">
+        <label for="licence_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="licence_metier">
+        </div>
+        <!--    Si Master   -->
+        <div class="input_boxe" id="master_metier">
+        <label for="master_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="master_metier">
+        </div>
+        <!--    Si Master 2   -->
+        <div class="input_boxe" id="master2_metier">
+        <label for="master2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
+        <input type="text" id="input_cap_metier" name="master2_metier">
         </div>
         <!--    Si formation continue   -->
         <div class="input_boxe" id="form_continue">
