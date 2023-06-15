@@ -69,7 +69,9 @@ if (isset($_SESSION["login"])){
 
         <h2 class="info_cmpl">Informations complémentaires : </h2>
         <textarea class="form-control" name="info_comp" id="empl_occ"><?php echo $ligne2["info_comp"] ?></textarea>
-
+    <?php
+    }
+    ?>
         <hr>
 
         <label for="situat_pro">Situation professionnelle après la clôture du plan d'action : </label>
@@ -94,9 +96,9 @@ if (isset($_SESSION["login"])){
         <input type="text" id="nom_societe" name="nom_societe">
         </div>
         <label for="emploi_aide">Emploi aidé : </label>
-        <input type="radio" id="help_oui" name="emploi_aide">
+        <input type="radio" id="help_oui" name="emploi_aide" value="oui">
         <label for="help_oui">oui</label>
-        <input type="radio" id="help_non" name="emploi_aide">
+        <input type="radio" id="help_non" name="emploi_aide" value="non">
         <label for="help_non">non</label>
         </div>
         <!--   Si cdd   -->
@@ -110,9 +112,9 @@ if (isset($_SESSION["login"])){
         <input type="text" id="nom_societe2" name="nom_societe_cdd">
         </div>
         <label for="emploi_aide_cdd">Emploi aidé : </label>
-        <input type="radio" id="help_oui2" name="emploi_aide_cdd">
+        <input type="radio" id="help_oui2" name="emploi_aide_cdd" value="oui">
         <label for="help_oui2">oui</label>
-        <input type="radio" id="help_non2" name="emploi_aide_cdd">
+        <input type="radio" id="help_non2" name="emploi_aide_cdd" value="non">
         <label for="help_non2">non</label>
         </div>
         <!--   Si formation   -->
@@ -120,7 +122,7 @@ if (isset($_SESSION["login"])){
         <label for="form_type1">Type de formation : </label>
         <select class="form-control" name="type_form_after" id="form_type1" onchange="hideshowformqd1()">
             <option value="rien">-- Selectionner une option --</option>
-            <option value="qualfiante1">Formation qualifiante</option>
+            <option value="qualifiante1">Formation qualifiante</option>
             <option value="diplomante1">Formation diplômante</option>
         </select>
         </div>
@@ -174,13 +176,12 @@ if (isset($_SESSION["login"])){
         <label for="autre_situ">Expliquez : </label>
         <input type="text" id="autre_situ" name="autre">
         <?php
-        }
         ?>
         </div>
         </div>
         <button type="submit" class="btn_modifier" id="finir">Valider</button></a>
-        </form>
-        </div>
+    </form>
+    </div>
     </div>
 <?php
 }
