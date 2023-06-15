@@ -66,6 +66,13 @@ try{
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 
 
+    ////    LANGUE EN    ////
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('DELETE FROM langue_anglaise where id_langue_anglaise=:id AND id_langue_anglaise IS NOT NULL');
+    //execution de la requete
+    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
+
     ////   mission locale   ////
     // ordre de mission
     $requete = $mysqlConnection->prepare('DELETE FROM mission_locale where id_mission_locale=:id AND id_mission_locale IS NOT NULL');
@@ -97,6 +104,13 @@ try{
     ////   FILES   ////
     // ordre de mission
     $requete = $mysqlConnection->prepare('DELETE FROM files where id_files=:id AND id_files IS NOT NULL');
+    //execution de la requete
+    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null; 
+
+    ////   FILES   ////
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('DELETE FROM resultat where id_resultat=:id AND id_resultat IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 
