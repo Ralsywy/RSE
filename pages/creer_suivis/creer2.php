@@ -17,7 +17,6 @@ if (isset($_SESSION["login"])){
     ?>
 <div class="addsuivis">
 <h2 class="plan_act">Suivi du plan d'actions</h2>
-    <hr>
 <div class="tableau" id="tabl">
     <table class="table" id="monTableau">
     <thead>
@@ -54,9 +53,9 @@ if (isset($_SESSION["login"])){
     </tbody>
     </table>
     </div>
-        
+           <hr> 
     <h2 class="plan_act">Suivi des rendez-vous</h2>
-    <hr>
+
 <div class="tableau" id="tabl">
     <table class="table" id="monTableau">
     <thead>
