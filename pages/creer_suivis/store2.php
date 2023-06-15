@@ -77,7 +77,7 @@ else
                     $requete->execute(["type_form_after"=>$_POST["type_form_after"]]);
                     $requete = null;
                     $type_form_after = $_POST["type_form_after"];
-                    if($type_form_after == "qualfiante1"){
+                    if($type_form_after == "qualifiante1"){
                         // ordre de mission
                         $requete = $mysqlConnection->prepare("UPDATE resultat SET nom_form_qual = :nom_form_qual,duree_form_qual=:duree_form_qual WHERE id_resultat = '$id'");
                         // execution de la requete
