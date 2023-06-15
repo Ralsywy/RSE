@@ -11,55 +11,55 @@ if (isset($_SESSION["login"])){
 
 
 ?>
+
 <div class="addsuivis">
     <a href="index.php?route=creer2">Accès suivis page 2</a>
-    <a href="index.php?route=affichage">Accès affichage</a>
-    <h1 class="titrecreer">Création du suivi</h1>
+    <h1 class="titrecreer">Suivi</h1>
     <h2 class="information">Informations personnelles</h2>
     <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit" enctype="multipart/form-data">
         <!--    Information personnelles    -->
     <div class="block_enligne">
         <div class="input_boxe">
         <label for="dte_contact">Date du contact : <span class="obligatoire">*</span></label>
-        <input type="date" id="dte_contact"  name="dte_contact">
+        <input type="date" id="dte_contact"  name="dte_contact" disabled>
         </div>
         <div class="input_boxe">
         <label for="origine_contact">Origine du contact : <span class="obligatoire">*</span></label>
-        <input type="text" name="origine_contact" id="origine_contact"  >
+        <input type="text" name="origine_contact" id="origine_contact" disabled>
         </div>
     </div>
 
     <div class="radio_button">
         <label for="inscrit">Inscrit aux resto du coeur : <span class="obligatoire">*</span></label>
-        <input type="radio" id="radio_oui" name="inscrit_rdc" class="radio_oui" value="oui" onclick="hideShowDiv(1)">
+        <input type="radio" id="radio_oui" name="inscrit_rdc" class="radio_oui" value="oui" onclick="hideShowDiv(1)" disabled>
         <label for="inscrit_oui">oui</label>
-        <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)">
+        <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)" disabled>
         <label for="inscrit_non">non</label>
 
         <!--    Si oui   -->
     <div id="centre_num">
         <label id="num_" class="decale" for="num">N° : <span class="obligatoire">*</span></label>
-        <input class="input_suivis" type="text" id="num" name="numero">
+        <input class="input_suivis" type="text" id="num" name="numero" disabled>
 
         <label id="centre" for="centre">Centre : <span class="obligatoire">*</span></label>
-        <input class="input_suivis" type="text" id="centre" name="centre">
+        <input class="input_suivis" type="text" id="centre" name="centre" disabled>
 
         <label id="jour" for="jour">Jour : <span class="obligatoire">*</span></label>
-        <input class="input_suivis" type="text" id="jour" name="jour">
+        <input class="input_suivis" type="text" id="jour" name="jour" disabled>
     </div>
 
         <!--    Si non    -->
         <div id="date_rea1">
         <label class="decale" for="date_r">Date de réalisation : </label>
-        <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
+        <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc" disabled>
         <label for="commentaire_inscrit">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_inscrit">
+        <input type="text" class="input_suivis" name="commentaire_inscrit" disabled>
         </div>
         <div>
         <label for="benevole">Bénévole aux resto du coeur : <span class="obligatoire">*</span></label>
-        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
+        <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui" disabled>
         <label for="benevole_oui">oui</label>
-        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
+        <input type="radio" id="_non" name="benevole_rdc" class="non" value="non" disabled>
         <label for="benevole_non">non</label>
         </div>
 
@@ -75,7 +75,7 @@ if (isset($_SESSION["login"])){
     ?>
         <div class="input_boxe">
         <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : <span class="obligatoire">*</span></label>
-        <select name="accompagnateur" id="accompagnateur" class="form-control">
+        <select name="accompagnateur" id="accompagnateur" class="form-control" disabled>
             <option value="rien"> -- Selectionner un accompagnateur -- </option>
             <?php
             foreach($accompagnateurs as $ligne){
@@ -86,7 +86,6 @@ if (isset($_SESSION["login"])){
             }}
             ?>
         </select>
-         <p class="oblig">(<span class="obligatoire">*</span> : obligatoire)</p>
 
         </div>
 
@@ -104,7 +103,7 @@ if (isset($_SESSION["login"])){
         <div class="block_enligne">
     <div class="input_boxe">
         <label for="civilite">Civilité : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="civilite" id="civilite">
+        <select class="form-control" name="civilite" id="civilite" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="Madame">Madame</option>
             <option value="Mademoiselle">Mademoiselle</option>
@@ -113,17 +112,17 @@ if (isset($_SESSION["login"])){
         <div class="input_boxe">
 
         <label for="nom">Nom : <span class="obligatoire">*</span></label>
-        <input type="text" id="nom" name="nom">
+        <input type="text" id="nom" name="nom" disabled>
 
 
         <label class="decale" for="prenom">Prénom : <span class="obligatoire">*</span></label>
-        <input class="decale" type="text" id="prenom" name="prenom">
+        <input class="decale" type="text" id="prenom" name="prenom" disabled>
         </div>
         <div class="input_boxe">
         
         <label for="birth_date">Date de naissance : <span class="obligatoire">*</span></label>
         
-        <input type="date" id="birthdate" name="dte_naissance">
+        <input type="date" id="birthdate" name="dte_naissance" disabled>
         <div class="div_age">
         <p class="agee">Age : </p>
         <p class="form-control" disabled id="age"></p>
@@ -157,30 +156,30 @@ if (isset($_SESSION["login"])){
     </div>
     <div class="input_boxe">
         <label id="adresse" for="adresse">Adresse : <span class="obligatoire">*</span></label>
-        <input type="text" id="adresse" name="adresse">
+        <input type="text" id="adresse" name="adresse" disabled>
 
 
         <label class="decaler" for="zipcode">Code Postal : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="text" id="zipcode" name="code_postal"  >
+        <input class="decaler" type="text" id="zipcode" name="code_postal" disabled>
         <div id="error-message" style="display: none; color: #f55;"></div>
         <div class="input_boxe">
         <label class="decaler" for="city">Ville : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="city" placeholder="Ville" name="ville"></select>
+        <select class="form-control" id="city" placeholder="Ville" name="ville" disabled></select>
         </div>
         </div>
         <div class="input_boxe">
 
         <label class="decaler" for="tel">Téléphone : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="text" id="tel" name="telephone">
+        <input class="decaler" type="text" id="tel" name="telephone" disabled>
 
         <label class="decaler" for="email">E-mail : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="mail" id="email" name="email">
+        <input class="decaler" type="mail" id="email" name="email" disabled>
         </div>
         
     </div>
 
         <label for="statue">Statue : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="statut" name="situation_perso">
+        <select class="form-control" id="statut" name="situation_perso" disabled>
             <option value="rien">-- Selectionner un statut --</option>
             <option value="celibataire">Célibataire</option>
             <option value="marie">Marié(e)</option>
@@ -196,16 +195,16 @@ if (isset($_SESSION["login"])){
 
         <div class="sit_perso">
         <label>Enfants à charge : <span class="obligatoire">*</span></label>
-        <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui">
+        <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui" disabled>
         <label for="enfant_oui">oui</label>
 
 
-        <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non">
+        <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non" disabled>
         <label for="enfant_non">non</label>
         <div id="enfant_naissance" class="input_boxe">
         <!--    Si oui    -->
         <label for="nombre_enfant">Nombre d'enfants à charge : <span class="obligatoire">*</span></label>
-        <input type="number" id="nombre_enfant" name="nb_enfant">
+        <input type="number" id="nombre_enfant" name="nb_enfant" disabled>
         <div id="boite">
         </div>
 <br>
@@ -277,7 +276,7 @@ inputNombreEnfant.addEventListener('change', () => {
         -->
         <div class="input_boxe">
         <label for="revenus">Nature des revenus : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="nature_revenus" id="revenus" onchange="hideshowautre()">
+        <select class="form-control" name="nature_revenus" id="revenus" onchange="hideshowautre()" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="salaire">Salaire</option>
             <option value="RSA">RSA</option>
@@ -291,102 +290,102 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si "autre"    -->
         <div id="preciser" class="input_boxe">
         <label for="preciser">Préciser : <span class="obligatoire">*</span></label>
-        <input type="text" name="autre_revenus">
+        <input type="text" name="autre_revenus" disabled>
         </div>
         </div>
         <!--    
             Pôle emplois  --------------------------------------------------------------------
         -->
         <label for="inscrit_pole_emploi">Inscrit à pôle emploi : <span class="obligatoire">*</span></label>
-        <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui">
+        <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui" disabled>
         <label for="pole_oui">oui</label>
-        <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non">
+        <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non" disabled>
         <label for="pole_non">non</label>
         <!--    Si oui    -->
         <div class="input_boxe">
             <div id="pole_emplois">
         <label id="inscri_emplois" for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : <span class="obligatoire">*</span></label>
-        <input id="input_inscri_emplois" type="date" id="date_inscription_pole_emplois" name="dte_inscription">
+        <input id="input_inscri_emplois" type="date" id="date_inscription_pole_emplois" name="dte_inscription" disabled>
         <div class="input_boxe">
         <label id="ref" for="nom_ref">Nom du référent : <span class="obligatoire">*</span></label>
-        <input id="input_ref" type="text" id="nom_ref" name="nom_referent">
+        <input id="input_ref" type="text" id="nom_ref" name="nom_referent" disabled>
         </div>
     </div>
         <!--    Si non    -->
         <div id="date_rea2">
         <label for="date_r2">Date de réalisation : <span class="obligatoire">*</span></label>
-        <input type="date" id="date_r2" name="dte_realisation_pole">
+        <input type="date" id="date_r2" name="dte_realisation_pole" disabled>
         <label for="commentaire_pole">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_pole">
+        <input type="text" class="input_suivis" name="commentaire_pole" disabled>
         </div>
     </div>
         <!--    
             Soélis  --------------------------------------------------------------------
         -->
         <label for="inscrit_soelis">Inscrit à Soélis : <span class="obligatoire">*</span></label>
-        <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui">
+        <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui" disabled>
         <label for="soelis_oui">oui</label>
-        <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non">
+        <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non" disabled>
         <label for="soelis_non">non</label>
         <!--    Si oui    -->
         <div class="input_boxe">
             <div id="inscrit_soelis">
         <label id="inscri_soelis" for="date_inscription_soelis">Date d'inscription à Soelis : <span class="obligatoire">*</span></label>
-        <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis">
+        <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis" disabled>
         <div class="input_boxe">
         <label id="ref" for="nom_ref">Nom du référent : <span class="obligatoire">*</span></label>
-        <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis">
+        <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis" disabled>
         </div>
     </div>
         <!--    Si non    -->
         <div id="date_rea_soelis">
         <label for="date_rea_s">Date de réalisation : <span class="obligatoire">*</span></label>
-        <input type="date" id="date_rea_s" name="dte_realisation_soelis">
+        <input type="date" id="date_rea_s" name="dte_realisation_soelis" disabled>
         <label for="commentaire_soelis">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_soelis">
+        <input type="text" class="input_suivis" name="commentaire_soelis" disabled>
         </div>
     </div>
         <!--    
             CMA  --------------------------------------------------------------------
         -->
         <label for="inscrit_cma">Inscrit à CMA : <span class="obligatoire">*</span></label>
-        <input type="radio" id="cma_oui" name="inscrit_cma" onclick="showhidecma(1)" value="oui">
+        <input type="radio" id="cma_oui" name="inscrit_cma" onclick="showhidecma(1)" value="oui" disabled>
         <label for="cma_oui">oui</label>
-        <input type="radio" id="cma_non" name="inscrit_cma" onclick="showhidecma(2)" value="non">
+        <input type="radio" id="cma_non" name="inscrit_cma" onclick="showhidecma(2)" value="non" disabled>
         <label for="cma_non">non</label>
         <!--    Si oui    -->
         <div class="input_boxe">
             <div id="inscrit_cma">
         <label id="inscrit_cma1" for="date_inscription_pole_emplois">Date d'inscription à CMA : <span class="obligatoire">*</span></label>
-        <input id="input_inscri_cma" type="date" id="date_inscription_cma" name="dte_inscription_cma">
+        <input id="input_inscri_cma" type="date" id="date_inscription_cma" name="dte_inscription_cma" disabled>
         <div class="input_boxe">
         <label id="ref" for="nom_ref_cma">Nom du référent : <span class="obligatoire">*</span></label>
-        <input id="input_ref" type="text" id="nom_ref_cma" name="nom_referent_cma">
+        <input id="input_ref" type="text" id="nom_ref_cma" name="nom_referent_cma" disabled>
         </div>
     </div>
         <!--    Si non    -->
         <div id="date_rea_cma">
         <label for="date_cma">Date de réalisation : <span class="obligatoire">*</span></label>
-        <input type="date" id="date_cma" name="dte_realisation_cma">
+        <input type="date" id="date_cma" name="dte_realisation_cma" disabled>
         <label for="commentaire_cma">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_cma">
+        <input type="text" class="input_suivis" name="commentaire_cma" disabled>
         </div>
     </div>
         <!--    
             Mission local   -------------------------------------------------------------------
         -->
         <label for="inscrit_mission_local">Inscrit à la Mission Locale : <span class="obligatoire">*</span></label>
-        <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui">
+        <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui" disabled>
         <label for="mission_oui">oui</label>
-        <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non">
+        <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non" disabled>
         <label for="mission_non">non</label>
         <!--    Si oui    -->
     <div id="date_rea3">
         <div class="input_boxe">
         <label for="date_r3">Date de réalisation : <span class="obligatoire">*</span></label>
-        <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission">
+        <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission" disabled>
         <label for="commentaire_mission">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_mission">
+        <input type="text" class="input_suivis" name="commentaire_mission" disabled>
     </div>
         </div>
         
@@ -394,10 +393,10 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <div class="input_boxe">
         <label id="datem" for="date_mission">Date d'inscription : <span class="obligatoire">*</span></label>
-        <input id="input_datem" type="date" id="date_mission" name="dte_inscription_mission">
+        <input id="input_datem" type="date" id="date_mission" name="dte_inscription_mission" disabled>
         </div>
         <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emploi : <span class="obligatoire">*</span></label>
-        <input type="text" id="ref_mission" name="nom_referent_mission">
+        <input type="text" id="ref_mission" name="nom_referent_mission" disabled>
         <!--    Si non    -->
 
         </div>
@@ -408,41 +407,41 @@ inputNombreEnfant.addEventListener('change', () => {
         <div>
         <label for="inscrit_cap_emploi">Inscrit à CAP emploi : <span class="obligatoire">*</span></label>
         
-        <input type="radio" id="cap_oui" name="inscrit_cap_emploi" onclick="showhidecap(1)" value="oui">
+        <input type="radio" id="cap_oui" name="inscrit_cap_emploi" onclick="showhidecap(1)" value="oui" disabled>
         <label for="cap_oui">oui</label>
-        <input type="radio" id="cap_non" name="inscrit_cap_emploi" onclick="showhidecap(2)" value="non">
+        <input type="radio" id="cap_non" name="inscrit_cap_emploi" onclick="showhidecap(2)" value="non" disabled>
         <label for="cap_oui">non</label>
         </div>
         <!--    Si oui   -->
         <div class="input_boxe">
         <div id="cap">
         <label for="date_inscription_cap_emplois">Date d'inscription à CAP emploi : <span class="obligatoire">*</span></label>
-        <input type="date" id="date_inscription_cap_emplois" name="dte_inscription_cap">
+        <input type="date" id="date_inscription_cap_emplois" name="dte_inscription_cap" disabled>
         <label for="nom_ref2">Nom du référent : <span class="obligatoire">*</span></label>
-        <input type="text" id="nom_ref2" name="nom_referent_cap">
+        <input type="text" id="nom_ref2" name="nom_referent_cap" disabled>
         </div>
         <!--    Si non    -->
         <div id="date_rea4">
         <label for="date_r4">Date de réalisation : <span class="obligatoire">*</span></label>
-        <input type="date" id="date_r4" name="dte_realisation_cap">
+        <input type="date" id="date_r4" name="dte_realisation_cap" disabled>
         <label for="commentaire_cap">Commentaire : </label>
-        <input type="text" class="input_suivis" name="commentaire_cap">
+        <input type="text" class="input_suivis" name="commentaire_cap" disabled>
         </div>
         </div>
         <!--    
             CV  -------------------------------------------------------------------------------
         -->
         <label for="cv_oui_non">CV disponible : <span class="obligatoire">*</span></label>
-        <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)" value="oui">
+        <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)" value="oui" disabled>
         <label for="cv_oui">oui</label>
-        <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)" value="non">
+        <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)" value="non" disabled>
         <label for="cv_non">non</label>
         <div class="input_boxe">
         <!--    Si oui   -->
     </div>
     <div id="cv">
         <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : <span class="obligatoire">*</span></label> 
-        <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
+        <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" disabled>
     </div>
 
 
@@ -451,7 +450,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <div id="date_cv">
         <div class="input_boxe">
         <label for="date_cv">Date programmé pour travailler le CV : <span class="obligatoire">*</span></label>
-        <input type="date" name="dte_travailler_cv">
+        <input type="date" name="dte_travailler_cv" disabled>
         </div>
         </div>
 
@@ -460,9 +459,9 @@ inputNombreEnfant.addEventListener('change', () => {
         -->
         <div class="input_boxe">
         <label for="permis">Permis : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="permis_voiture" id="permis" onchange="hideshowpermis()">
+        <select class="form-control" name="permis_voiture" id="permis" onchange="hideshowpermis()" disabled>
             <option value="rien" id="rien">-- Selectionner une option --</option>
-            <option value="motos1" id="motos1">Permis motos</option>
+            <option value="motos1" id="motos1">Permis moto</option>
             <option value="auto1" id="auto1">Permis auto</option>
             <option value="march1" id="march1">Permis marchandises ou de personnes</option>
             <option value="aucun" id="aucun" >Aucun</option>
@@ -470,8 +469,8 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <!--    Si motos   -->
         <div class="input_boxe" id="motos">
-        <label for="moto">Permis motos : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="moto">
+        <label for="moto">Permis moto : <span class="obligatoire">*</span></label>
+        <select class="form-control" name="moto" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="a">A</option>
             <option value="a1">A1</option>
@@ -480,8 +479,8 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <!--    Si auto   -->
         <div class="input_boxe" id="auto">
-        <label for="aut">Permis autos : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="auto">
+        <label for="aut">Permis auto : <span class="obligatoire">*</span></label>
+        <select class="form-control" name="auto" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="b">B</option>
             <option value="b1">B1</option>
@@ -491,7 +490,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si march   -->
         <div class="input_boxe" id="march">
         <label for="marchandise">Permis pour le transport de marchandises ou de personnes : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="marchandise" id="marchandise">
+        <select class="form-control" name="marchandise" id="marchandise" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="c">C</option>
             <option value="ce">CE</option>
@@ -510,9 +509,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="vehicule">Véhicule disponible : <span class="obligatoire">*</span></label>
         </div>
-        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui">
+        <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui" disabled>
         <label for="vehicule_oui">oui</label>
-        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non">
+        <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non" disabled>
         <label for="vehicule_non">non</label>
         <!--    Si oui (rien)  -->
 
@@ -521,16 +520,16 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
         <label for="achat_vehicule">Achat prévu d'un véhicule ? <span class="obligatoire">*</span></label>
         </div>
-        <input type="radio" id="achat_oui" name="achat_prevu" value="oui" onclick="showhidedatevehi(1)">
+        <input type="radio" id="achat_oui" name="achat_prevu" value="oui" onclick="showhidedatevehi(1)" disabled>
         <label for="achat_oui">oui</label>
-        <input type="radio" id="achat_non" name="achat_prevu" value="non" onclick="showhidedatevehi(2)">
+        <input type="radio" id="achat_non" name="achat_prevu" value="non" onclick="showhidedatevehi(2)" disabled>
         <label for="achat_non">non</label>
         </div>
     
     <!--    Si oui (achat véhicule)  -->
     <div id="date_achat_vehicule" class="input_boxe">
     <label for="date_vehicule">Date d'achat prévue : </label>
-    <input type="date" name="date_vehicule" id="achat_vehicule">
+    <input type="date" name="date_vehicule" id="achat_vehicule" disabled>
     </div>
 </div>
 
@@ -545,7 +544,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <h2 class="niveau_form">Niveau de formation : </h2>
         <div class="input_boxe">
         <label for="dipl">Diplôme obtenus : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="nom_diplome" id="dipl" onchange="hideshowdipl()">
+        <select class="form-control" name="nom_diplome" id="dipl" onchange="hideshowdipl()" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="aucun">Aucun diplôme</option>
             <option value="brevet">Brevet</option>
@@ -562,57 +561,57 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si CAP   -->
         <div class="input_boxe" id="cap_metier">
         <label for="cap_metier">Renseigner le type de métier : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="cap_metier">
+        <input type="text" id="input_cap_metier" name="cap_metier" disabled>
         </div>
         <!--    Si BEP   -->
         <div class="input_boxe" id="bep_metier">
         <label for="bep_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="bep_metier">
+        <input type="text" id="input_cap_metier" name="bep_metier" disabled>
         </div>
         <!--    Si BAC   -->
         <div class="input_boxe" id="bac_metier">
         <label for="bac_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="bac_metier">
+        <input type="text" id="input_cap_metier" name="bac_metier" disabled>
         </div>
         <!--    Si BAC+2   -->
         <div class="input_boxe" id="bac2_metier">
         <label for="bac2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="bac2_metier">
+        <input type="text" id="input_cap_metier" name="bac2_metier" disabled>
         </div>
         <!--    Si Licence   -->
         <div class="input_boxe" id="licence_metier">
         <label for="licence_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="licence_metier">
+        <input type="text" id="input_cap_metier" name="licence_metier" disabled>
         </div>
         <!--    Si Master   -->
         <div class="input_boxe" id="master_metier">
         <label for="master_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="master_metier">
+        <input type="text" id="input_cap_metier" name="master_metier" disabled>
         </div>
         <!--    Si Master 2   -->
         <div class="input_boxe" id="master2_metier">
         <label for="master2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_cap_metier" name="master2_metier">
+        <input type="text" id="input_cap_metier" name="master2_metier" disabled>
         </div>
         <!--    Si formation continue   -->
         <div class="input_boxe" id="form_continue">
         <label for="form_continue">Renseigner la formation : <span class="obligatoire">*</span></label>
-        <input type="text" id="input_form_continue" name="form_continue">
+        <input type="text" id="input_form_continue" name="form_continue" disabled>
         </div>
         <!--    Si autre   -->
         <div id="rens_dipl">
         <label for="dipl_autre">Renseigner le diplôme : <span class="obligatoire">*</span></label>
-        <input type="text" id="dipl_autre" name="nom_diplome_autre">
+        <input type="text" id="dipl_autre" name="nom_diplome_autre" disabled>
     
         <!--    Si aucun   -->
 </div>
 <div id="niveau">
         <label for="dipl_aucun">Nombre d'années d'études : <span class="obligatoire">*</span></label>
-        <input type="text" id="dipl_aucun" name="nb_annee_scolarisation">
+        <input type="text" id="dipl_aucun" name="nb_annee_scolarisation" disabled>
     
     
         <label for="dipl_niveau">Renseigner le niveau : <span class="obligatoire">*</span></label>
-        <input type="text" id="dipl_niveau" name="niveau_diplome">
+        <input type="text" id="dipl_niveau" name="niveau_diplome" disabled>
     </div>
     </div>
     <hr>
@@ -620,9 +619,9 @@ inputNombreEnfant.addEventListener('change', () => {
             Connaissance de la langue française  ----------------------------------------------
         -->
         <label for="atelier_fr">Inscrit aux ateliers de français : <span class="obligatoire">*</span></label>
-        <input type="radio" id="fr_oui" name="atelier_fr" value="oui">
+        <input type="radio" id="fr_oui" name="atelier_fr" value="oui" disabled>
         <label for="fr_oui">oui</label>
-        <input type="radio" id="fr_non" name="atelier_fr" value="non">
+        <input type="radio" id="fr_non" name="atelier_fr" value="non" disabled>
         <label for="fr_non">non</label>
         <div>
             <p class="ital">1 à 6 | du plus bas au plus haut niveau</p>
@@ -630,7 +629,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
             <div class="ecrit">
         <label for="efrancais">Connaissance de la langue française (écrite) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="efrancais" name="langue_fr_ecrite">
+        <select class="form-control" id="efrancais" name="langue_fr_ecrite" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -643,7 +642,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div class="parler">
         <label for="pfrancais">Connaissance de la langue française (parlée) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="pfrancais" name="langue_fr_parlee">
+        <select class="form-control" id="pfrancais" name="langue_fr_parlee" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -655,7 +654,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div class="lue">
         <label for="lfrancais" class="petit_lu">Connaissance de la langue française (Lue) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="lfrancais" name="langue_fr_lue">
+        <select class="form-control" id="lfrancais" name="langue_fr_lue" disabled>
             <option class="form-control" value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -672,7 +671,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <div class="input_boxe">
             <div class="ecrit">
         <label for="efrancais">Connaissance de la langue anglaise (écrite) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="eanglais" name="langue_en_ecrite">
+        <select class="form-control" id="eanglais" name="langue_en_ecrite" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -685,7 +684,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div class="parler">
         <label for="panglais">Connaissance de la langue anglaise (parlée) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="panglais" name="langue_en_parlee">
+        <select class="form-control" id="panglais" name="langue_en_parlee" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -697,7 +696,7 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div class="lue">
         <label for="langlais" class="petit_lu">Connaissance de la langue anglaise (Lue) : <span class="obligatoire">*</span></label>
-        <select class="form-control" id="langlais" name="langue_en_lue">
+        <select class="form-control" id="langlais" name="langue_en_lue" disabled>
             <option class="form-control" value="rien">-- Selectionner une option --</option>
             <option value="A1">A1 | 1</option>
             <option value="A2">A2 | 2</option>
@@ -710,14 +709,14 @@ inputNombreEnfant.addEventListener('change', () => {
         </div>
         <div id="autre_langue1">
             <label class="decal" for="if_lang">Autre(s) langue(s) parlée(s) : <span class="obligatoire">*</span></label>
-            <input type="radio" name="if_autre" id="oui_autre" value="oui" onclick="showhideautrelang(1)">
+            <input type="radio" name="if_autre" id="oui_autre" value="oui" onclick="showhideautrelang(1)" disabled>
             <label for="oui_autre">oui</label>
-            <input type="radio" name="if_autre" id="non_autre" value="non" onclick="showhideautrelang(2)">
+            <input type="radio" name="if_autre" id="non_autre" value="non" onclick="showhideautrelang(2)" disabled>
             <label for="non_autre">non</label>
         <!--  -->
             <div class="input_boxe" id="oui_langue_autre">
                 <label class="decal" for="input_autre_langue">Langue(s) : <span class="obligatoire">*</span></label>
-                <input type="text" name="autre_langue" id="input_autre_langue">
+                <input type="text" name="autre_langue" id="input_autre_langue" disabled>
         </div>
         </div>
         <hr>
@@ -726,7 +725,7 @@ inputNombreEnfant.addEventListener('change', () => {
         -->
 
         <h2 class="emplois_prec">Emplois précédemment occupés : </h2>
-        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
+        <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ" disabled></textarea>
         </div>
         <!--    
             Projet professionel de la personne  ------------------------------------------------
@@ -735,9 +734,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <div>
         <hr>
         <label for="reconv">Reconversion professionelle : <span class="obligatoire">*</span></label>
-        <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)" value="oui">
+        <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)" value="oui" disabled>
         <label for="oui_reconv">oui</label>
-        <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)" value="non">
+        <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)" value="non" disabled>
         <label for="non_reconv">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -748,9 +747,9 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div id="formati">
         <label for="form_prevue">Formation prévues ? <span class="obligatoire">*</span></label>
-        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui">
+        <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui" disabled>
         <label for="oui_form">oui</label>
-        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non">
+        <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non" disabled>
         <label for="non_form">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -758,34 +757,34 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div class="input_boxe" id="renseign">
         <label for="form_nom">Renseigner le nom : <span class="obligatoire">*</span></label>
-        <input type="text" id="form_nom" name="form_nom">
+        <input type="text" id="form_nom" name="form_nom" disabled>
         <label for="form_date">Renseigner la date : <span class="obligatoire">*</span></label>
-        <input type="date" id="form_date" name="form_date">
+        <input type="date" id="form_date" name="form_date" disabled>
         <label for="form_duree">Renseigner la durée : <span class="obligatoire">*</span></label>
-        <input type="text" id="form_duree" name="form_duree">
+        <input type="text" id="form_duree" name="form_duree" disabled>
         </div>
         
         <!--    
             Reprise d'étude  ------------------------------------------------------------------
         -->
         <label for="etude">Reprise d'étude ? <span class="obligatoire">*</span></label>
-        <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)" value="oui">
+        <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)" value="oui" disabled>
         <label for="oui_etude">oui</label>
-        <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)" value="non">
+        <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)" value="non" disabled>
         <label for="non_etude">non</label>
         <!--    Si oui   -->
         <div class="input_boxe" id="dipl_prep">
         <label for="dipl_prepa">Diplôme préparé : <span class="obligatoire">*</span></label>
-        <input type="text" id="dipl_prepa" name="nom_etudes">
+        <input type="text" id="dipl_prepa" name="nom_etudes" disabled>
         </div>
         <!--    
             bénéficier formation pro  ------------------------------------------------------------------
         -->
         <div>
         <label for="form_pro">La personne va-t-elle bénéficier d'une formation professionelle ? <span class="obligatoire">*</span></label>
-        <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)" value="oui">
+        <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)" value="oui" disabled>
         <label for="form_pro_oui">oui</label>
-        <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)" value="non">
+        <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)" value="non" disabled>
         <label for="form_pro_non">non</label>
         </div>
         <!--    Si non (rien)   -->
@@ -793,7 +792,7 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si oui   -->
         <div class="input_boxe" id="oui_formpro">
         <label for="form_type">Type de formation : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()">
+        <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="qualifiante">Formation qualifiante</option>
             <option value="diplomante">Formation diplômante</option>
@@ -802,26 +801,26 @@ inputNombreEnfant.addEventListener('change', () => {
         <!--    Si qualifiante   -->
         <div class="input_boxe" id="if_qual">
         <label for="nom_form">Nom de la formation qualifiante : <span class="obligatoire">*</span></label>
-        <input type="text" id="nom_form" name="form_qual">
+        <input type="text" id="nom_form" name="form_qual" disabled>
         </div>
         <!--    Si diplômante   -->
         <div class="input_boxe" id="if_dipl">
         <label for="nom_diplo">Nom du diplôme : <span class="obligatoire">*</span></label>
-        <input type="text" id="nom_diplo" name="form_dipl">
+        <input type="text" id="nom_diplo" name="form_dipl" disabled>
         </div>
         <div class="input_boxe">
         <label for="metier_s">Métier souhaité : <span class="obligatoire">*</span></label>
-        <input type="text" id="metier_s" name="metier_souhaite">
+        <input type="text" id="metier_s" name="metier_souhaite" disabled>
 
         <label for="secteur_act">Secteur d'activité : <span class="obligatoire">*</span></label>
-        <input type="text" id="secteur_act" name="secteur_activite">
+        <input type="text" id="secteur_act" name="secteur_activite" disabled>
 
         <label for="secteur_geo">Secteur géographique souhaité : <span class="obligatoire">*</span></label>
-        <input type="text" id="secteur_geo" name="secteur_geo">
+        <input type="text" id="secteur_geo" name="secteur_geo" disabled>
         </div>
 
         <label for="horaire">Horaire de travail souhaité : <span class="obligatoire">*</span></label>
-        <select class="form-control" name="moment_journee" id="horaire">
+        <select class="form-control" name="moment_journee" id="horaire" disabled>
             <option value="rien">-- Selectionner une option --</option>
             <option value="jour">Travail la journée</option>
             <option value="matin">Travail le matin</option>
@@ -832,11 +831,7 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="VSD">Travail en VSD</option>
             <option value="SD">Travail en SD</option>
         </select>
-        </div>
-        <div>
-        <button type="submit" class="btn_modifier" id="continuer">Créer</button>
-        </div>
-    </form>      
+        </div> 
 </div>
 <?php
 $mysqlConnection = null;

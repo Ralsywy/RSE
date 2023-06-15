@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST["action_menee"])==false || empty($_POST["action_menee"]) || isset($_POST["echeance"])==false || empty($_POST["echeance"])){
+if (isset($_POST["context"])==false || empty($_POST["context"]) || isset($_POST["echeance"])==false || empty($_POST["echeance"])){
     $_SESSION["error"]="La date et le champs sont obligatoires";
     header("location:index.php?route=creer2&id=".$_GET["id"]);
 }
@@ -15,9 +15,9 @@ else
     );
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('INSERT INTO rdv(action_menee,echeance,fk_id_inscrit_rdv) values(:action_menee,:echeance,:fk_id_inscrit_rdv)');
+    $requete = $mysqlConnection->prepare('INSERT INTO rdv(context,echeance,fk_id_inscrit_rdv) values(:context,:echeance,:fk_id_inscrit_rdv)');
     //execution de la requete
-    $requete->execute(["action_menee"=>$_POST["action_menee"],"echeance"=>$_POST["echeance"],"fk_id_inscrit_rdv"=>$_GET["id"]]);
+    $requete->execute(["context"=>$_POST["context"],"echeance"=>$_POST["echeance"],"fk_id_inscrit_rdv"=>$_GET["id"]]);
     $requete = null;
 
    
