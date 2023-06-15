@@ -33,7 +33,7 @@ if (isset($_SESSION["login"])){
         <tr>
             <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
                 <td></td>
-                <td><input type="text" class="form-control" id="context" name="context"></td>
+                <td><input type="text" class="form-control" id="action_menee" name="action_menee"></td>
                 <td><input type="text" class="form-control" id="objectif" name="objectif"></td>
                 <td><input type="text" class="form-control" id="moyen_oeuvre" name="moyen_oeuvre"></td>
                 <td><input type="date" id="echeance" name="echeance"></td>
@@ -70,7 +70,7 @@ if (isset($_SESSION["login"])){
         <tr>
             <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
                 <td></td>
-                <td><input type="date" id="echeance" name="echeance"></td>
+                <td><input type="date" id="rdv" name="rdv"></td>
                 <td><textarea class="form-control" id="context" name="context"></textarea></td>
                 <td><button type="submit" class="btn_modifier">Ajouter</button></td>
             </form>
@@ -80,7 +80,7 @@ if (isset($_SESSION["login"])){
         ?>
             <tr>
                 <td><?= $ligne["id_rdv"]?></td>
-                <td><?= $ligne["echeance"]?></td>
+                <td><?= $ligne["rdv"]?></td>
                 <td class="acti"><?= $ligne["context"]?></td>
                 <td><a href="index.php?route=delete_plan&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
