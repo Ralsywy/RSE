@@ -78,7 +78,9 @@ session_start();
 </head>
 
 <body>
-  
+<?php
+date_default_timezone_set('Europe/Paris');
+?>
 
 <!-- bouton retourner en haut -->
 <a href="#" class="btn_top"><i class="fa-solid fa-circle-chevron-up"></i></a>

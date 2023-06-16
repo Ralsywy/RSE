@@ -6,7 +6,7 @@ $mysqlConnection = new PDO(
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
 );
 
-date_default_timezone_set('Europe/Paris');
+
 $today = date("Y-m-d");
 
 // ordre de mission
