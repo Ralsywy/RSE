@@ -788,9 +788,19 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label for="vehicule">Véhicule disponible : <span class="obligatoire">*</span></label>
             </div>
-            <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui">
+            <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui"            
+            <?php
+            if($ligne_inscrit["vehicule_dispo"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="vehicule_oui">oui</label>
-            <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non">
+            <input type="radio" id="vehicule_non" name="vehicule_dispo" onclick="showhideachat(2)" value="non"            
+            <?php
+            if($ligne_inscrit["vehicule_dispo"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="vehicule_non">non</label>
             <!--    Si oui (rien)  -->
 
@@ -799,16 +809,26 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label for="achat_vehicule">Achat prévu d'un véhicule ? <span class="obligatoire">*</span></label>
             </div>
-            <input type="radio" id="achat_oui" name="achat_prevu" value="oui" onclick="showhidedatevehi(1)">
+            <input type="radio" id="achat_oui" name="achat_prevu" value="oui" onclick="showhidedatevehi(1)"            
+            <?php
+            if($ligne_inscrit["achat_prevu"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="achat_oui">oui</label>
-            <input type="radio" id="achat_non" name="achat_prevu" value="non" onclick="showhidedatevehi(2)">
+            <input type="radio" id="achat_non" name="achat_prevu" value="non" onclick="showhidedatevehi(2)"            
+            <?php
+            if($ligne_inscrit["achat_prevu"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="achat_non">non</label>
             </div>
         
         <!--    Si oui (achat véhicule)  -->
         <div id="date_achat_vehicule" class="input_boxe">
         <label for="date_vehicule">Date d'achat prévue : </label>
-        <input type="date" name="date_vehicule" id="achat_vehicule">
+        <input type="date" name="date_vehicule" id="achat_vehicule" value="<?php echo $ligne_inscrit["date_vehicule"] ?>">
         </div>
     </div>
 
@@ -824,73 +844,117 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label for="dipl">Diplôme obtenus : <span class="obligatoire">*</span></label>
             <select class="form-control" name="nom_diplome" id="dipl" onchange="hideshowdipl()">
-                <option value="rien">-- Selectionner une option --</option>
-                <option value="aucun">Aucun diplôme</option>
-                <option value="brevet">Brevet</option>
-                <option value="cap">CAP</option>
-                <option value="bep">BEP</option>
-                <option value="bac">BAC</option>
-                <option value="bac+2">BAC +2</option>
-                <option value="licence">Licence</option>
-                <option value="master">Master 1</option>
-                <option value="master2">Master 2</option>
-                <option value="autre">Autre</option>
-                <option value="formation_continue">Formation continue</option>
+                <option value="<?php echo $ligne_inscrit["nom_diplome"] ?>">-- Selectionner une option --</option>
+                <option value="aucun" <?php
+                if($ligne_inscrit["nom_diplome"]=="aucun"){
+                        echo "selected";
+                    }
+                    ?>>Aucun diplôme</option>
+                <option value="brevet" <?php
+                if($ligne_inscrit["nom_diplome"]=="brevet"){
+                        echo "selected";
+                    }
+                    ?>>Brevet</option>
+                <option value="cap" <?php
+                if($ligne_inscrit["nom_diplome"]=="cap"){
+                        echo "selected";
+                    }
+                    ?>>CAP</option>
+                <option value="bep" <?php
+                if($ligne_inscrit["nom_diplome"]=="bep"){
+                        echo "selected";
+                    }
+                    ?>>BEP</option>
+                <option value="bac" <?php
+                if($ligne_inscrit["nom_diplome"]=="bac"){
+                        echo "selected";
+                    }
+                    ?>>BAC</option>
+                <option value="bac+2" <?php
+                if($ligne_inscrit["nom_diplome"]=="bac+2"){
+                        echo "selected";
+                    }
+                    ?>>BAC +2</option>
+                <option value="licence" <?php
+                if($ligne_inscrit["nom_diplome"]=="licence"){
+                        echo "selected";
+                    }
+                    ?>>Licence</option>
+                <option value="master" <?php
+                if($ligne_inscrit["nom_diplome"]=="master"){
+                        echo "selected";
+                    }
+                    ?>>Master 1</option>
+                <option value="master2" <?php
+                if($ligne_inscrit["nom_diplome"]=="master2"){
+                        echo "selected";
+                    }
+                    ?>>Master 2</option>
+                <option value="autre" <?php
+                if($ligne_inscrit["nom_diplome"]=="autre"){
+                        echo "selected";
+                    }
+                    ?>>Autre</option>
+                <option value="formation_continue" <?php
+                if($ligne_inscrit["nom_diplome"]=="formation_continue"){
+                        echo "selected";
+                    }
+                    ?>>Formation continue</option>
             </select>
             <!--    Si CAP   -->
             <div class="input_boxe" id="cap_metier">
             <label for="cap_metier">Renseigner le type de métier : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="cap_metier">
+            <input type="text" id="input_cap_metier" name="cap_metier" value="<?php echo $ligne_inscrit["cap_metier"] ?>">
             </div>
             <!--    Si BEP   -->
             <div class="input_boxe" id="bep_metier">
             <label for="bep_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="bep_metier">
+            <input type="text" id="input_cap_metier" name="bep_metier" value="<?php echo $ligne_inscrit["bep_metier"] ?>">
             </div>
             <!--    Si BAC   -->
             <div class="input_boxe" id="bac_metier">
             <label for="bac_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="bac_metier">
+            <input type="text" id="input_cap_metier" name="bac_metier" value="<?php echo $ligne_inscrit["bac_metier"] ?>">
             </div>
             <!--    Si BAC+2   -->
             <div class="input_boxe" id="bac2_metier">
             <label for="bac2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="bac2_metier">
+            <input type="text" id="input_cap_metier" name="bac2_metier" value="<?php echo $ligne_inscrit["bac2_metier"] ?>">
             </div>
             <!--    Si Licence   -->
             <div class="input_boxe" id="licence_metier">
             <label for="licence_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="licence_metier">
+            <input type="text" id="input_cap_metier" name="licence_metier" value="<?php echo $ligne_inscrit["licence_metier"] ?>">
             </div>
             <!--    Si Master   -->
             <div class="input_boxe" id="master_metier">
             <label for="master_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="master_metier">
+            <input type="text" id="input_cap_metier" name="master_metier" value="<?php echo $ligne_inscrit["master_metier"] ?>">
             </div>
             <!--    Si Master 2   -->
             <div class="input_boxe" id="master2_metier">
             <label for="master2_metier">Renseigner la spécialité : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_cap_metier" name="master2_metier">
+            <input type="text" id="input_cap_metier" name="master2_metier" value="<?php echo $ligne_inscrit["master2_metier"] ?>">
             </div>
             <!--    Si formation continue   -->
             <div class="input_boxe" id="form_continue">
             <label for="form_continue">Renseigner la formation : <span class="obligatoire">*</span></label>
-            <input type="text" id="input_form_continue" name="form_continue">
+            <input type="text" id="input_form_continue" name="form_continue" value="<?php echo $ligne_inscrit["form_continue"] ?>">
             </div>
             <!--    Si autre   -->
             <div id="rens_dipl">
             <label for="dipl_autre">Renseigner le diplôme : <span class="obligatoire">*</span></label>
-            <input type="text" id="dipl_autre" name="nom_diplome_autre">
+            <input type="text" id="dipl_autre" name="nom_diplome_autre" value="<?php echo $ligne_inscrit["nom_diplome_autre"] ?>">
         
             <!--    Si aucun   -->
     </div>
     <div id="niveau">
             <label for="dipl_aucun">Nombre d'années d'études : <span class="obligatoire">*</span></label>
-            <input type="text" id="dipl_aucun" name="nb_annee_scolarisation">
+            <input type="text" id="dipl_aucun" name="nb_annee_scolarisation" value="<?php echo $ligne_inscrit["nb_annee_scolarisation"] ?>">
         
         
             <label for="dipl_niveau">Renseigner le niveau : <span class="obligatoire">*</span></label>
-            <input type="text" id="dipl_niveau" name="niveau_diplome">
+            <input type="text" id="dipl_niveau" name="niveau_diplome" value="<?php echo $ligne_inscrit["niveau_diplome"] ?>">
         </div>
         </div>
         <hr>
@@ -1201,7 +1265,7 @@ if (isset($_SESSION["login"]))
             -->
 
             <h2 class="emplois_prec">Emplois précédemment occupés : </h2>
-            <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"></textarea>
+            <textarea class="form-control" name="emploi_pre_occupe" id="empl_occ"><?php echo $ligne_inscrit["emploi_pre_occupe"] ?></textarea>
             </div>
             <!--    
                 Projet professionel de la personne  ------------------------------------------------
@@ -1210,9 +1274,17 @@ if (isset($_SESSION["login"]))
             <div>
             <hr>
             <label for="reconv">Reconversion professionelle : <span class="obligatoire">*</span></label>
-            <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)" value="oui">
+            <input type="radio" id="oui_reconv" name="reconversion" onclick="showhidereconv(1)" value="oui" <?php
+                if($ligne_inscrit["reconversion"]=="oui"){
+                    echo "checked";
+                }
+                ?>>
             <label for="oui_reconv">oui</label>
-            <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)" value="non">
+            <input type="radio" id="non_reconv" name="reconversion" onclick="showhidereconv(2)" value="non" <?php
+                if($ligne_inscrit["reconversion"]=="non"){
+                    echo "checked";
+                }
+                ?>>
             <label for="non_reconv">non</label>
             </div>
             <!--    Si non (rien)   -->

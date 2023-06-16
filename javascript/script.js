@@ -616,9 +616,9 @@ function hideshowformqd1() {
         var non_autre = document.getElementById('non_autre');
         
         if (oui_autre.checked) {
-            showhideformpro(1);
+            showhideautrelang(1);
         } else if (non_autre.checked) {
-            showhideformpro(2);
+            showhideautrelang(2);
         }
       });
 function showhideautrelang(val) {
