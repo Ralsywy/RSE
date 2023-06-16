@@ -73,7 +73,7 @@ if (isset($_SESSION["login"]))
     $requete = null;
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('SELECT * FROM permis_conduire WHERE id_permis_conduire=:id');
+    $requete = $mysqlConnection->prepare('SELECT * FROM permis_conduire WHERE fk_id_inscrit_permis=:id');
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
     $permis_conduire = $requete->fetchAll();
@@ -701,7 +701,7 @@ if (isset($_SESSION["login"]))
         </div>
         <div id="cv">
             <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : <span class="obligatoire">*</span></label> 
-            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["pdfFile"] ?>">
+            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["names"] ?>">
         </div>
 
 
@@ -750,10 +750,28 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe" id="motos">
             <label for="moto">Permis motos : <span class="obligatoire">*</span></label>
             <select class="form-control" name="moto">
+                <?php
+                foreach($permis_conduire as $ligne_permis){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="a">A</option>
-                <option value="a1">A1</option>
-                <option value="a2">A2</option>
+                <option value="a" <?php
+                if($ligne_permis["moto"]=="a"){
+                        echo "selected";
+                    }
+                    ?>>A</option>
+                <option value="a1" <?php
+                if($ligne_permis["moto"]=="a1"){
+                        echo "selected";
+                    }
+                    ?>>A1</option>
+                <option value="a2" <?php
+                if($ligne_permis["moto"]=="a2"){
+                        echo "selected";
+                    }
+                    ?>>A2</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             <!--    Si auto   -->
