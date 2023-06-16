@@ -23,9 +23,16 @@ try{
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null;
 
-    ////    PLAN ACTION    //// 
+    ////    rdv    //// 
     // ordre de mission
     $requete = $mysqlConnection->prepare('DELETE FROM rdv WHERE fk_id_inscrit_rdv=:id AND fk_id_inscrit_rdv IS NOT NULL');
+    //execution de la requete
+    $requete->execute( ["id"=>$_GET["id"]]);
+    $requete = null;
+
+    ////    plan_action    //// 
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('DELETE FROM plan_action WHERE fk_id_inscrit_plan=:id AND fk_id_inscrit_plan IS NOT NULL');
     //execution de la requete
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null;
@@ -52,12 +59,6 @@ try{
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 
 
-            ////    CV EMPLOI    ////
-    // ordre de mission
-    $requete = $mysqlConnection->prepare('DELETE FROM cv where id_cv=:id AND id_cv IS NOT NULL');
-    //execution de la requete
-    $requete->execute( ["id"=>$_GET["id"]]);
-    $requete = null; 
 
     ////    LANGUE FR    ////
     // ordre de mission
@@ -108,7 +109,7 @@ try{
     $requete->execute( ["id"=>$_GET["id"]]);
     $requete = null; 
 
-    ////   FILES   ////
+    ////   RESULTAT   ////
     // ordre de mission
     $requete = $mysqlConnection->prepare('DELETE FROM resultat where id_resultat=:id AND id_resultat IS NOT NULL');
     //execution de la requete
