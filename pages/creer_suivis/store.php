@@ -234,23 +234,11 @@ else
                     echo 'Fichier envoyé';
                 }
             }
-            // ordre de mission
-            $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_files = :fk_id_files WHERE id_inscrit = '$id_rdc'");
-            // execution de la requete
-            $requete->execute(["fk_id_files"=>$id_rdc]);
-            $requete = null;
-
         }
-        $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv) VALUES (:id_cv)");
-        // execution de la requete
-        $requete->execute(["id_cv"=>$id_rdc]);
-        $requete = null;
     }
     else {
-        // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO cv(id_cv,dte_travailler_cv) VALUES (:id_cv,:dte_travailler_cv)");
-        // execution de la requete
-        $requete->execute(["id_cv"=>$id_rdc,"dte_travailler_cv"=>$_POST["dte_travailler_cv"]]);
+        $requete = $mysqlConnection->prepare("INSERT INTO files(id_files,dte_travailler_cv) VALUES (:id_files,:dte_travailler_cv)");
+        $requete->execute(["id_files" => $id_rdc,"dte_travailler_cv"=>$_POST["dte_travailler_cv"]]);
         $requete = null;
     }
 
@@ -458,8 +446,8 @@ else
     $requete = null;
 
     // Préparation de la requête
-    $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_cv = :fk_id_cv, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise, fk_id_resultat = :fk_id_resultat,fk_id_langue_anglaise=:fk_id_langue_anglaise WHERE id_inscrit = '$id_rdc'");
-    $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_cv"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc,"fk_id_resultat"=>$id_rdc,"fk_id_langue_anglaise"=>$id_rdc]);
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET fk_id_rdc = :fk_id_rdc, fk_id_pole_emploi = :fk_id_pole_emploi, fk_id_mission_locale = :fk_id_mission_locale, fk_id_cap_emploi = :fk_id_cap_emploi, fk_id_soelis = :fk_id_soelis, fk_id_cma = :fk_id_cma, fk_id_langue_francaise = :fk_id_langue_francaise, fk_id_resultat = :fk_id_resultat,fk_id_langue_anglaise=:fk_id_langue_anglaise,fk_id_files=:fk_id_files WHERE id_inscrit = '$id_rdc'");
+    $requete->execute(["fk_id_rdc"=>$id_rdc,"fk_id_pole_emploi"=>$id_rdc,"fk_id_mission_locale"=>$id_rdc,"fk_id_cap_emploi"=>$id_rdc,"fk_id_soelis"=>$id_rdc,"fk_id_cma"=>$id_rdc,"fk_id_langue_francaise"=>$id_rdc,"fk_id_resultat"=>$id_rdc,"fk_id_langue_anglaise"=>$id_rdc,"fk_id_files"=>$id_rdc]);
     $requete = null;
 
 
