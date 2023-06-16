@@ -465,8 +465,9 @@ function showhideformpro(val) {
     }
   }
 // Bénéficier d'une formation pro               select
-
-
+document.addEventListener('DOMContentLoaded', function() {
+    hideshowformqd();
+  });
 function hideshowformqd() {
     var formqd = document.getElementById("form_type").value;
         if(formqd == "diplomante") {
@@ -482,6 +483,10 @@ function hideshowformqd() {
             document.getElementById('if_dipl').style.display='none';
         }
     }
+// Bénéficier Situation après cloture
+    document.addEventListener('DOMContentLoaded', function() {
+        hideshowsituationpro();
+      });
 function hideshowsituationpro() {
     var situa = document.getElementById("situat_pro").value;
         if(situa == "rien") {
@@ -579,6 +584,9 @@ function hideshowsituationpro() {
         } 
     }
 function hideshowformqd1() {
+    document.addEventListener('DOMContentLoaded', function() {
+        hideshowformqd1();
+      });
     var formqd1 = document.getElementById("form_type1").value;
         if(formqd1 == "diplomante1") {
             document.getElementById('if_qual1').style.display='none';
@@ -594,19 +602,39 @@ function hideshowformqd1() {
         }
     }
 function showhideautrelang(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var oui_autre = document.getElementById('oui_autre');
+        var non_autre = document.getElementById('non_autre');
+        
+        if (oui_autre.checked) {
+            showhideformpro(1);
+        } else if (non_autre.checked) {
+            showhideformpro(2);
+        }
+      });
+    if(val==1 || document.getElementById('oui_autre').checked) {
         document.getElementById('oui_langue_autre').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('non_autre').checked) {
         document.getElementById('oui_langue_autre').style.display='none';
 
     }
   }
   function showhidedatevehi(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var achat_oui = document.getElementById('achat_oui');
+        var achat_non = document.getElementById('achat_non');
+        
+        if (achat_oui.checked) {
+            showhidedatevehi(1);
+        } else if (achat_non.checked) {
+            showhidedatevehi(2);
+        }
+      });
+    if(val==1 || document.getElementById('achat_oui').checked) {
         document.getElementById('date_achat_vehicule').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('achat_non').checked) {
         document.getElementById('date_achat_vehicule').style.display='none';
     }
   }
