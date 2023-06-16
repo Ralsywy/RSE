@@ -16,6 +16,7 @@ var radio_oui = document.getElementById("radio_oui");
 
 // test
 
-
+var permis = document.getElementById("permis").value;
+document.getElementById("permis").selectedIndex = 2
 
 });

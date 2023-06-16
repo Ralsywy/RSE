@@ -86,17 +86,17 @@ window.addEventListener('DOMContentLoaded', function() {
     var cma_non = document.getElementById('cma_non');
     
     if (cma_oui.checked) {
-        showhideemplois(1);
+        showhidecma(1);
     } else if (cma_non.checked) {
-        showhideemplois(2);
+        showhidecma(2);
     }
   });
 function showhidecma(val) {
-    if(val==1 || document.getElementById('cma_non').checked) {
+    if(val==1 || document.getElementById('cma_oui').checked) {
         document.getElementById('inscrit_cma').style.display='block';
         document.getElementById('date_rea_cma').style.display='none';
     }
-    if(val==2 || document.getElementById('cma_oui').checked) {
+    if(val==2 || document.getElementById('cma_non').checked) {
         document.getElementById('inscrit_cma').style.display='none';
         document.getElementById('date_rea_cma').style.display='block';
     }
@@ -171,9 +171,9 @@ function showhidecv(val) {
         var cv_non = document.getElementById('cv_non');
         
         if (cv_oui.checked) {
-            showhideemplois(1);
+            showhidecv(1);
         } else if (cv_non.checked) {
-            showhideemplois(2);
+            showhidecv(2);
         }
       });
   if(val==1 || document.getElementById('cv_oui').checked) {
@@ -186,36 +186,51 @@ function showhidecv(val) {
   }
 }
 // Permis de conduire
-function hideshowpermis() {
-  var permis = document.getElementById("permis").value;
-      if(permis == "motos1") {
-          document.getElementById('motos').style.display='block';
-          document.getElementById('auto').style.display='none';
-          document.getElementById('march').style.display='none';
-      }
-      if (permis == "auto1") {
-          document.getElementById('auto').style.display='block';
-          document.getElementById('motos').style.display='none';
-          document.getElementById('march').style.display='none';
-      }
-      if (permis == "march1") {
-          document.getElementById('march').style.display='block';
-          document.getElementById('auto').style.display='none';
-          document.getElementById('motos').style.display='none';
-      } 
-      if (permis == "aucun") {
-          document.getElementById('march').style.display='none';
-          document.getElementById('auto').style.display='none';
-          document.getElementById('motos').style.display='none';
-      }
-      if (permis == "rien") {
-          document.getElementById('march').style.display='none';
-          document.getElementById('auto').style.display='none';
-          document.getElementById('motos').style.display='none';
-      }
+document.addEventListener('DOMContentLoaded', function() {
+    hideshowpermis();
+  });
+  
+  function hideshowpermis() {
+    var permis = document.getElementById("permis").value;
+    if (permis == "motos1") {
+      document.getElementById('motos').style.display = 'block';
+      document.getElementById('auto').style.display = 'none';
+      document.getElementById('march').style.display = 'none';
+    }
+    if (permis == "auto1") {
+      document.getElementById('auto').style.display = 'block';
+      document.getElementById('motos').style.display = 'none';
+      document.getElementById('march').style.display = 'none';
+    }
+    if (permis == "march1") {
+      document.getElementById('march').style.display = 'block';
+      document.getElementById('auto').style.display = 'none';
+      document.getElementById('motos').style.display = 'none';
+    }
+    if (permis == "aucun") {
+      document.getElementById('march').style.display = 'none';
+      document.getElementById('auto').style.display = 'none';
+      document.getElementById('motos').style.display = 'none';
+    }
+    if (permis == "rien") {
+      document.getElementById('march').style.display = 'none';
+      document.getElementById('auto').style.display = 'none';
+      document.getElementById('motos').style.display = 'none';
+    }
   }
+  
 // Achat d'un véhicule
   function showhideachat(val) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var vehicule_oui = document.getElementById('vehicule_oui');
+        var vehicule_non = document.getElementById('vehicule_non');
+        
+        if (vehicule_oui.checked) {
+            showhideachat(1);
+        } else if (vehicule_non.checked) {
+            showhideachat(2);
+        }
+      });
     if(val==1) {
         document.getElementById('achat1').style.display='none';
         document.getElementById('date_achat_vehicule').style.display='none';
