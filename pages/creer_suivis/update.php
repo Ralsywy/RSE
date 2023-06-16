@@ -10,7 +10,7 @@ if (isset($_SESSION["login"]))
     );
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('SELECT * FROM inscrit WHERE id_inscrit=:id');
+    $requete = $mysqlConnection->prepare('SELECT * FROM inscrit INNER JOIN accompagnateur ON inscrit.fk_id_accompagnateur = accompagnateur.id_accompagnateur WHERE id_inscrit=:id');
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
     $inscrit = $requete->fetchAll();
@@ -190,12 +190,17 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : <span class="obligatoire">*</span></label>
             <select name="accompagnateur" id="accompagnateur" class="form-control">
-                <option value="<?php echo $ligne_accompagnateur["accompagnateur"] ?>"> -- Selectionner un accompagnateur -- </option>
+                <option value="<?php echo $ligne_inscrit["name_acc"] ?>"> -- Selectionner un accompagnateur -- </option>
                 <?php
                 foreach($accompagnateurs as $ligne){
                 if($ligne["is_admin"]==0){
                 ?>
-                    <option value=<?= $ligne["id_accompagnateur"]?>><?= $ligne["name_acc"]?></option>
+                    <option value=<?= $ligne["id_accompagnateur"]?>
+                    <?php
+                    if($ligne["id_accompagnateur"]==$ligne_inscrit["fk_id_accompagnateur"]){
+                        echo "selected";
+                    }
+                    ?> ><?= $ligne["name_acc"]?></option>
                 <?php
                 }}
                 ?>
