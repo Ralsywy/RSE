@@ -38,7 +38,7 @@ if (isset($_SESSION["login"]))
     $requete = null;
 
     // ordre de mission
-    $requete = $mysqlConnection->prepare('SELECT * FROM enfant WHERE id_enfant=:id');
+    $requete = $mysqlConnection->prepare('SELECT * FROM enfant WHERE fk_id_inscrit_enfant=:id');
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
     $enfant = $requete->fetchAll();
