@@ -267,6 +267,13 @@ else
                 $requete->execute(["marchandise"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
                 $requete = null;
             }
+            else{
+                // ordre de mission
+                $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(fk_id_inscrit_permis) VALUES (:fk_id_inscrit_permis)");
+                // execution de la requete
+                $requete->execute(["fk_id_inscrit_permis"=>$id_rdc]);
+                $requete = null;
+            }
         }
     }
     if($achat_prevu == "oui"){

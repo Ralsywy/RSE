@@ -736,9 +736,18 @@ if (isset($_SESSION["login"]))
                 Connaissance de la langue française  ----------------------------------------------
             -->
             <label for="atelier_fr">Inscrit aux ateliers de français : <span class="obligatoire">*</span></label>
-            <input type="radio" id="fr_oui" name="atelier_fr" value="oui">
+            <input type="radio" id="fr_oui" name="atelier_fr" value="oui" <?php
+            if($ligne_inscrit["atelier_fr"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="fr_oui">oui</label>
-            <input type="radio" id="fr_non" name="atelier_fr" value="non">
+            <input type="radio" id="fr_non" name="atelier_fr" value="non"
+            <?php
+            if($ligne_inscrit["atelier_fr"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="fr_non">non</label>
             <div>
                 <p class="ital">1 à 6 | du plus bas au plus haut niveau</p>
@@ -747,38 +756,128 @@ if (isset($_SESSION["login"]))
                 <div class="ecrit">
             <label for="efrancais">Connaissance de la langue française (écrite) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="efrancais" name="langue_fr_ecrite">
+                <?php
+                foreach($langue_francaise as $ligne_fr){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+                <option value="A1" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_fr["langue_fr_ecrite"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             </div>
             <div class="parler">
             <label for="pfrancais">Connaissance de la langue française (parlée) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="pfrancais" name="langue_fr_parlee">
+            <?php
+                foreach($langue_francaise as $ligne_fr){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+                <option value="A1" <?php
+                if($ligne_fr["langue_fr_parlee"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_fr["langue_fr_parlee"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_fr["langue_fr_parlee"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_fr["langue_fr_parlee"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_fr["langue_fr_parlee"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_fr["langue_fr_parlee"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             <div class="lue">
             <label for="lfrancais" class="petit_lu">Connaissance de la langue française (Lue) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="lfrancais" name="langue_fr_lue">
-                <option class="form-control" value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+            <?php
+                foreach($langue_francaise as $ligne_fr){
+                ?>
+                <option value="rien">-- Selectionner une option --</option>
+                <option value="A1" <?php
+                if($ligne_fr["langue_fr_lue"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_fr["langue_fr_lue"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_fr["langue_fr_lue"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_fr["langue_fr_lue"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_fr["langue_fr_lue"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_fr["langue_fr_lue"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             <!--    
@@ -789,51 +888,149 @@ if (isset($_SESSION["login"]))
                 <div class="ecrit">
             <label for="efrancais">Connaissance de la langue anglaise (écrite) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="eanglais" name="langue_en_ecrite">
+            <?php
+                foreach($langue_anglaise as $ligne_en){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+                <option value="A1" <?php
+                if($ligne_en["langue_en_ecrite"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_en["langue_en_ecrite"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_en["langue_en_ecrite"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_en["langue_en_ecrite"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_en["langue_en_ecrite"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_en["langue_en_ecrite"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             </div>
             <div class="parler">
             <label for="panglais">Connaissance de la langue anglaise (parlée) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="panglais" name="langue_en_parlee">
+            <?php
+                foreach($langue_anglaise as $ligne_en){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+                <option value="A1" <?php
+                if($ligne_en["langue_en_parlee"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_en["langue_en_parlee"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_en["langue_en_parlee"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_en["langue_en_parlee"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_en["langue_en_parlee"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_en["langue_en_parlee"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             <div class="lue">
             <label for="langlais" class="petit_lu">Connaissance de la langue anglaise (Lue) : <span class="obligatoire">*</span></label>
             <select class="form-control" id="langlais" name="langue_en_lue">
-                <option class="form-control" value="rien">-- Selectionner une option --</option>
-                <option value="A1">A1 | 1</option>
-                <option value="A2">A2 | 2</option>
-                <option value="B1">B1 | 3</option>
-                <option value="B2">B2 | 4</option>
-                <option value="C1">C1 | 5</option>
-                <option value="C2">C2 | 6</option>
+            <?php
+                foreach($langue_anglaise as $ligne_en){
+                ?>
+                <option value="rien">-- Selectionner une option --</option>
+                <option value="A1" <?php
+                if($ligne_en["langue_en_lue"]=="A1"){
+                    echo "selected";
+                }
+                ?>>A1 | 1</option>
+                <option value="A2" <?php
+                if($ligne_en["langue_en_lue"]=="A2"){
+                    echo "selected";
+                }
+                ?>>A2 | 2</option>
+                <option value="B1" <?php
+                if($ligne_en["langue_en_lue"]=="B1"){
+                    echo "selected";
+                }
+                ?>>B1 | 3</option>
+                <option value="B2" <?php
+                if($ligne_en["langue_en_lue"]=="B2"){
+                    echo "selected";
+                }
+                ?>>B2 | 4</option>
+                <option value="C1" <?php
+                if($ligne_en["langue_en_lue"]=="C1"){
+                    echo "selected";
+                }
+                ?>>C1 | 5</option>
+                <option value="C2" <?php
+                if($ligne_en["langue_en_lue"]=="C2"){
+                    echo "selected";
+                }
+                ?>>C2 | 6</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             </div>
             <div id="autre_langue1">
                 <label class="decal" for="if_lang">Autre(s) langue(s) parlée(s) : <span class="obligatoire">*</span></label>
-                <input type="radio" name="if_autre" id="oui_autre" value="oui" onclick="showhideautrelang(1)">
+                <input type="radio" name="if_autre" id="oui_autre" value="oui" onclick="showhideautrelang(1)" <?php
+                if($ligne_inscrit["if_autre"]=="oui"){
+                    echo "checked";
+                }
+                ?>>
                 <label for="oui_autre">oui</label>
-                <input type="radio" name="if_autre" id="non_autre" value="non" onclick="showhideautrelang(2)">
+                <input type="radio" name="if_autre" id="non_autre" value="non" onclick="showhideautrelang(2)" <?php
+                if($ligne_inscrit["if_autre"]=="non"){
+                    echo "checked";
+                }
+                ?>>
                 <label for="non_autre">non</label>
             <!--  -->
                 <div class="input_boxe" id="oui_langue_autre">
                     <label class="decal" for="input_autre_langue">Langue(s) : <span class="obligatoire">*</span></label>
-                    <input type="text" name="autre_langue" id="input_autre_langue">
+                    <input type="text" name="autre_langue" id="input_autre_langue" value="<?php echo $ligne_inscrit["autre_langue"] ?>">
             </div>
             </div>
             <hr>
