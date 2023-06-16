@@ -212,6 +212,10 @@ if (isset($_SESSION["login"]))
             <!--    
                 Information personnelles : Coordonnées de la personne accueillie
             -->
+           <?php
+            foreach($inscrit as $ligne_inscrit)
+                {
+            ?>
             <div class="infor_pers">  
         <h2 class="information">Coordonnées</h2>
         <h2 class="information2">Situation personnelle</h2>
@@ -219,83 +223,74 @@ if (isset($_SESSION["login"]))
         <div class="input_boxe">
             <label for="civilite">Civilité : <span class="obligatoire">*</span></label>
             <select class="form-control" name="civilite" id="civilite">
-                <option value="rien">-- Selectionner une option --</option>
-                <option value="Madame">Madame</option>
-                <option value="Mademoiselle">Mademoiselle</option>
-                <option value="Monsieur">Monsieur</option>
+                <option value="<?php echo $ligne_inscrit["civilite"] ?>">-- Selectionner une option --</option>
+                <option value="Madame" <?php
+                if($ligne_inscrit["civilite"]=="Madame"){
+                        echo "selected";
+                    }
+                    ?>>Madame</option>
+                <option value="Mademoiselle" <?php
+                if($ligne_inscrit["civilite"]=="Mademoiselle"){
+                        echo "selected";
+                    }
+                    ?>>Mademoiselle</option>
+                <option value="Monsieur" <?php
+                if($ligne_inscrit["civilite"]=="Monsieur"){
+                        echo "selected";
+                    }
+                    ?>>Monsieur</option>
             </select>
             <div class="input_boxe">
 
             <label for="nom">Nom : <span class="obligatoire">*</span></label>
-            <input type="text" id="nom" name="nom">
+            <input type="text" id="nom" name="nom" value="<?php echo $ligne_inscrit["nom"] ?>">
 
 
             <label class="decale" for="prenom">Prénom : <span class="obligatoire">*</span></label>
-            <input class="decale" type="text" id="prenom" name="prenom">
+            <input class="decale" type="text" id="prenom" name="prenom" value="<?php echo $ligne_inscrit["prenom"] ?>">
             </div>
             <div class="input_boxe">
             
             <label for="birth_date">Date de naissance : <span class="obligatoire">*</span></label>
             
-            <input type="date" id="birthdate" name="dte_naissance">
+            <input type="date" id="birthdate" name="dte_naissance" value="<?php echo $ligne_inscrit["dte_naissance"] ?>">
             <div class="div_age">
-            <p class="agee">Age : </p>
-            <p class="form-control" disabled id="age"></p>
-            </div>
-            <script>
-            var inputDate = document.getElementById("birthdate");
-            var ageElement = document.getElementById("age");
-
-            inputDate.addEventListener("input", calculerAge);
-
-            function calculerAge() {
-            var dateNaissance = inputDate.value;
-            var dateActuelle = new Date();
-
-            var anneeNaissance = new Date(dateNaissance).getFullYear();
-            var anneeActuelle = dateActuelle.getFullYear();
-
-            var age = anneeActuelle - anneeNaissance;
-
-            ageElement.textContent = age + " ans";
-            }
-
-            </script>
 
             </div>
             <div class="input_boxe">
             <label for="nationalite" id="nationalite">Nationalité : <span class="obligatoire">*</span></label>
             <?php
-            include('pays.php')
+            include('pays_disabled.php')
             ?>
         </div>
         <div class="input_boxe">
             <label id="adresse" for="adresse">Adresse : <span class="obligatoire">*</span></label>
-            <input type="text" id="adresse" name="adresse">
+            <input type="text" id="adresse" name="adresse" value="<?php echo $ligne_inscrit["adresse"] ?>">
 
 
             <label class="decaler" for="zipcode">Code Postal : <span class="obligatoire">*</span></label>
-            <input class="decaler" type="text" id="zipcode" name="code_postal"  >
+            <input class="decaler" type="text" id="zipcode" name="code_postal" value="<?php echo $ligne_inscrit["code_postal"] ?>">
             <div id="error-message" style="display: none; color: #f55;"></div>
             <div class="input_boxe">
             <label class="decaler" for="city">Ville : <span class="obligatoire">*</span></label>
             <select class="form-control" id="city" placeholder="Ville" name="ville"></select>
+            <p class="ital" style="color : red;">Si la ville ne correspond pas, re-selectionner la ville</p>
             </div>
             </div>
             <div class="input_boxe">
 
             <label class="decaler" for="tel">Téléphone : <span class="obligatoire">*</span></label>
-            <input class="decaler" type="text" id="tel" name="telephone">
+            <input class="decaler" type="text" id="tel" name="telephone" value="<?php echo $ligne_inscrit["telephone"] ?>">
 
             <label class="decaler" for="email">E-mail : <span class="obligatoire">*</span></label>
-            <input class="decaler" type="mail" id="email" name="email">
+            <input class="decaler" type="mail" id="email" name="email" value="<?php echo $ligne_inscrit["email"] ?>">
             </div>
             
         </div>
 
             <label for="statue">Statue : <span class="obligatoire">*</span></label>
             <select class="form-control" id="statut" name="situation_perso">
-                <option value="rien">-- Selectionner un statut --</option>
+                <option value="<?php echo $ligne_inscrit["situation_perso"] ?>">-- Selectionner un statut --</option>
                 <option value="celibataire">Célibataire</option>
                 <option value="marie">Marié(e)</option>
                 <option value="divorce">Concubin(e)</option>
@@ -303,6 +298,8 @@ if (isset($_SESSION["login"]))
                 <option value="pacse">Pacsé(e)</option>
             </select>
         </div>
+        <?php
+        }?>
             <!--    Situation personnelle    -->
             <!--    
                 Enfants à charge  ------------------------------------------------------------------
