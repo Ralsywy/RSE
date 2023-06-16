@@ -16,7 +16,6 @@ $(document).ready(function() {
                 if (results.length) {
                     $(errorMessage).text('').hide();
                     $.each(results, function(key, value) {
-                        console.log(value.nom);
                         $(city).append('<option value="' + value.nom + '">' + value.nom + '</option>');
                     });
                 } else {

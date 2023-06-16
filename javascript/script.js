@@ -102,7 +102,6 @@ function showhidecma(val) {
     }
   }
 // Soélis
-function showhidesoelis(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var soelis_oui = document.getElementById('soelis_oui');
         var soelis_non = document.getElementById('soelis_non');
@@ -113,6 +112,8 @@ function showhidesoelis(val) {
             showhidesoelis(2);
         }
       });
+function showhidesoelis(val) {
+
     if(val==1 || document.getElementById('soelis_oui').checked) {
         document.getElementById('inscrit_soelis').style.display='block';
         document.getElementById('date_rea_soelis').style.display='none';
@@ -123,7 +124,6 @@ function showhidesoelis(val) {
     }
   }
 // Mission locale
-function showhidemission(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var mission_oui = document.getElementById('mission_oui');
         var mission_non = document.getElementById('mission_non');
@@ -134,6 +134,8 @@ function showhidemission(val) {
             showhidemission(2);
         }
       });
+function showhidemission(val) {
+
   if(val==1 || document.getElementById('mission_oui').checked) {
       document.getElementById('mission').style.display='block';
       document.getElementById('date_rea3').style.display='none';
@@ -144,7 +146,6 @@ function showhidemission(val) {
   }
 }
 // Cap Emlois
-function showhidecap(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var cap_oui = document.getElementById('cap_oui');
         var cap_non = document.getElementById('cap_non');
@@ -155,6 +156,8 @@ function showhidecap(val) {
             showhidecap(2);
         }
       });
+function showhidecap(val) {
+
   if(val==1 || document.getElementById('cap_oui').checked) {
       document.getElementById('cap').style.display='block';
       document.getElementById('date_rea4').style.display='none';
@@ -165,7 +168,6 @@ function showhidecap(val) {
   }
 }
 // CV
-function showhidecv(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var cv_oui = document.getElementById('cv_oui');
         var cv_non = document.getElementById('cv_non');
@@ -176,6 +178,8 @@ function showhidecv(val) {
             showhidecv(2);
         }
       });
+function showhidecv(val) {
+
   if(val==1 || document.getElementById('cv_oui').checked) {
       document.getElementById('cv').style.display='block';
       document.getElementById('date_cv').style.display='none';
@@ -220,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
 // Achat d'un véhicule
-  function showhideachat(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var vehicule_oui = document.getElementById('vehicule_oui');
         var vehicule_non = document.getElementById('vehicule_non');
@@ -231,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showhideachat(2);
         }
       });
+  function showhideachat(val) {
+
     if(val==1 || document.getElementById('vehicule_oui').checked) {
         document.getElementById('achat1').style.display='none';
         document.getElementById('date_achat_vehicule').style.display='none';
@@ -381,7 +386,6 @@ function hideshowdipl() {
     }
   }
 // Reconversion pro
-  function showhidereconv(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var oui_reconv = document.getElementById('oui_reconv');
         var non_reconv = document.getElementById('non_reconv');
@@ -392,6 +396,8 @@ function hideshowdipl() {
             showhidereconv(2);
         }
       });
+ function showhidereconv(val) {
+
     if(val==1 || document.getElementById('oui_reconv').checked) {
         document.getElementById('formati').style.display='block';
     }
@@ -403,7 +409,6 @@ function hideshowdipl() {
     }
   }
 // Formation prévue
-function showhideformp(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var oui_form = document.getElementById('oui_form');
         var non_form = document.getElementById('non_form');
@@ -414,6 +419,8 @@ function showhideformp(val) {
             showhideformp(2);
         }
       });
+function showhideformp(val) {
+
     if(val==1 || document.getElementById('oui_form').checked) {
         document.getElementById('renseign').style.display='block';
     }
@@ -422,7 +429,6 @@ function showhideformp(val) {
     }
   }
 // Reprise d'étude
-function showhidereprise(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var oui_etude = document.getElementById('oui_etude');
         var non_etude = document.getElementById('non_etude');
@@ -433,6 +439,8 @@ function showhidereprise(val) {
             showhidereprise(2);
         }
       });
+function showhidereprise(val) {
+
     if(val==1 || document.getElementById('oui_etude').checked) {
         document.getElementById('dipl_prep').style.display='block';
     }
@@ -442,7 +450,6 @@ function showhidereprise(val) {
     }
   }
 // Bénéficier d'une formation pro                oui non
-function showhideformpro(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var form_pro_oui = document.getElementById('form_pro_oui');
         var form_pro_non = document.getElementById('form_pro_non');
@@ -453,6 +460,8 @@ function showhideformpro(val) {
             showhideformpro(2);
         }
       });
+function showhideformpro(val) {
+
     if(val==1 || document.getElementById('form_pro_oui').checked) {
         document.getElementById('oui_formpro').style.display='block';
     }
@@ -583,10 +592,11 @@ function hideshowsituationpro() {
             form_type1.selectedIndex = 0;
         } 
     }
-function hideshowformqd1() {
     document.addEventListener('DOMContentLoaded', function() {
         hideshowformqd1();
       });
+function hideshowformqd1() {
+
     var formqd1 = document.getElementById("form_type1").value;
         if(formqd1 == "diplomante1") {
             document.getElementById('if_qual1').style.display='none';
@@ -601,7 +611,6 @@ function hideshowformqd1() {
             document.getElementById('if_dipl1').style.display='none';
         }
     }
-function showhideautrelang(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var oui_autre = document.getElementById('oui_autre');
         var non_autre = document.getElementById('non_autre');
@@ -612,6 +621,8 @@ function showhideautrelang(val) {
             showhideformpro(2);
         }
       });
+function showhideautrelang(val) {
+
     if(val==1 || document.getElementById('oui_autre').checked) {
         document.getElementById('oui_langue_autre').style.display='block';
     }
@@ -620,7 +631,6 @@ function showhideautrelang(val) {
 
     }
   }
-  function showhidedatevehi(val) {
     window.addEventListener('DOMContentLoaded', function() {
         var achat_oui = document.getElementById('achat_oui');
         var achat_non = document.getElementById('achat_non');
@@ -631,6 +641,8 @@ function showhideautrelang(val) {
             showhidedatevehi(2);
         }
       });
+  function showhidedatevehi(val) {
+
     if(val==1 || document.getElementById('achat_oui').checked) {
         document.getElementById('date_achat_vehicule').style.display='block';
     }

@@ -184,7 +184,8 @@ if (isset($_SESSION["login"])){
             <option value="rien">-- Selectionner un statut --</option>
             <option value="celibataire">Célibataire</option>
             <option value="marie">Marié(e)</option>
-            <option value="divorce">Concubin(e)</option>
+            <option value="concubin">Concubin(e)</option>
+            <option value="divorce">Divorcé(e)</option>
             <option value="veuf">Veuf(ve)</option>
             <option value="pacse">Pacsé(e)</option>
         </select>

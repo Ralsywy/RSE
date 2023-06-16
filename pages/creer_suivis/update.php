@@ -296,11 +296,36 @@ if (isset($_SESSION["login"]))
             <label for="statue">Statue : <span class="obligatoire">*</span></label>
             <select class="form-control" id="statut" name="situation_perso">
                 <option value="<?php echo $ligne_inscrit["situation_perso"] ?>">-- Selectionner un statut --</option>
-                <option value="celibataire">Célibataire</option>
-                <option value="marie">Marié(e)</option>
-                <option value="divorce">Concubin(e)</option>
-                <option value="veuf">Veuf(ve)</option>
-                <option value="pacse">Pacsé(e)</option>
+                <option value="celibataire" <?php
+                if($ligne_inscrit["situation_perso"]=="celibataire"){
+                        echo "selected";
+                    }
+                    ?>>Célibataire</option>
+                <option value="marier" <?php
+                if($ligne_inscrit["situation_perso"]=="marier"){
+                        echo "selected";
+                    }
+                    ?>>Marié(e)</option>
+                <option value="concubin" <?php
+                if($ligne_inscrit["situation_perso"]=="concubin"){
+                        echo "selected";
+                    }
+                    ?>>Concubin(e)</option>
+                <option value="veuf" <?php
+                if($ligne_inscrit["situation_perso"]=="veuf"){
+                        echo "selected";
+                    }
+                    ?>>Veuf(ve)</option>
+                <option value="divorce" <?php
+                if($ligne_inscrit["situation_perso"]=="divorce"){
+                        echo "selected";
+                    }
+                    ?>>Divorcé(e)</option>
+                <option value="pacse" <?php
+                if($ligne_inscrit["situation_perso"]=="pacse"){
+                        echo "selected";
+                    }
+                    ?>>Pacsé(e)</option>
             </select>
         </div>
         <?php
@@ -312,11 +337,11 @@ if (isset($_SESSION["login"]))
 
             <div class="sit_perso">
             <label>Enfants à charge : <span class="obligatoire">*</span></label>
-            <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui">
+            <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui" disabled>
             <label for="enfant_oui">oui</label>
 
 
-            <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non">
+            <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non" disabled>
             <label for="enfant_non">non</label>
             <div id="enfant_naissance" class="input_boxe">
             <!--    Si oui    -->
@@ -394,14 +419,42 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label for="revenus">Nature des revenus : <span class="obligatoire">*</span></label>
             <select class="form-control" name="nature_revenus" id="revenus" onchange="hideshowautre()">
-                <option value="rien">-- Selectionner une option --</option>
-                <option value="salaire">Salaire</option>
-                <option value="RSA">RSA</option>
-                <option value="ARE">ARE</option>
-                <option value="AAH">AAH</option>
-                <option value="retraite">Pension de retraite</option>
-                <option value="autre" id="autre">Autre</option>
-                <option value="aucun">Aucun</option>
+                <option value="<?php echo $ligne_inscrit["nature_revenus"] ?>">-- Selectionner une option --</option>
+                <option value="salaire" <?php
+                if($ligne_inscrit["nature_revenus"]=="salaire"){
+                        echo "selected";
+                    }
+                    ?>>Salaire</option>
+                <option value="RSA" <?php
+                if($ligne_inscrit["nature_revenus"]=="RSA"){
+                        echo "selected";
+                    }
+                    ?>>RSA</option>
+                <option value="ARE" <?php
+                if($ligne_inscrit["nature_revenus"]=="ARE"){
+                        echo "selected";
+                    }
+                    ?>>ARE</option>
+                <option value="AAH" <?php
+                if($ligne_inscrit["nature_revenus"]=="AAH"){
+                        echo "selected";
+                    }
+                    ?>>AAH</option>
+                <option value="retraite" <?php
+                if($ligne_inscrit["nature_revenus"]=="retraite"){
+                        echo "selected";
+                    }
+                    ?>>Pension de retraite</option>
+                <option value="autre" id="autre" <?php
+                if($ligne_inscrit["nature_revenus"]=="autre"){
+                        echo "selected";
+                    }
+                    ?>>Autre</option>
+                <option value="aucun" <?php
+                if($ligne_inscrit["nature_revenus"]=="aucun"){
+                        echo "selected";
+                    }
+                    ?>>Aucun</option>
             </select>
             
             <!--    Si "autre"    -->
@@ -414,95 +467,156 @@ if (isset($_SESSION["login"]))
                 Pôle emplois  --------------------------------------------------------------------
             -->
             <label for="inscrit_pole_emploi">Inscrit à pôle emploi : <span class="obligatoire">*</span></label>
-            <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui">
+            <input type="radio" id="pole_oui" name="inscrit_pole_emploi" onclick="showhideemplois(1)" value="oui"
+            <?php
+            if($ligne_inscrit["inscrit_pole_emploi"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="pole_oui">oui</label>
-            <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non">
+            <input type="radio" id="pole_non" name="inscrit_pole_emploi" onclick="showhideemplois(2)" value="non"            
+            <?php
+            if($ligne_inscrit["inscrit_pole_emploi"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="pole_non">non</label>
             <!--    Si oui    -->
+            <?php
+            foreach($pole_emploi as $ligne_pole)
+                {
+            ?>
             <div class="input_boxe">
                 <div id="pole_emplois">
             <label id="inscri_emplois" for="date_inscription_pole_emplois">Date d'inscription au pôle emplois : <span class="obligatoire">*</span></label>
-            <input id="input_inscri_emplois" type="date" id="date_inscription_pole_emplois" name="dte_inscription">
+            <input id="input_inscri_emplois" type="date" id="date_inscription_pole_emplois" name="dte_inscription" value="<?php echo $ligne_pole["dte_inscription"] ?>">
             <div class="input_boxe">
             <label id="ref" for="nom_ref">Nom du référent : <span class="obligatoire">*</span></label>
-            <input id="input_ref" type="text" id="nom_ref" name="nom_referent">
+            <input id="input_ref" type="text" id="nom_ref" name="nom_referent" value="<?php echo $ligne_pole["nom_referent"] ?>">
             </div>
         </div>
             <!--    Si non    -->
             <div id="date_rea2">
             <label for="date_r2">Date de réalisation : <span class="obligatoire">*</span></label>
-            <input type="date" id="date_r2" name="dte_realisation_pole">
+            <input type="date" id="date_r2" name="dte_realisation_pole" value="<?php echo $ligne_pole["dte_realisation_pole"] ?>">
             <label for="commentaire_pole">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_pole">
+            <input type="text" class="input_suivis" name="commentaire_pole" value="<?php echo $ligne_pole["commentaire_pole"] ?>">
             </div>
         </div>
+        <?php   }
+            ?>
             <!--    
                 Soélis  --------------------------------------------------------------------
             -->
             <label for="inscrit_soelis">Inscrit à Soélis : <span class="obligatoire">*</span></label>
-            <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui">
+            <input type="radio" id="soelis_oui" name="inscrit_soelis" onclick="showhidesoelis(1)" value="oui"
+            <?php
+            if($ligne_inscrit["inscrit_soelis"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="soelis_oui">oui</label>
-            <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non">
+            <input type="radio" id="soelis_non" name="inscrit_soelis" onclick="showhidesoelis(2)" value="non"          
+            <?php
+            if($ligne_inscrit["inscrit_soelis"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="soelis_non">non</label>
             <!--    Si oui    -->
+            <?php
+            foreach($soelis as $ligne_soelis)
+                {
+            ?>
             <div class="input_boxe">
                 <div id="inscrit_soelis">
             <label id="inscri_soelis" for="date_inscription_soelis">Date d'inscription à Soelis : <span class="obligatoire">*</span></label>
-            <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis">
+            <input id="input_inscri_soelis" type="date" id="date_inscription_soelis" name="dte_inscription_soelis" value="<?php echo $ligne_soelis["dte_inscription_soelis"] ?>">
             <div class="input_boxe">
             <label id="ref" for="nom_ref">Nom du référent : <span class="obligatoire">*</span></label>
-            <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis">
+            <input id="input_ref" type="text" id="nom_ref" name="nom_referent_soelis" value="<?php echo $ligne_soelis["nom_referent_soelis"] ?>">
             </div>
         </div>
             <!--    Si non    -->
             <div id="date_rea_soelis">
             <label for="date_rea_s">Date de réalisation : <span class="obligatoire">*</span></label>
-            <input type="date" id="date_rea_s" name="dte_realisation_soelis">
+            <input type="date" id="date_rea_s" name="dte_realisation_soelis" value="<?php echo $ligne_soelis["dte_realisation_soelis"] ?>">
             <label for="commentaire_soelis">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_soelis">
+            <input type="text" class="input_suivis" name="commentaire_soelis" value="<?php echo $ligne_soelis["commentaire_soelis"] ?>">
             </div>
         </div>
+        <?php   }
+            ?>
             <!--    
                 CMA  --------------------------------------------------------------------
             -->
             <label for="inscrit_cma">Inscrit à CMA : <span class="obligatoire">*</span></label>
-            <input type="radio" id="cma_oui" name="inscrit_cma" onclick="showhidecma(1)" value="oui">
+            <input type="radio" id="cma_oui" name="inscrit_cma" onclick="showhidecma(1)" value="oui"            
+            <?php
+            if($ligne_inscrit["inscrit_cma"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="cma_oui">oui</label>
-            <input type="radio" id="cma_non" name="inscrit_cma" onclick="showhidecma(2)" value="non">
+            <input type="radio" id="cma_non" name="inscrit_cma" onclick="showhidecma(2)" value="non"            
+            <?php
+            if($ligne_inscrit["inscrit_cma"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="cma_non">non</label>
             <!--    Si oui    -->
+            <?php
+            foreach($cma as $ligne_cma)
+                {
+            ?>
             <div class="input_boxe">
                 <div id="inscrit_cma">
             <label id="inscrit_cma1" for="date_inscription_pole_emplois">Date d'inscription à CMA : <span class="obligatoire">*</span></label>
-            <input id="input_inscri_cma" type="date" id="date_inscription_cma" name="dte_inscription_cma">
+            <input id="input_inscri_cma" type="date" id="date_inscription_cma" name="dte_inscription_cma" value="<?php echo $ligne_cma["dte_inscription_cma"] ?>">
             <div class="input_boxe">
             <label id="ref" for="nom_ref_cma">Nom du référent : <span class="obligatoire">*</span></label>
-            <input id="input_ref" type="text" id="nom_ref_cma" name="nom_referent_cma">
+            <input id="input_ref" type="text" id="nom_ref_cma" name="nom_referent_cma" value="<?php echo $ligne_cma["nom_referent_cma"] ?>">
             </div>
         </div>
             <!--    Si non    -->
             <div id="date_rea_cma">
             <label for="date_cma">Date de réalisation : <span class="obligatoire">*</span></label>
-            <input type="date" id="date_cma" name="dte_realisation_cma">
+            <input type="date" id="date_cma" name="dte_realisation_cma" value="<?php echo $ligne_cma["dte_realisation_cma"] ?>">
             <label for="commentaire_cma">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_cma">
+            <input type="text" class="input_suivis" name="commentaire_cma" value="<?php echo $ligne_cma["commentaire_cma"] ?>">
             </div>
         </div>
+        <?php   }?>
             <!--    
                 Mission local   -------------------------------------------------------------------
             -->
             <label for="inscrit_mission_local">Inscrit à la Mission Locale : <span class="obligatoire">*</span></label>
-            <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui">
+            <input type="radio" id="mission_oui" name="inscrit_mission_local" onclick="showhidemission(1)" value="oui"            
+            <?php
+            if($ligne_inscrit["inscrit_mission_local"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="mission_oui">oui</label>
-            <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non">
+            <input type="radio" id="mission_non" name="inscrit_mission_local" onclick="showhidemission(2)" value="non"            
+            <?php
+            if($ligne_inscrit["inscrit_mission_local"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="mission_non">non</label>
             <!--    Si oui    -->
+            <?php
+            foreach($mission_locale as $ligne_mission_local)
+                {
+            ?>
         <div id="date_rea3">
             <div class="input_boxe">
             <label for="date_r3">Date de réalisation : <span class="obligatoire">*</span></label>
-            <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission">
+            <input id="input_date_rea3" type="date" id="date_r3" name="dte_realisation_mission" value="<?php echo $ligne_mission_local["dte_realisation_mission"] ?>">
             <label for="commentaire_mission">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_mission">
+            <input type="text" class="input_suivis" name="commentaire_mission" value="<?php echo $ligne_mission_local["commentaire_mission"] ?>">
         </div>
             </div>
             
@@ -510,12 +624,12 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <div class="input_boxe">
             <label id="datem" for="date_mission">Date d'inscription : <span class="obligatoire">*</span></label>
-            <input id="input_datem" type="date" id="date_mission" name="dte_inscription_mission">
+            <input id="input_datem" type="date" id="date_mission" name="dte_inscription_mission" value="<?php echo $ligne_mission_local["dte_inscription_mission"] ?>">
             </div>
             <label id="ref_m" for="ref_mission">Nom du référent de la mission locale pour l'emploi : <span class="obligatoire">*</span></label>
-            <input type="text" id="ref_mission" name="nom_referent_mission">
+            <input type="text" id="ref_mission" name="nom_referent_mission" value="<?php echo $ligne_mission_local["nom_referent_mission"] ?>">
             <!--    Si non    -->
-
+            <?php   }?>
             </div>
         </div>
             <!--    
@@ -524,41 +638,70 @@ if (isset($_SESSION["login"]))
             <div>
             <label for="inscrit_cap_emploi">Inscrit à CAP emploi : <span class="obligatoire">*</span></label>
             
-            <input type="radio" id="cap_oui" name="inscrit_cap_emploi" onclick="showhidecap(1)" value="oui">
+            <input type="radio" id="cap_oui" name="inscrit_cap_emploi" onclick="showhidecap(1)" value="oui"            
+            <?php
+            if($ligne_inscrit["inscrit_cap_emploi"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="cap_oui">oui</label>
-            <input type="radio" id="cap_non" name="inscrit_cap_emploi" onclick="showhidecap(2)" value="non">
+            <input type="radio" id="cap_non" name="inscrit_cap_emploi" onclick="showhidecap(2)" value="non"            
+            <?php
+            if($ligne_inscrit["inscrit_cap_emploi"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="cap_oui">non</label>
             </div>
             <!--    Si oui   -->
+            <?php
+            foreach($cap_emploi as $ligne_cap_emploi)
+                {
+            ?>
             <div class="input_boxe">
             <div id="cap">
             <label for="date_inscription_cap_emplois">Date d'inscription à CAP emploi : <span class="obligatoire">*</span></label>
-            <input type="date" id="date_inscription_cap_emplois" name="dte_inscription_cap">
+            <input type="date" id="date_inscription_cap_emplois" name="dte_inscription_cap" value="<?php echo $ligne_cap_emploi["dte_inscription_cap"] ?>">
             <label for="nom_ref2">Nom du référent : <span class="obligatoire">*</span></label>
-            <input type="text" id="nom_ref2" name="nom_referent_cap">
+            <input type="text" id="nom_ref2" name="nom_referent_cap" value="<?php echo $ligne_cap_emploi["nom_referent_cap"] ?>">
             </div>
             <!--    Si non    -->
             <div id="date_rea4">
             <label for="date_r4">Date de réalisation : <span class="obligatoire">*</span></label>
-            <input type="date" id="date_r4" name="dte_realisation_cap">
+            <input type="date" id="date_r4" name="dte_realisation_cap" value="<?php echo $ligne_cap_emploi["dte_realisation_cap"] ?>">
             <label for="commentaire_cap">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_cap">
+            <input type="text" class="input_suivis" name="commentaire_cap" value="<?php echo $ligne_cap_emploi["commentaire_cap"] ?>">
             </div>
             </div>
+            <?php   }?>
             <!--    
                 CV  -------------------------------------------------------------------------------
             -->
             <label for="cv_oui_non">CV disponible : <span class="obligatoire">*</span></label>
-            <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)" value="oui">
+            <input type="radio" id="cv_oui" name="cv_oui_non" onclick="showhidecv(1)" value="oui"            
+            <?php
+            if($ligne_inscrit["cv_oui_non"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="cv_oui">oui</label>
-            <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)" value="non">
+            <input type="radio" id="cv_non" name="cv_oui_non" onclick="showhidecv(2)" value="non"            
+            <?php
+            if($ligne_inscrit["cv_oui_non"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="cv_non">non</label>
             <div class="input_boxe">
             <!--    Si oui   -->
+            <?php
+            foreach($files as $ligne_files)
+                {
+            ?>
         </div>
         <div id="cv">
             <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : <span class="obligatoire">*</span></label> 
-            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf">
+            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["pdfFile"] ?>">
         </div>
 
 
@@ -567,23 +710,42 @@ if (isset($_SESSION["login"]))
             <div id="date_cv">
             <div class="input_boxe">
             <label for="date_cv">Date programmé pour travailler le CV : <span class="obligatoire">*</span></label>
-            <input type="date" name="dte_travailler_cv">
+            <input type="date" name="dte_travailler_cv" value="<?php echo $ligne_files["dte_travailler_cv"] ?>">
             </div>
             </div>
-
+            <?php
+                }
+            ?>
             <!--    
                 Permis de conduire  ---------------------------------------------------------------
             -->
             <div class="input_boxe">
             <label for="permis">Permis : <span class="obligatoire">*</span></label>
             <select class="form-control" name="permis_voiture" id="permis" onchange="hideshowpermis()">
-                <option value="rien" id="rien">-- Selectionner une option --</option>
-                <option value="motos1" id="motos1">Permis motos</option>
-                <option value="auto1" id="auto1">Permis auto</option>
-                <option value="march1" id="march1">Permis marchandises ou de personnes</option>
-                <option value="aucun" id="aucun" >Aucun</option>
+                <option value="<?php echo $ligne_inscrit["permis_voiture"] ?>" id="rien">-- Selectionner une option --</option>
+                <option value="motos1" id="motos1" <?php
+                if($ligne_inscrit["permis_voiture"]=="motos1"){
+                        echo "selected";
+                    }
+                    ?>>Permis motos</option>
+                <option value="auto1" id="auto1" <?php
+                if($ligne_inscrit["permis_voiture"]=="auto1"){
+                        echo "selected";
+                    }
+                    ?>>Permis auto</option>
+                <option value="march1" id="march1" <?php
+                if($ligne_inscrit["permis_voiture"]=="march1"){
+                        echo "selected";
+                    }
+                    ?>>Permis marchandises ou de personnes</option>
+                <option value="aucun" id="aucun" <?php
+                if($ligne_inscrit["permis_voiture"]=="aucun"){
+                        echo "selected";
+                    }
+                    ?>>Aucun</option>
             </select>
             </div>
+
             <!--    Si motos   -->
             <div class="input_boxe" id="motos">
             <label for="moto">Permis motos : <span class="obligatoire">*</span></label>
@@ -960,4 +1122,5 @@ if (isset($_SESSION["login"]))
 <?php
 }
 $mysqlConnection = null;
+
 ?>
