@@ -345,6 +345,9 @@ html{
   text-align: center;
   justify-content: center;
   top: 0;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .btn_top{
