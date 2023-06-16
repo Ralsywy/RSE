@@ -31,6 +31,7 @@ if (isset($_SESSION["login"])){
                     <th scope="col">Prenom</th>
                     <th scope="col">Accompagnateur</th>
                     <th scope="col">Nombre de rendez-vous</th>
+                    <th scope="col">Date de clôture</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -53,6 +54,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
+                        <td><?= $ligne["dte_cloture"]?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                             <?php
@@ -85,6 +87,7 @@ if (isset($_SESSION["login"])){
                         <td><?= $ligne["prenom"]?></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
+                        <td><?= $ligne["dte_cloture"]?></td>
                         <td>
                             <a href="index.php?route=edit_reprendre&id=<?= $ligne["id_inscrit"] ?>"><button class="btn_reprendre">Reprendre</button></a>
                             <?php
