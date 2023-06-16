@@ -36,7 +36,7 @@ if (isset($_SESSION["login"]))
     <div class="addsuivis">
         <h1 class="titrecreer">MODIFICATION DU SUIVI</h1>
         <h2 class="information">Informations personnelles</h2>
-        <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit" enctype="multipart/form-data">
+        <form class="form" method="post" id="suiviss" action="index.php?route=store_update" enctype="multipart/form-data">
             <!--    Information personnelles    -->
         <div class="block_enligne">
             <div class="input_boxe">
@@ -867,7 +867,7 @@ if (isset($_SESSION["login"]))
             </select>
             </div>
             <div>
-            <button type="submit" class="btn_modifier" id="continuer">Créer</button>
+            <button type="submit" class="btn_modifier" id="continuer">Valider</button>
             </div>
         </form>      
     </div>
