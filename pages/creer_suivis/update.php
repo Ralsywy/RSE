@@ -106,7 +106,7 @@ if (isset($_SESSION["login"]))
     <div class="addsuivis">
         <h1 class="titrecreer">MODIFICATION DU SUIVI</h1>
         <h2 class="information">Informations personnelles</h2>
-        <form class="form" method="post" id="suiviss" action="index.php?route=store_update" enctype="multipart/form-data">
+        <form class="form" method="post" id="suiviss" action="index.php?route=store_update&id=<?=$_GET["id"]?>" enctype="multipart/form-data">
             <!--    Information personnelles    -->
         <div class="block_enligne">
             <div class="input_boxe">
@@ -278,7 +278,7 @@ if (isset($_SESSION["login"]))
             <div id="error-message" style="display: none; color: #f55;"></div>
             <div class="input_boxe">
             <label class="decaler" for="city">Ville : <span class="obligatoire">*</span></label>
-            <select class="form-control" id="city" placeholder="Ville" name="ville"></select>
+            <select class="form-control" id="city" placeholder="Ville" name="ville" value="<?php echo $ligne_inscrit["ville"] ?>"></select>
             <p class="ital" style="color : red;">Si la ville ne correspond pas, re-selectionner la ville</p>
             </div>
             </div>
@@ -337,16 +337,24 @@ if (isset($_SESSION["login"]))
 
             <div class="sit_perso">
             <label>Enfants à charge : <span class="obligatoire">*</span></label>
-            <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui" disabled>
+            <input type="radio" id="enfant_oui" name="enfant_charge" onclick="hideshowkid(1)" value="oui" disabled <?php
+            if($ligne_inscrit["enfant_charge"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="enfant_oui">oui</label>
 
 
-            <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non" disabled>
+            <input type="radio" id="enfant_non" name="enfant_charge" onclick="hideshowkid(2)" value="non" disabled <?php
+            if($ligne_inscrit["enfant_charge"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="enfant_non">non</label>
             <div id="enfant_naissance" class="input_boxe">
             <!--    Si oui    -->
             <label for="nombre_enfant">Nombre d'enfants à charge : <span class="obligatoire">*</span></label>
-            <input type="number" id="nombre_enfant" name="nb_enfant">
+            <input type="number" id="nombre_enfant" name="nb_enfant" value="<?php echo $ligne_inscrit["nb_enfant"] ?>">
             <div id="boite">
             </div>
     <br>
@@ -778,25 +786,81 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe" id="auto">
             <label for="aut">Permis autos : <span class="obligatoire">*</span></label>
             <select class="form-control" name="auto">
+                <?php
+                foreach($permis_conduire as $ligne_permis){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="b">B</option>
-                <option value="b1">B1</option>
-                <option value="be">BE</option>
+                <option value="b" <?php
+                if($ligne_permis["auto"]=="b"){
+                        echo "selected";
+                    }
+                    ?>>B</option>
+                <option value="b1" <?php
+                if($ligne_permis["auto"]=="b1"){
+                        echo "selected";
+                    }
+                    ?>>B1</option>
+                <option value="be" <?php
+                if($ligne_permis["auto"]=="be"){
+                        echo "selected";
+                    }
+                    ?>>BE</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
             <!--    Si march   -->
             <div class="input_boxe" id="march">
             <label for="marchandise">Permis pour le transport de marchandises ou de personnes : <span class="obligatoire">*</span></label>
             <select class="form-control" name="marchandise" id="marchandise">
+                <?php
+                foreach($permis_conduire as $ligne_permis){
+                ?>
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="c">C</option>
-                <option value="ce">CE</option>
-                <option value="c1">C1</option>
-                <option value="c1e">C1E</option>
-                <option value="d">D</option>
-                <option value="de">DE</option>
-                <option value="d1">D1</option>
-                <option value="d1e">D1E</option>
+                <option value="c" <?php
+                if($ligne_permis["transport"]=="c"){
+                        echo "selected";
+                    }
+                    ?>>C</option>
+                <option value="ce" <?php
+                if($ligne_permis["transport"]=="ce"){
+                        echo "selected";
+                    }
+                    ?>>CE</option>
+                <option value="c1" <?php
+                if($ligne_permis["transport"]=="c1"){
+                        echo "selected";
+                    }
+                    ?>>C1</option>
+                <option value="c1e" <?php
+                if($ligne_permis["transport"]=="c1e"){
+                        echo "selected";
+                    }
+                    ?>>C1E</option>
+                <option value="d" <?php
+                if($ligne_permis["transport"]=="d"){
+                        echo "selected";
+                    }
+                    ?>>D</option>
+                <option value="de" <?php
+                if($ligne_permis["transport"]=="de"){
+                        echo "selected";
+                    }
+                    ?>>DE</option>
+                <option value="d1" <?php
+                if($ligne_permis["transport"]=="d1"){
+                        echo "selected";
+                    }
+                    ?>>D1</option>
+                <option value="d1e" <?php
+                if($ligne_permis["transport"]=="d1e"){
+                        echo "selected";
+                    }
+                    ?>>D1E</option>
+                <?php
+                }
+                ?>
             </select>
             </div>
 
@@ -808,7 +872,7 @@ if (isset($_SESSION["login"]))
             </div>
             <input type="radio" id="vehicule_oui" name="vehicule_dispo" onclick="showhideachat(1)" value="oui"            
             <?php
-            if($ligne_inscrit["vehicule_dispo"]=="non"){
+            if($ligne_inscrit["vehicule_dispo"]=="oui"){
                 echo "checked";
             }
             ?>>
@@ -1313,9 +1377,17 @@ if (isset($_SESSION["login"]))
             <!--    Si oui   -->
             <div id="formati">
             <label for="form_prevue">Formation prévues ? <span class="obligatoire">*</span></label>
-            <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui">
+            <input type="radio" id="oui_form" name="form_prevue" onclick="showhideformp(1)" value="oui" <?php
+                if($ligne_inscrit["form_prevue"]=="oui"){
+                    echo "checked";
+                }
+                ?>>
             <label for="oui_form">oui</label>
-            <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non">
+            <input type="radio" id="non_form" name="form_prevue" onclick="showhideformp(2)" value="non" <?php
+                if($ligne_inscrit["form_prevue"]=="non"){
+                    echo "checked";
+                }
+                ?>>
             <label for="non_form">non</label>
             </div>
             <!--    Si non (rien)   -->
@@ -1323,34 +1395,50 @@ if (isset($_SESSION["login"]))
             <!--    Si oui   -->
             <div class="input_boxe" id="renseign">
             <label for="form_nom">Renseigner le nom : <span class="obligatoire">*</span></label>
-            <input type="text" id="form_nom" name="form_nom">
+            <input type="text" id="form_nom" name="form_nom" value="<?php echo $ligne_inscrit["form_nom"] ?>">
             <label for="form_date">Renseigner la date : <span class="obligatoire">*</span></label>
-            <input type="date" id="form_date" name="form_date">
+            <input type="date" id="form_date" name="form_date" value="<?php echo $ligne_inscrit["form_date"] ?>">
             <label for="form_duree">Renseigner la durée : <span class="obligatoire">*</span></label>
-            <input type="text" id="form_duree" name="form_duree">
+            <input type="text" id="form_duree" name="form_duree" value="<?php echo $ligne_inscrit["form_duree"] ?>">
             </div>
             
             <!--    
                 Reprise d'étude  ------------------------------------------------------------------
             -->
             <label for="etude">Reprise d'étude ? <span class="obligatoire">*</span></label>
-            <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)" value="oui">
+            <input type="radio" id="oui_etude" name="reprise" onclick="showhidereprise(1)" value="oui" <?php
+                if($ligne_inscrit["reprise"]=="oui"){
+                    echo "checked";
+                }
+                ?>>
             <label for="oui_etude">oui</label>
-            <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)" value="non">
+            <input type="radio" id="non_etude" name="reprise" onclick="showhidereprise(2)" value="non" <?php
+                if($ligne_inscrit["reprise"]=="non"){
+                    echo "checked";
+                }
+                ?>>
             <label for="non_etude">non</label>
             <!--    Si oui   -->
             <div class="input_boxe" id="dipl_prep">
             <label for="dipl_prepa">Diplôme préparé : <span class="obligatoire">*</span></label>
-            <input type="text" id="dipl_prepa" name="nom_etudes">
+            <input type="text" id="dipl_prepa" name="nom_etudes" value="<?php echo $ligne_inscrit["nom_etudes"] ?>">
             </div>
             <!--    
                 bénéficier formation pro  ------------------------------------------------------------------
             -->
             <div>
             <label for="form_pro">La personne va-t-elle bénéficier d'une formation professionelle ? <span class="obligatoire">*</span></label>
-            <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)" value="oui">
+            <input type="radio" id="form_pro_oui" name="form_pro" onclick="showhideformpro(1)" value="oui" value="non" <?php
+                if($ligne_inscrit["form_pro"]=="oui"){
+                    echo "checked";
+                }
+                ?>>
             <label for="form_pro_oui">oui</label>
-            <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)" value="non">
+            <input type="radio" id="form_pro_non" name="form_pro" onclick="showhideformpro(2)" value="non" value="non" <?php
+                if($ligne_inscrit["form_pro"]=="non"){
+                    echo "checked";
+                }
+                ?>>
             <label for="form_pro_non">non</label>
             </div>
             <!--    Si non (rien)   -->
@@ -1360,42 +1448,82 @@ if (isset($_SESSION["login"]))
             <label for="form_type">Type de formation : <span class="obligatoire">*</span></label>
             <select class="form-control" name="form_type" id="form_type" onchange="hideshowformqd()">
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="qualifiante">Formation qualifiante</option>
-                <option value="diplomante">Formation diplômante</option>
+                <option value="qualifiante" <?php
+                if($ligne_inscrit["form_type"]=="qualifiante"){
+                    echo "selected";
+                }
+                ?>>Formation qualifiante</option>
+                <option value="diplomante" <?php
+                if($ligne_inscrit["form_type"]=="diplomante"){
+                    echo "selected";
+                }
+                ?>>Formation diplômante</option>
             </select>
             </div>
             <!--    Si qualifiante   -->
             <div class="input_boxe" id="if_qual">
             <label for="nom_form">Nom de la formation qualifiante : <span class="obligatoire">*</span></label>
-            <input type="text" id="nom_form" name="form_qual">
+            <input type="text" id="nom_form" name="form_qual" value="<?php echo $ligne_inscrit["form_qual"] ?>">
             </div>
             <!--    Si diplômante   -->
             <div class="input_boxe" id="if_dipl">
             <label for="nom_diplo">Nom du diplôme : <span class="obligatoire">*</span></label>
-            <input type="text" id="nom_diplo" name="form_dipl">
+            <input type="text" id="nom_diplo" name="form_dipl" value="<?php echo $ligne_inscrit["form_dipl"] ?>">
             </div>
             <div class="input_boxe">
             <label for="metier_s">Métier souhaité : <span class="obligatoire">*</span></label>
-            <input type="text" id="metier_s" name="metier_souhaite">
+            <input type="text" id="metier_s" name="metier_souhaite" value="<?php echo $ligne_inscrit["metier_souhaite"] ?>">
 
             <label for="secteur_act">Secteur d'activité : <span class="obligatoire">*</span></label>
-            <input type="text" id="secteur_act" name="secteur_activite">
+            <input type="text" id="secteur_act" name="secteur_activite" value="<?php echo $ligne_inscrit["secteur_activite"] ?>">
 
             <label for="secteur_geo">Secteur géographique souhaité : <span class="obligatoire">*</span></label>
-            <input type="text" id="secteur_geo" name="secteur_geo">
+            <input type="text" id="secteur_geo" name="secteur_geo" value="<?php echo $ligne_inscrit["secteur_geo"] ?>">
             </div>
 
             <label for="horaire">Horaire de travail souhaité : <span class="obligatoire">*</span></label>
             <select class="form-control" name="moment_journee" id="horaire">
                 <option value="rien">-- Selectionner une option --</option>
-                <option value="jour">Travail la journée</option>
-                <option value="matin">Travail le matin</option>
-                <option value="nuit">Travail de nuit</option>
-                <option value="2x8">Travail en cycle 2x8</option>
-                <option value="3x8">Travail en cycle 3x8</option>
-                <option value="5x8">Travail en cycle 5x8</option>
-                <option value="VSD">Travail en VSD</option>
-                <option value="SD">Travail en SD</option>
+                <option value="jour" <?php
+                if($ligne_inscrit["moment_journee"]=="jour"){
+                    echo "selected";
+                }
+                ?>>Travail la journée</option>
+                <option value="matin" <?php
+                if($ligne_inscrit["moment_journee"]=="matin"){
+                    echo "selected";
+                }
+                ?>>Travail le matin</option>
+                <option value="nuit" <?php
+                if($ligne_inscrit["moment_journee"]=="nuit"){
+                    echo "selected";
+                }
+                ?>>Travail de nuit</option>
+                <option value="2x8" <?php
+                if($ligne_inscrit["moment_journee"]=="2x8"){
+                    echo "selected";
+                }
+                ?>>Travail en cycle 2x8</option>
+                <option value="3x8" <?php
+                if($ligne_inscrit["moment_journee"]=="3x8"){
+                    echo "selected";
+                }
+                ?>>Travail en cycle 3x8</option>
+                <option value="5x8" <?php
+                if($ligne_inscrit["moment_journee"]=="5x8"){
+                    echo "selected";
+                }
+                ?>>Travail en cycle 5x8</option>
+                <option value="VSD" <?php
+                if($ligne_inscrit["moment_journee"]=="VSD"){
+                    echo "selected";
+                }
+                ?>>Travail en VSD</option>
+                <option value="SD" <?php
+                if($ligne_inscrit["moment_journee"]=="SD"){
+                    echo "selected";
+                }
+                ?>>Travail en SD</option>
             </select>
             </div>
             <div>

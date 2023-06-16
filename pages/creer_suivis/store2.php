@@ -44,7 +44,7 @@ else
 
     ////    SITUATION PRO APRES   ////
     if($type_formation == "rien"){
-
+        
     }
     else
     {

@@ -138,7 +138,7 @@ if (isset($_SESSION["login"])){
 
         <label for="situat_pro">Situation professionnelle après la clôture du plan d'action : </label>
         <select class="form-control" name="type_formation" id="situat_pro" onchange="hideshowsituationpro()">
-            <option value="<?php echo $ligne3["type_formation"] ?>">-- Selectionner une option --</option>
+            <option value="rien">-- Selectionner une option --</option>
             <option value="cdi" <?php
         if($ligne3["type_formation"]=="cdi"){
             echo "selected";

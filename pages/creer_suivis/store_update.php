@@ -9,7 +9,6 @@ $mysqlConnection = new PDO(
 
 $id = $_GET["id"];
 $choix_rdc = $_POST['inscrit_rdc'];
-$choix_enfant = $_POST['enfant_charge'];
 $accompagnateur = $_POST['accompagnateur'];
 $civilite = $_POST['civilite'];
 $nature_revenus = $_POST['nature_revenus'];
@@ -55,10 +54,10 @@ $requete->execute(["names"=>NULL,"file_url"=>NULL,"dte_travailler_cv"=>NULL]);
 $requete = null;
 
 // INSCRIT //
-$requete = $mysqlConnection->prepare("UPDATE inscrit SET statut = :statut,dte_contact = :dte_contact,
-nb_demarche = :nb_demarche,origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
+$requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
+origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
 prenom = :prenom,dte_naissance = :dte_naissance,nationalite = :nationalite,adresse = :adresse,code_postal = :code_postal,
-ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,enfant_charge = :enfant_charge,nb_enfant = :nb_enfant,
+ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,
 nature_revenus = :nature_revenus,autre_revenus = :autre_revenus,cv_oui_non = :cv_oui_non,
 inscrit_pole_emploi = :inscrit_pole_emploi,inscrit_mission_local = :inscrit_mission_local,inscrit_cap_emploi = :inscrit_cap_emploi,
 inscrit_soelis = :inscrit_soelis,inscrit_cma = :inscrit_cma,vehicule_dispo = :vehicule_dispo,achat_prevu = :achat_prevu,emploi_pre_occupe = :emploi_pre_occupe,
@@ -67,20 +66,20 @@ reconversion = :reconversion,form_pro = :form_pro,form_type = :form_type,reprise
 form_dipl = :form_dipl,metier_souhaite = :metier_souhaite,secteur_activite = :secteur_activite,secteur_geo = :secteur_geo,form_continue = :form_continue,
 form_nom = :form_nom,form_date = :form_date,form_duree = :form_duree,moment_journee = :moment_journee,cap_metier = :cap_metier,
 benevole_rdc = :benevole_rdc,nom_diplome = :nom_diplome,nb_annee_scolarisation = :nb_annee_scolarisation,niveau_diplome = :niveau_diplome,
-atelier_fr = :atelier_fr,nom_etudes = :nom_etudes,nom_diplome_autre = :nom_diplome_autre,info_comp = :info_comp,bep_metier = :bep_metier,
+atelier_fr = :atelier_fr,nom_etudes = :nom_etudes,nom_diplome_autre = :nom_diplome_autre,bep_metier = :bep_metier,
 bac_metier = :bac_metier,bac2_metier = :bac2_metier,licence_metier = :licence_metier,master_metier = :master_metier,master2_metier = :master2_metier,
 date_vehicule = :date_vehicule,autre_langue = :autre_langue,if_autre = :if_autre
 WHERE id_inscrit = '$id'");
 //execution de la requete
-$requete->execute(["statut"=>NULL,"dte_contact"=>NULL,"nb_demarche"=>NULL,"origine_contact"=>NULL,"inscrit_rdc"=>NULL,"civilite"=>NULL,
+$requete->execute(["dte_contact"=>NULL,"origine_contact"=>NULL,"inscrit_rdc"=>NULL,"civilite"=>NULL,
 "nom"=>NULL,"prenom"=>NULL,"dte_naissance"=>NULL,"nationalite"=>NULL,"adresse"=>NULL,"code_postal"=>NULL,"ville"=>NULL,"telephone"=>NULL,
-"email"=>NULL,"situation_perso"=>NULL,"enfant_charge"=>NULL,"nb_enfant"=>NULL,"nature_revenus"=>NULL,"autre_revenus"=>NULL,"cv_oui_non"=>NULL,
+"email"=>NULL,"situation_perso"=>NULL,"nature_revenus"=>NULL,"autre_revenus"=>NULL,"cv_oui_non"=>NULL,
 "inscrit_pole_emploi"=>NULL,"inscrit_mission_local"=>NULL,"inscrit_cap_emploi"=>NULL,
 "inscrit_soelis"=>NULL,"inscrit_cma"=>NULL,"vehicule_dispo"=>NULL,"achat_prevu"=>NULL,"emploi_pre_occupe"=>NULL,"permis_voiture"=>NULL,
 "reconversion"=>NULL,"form_pro"=>NULL,"form_type"=>NULL,"reprise"=>NULL,"form_prevue"=>NULL,"form_qual"=>NULL,"form_dipl"=>NULL,"metier_souhaite"=>NULL,
 "secteur_activite"=>NULL,"secteur_geo"=>NULL,"form_continue"=>NULL,"form_nom"=>NULL,"form_date"=>NULL,"form_duree"=>NULL,
 "moment_journee"=>NULL,"cap_metier"=>NULL,"benevole_rdc"=>NULL,"nom_diplome"=>NULL,"nb_annee_scolarisation"=>NULL,"niveau_diplome"=>NULL,
-"atelier_fr"=>NULL,"nom_etudes"=>NULL,"nom_diplome_autre"=>NULL,"info_comp"=>NULL,"bep_metier"=>NULL,"bac_metier"=>NULL,"bac2_metier"=>NULL,
+"atelier_fr"=>NULL,"nom_etudes"=>NULL,"nom_diplome_autre"=>NULL,"bep_metier"=>NULL,"bac_metier"=>NULL,"bac2_metier"=>NULL,
 "licence_metier"=>NULL,"master_metier"=>NULL,"master2_metier"=>NULL,"date_vehicule"=>NULL,"autre_langue"=>NULL,"if_autre"=>NULL]);
 $requete = null;
 
@@ -149,7 +148,7 @@ $requete = null;
 if($inscrit_cap_emploi=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_inscription_cap = :dte_inscription_cap,nom_referent_cap,:nom_referent_cap WHERE id_cap_emploi = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_inscription_cap = :dte_inscription_cap, nom_referent_cap=:nom_referent_cap WHERE id_cap_emploi = '$id'");
     // execution de la requete
     $requete->execute(["dte_inscription_cap"=>$_POST["dte_inscription_cap"],"nom_referent_cap"=>$_POST["nom_referent_cap"]]);
     $requete = null;
@@ -157,7 +156,7 @@ if($inscrit_cap_emploi=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_realisation_cap = :dte_realisation_cap,commentaire_cap,:commentaire_cap WHERE id_cap_emploi = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_realisation_cap = :dte_realisation_cap,commentaire_cap=:commentaire_cap WHERE id_cap_emploi = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_cap"=>$_POST["dte_realisation_cap"],"commentaire_cap"=>$_POST["commentaire_cap"]]);
     $requete = null;
@@ -167,7 +166,7 @@ else
 if($inscrit_cma=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_inscription_cma = :dte_inscription_cma,nom_referent_cma,:nom_referent_cma WHERE id_cma = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_inscription_cma = :dte_inscription_cma,nom_referent_cma=:nom_referent_cma WHERE id_cma = '$id'");
     // execution de la requete
     $requete->execute(["dte_inscription_cma"=>$_POST["dte_inscription_cma"],"nom_referent_cma"=>$_POST["nom_referent_cma"]]);
     $requete = null;
@@ -175,7 +174,7 @@ if($inscrit_cma=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_realisation_cma = :dte_realisation_cma,commentaire_cma,:commentaire_cma WHERE id_cma = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_realisation_cma = :dte_realisation_cma,commentaire_cma=:commentaire_cma WHERE id_cma = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_cma"=>$_POST["dte_realisation_cma"],"commentaire_cma"=>$_POST["commentaire_cma"]]);
     $requete = null;
@@ -194,7 +193,7 @@ if($cv_oui_non=="oui")
     $extensions_autorisees = array('.pdf', '.PDF');
     if(in_array($file_extension, $extensions_autorisees)) {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url,:file_url WHERE id_files = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url=:file_url WHERE id_files = '$id'");
     // execution de la requete
     $requete->execute(["names"=>$file_name,"file_url"=>$file_dest]);
     $requete = null;
@@ -210,10 +209,10 @@ else
 }
 
 //// TABLE INSCRIT ////
-$requete = $mysqlConnection->prepare("UPDATE inscrit SET statut = :statut,dte_contact = :dte_contact,
-nb_demarche = :nb_demarche,origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
+$requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
+origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
 prenom = :prenom,dte_naissance = :dte_naissance,nationalite = :nationalite,adresse = :adresse,code_postal = :code_postal,
-ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,enfant_charge = :enfant_charge,nb_enfant = :nb_enfant,
+ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,
 nature_revenus = :nature_revenus,autre_revenus = :autre_revenus,cv_oui_non = :cv_oui_non,inscrit_pole_emploi = :inscrit_pole_emploi,
 inscrit_mission_local = :inscrit_mission_local,inscrit_cap_emploi = :inscrit_cap_emploi,inscrit_soelis = :inscrit_soelis,
 inscrit_cma = :inscrit_cma,vehicule_dispo = :vehicule_dispo,achat_prevu = :achat_prevu,emploi_pre_occupe = :emploi_pre_occupe,
@@ -222,15 +221,15 @@ form_prevue = :form_prevue,metier_souhaite = :metier_souhaite,
 secteur_activite = :secteur_activite,secteur_geo = :secteur_geo,
 moment_journee = :moment_journee,
 benevole_rdc = :benevole_rdc,nom_diplome = :nom_diplome,
-atelier_fr = :atelier_fr,info_comp = :info_comp,
+atelier_fr = :atelier_fr,
 date_vehicule = :date_vehicule,autre_langue = :autre_langue,if_autre = :if_autre
 WHERE id_inscrit = '$id'");
 //execution de la requete
-$requete->execute(["statut"=>$_POST["statut"],"dte_contact"=>$_POST["dte_contact"],"nb_demarche"=>$_POST["nb_demarche"],
+$requete->execute(["dte_contact"=>$_POST["dte_contact"],
 "origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"],"civilite"=>$_POST["civilite"],"nom"=>$_POST["nom"],
 "prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"nationalite"=>$_POST["nationalite"],"adresse"=>$_POST["adresse"],
 "code_postal"=>$_POST["code_postal"],"ville"=>$_POST["ville"],"telephone"=>$_POST["telephone"],"email"=>$_POST["email"],
-"situation_perso"=>$_POST["situation_perso"],"enfant_charge"=>$_POST["enfant_charge"],"nb_enfant"=>$_POST["nb_enfant"],
+"situation_perso"=>$_POST["situation_perso"],
 "nature_revenus"=>$_POST["nature_revenus"],"autre_revenus"=>$_POST["autre_revenus"],"cv_oui_non"=>$_POST["cv_oui_non"],
 "inscrit_pole_emploi"=>$_POST["inscrit_pole_emploi"],"inscrit_mission_local"=>$_POST["inscrit_mission_local"],
 "inscrit_cap_emploi"=>$_POST["inscrit_cap_emploi"],"inscrit_soelis"=>$_POST["inscrit_soelis"],"inscrit_cma"=>$_POST["inscrit_cma"],
@@ -241,26 +240,25 @@ $requete->execute(["statut"=>$_POST["statut"],"dte_contact"=>$_POST["dte_contact
 "moment_journee"=>$_POST["moment_journee"],"benevole_rdc"=>$_POST["benevole_rdc"],
 "nom_diplome"=>$_POST["nom_diplome"],
 "atelier_fr"=>$_POST["atelier_fr"],
-"info_comp"=>$_POST["info_comp"],
 "date_vehicule"=>$_POST["date_vehicule"],"autre_langue"=>$_POST["autre_langue"],"if_autre"=>$_POST["if_autre"]]);
 $requete = null;
 
 ////    FORMATION PRO    //// 
 if($form_pro =="oui"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_type = :form_type WHERE id_inscrit = '$id_rdc'");
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_type = :form_type WHERE id_inscrit = '$id'");
     // execution de la requete
     $requete->execute(["form_type"=>$_POST["form_type"]]);
     $requete = null;
     if($form_type == "qualifiante"){
-        $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_qual = :form_qual WHERE id_inscrit = '$id_rdc'");
+        $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_qual = :form_qual WHERE id_inscrit = '$id'");
         // execution de la requete
         $requete->execute(["form_qual"=>$_POST["form_qual"]]);
         $requete = null;
     }
     else{
         if($form_type == "diplomante"){
-            $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_dipl = :form_dipl WHERE id_inscrit = '$id_rdc'");
+            $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_dipl = :form_dipl WHERE id_inscrit = '$id'");
             // execution de la requete
             $requete->execute(["form_dipl"=>$_POST["form_dipl"]]);
             $requete = null;
@@ -272,13 +270,13 @@ if($form_pro =="oui"){
 if($reconversion =="oui"){
     $form_prevue = $_POST['form_prevue'];
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_prevue = :form_prevue WHERE id_inscrit = '$id_rdc'");
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_prevue = :form_prevue WHERE id_inscrit = '$id'");
     // execution de la requete
     $requete->execute(["form_prevue"=>$form_prevue]);
     $requete = null;
     if($form_prevue = "oui"){
         // ordre de mission
-        $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_nom = :form_nom, form_date = :form_date, form_duree = :form_duree WHERE id_inscrit = '$id_rdc'");
+        $requete = $mysqlConnection->prepare("UPDATE inscrit SET form_nom = :form_nom, form_date = :form_date, form_duree = :form_duree WHERE id_inscrit = '$id'");
         // execution de la requete
         $requete->execute(["form_nom"=>$_POST["form_nom"],"form_date"=>$_POST["form_date"],"form_duree"=>$_POST["form_duree"]]);
         $requete = null;
@@ -288,7 +286,7 @@ if($reconversion =="oui"){
 ////    REPRISE ETUDES    ////
 if($reprise =="oui"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE inscrit SET nom_etudes = :nom_etudes WHERE id_inscrit = '$id_rdc'");
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET nom_etudes = :nom_etudes WHERE id_inscrit = '$id'");
     // execution de la requete
     $requete->execute(["nom_etudes"=>$_POST["nom_etudes"]]);
     $requete = null;
@@ -380,8 +378,8 @@ else{
 
 // LANGUE EN //
 // ordre de mission
-$requete = $mysqlConnection->prepare("UPDATE langue_anglaise SET langue_en_parlee = :langue_en_parlee,langue_en_ecrite,:langue_en_ecrite,
-langue_en_lue,:langue_en_lue WHERE id_langue_anglaise = '$id'");
+$requete = $mysqlConnection->prepare("UPDATE langue_anglaise SET langue_en_parlee = :langue_en_parlee,langue_en_ecrite=:langue_en_ecrite,
+langue_en_lue=:langue_en_lue WHERE id_langue_anglaise = '$id'");
 // execution de la requete
 $requete->execute(["langue_en_parlee"=>$_POST["langue_en_parlee"],"langue_en_ecrite"=>$_POST["langue_en_ecrite"],
 "langue_en_lue"=>$_POST["langue_en_lue"]]);
@@ -389,8 +387,8 @@ $requete = null;
 
 // LANGUE FR //
 // ordre de mission
-$requete = $mysqlConnection->prepare("UPDATE langue_francaise SET langue_fr_parlee = :langue_fr_parlee,langue_fr_lue,:langue_fr_lue,
-langue_fr_ecrite,:langue_fr_ecrite WHERE id_langue_francaise = '$id'");
+$requete = $mysqlConnection->prepare("UPDATE langue_francaise SET langue_fr_parlee = :langue_fr_parlee,langue_fr_lue=:langue_fr_lue,
+langue_fr_ecrite=:langue_fr_ecrite WHERE id_langue_francaise = '$id'");
 // execution de la requete
 $requete->execute(["langue_fr_parlee"=>$_POST["langue_fr_parlee"],"langue_fr_lue"=>$_POST["langue_fr_lue"],
 "langue_fr_ecrite"=>$_POST["langue_fr_ecrite"]]);
@@ -400,7 +398,7 @@ $requete = null;
 if($inscrit_mission_local=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE mission_locale SET dte_inscription_mission = :dte_inscription_mission,nom_referent_mission,:nom_referent_mission WHERE id_mission_locale = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE mission_locale SET dte_inscription_mission = :dte_inscription_mission,nom_referent_mission=:nom_referent_mission WHERE id_mission_locale = '$id'");
     // execution de la requete
     $requete->execute(["dte_inscription_mission"=>$_POST["dte_inscription_mission"],"nom_referent_mission"=>$_POST["nom_referent_mission"]]);
     $requete = null;
@@ -408,7 +406,7 @@ if($inscrit_mission_local=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE mission_locale SET dte_realisation_mission = :dte_realisation_mission,commentaire_mission,:commentaire_mission WHERE id_mission_locale = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE mission_locale SET dte_realisation_mission = :dte_realisation_mission,commentaire_mission=:commentaire_mission WHERE id_mission_locale = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_mission"=>$_POST["dte_realisation_mission"],"commentaire_mission"=>$_POST["commentaire_mission"]]);
     $requete = null;
@@ -438,7 +436,7 @@ else
             // ordre de mission
             $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET transport = :transport WHERE fk_id_inscrit_permis = '$id'");
             // execution de la requete
-            $requete->execute(["transport"=>$_POST["transport"]]);
+            $requete->execute(["transport"=>$_POST["marchandise"]]);
             $requete = null;
         }
     }
@@ -449,7 +447,7 @@ else
 if($inscrit_pole_emploi=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE pole_emploi SET dte_inscription = :dte_inscription,nom_referent,:nom_referent WHERE id_pole_emploi = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE pole_emploi SET dte_inscription = :dte_inscription,nom_referent=:nom_referent WHERE id_pole_emploi = '$id'");
     // execution de la requete
     $requete->execute(["dte_inscription"=>$_POST["dte_inscription"],"nom_referent"=>$_POST["nom_referent"]]);
     $requete = null;
@@ -457,7 +455,7 @@ if($inscrit_pole_emploi=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE pole_emploi SET dte_realisation_pole = :dte_realisation_pole,commentaire_pole,:commentaire_pole WHERE id_pole_emploi = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE pole_emploi SET dte_realisation_pole = :dte_realisation_pole,commentaire_pole=:commentaire_pole WHERE id_pole_emploi = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_pole"=>$_POST["dte_realisation_pole"],"commentaire_pole"=>$_POST["commentaire_pole"]]);
     $requete = null;
@@ -468,7 +466,7 @@ else
 if($choix_rdc=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE rdc SET numero = :numero,centre,:centre,jour =:jour WHERE id_rdc = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE rdc SET numero = :numero,centre=:centre,jour =:jour WHERE id_rdc = '$id'");
     // execution de la requete
     $requete->execute(["numero"=>$_POST["numero"],"centre"=>$_POST["centre"],"jour"=>$_POST["jour"]]);
     $requete = null;
@@ -476,7 +474,7 @@ if($choix_rdc=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE rdc SET commentaire_inscrit = :commentaire_inscrit,dte_realisation_rdc,:dte_realisation_rdc WHERE id_rdc = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE rdc SET commentaire_inscrit = :commentaire_inscrit,dte_realisation_rdc=:dte_realisation_rdc WHERE id_rdc = '$id'");
     // execution de la requete
     $requete->execute(["commentaire_inscrit"=>$_POST["commentaire_inscrit"],"dte_realisation_rdc"=>$_POST["dte_realisation_rdc"]]);
     $requete = null;
@@ -486,7 +484,7 @@ else
 if($inscrit_soelis=="oui")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE soelis SET dte_inscription_soelis = :dte_inscription_soelis,nom_referent_soelis,:nom_referent_soelis WHERE id_soelis = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE soelis SET dte_inscription_soelis = :dte_inscription_soelis,nom_referent_soelis=:nom_referent_soelis WHERE id_soelis = '$id'");
     // execution de la requete
     $requete->execute(["dte_inscription_soelis"=>$_POST["dte_inscription_soelis"],"nom_referent_soelis"=>$_POST["nom_referent_soelis"]]);
     $requete = null;
@@ -494,7 +492,7 @@ if($inscrit_soelis=="oui")
 else
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE soelis SET dte_realisation_soelis = :dte_realisation_soelis,commentaire_soelis,:commentaire_soelis WHERE id_soelis = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE soelis SET dte_realisation_soelis = :dte_realisation_soelis,commentaire_soelis=:commentaire_soelis WHERE id_soelis = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_soelis"=>$_POST["dte_realisation_soelis"],"commentaire_soelis"=>$_POST["commentaire_soelis"]]);
     $requete = null;

@@ -262,9 +262,9 @@ else
         else{
             if($permis_voiture == "march1"){
                 // ordre de mission
-                $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(marchandise,fk_id_inscrit_permis) VALUES (:marchandise,:fk_id_inscrit_permis)");
+                $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(transport,fk_id_inscrit_permis) VALUES (:transport,:fk_id_inscrit_permis)");
                 // execution de la requete
-                $requete->execute(["marchandise"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
+                $requete->execute(["transport"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
                 $requete = null;
             }
             else{
