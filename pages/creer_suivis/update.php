@@ -29,7 +29,77 @@ if (isset($_SESSION["login"]))
     $requete->execute(["id"=>$_GET["id"]]);
     $cap_emploi = $requete->fetchAll();
     $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM cma WHERE id_cma=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $cma = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM enfant WHERE id_enfant=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $enfant = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM files WHERE id_files=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $files = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM langue_anglaise WHERE id_langue_anglaise=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $langue_anglaise = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM langue_francaise WHERE id_langue_francaise=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $langue_francaise = $requete->fetchAll();
+    $requete = null;
     
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM mission_locale WHERE id_mission_locale=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $mission_locale = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM permis_conduire WHERE id_permis_conduire=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $permis_conduire = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM pole_emploi WHERE id_pole_emploi=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $pole_emploi = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM rdc WHERE id_rdc=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $rdc = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM soelis WHERE id_soelis=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $soelis = $requete->fetchAll();
+    $requete = null;
+
     foreach($inscrit as $ligne_inscrit)
     {
     ?>
@@ -83,15 +153,25 @@ if (isset($_SESSION["login"]))
             <!--    Si non    -->
             <div id="date_rea1">
             <label class="decale" for="date_r">Date de réalisation : </label>
-            <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc">
+            <input class="input_suivis" type="date" id="date_r" name="dte_realisation_rdc" value="<?php echo $ligne_rdc["dte_realisation_rdc"] ?>">
             <label for="commentaire_inscrit">Commentaire : </label>
-            <input type="text" class="input_suivis" name="commentaire_inscrit">
+            <input type="text" class="input_suivis" name="commentaire_inscrit" value="<?php echo $ligne_rdc["commentaire_inscrit"] ?>">
             </div>
             <div>
             <label for="benevole">Bénévole aux resto du coeur : <span class="obligatoire">*</span></label>
-            <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui">
+            <input type="radio" id="_oui" name="benevole_rdc" class="oui" value="oui"            
+            <?php
+            if($ligne_inscrit["benevole_rdc"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="benevole_oui">oui</label>
-            <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
+            <input type="radio" id="_non" name="benevole_rdc" class="non" value="non"  
+            <?php
+            if($ligne_inscrit["benevole_rdc"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="benevole_non">non</label>
             </div>
         <?php
@@ -106,10 +186,11 @@ if (isset($_SESSION["login"]))
         $mysqlConnection = null;
         $requete = null;
         ?>
+
             <div class="input_boxe">
             <label class="accompagnateur" for="accompagnateur">Accompagnateur SRE : <span class="obligatoire">*</span></label>
             <select name="accompagnateur" id="accompagnateur" class="form-control">
-                <option value="rien"> -- Selectionner un accompagnateur -- </option>
+                <option value="<?php echo $ligne_accompagnateur["accompagnateur"] ?>"> -- Selectionner un accompagnateur -- </option>
                 <?php
                 foreach($accompagnateurs as $ligne){
                 if($ligne["is_admin"]==0){
