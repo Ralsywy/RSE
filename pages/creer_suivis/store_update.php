@@ -6,7 +6,27 @@ $mysqlConnection = new PDO(
     PASSWORD,
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
 );
+
 $id = $_GET["id"];
+$choix_rdc = $_POST['inscrit_rdc'];
+$choix_enfant = $_POST['enfant_charge'];
+$accompagnateur = $_POST['accompagnateur'];
+$civilite = $_POST['civilite'];
+$nature_revenus = $_POST['nature_revenus'];
+$inscrit_pole_emploi = $_POST['inscrit_pole_emploi'];
+$inscrit_mission_local = $_POST['inscrit_mission_local'];
+$inscrit_cap_emploi = $_POST['inscrit_cap_emploi'];
+$inscrit_soelis = $_POST['inscrit_soelis'];
+$inscrit_cma = $_POST['inscrit_cma'];
+$benevole_rdc = $_POST['benevole_rdc'];
+$cv_oui_non = $_POST['cv_oui_non'];
+$achat_prevu = $_POST['achat_prevu'];
+$nom_diplome = $_POST['nom_diplome'];
+$reconversion = $_POST['reconversion'];
+$reprise = $_POST['reprise'];
+$form_pro = $_POST['form_pro'];
+$form_type = $_POST['form_type'];
+$if_autre = $_POST['if_autre'];
 
 ////    SUPPRESSION ANCIENNES INFORMATIONS    ////
 // CAP EMPLOI //
@@ -118,6 +138,134 @@ WHERE id_soelis = '$id'");
 //execution de la requete
 $requete->execute(["dte_inscription_soelis"=>NULL,"nom_referent_soelis"=>NULL,"dte_realisation_soelis"=>NULL,"commentaire_soelis"=>NULL]);
 $requete = null;
+
+////    FIN SUPPRESSION DES INFORMATIONS    ////
+
+
+
+
+// CAP EMPLOI //
+if($inscrit_cap_emploi=="oui")
+{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_inscription_cap = :dte_inscription_cap,nom_referent_cap,:nom_referent_cap WHERE id_cap_emploi = '$id'");
+    // execution de la requete
+    $requete->execute(["dte_inscription_cap"=>$_POST["dte_inscription_cap"],"nom_referent_cap"=>$_POST["nom_referent_cap"]]);
+    $requete = null;
+}
+else
+{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE cap_emploi SET dte_realisation_cap = :dte_realisation_cap,commentaire_cap,:commentaire_cap WHERE id_cap_emploi = '$id'");
+    // execution de la requete
+    $requete->execute(["dte_realisation_cap"=>$_POST["dte_realisation_cap"],"commentaire_cap"=>$_POST["commentaire_cap"]]);
+    $requete = null;
+}
+
+// CMA //
+if($inscrit_cma=="oui")
+{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_inscription_cma = :dte_inscription_cma,nom_referent_cma,:nom_referent_cma WHERE id_cma = '$id'");
+    // execution de la requete
+    $requete->execute(["dte_inscription_cma"=>$_POST["dte_inscription_cma"],"nom_referent_cma"=>$_POST["nom_referent_cma"]]);
+    $requete = null;
+}
+else
+{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE cma SET dte_realisation_cma = :dte_realisation_cma,commentaire_cma,:commentaire_cma WHERE id_cma = '$id'");
+    // execution de la requete
+    $requete->execute(["dte_realisation_cma"=>$_POST["dte_realisation_cma"],"commentaire_cma"=>$_POST["commentaire_cma"]]);
+    $requete = null;
+}
+
+// CV //
+if($cv_oui_non=="oui")
+{
+    $pdfFile = $_POST['pdfFile'];
+    $file_name = $_FILES['pdfFile']['name'];
+    $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
+    $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
+    $file_type = $_FILES['pdfFile']['type'];
+    $file_extension = strrchr($file_name, ".");
+
+    $extensions_autorisees = array('.pdf', '.PDF');
+    if(in_array($file_extension, $extensions_autorisees)) {
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url,:file_url WHERE id_files = '$id'");
+    // execution de la requete
+    $requete->execute(["names"=>$file_name,"file_url"=>$file_dest]);
+    $requete = null;
+    }
+}
+else
+{
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE files SET dte_travailler_cv = :dte_travailler_cv WHERE id_files = '$id'");
+    // execution de la requete
+    $requete->execute(["dte_travailler_cv"=>$_POST["dte_travailler_cv"]]);
+    $requete = null;
+}
+
+//// TABLE INSCRIT ////
+$requete = $mysqlConnection->prepare("UPDATE inscrit SET statut = :statut,dte_contact = :dte_contact,
+nb_demarche = :nb_demarche,origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
+prenom = :prenom,dte_naissance = :dte_naissance,nationalite = :nationalite,adresse = :adresse,code_postal = :code_postal,
+ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,enfant_charge = :enfant_charge,nb_enfant = :nb_enfant,
+nature_revenus = :nature_revenus,autre_revenus = :autre_revenus,cv_oui_non = :cv_oui_non,
+inscrit_pole_emploi = :inscrit_pole_emploi,inscrit_mission_local = :inscrit_mission_local,inscrit_cap_emploi = :inscrit_cap_emploi,
+inscrit_soelis = :inscrit_soelis,inscrit_cma = :inscrit_cma,vehicule_dispo = :vehicule_dispo,achat_prevu = :achat_prevu,emploi_pre_occupe = :emploi_pre_occupe,
+permis_voiture = :permis_voiture,
+reconversion = :reconversion,form_pro = :form_pro,form_type = :form_type,reprise = :reprise,form_prevue = :form_prevue,form_qual = :form_qual,
+form_dipl = :form_dipl,metier_souhaite = :metier_souhaite,secteur_activite = :secteur_activite,secteur_geo = :secteur_geo,form_continue = :form_continue,
+form_nom = :form_nom,form_date = :form_date,form_duree = :form_duree,moment_journee = :moment_journee,cap_metier = :cap_metier,
+benevole_rdc = :benevole_rdc,nom_diplome = :nom_diplome,nb_annee_scolarisation = :nb_annee_scolarisation,niveau_diplome = :niveau_diplome,
+atelier_fr = :atelier_fr,nom_etudes = :nom_etudes,nom_diplome_autre = :nom_diplome_autre,info_comp = :info_comp,bep_metier = :bep_metier,
+bac_metier = :bac_metier,bac2_metier = :bac2_metier,licence_metier = :licence_metier,master_metier = :master_metier,master2_metier = :master2_metier,
+date_vehicule = :date_vehicule,autre_langue = :autre_langue,if_autre = :if_autre
+WHERE id_inscrit = '$id'");
+//execution de la requete
+$requete->execute(["statut"=>$_POST["statut"],"dte_contact"=>$_POST["dte_contact"],"nb_demarche"=>$_POST["nb_demarche"],
+"origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"],"civilite"=>$_POST["civilite"],"nom"=>$_POST["nom"],
+"prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"nationalite"=>$_POST["nationalite"],"adresse"=>$_POST["adresse"],
+"code_postal"=>$_POST["code_postal"],"ville"=>$_POST["ville"],"telephone"=>$_POST["telephone"],"email"=>$_POST["email"],
+"situation_perso"=>$_POST["situation_perso"],"enfant_charge"=>$_POST["enfant_charge"],"nb_enfant"=>$_POST["nb_enfant"],
+"nature_revenus"=>$_POST["nature_revenus"],"autre_revenus"=>$_POST["autre_revenus"],"cv_oui_non"=>$_POST["cv_oui_non"],
+"inscrit_pole_emploi"=>$_POST["inscrit_pole_emploi"],"inscrit_mission_local"=>$_POST["inscrit_mission_local"],
+"inscrit_cap_emploi"=>$_POST["inscrit_cap_emploi"],"inscrit_soelis"=>$_POST["inscrit_soelis"],"inscrit_cma"=>$_POST["inscrit_cma"],
+"vehicule_dispo"=>$_POST["vehicule_dispo"],"achat_prevu"=>$_POST["achat_prevu"],"emploi_pre_occupe"=>$_POST["emploi_pre_occupe"],
+"permis_voiture"=>$_POST["permis_voiture"],"reconversion"=>$_POST["reconversion"],"form_pro"=>$_POST["form_pro"],"form_type"=>$_POST["form_type"],
+"reprise"=>$_POST["reprise"],"form_prevue"=>$_POST["form_prevue"],"form_qual"=>$_POST["form_qual"],"form_dipl"=>$_POST["form_dipl"],
+"metier_souhaite"=>$_POST["metier_souhaite"],"secteur_activite"=>$_POST["secteur_activite"],"secteur_geo"=>$_POST["secteur_geo"],
+"form_continue"=>$_POST["form_continue"],"form_nom"=>$_POST["form_nom"],"form_date"=>$_POST["form_date"],"form_duree"=>$_POST["form_duree"],
+"moment_journee"=>$_POST["moment_journee"],"cap_metier"=>$_POST["cap_metier"],"benevole_rdc"=>$_POST["benevole_rdc"],
+"nom_diplome"=>$_POST["nom_diplome"],"nb_annee_scolarisation"=>$_POST["nb_annee_scolarisation"],"niveau_diplome"=>$_POST["niveau_diplome"],
+"atelier_fr"=>$_POST["atelier_fr"],"nom_etudes"=>$_POST["nom_etudes"],"nom_diplome_autre"=>$_POST["nom_diplome_autre"],
+"info_comp"=>$_POST["info_comp"],"bep_metier"=>$_POST["bep_metier"],"bac_metier"=>$_POST["bac_metier"],"bac2_metier"=>$_POST["bac2_metier"],
+"licence_metier"=>$_POST["licence_metier"],"master_metier"=>$_POST["master_metier"],"master2_metier"=>$_POST["master2_metier"],
+"date_vehicule"=>$_POST["date_vehicule"],"autre_langue"=>$_POST["autre_langue"],"if_autre"=>$_POST["if_autre"]]);
+$requete = null;
+
+// LANGUE EN //
+// ordre de mission
+$requete = $mysqlConnection->prepare("UPDATE langue_anglaise SET langue_en_parlee = :langue_en_parlee,langue_en_ecrite,:langue_en_ecrite,
+langue_en_lue,:langue_en_lue WHERE id_langue_anglaise = '$id'");
+// execution de la requete
+$requete->execute(["langue_en_parlee"=>$_POST["langue_en_parlee"],"langue_en_ecrite"=>$_POST["langue_en_ecrite"],
+"langue_en_lue"=>$_POST["langue_en_lue"]]);
+$requete = null;
+
+// LANGUE FR //
+// ordre de mission
+$requete = $mysqlConnection->prepare("UPDATE langue_francaise SET langue_fr_parlee = :langue_fr_parlee,langue_fr_lue,:langue_fr_lue,
+langue_fr_ecrite,:langue_fr_ecrite WHERE id_langue_anglaise = '$id'");
+// execution de la requete
+$requete->execute(["langue_fr_parlee"=>$_POST["langue_fr_parlee"],"langue_fr_lue"=>$_POST["langue_fr_lue"],
+"langue_fr_ecrite"=>$_POST["langue_fr_ecrite"]]);
+$requete = null;
+
+
 
 
 

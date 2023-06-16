@@ -132,7 +132,7 @@ if (isset($_SESSION["login"])){
     $requete->execute(["id"=>$_GET["id"]]);
     $resultat = $requete->fetchAll();
     $requete = null;
-
+    
     foreach($resultat as $ligne3){
     ?>
 
