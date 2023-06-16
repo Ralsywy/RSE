@@ -108,9 +108,9 @@ function showhidesoelis(val) {
         var soelis_non = document.getElementById('soelis_non');
         
         if (soelis_oui.checked) {
-            showhideemplois(1);
+            showhidesoelis(1);
         } else if (soelis_non.checked) {
-            showhideemplois(2);
+            showhidesoelis(2);
         }
       });
     if(val==1 || document.getElementById('soelis_oui').checked) {
@@ -129,9 +129,9 @@ function showhidemission(val) {
         var mission_non = document.getElementById('mission_non');
         
         if (mission_oui.checked) {
-            showhideemplois(1);
+            showhidemission(1);
         } else if (mission_non.checked) {
-            showhideemplois(2);
+            showhidemission(2);
         }
       });
   if(val==1 || document.getElementById('mission_oui').checked) {
@@ -150,9 +150,9 @@ function showhidecap(val) {
         var cap_non = document.getElementById('cap_non');
         
         if (cap_oui.checked) {
-            showhideemplois(1);
+            showhidecap(1);
         } else if (cap_non.checked) {
-            showhideemplois(2);
+            showhidecap(2);
         }
       });
   if(val==1 || document.getElementById('cap_oui').checked) {
@@ -231,16 +231,19 @@ document.addEventListener('DOMContentLoaded', function() {
             showhideachat(2);
         }
       });
-    if(val==1) {
+    if(val==1 || document.getElementById('vehicule_oui').checked) {
         document.getElementById('achat1').style.display='none';
         document.getElementById('date_achat_vehicule').style.display='none';
         achat_non.checked = true;
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('vehicule_non').checked) {
         document.getElementById('achat1').style.display='block';
     }
 }
 // Diplôme
+document.addEventListener('DOMContentLoaded', function() {
+    hideshowdipl();
+  });
 function hideshowdipl() {
   var dipl = document.getElementById("dipl").value;
       if(dipl == "aucun") {
@@ -379,10 +382,20 @@ function hideshowdipl() {
   }
 // Reconversion pro
   function showhidereconv(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var oui_reconv = document.getElementById('oui_reconv');
+        var non_reconv = document.getElementById('non_reconv');
+        
+        if (oui_reconv.checked) {
+            showhidereconv(1);
+        } else if (non_reconv.checked) {
+            showhidereconv(2);
+        }
+      });
+    if(val==1 || document.getElementById('oui_reconv').checked) {
         document.getElementById('formati').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('non_reconv').checked) {
         document.getElementById('formati').style.display='none';
         document.getElementById('renseign').style.display='none';
         non_form.checked = true;
@@ -391,6 +404,16 @@ function hideshowdipl() {
   }
 // Formation prévue
 function showhideformp(val) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var oui_form = document.getElementById('oui_form');
+        var non_form = document.getElementById('non_form');
+        
+        if (oui_form.checked) {
+            showhideformp(1);
+        } else if (non_form.checked) {
+            showhideformp(2);
+        }
+      });
     if(val==1) {
         document.getElementById('renseign').style.display='block';
     }
