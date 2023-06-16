@@ -14,10 +14,23 @@ if (isset($_SESSION["login"]))
     //execution de la requete
     $requete->execute(["id"=>$_GET["id"]]);
     $inscrit = $requete->fetchAll();
+    $requete = null;
 
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM rdc WHERE id_rdc=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $rdc = $requete->fetchAll();
+    $requete = null;
+
+    // ordre de mission
+    $requete = $mysqlConnection->prepare('SELECT * FROM cap_emploi WHERE id_cap_emploi=:id');
+    //execution de la requete
+    $requete->execute(["id"=>$_GET["id"]]);
+    $cap_emploi = $requete->fetchAll();
     $requete = null;
     
-    foreach($inscrit as $ligne)
+    foreach($inscrit as $ligne_inscrit)
     {
     ?>
     <div class="addsuivis">
@@ -28,31 +41,43 @@ if (isset($_SESSION["login"]))
         <div class="block_enligne">
             <div class="input_boxe">
             <label for="dte_contact">Date du contact : <span class="obligatoire">*</span></label>
-            <input type="date" id="dte_contact"  name="dte_contact">
+            <input type="date" id="dte_contact"  name="dte_contact" value="<?php echo $ligne_inscrit["dte_contact"] ?>">
             </div>
             <div class="input_boxe">
             <label for="origine_contact">Origine du contact : <span class="obligatoire">*</span></label>
-            <input type="text" name="origine_contact" id="origine_contact"  >
+            <input type="text" name="origine_contact" id="origine_contact"  value="<?php echo $ligne_inscrit["origine_contact"] ?>">
             </div>
         </div>
-
+        
         <div class="radio_button">
             <label for="inscrit">Inscrit aux resto du coeur : <span class="obligatoire">*</span></label>
-            <input type="radio" id="radio_oui" name="inscrit_rdc" class="radio_oui" value="oui" onclick="hideShowDiv(1)">
+            <input type="radio" id="radio_oui" name="inscrit_rdc" class="radio_oui" value="oui" onclick="hideShowDiv(1)"
+            <?php
+            if($ligne_inscrit["inscrit_rdc"]=="oui"){
+                echo "checked";
+            }
+            ?>>
             <label for="inscrit_oui">oui</label>
-            <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)">
+            <input type="radio" id="radio_non" name="inscrit_rdc" class="radio_non" value="non" onclick="hideShowDiv(2)"
+            <?php
+            if($ligne_inscrit["inscrit_rdc"]=="non"){
+                echo "checked";
+            }
+            ?>>
             <label for="inscrit_non">non</label>
-
+        <?php
+        foreach($rdc as $ligne_rdc)
+        {?>
             <!--    Si oui   -->
         <div id="centre_num">
             <label id="num_" class="decale" for="num">N° : <span class="obligatoire">*</span></label>
-            <input class="input_suivis" type="text" id="num" name="numero">
+            <input class="input_suivis" type="text" id="num" name="numero" value="<?php echo $ligne_rdc["numero"] ?>">
 
             <label id="centre" for="centre">Centre : <span class="obligatoire">*</span></label>
-            <input class="input_suivis" type="text" id="centre" name="centre">
+            <input class="input_suivis" type="text" id="centre" name="centre" value="<?php echo $ligne_rdc["centre"] ?>">
 
             <label id="jour" for="jour">Jour : <span class="obligatoire">*</span></label>
-            <input class="input_suivis" type="text" id="jour" name="jour">
+            <input class="input_suivis" type="text" id="jour" name="jour" value="<?php echo $ligne_rdc["jour"] ?>">
         </div>
 
             <!--    Si non    -->
@@ -69,7 +94,8 @@ if (isset($_SESSION["login"]))
             <input type="radio" id="_non" name="benevole_rdc" class="non" value="non">
             <label for="benevole_non">non</label>
             </div>
-
+        <?php
+        }?>
         </div>
         <?php
         // ordre de mission
