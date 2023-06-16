@@ -414,29 +414,49 @@ function showhideformp(val) {
             showhideformp(2);
         }
       });
-    if(val==1) {
+    if(val==1 || document.getElementById('oui_form').checked) {
         document.getElementById('renseign').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('non_form').checked) {
         document.getElementById('renseign').style.display='none';
     }
   }
 // Reprise d'étude
 function showhidereprise(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var oui_etude = document.getElementById('oui_etude');
+        var non_etude = document.getElementById('non_etude');
+        
+        if (oui_etude.checked) {
+            showhidereprise(1);
+        } else if (non_etude.checked) {
+            showhidereprise(2);
+        }
+      });
+    if(val==1 || document.getElementById('oui_etude').checked) {
         document.getElementById('dipl_prep').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('non_etude').checked) {
         document.getElementById('dipl_prep').style.display='none';
         dipl_prepa.value = "";
     }
   }
 // Bénéficier d'une formation pro                oui non
 function showhideformpro(val) {
-    if(val==1) {
+    window.addEventListener('DOMContentLoaded', function() {
+        var form_pro_oui = document.getElementById('form_pro_oui');
+        var form_pro_non = document.getElementById('form_pro_non');
+        
+        if (form_pro_oui.checked) {
+            showhideformpro(1);
+        } else if (form_pro_non.checked) {
+            showhideformpro(2);
+        }
+      });
+    if(val==1 || document.getElementById('form_pro_oui').checked) {
         document.getElementById('oui_formpro').style.display='block';
     }
-    if(val==2) {
+    if(val==2 || document.getElementById('form_pro_non').checked) {
         document.getElementById('oui_formpro').style.display='none';
         document.getElementById('if_qual').style.display='none';
         document.getElementById('if_dipl').style.display='none';
