@@ -360,65 +360,63 @@ if (isset($_SESSION["login"]))
     <br>
             </div>
             <script>
-    // Récupérer la référence de l'input nombre_enfant
+  window.addEventListener('DOMContentLoaded', () => {
     const inputNombreEnfant = document.getElementById('nombre_enfant');
 
-    // Écouter l'événement de modification de l'input
+    // Vérifier s'il y a du texte dans l'input lors du chargement de la page
+    if (inputNombreEnfant.value.trim() !== '') {
+      createChildrenDivs();
+    }
+
     inputNombreEnfant.addEventListener('change', () => {
-    // Récupérer le nombre d'enfants à partir de la valeur de l'input
-    const nombreEnfant = parseInt(inputNombreEnfant.value);
+      if (inputNombreEnfant.value.trim() !== '') {
+        createChildrenDivs();
+      }
+    });
 
-    // Référence à l'élément parent où les divs doivent être ajoutés
-    const parentElement = document.getElementById('boite');
+    function createChildrenDivs() {
+      const nombreEnfant = parseInt(inputNombreEnfant.value);
+      const parentElement = document.getElementById('boite');
+      parentElement.innerHTML = '';
 
-    // Vider le contenu précédent
-    parentElement.innerHTML = '';
-
-    // Créer et ajouter les divs en fonction du nombre d'enfants
-    for (let i = 0; i < nombreEnfant; i++) {
-        // Créer un élément div
+      for (let i = 0; i < nombreEnfant; i++) {
         const div = document.createElement('div');
         div.id = 'boite';
+
         const div2 = document.createElement('div');
         div2.id = 'boite2';
 
-        // Créer un élément label pour le nom de l'enfant
         const labelNomEnfant = document.createElement('label');
         labelNomEnfant.htmlFor = `nom_enfant`;
         labelNomEnfant.textContent = `Nom prénom de l'enfant ${i + 1} : `;
 
-        // Créer un élément input pour le nom de l'enfant
         const inputNomEnfant = document.createElement('input');
         inputNomEnfant.type = 'text';
-        inputNomEnfant.name = `nom_enfant${i + 1}`; // Ajout d'un name différent
+        inputNomEnfant.name = `nom_enfant${i + 1}`;
         inputNomEnfant.classList.add('nom_enfant');
 
-        // Créer un élément label pour la date de naissance de l'enfant
         const labelDateNaissance = document.createElement('label');
         labelDateNaissance.htmlFor = 'dte_naissance_enfant';
         labelDateNaissance.textContent = `Date de naissance de l'enfant ${i + 1} : `;
         labelDateNaissance.classList.add('dte_naissance_enfant');
 
-
-        // Créer un élément input pour la date de naissance de l'enfant
         const inputDateNaissance = document.createElement('input');
         inputDateNaissance.type = 'date';
-        inputDateNaissance.name = `dte_naissance${i + 1}`; // Ajout d'un name différent
+        inputDateNaissance.name = `dte_naissance${i + 1}`;
         inputDateNaissance.classList.add('dte_naissance_enfant');
 
-        // Ajouter les éléments créés au div parent
         div.appendChild(labelNomEnfant);
         div.appendChild(inputNomEnfant);
         div2.appendChild(labelDateNaissance);
         div2.appendChild(inputDateNaissance);
 
-        // Ajouter le div parent à l'élément parent
         parentElement.appendChild(div);
         parentElement.appendChild(div2);
+      }
     }
-    });
+  });
+</script>
 
-            </script>
             <!--    Si non (rien)    -->
 
             <!--    
