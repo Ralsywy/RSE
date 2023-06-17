@@ -12,8 +12,6 @@ if (isset($_SESSION["login"])){
 
 ?>
 <div class="addsuivis">
-    <a href="index.php?route=creer2">Accès suivis page 2</a>
-    <a href="index.php?route=affichage">Accès affichage</a>
     <h1 class="titrecreer">CRÉATION DU SUIVI</h1>
     <h2 class="information">Informations personnelles</h2>
     <form class="form" method="post" id="suiviss" action="index.php?route=store_inscrit" enctype="multipart/form-data">

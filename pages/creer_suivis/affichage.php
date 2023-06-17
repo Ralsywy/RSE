@@ -360,6 +360,78 @@ if (isset($_SESSION["login"]))
     <br>
             </div>
             <script>
+            window.addEventListener('DOMContentLoaded', () => {
+            const inputNombreEnfant = document.getElementById('nombre_enfant');
+
+            // Vérifier s'il y a du texte dans l'input lors du chargement de la page
+            if (inputNombreEnfant.value.trim() !== '') {
+            createChildrenDivs();
+            }
+
+            inputNombreEnfant.addEventListener('change', () => {
+            if (inputNombreEnfant.value.trim() !== '') {
+                createChildrenDivs();
+            }
+            });
+            
+            function createChildrenDivs() {
+            const nombreEnfant = parseInt(inputNombreEnfant.value);
+            const parentElement = document.getElementById('boite');
+            parentElement.innerHTML = '';
+            <?php
+            $count = 1;
+            foreach($enfant as $ligne_enfant)
+            {?>
+            for (let i = 1; i < 2; i++) {
+                
+                const div = document.createElement('div');
+                div.id = 'boite';
+
+                const div2 = document.createElement('div');
+                div2.id = 'boite2';
+
+                const labelNomEnfant = document.createElement('label');
+                labelNomEnfant.htmlFor = `nom_enfant`;
+                labelNomEnfant.textContent = `Nom prénom de l'enfant <?php echo $count?> : `;
+
+                
+                const inputNomEnfant = document.createElement('input');
+                inputNomEnfant.type = 'text';
+                inputNomEnfant.name = `nom_enfant<?php echo $count?>`;
+                inputNomEnfant.classList.add('nom_enfant');
+                inputNomEnfant.value = `<?php echo $ligne_enfant["nom_enfant"]?>`;
+                inputNomEnfant.disabled = true;
+                
+
+                const labelDateNaissance = document.createElement('label');
+                labelDateNaissance.htmlFor = 'dte_naissance_enfant';
+                labelDateNaissance.textContent = `Date de naissance de l'enfant <?php echo $count?> : `;
+                labelDateNaissance.classList.add('dte_naissance_enfant');
+
+                const inputDateNaissance = document.createElement('input');
+                inputDateNaissance.type = 'date';
+                inputDateNaissance.name = `dte_naissance<?php echo $count?>`;
+                inputDateNaissance.classList.add('dte_naissance_enfant');
+                inputDateNaissance.value = `<?php echo $ligne_enfant["dte_naissance_enfant"]?>`;
+                inputDateNaissance.disabled = true;
+
+                div.appendChild(labelNomEnfant);
+                div.appendChild(inputNomEnfant);
+                div2.appendChild(labelDateNaissance);
+                div2.appendChild(inputDateNaissance);
+
+                parentElement.appendChild(div);
+                parentElement.appendChild(div2);
+                <?php $count = $count + 1;?>
+            }
+            <?php
+            }
+            ?>
+            }
+            
+            });
+            </script>
+            <script>
     // Récupérer la référence de l'input nombre_enfant
     const inputNombreEnfant = document.getElementById('nombre_enfant');
 
