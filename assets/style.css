@@ -1135,3 +1135,15 @@ p.form-control {
 #dipl {
   margin: 20px;
 }
+
+/* unvisited link */
+.tableau a:link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+/* visited link */
+.tableau a:visited {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}

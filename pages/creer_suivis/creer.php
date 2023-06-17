@@ -113,8 +113,30 @@ if (isset($_SESSION["login"])){
         <div class="input_boxe">
 
         <label for="nom">Nom : <span class="obligatoire">*</span></label>
-        <input type="text" id="nom" name="nom">
+        <input type="text" id="nom" name="nom" class="uc-text-smooth">
+        
+        <script>
 
+        const forceKeyPressUppercase = (e) => {
+            let el = e.target;
+            let charInput = e.keyCode;
+            if((charInput >= 97) && (charInput <= 122)) { // lowercase
+            if(!e.ctrlKey && !e.metaKey && !e.altKey) { // no modifier key
+                let newChar = charInput - 32;
+                let start = el.selectionStart;
+                let end = el.selectionEnd;
+                el.value = el.value.substring(0, start) + String.fromCharCode(newChar) + el.value.substring(end);
+                el.setSelectionRange(start+1, start+1);
+                e.preventDefault();
+            }
+            }
+        };
+
+        document.querySelectorAll(".uc-text-smooth").forEach(function(current) {
+            current.addEventListener("keypress", forceKeyPressUppercase);
+        });
+
+        </script>
 
         <label class="decale" for="prenom">Prénom : <span class="obligatoire">*</span></label>
         <input class="decale" type="text" id="prenom" name="prenom">

@@ -56,7 +56,7 @@ $requete = null;
 // INSCRIT //
 $requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
 origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
-prenom = :prenom,dte_naissance = :dte_naissance,nationalite = :nationalite,adresse = :adresse,code_postal = :code_postal,
+prenom = :prenom,dte_naissance = :dte_naissance,adresse = :adresse,code_postal = :code_postal,
 ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,
 nature_revenus = :nature_revenus,autre_revenus = :autre_revenus,cv_oui_non = :cv_oui_non,
 inscrit_pole_emploi = :inscrit_pole_emploi,inscrit_mission_local = :inscrit_mission_local,inscrit_cap_emploi = :inscrit_cap_emploi,
@@ -72,7 +72,7 @@ date_vehicule = :date_vehicule,autre_langue = :autre_langue,if_autre = :if_autre
 WHERE id_inscrit = '$id'");
 //execution de la requete
 $requete->execute(["dte_contact"=>NULL,"origine_contact"=>NULL,"inscrit_rdc"=>NULL,"civilite"=>NULL,
-"nom"=>NULL,"prenom"=>NULL,"dte_naissance"=>NULL,"nationalite"=>NULL,"adresse"=>NULL,"code_postal"=>NULL,"ville"=>NULL,"telephone"=>NULL,
+"nom"=>NULL,"prenom"=>NULL,"dte_naissance"=>NULL,"adresse"=>NULL,"code_postal"=>NULL,"ville"=>NULL,"telephone"=>NULL,
 "email"=>NULL,"situation_perso"=>NULL,"nature_revenus"=>NULL,"autre_revenus"=>NULL,"cv_oui_non"=>NULL,
 "inscrit_pole_emploi"=>NULL,"inscrit_mission_local"=>NULL,"inscrit_cap_emploi"=>NULL,
 "inscrit_soelis"=>NULL,"inscrit_cma"=>NULL,"vehicule_dispo"=>NULL,"achat_prevu"=>NULL,"emploi_pre_occupe"=>NULL,"permis_voiture"=>NULL,
@@ -211,7 +211,7 @@ else
 //// TABLE INSCRIT ////
 $requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
 origine_contact = :origine_contact,inscrit_rdc = :inscrit_rdc,civilite = :civilite,nom = :nom,
-prenom = :prenom,dte_naissance = :dte_naissance,nationalite = :nationalite,adresse = :adresse,code_postal = :code_postal,
+prenom = :prenom,dte_naissance = :dte_naissance,adresse = :adresse,code_postal = :code_postal,
 ville = :ville,telephone = :telephone,email = :email,situation_perso = :situation_perso,
 nature_revenus = :nature_revenus,autre_revenus = :autre_revenus,cv_oui_non = :cv_oui_non,inscrit_pole_emploi = :inscrit_pole_emploi,
 inscrit_mission_local = :inscrit_mission_local,inscrit_cap_emploi = :inscrit_cap_emploi,inscrit_soelis = :inscrit_soelis,
@@ -227,7 +227,7 @@ WHERE id_inscrit = '$id'");
 //execution de la requete
 $requete->execute(["dte_contact"=>$_POST["dte_contact"],
 "origine_contact"=>$_POST["origine_contact"],"inscrit_rdc"=>$_POST["inscrit_rdc"],"civilite"=>$_POST["civilite"],"nom"=>$_POST["nom"],
-"prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"nationalite"=>$_POST["nationalite"],"adresse"=>$_POST["adresse"],
+"prenom"=>$_POST["prenom"],"dte_naissance"=>$_POST["dte_naissance"],"adresse"=>$_POST["adresse"],
 "code_postal"=>$_POST["code_postal"],"ville"=>$_POST["ville"],"telephone"=>$_POST["telephone"],"email"=>$_POST["email"],
 "situation_perso"=>$_POST["situation_perso"],
 "nature_revenus"=>$_POST["nature_revenus"],"autre_revenus"=>$_POST["autre_revenus"],"cv_oui_non"=>$_POST["cv_oui_non"],

@@ -264,9 +264,9 @@ if (isset($_SESSION["login"]))
             </div>
             <div class="input_boxe">
             <label for="nationalite" id="nationalite">Nationalité : <span class="obligatoire">*</span></label>
-            <?php
-            include('pays_disabled.php')
-            ?>
+            <select class="form-control" name="nationalite" id="nationalite" disabled>
+                <option value="<?php echo $ligne_inscrit["nationalite"] ?>"><?php echo $ligne_inscrit["nationalite"] ?></option>
+            </select>
         </div>
         <div class="input_boxe">
             <label id="adresse" for="adresse">Adresse : <span class="obligatoire">*</span></label>

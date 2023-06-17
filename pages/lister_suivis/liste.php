@@ -49,8 +49,8 @@ if (isset($_SESSION["login"])){
                 if($ligne["statut"] == 0){
                     ?>
                     <tr>
-                        <td><?= $ligne["nom"]?></td>
-                        <td><?= $ligne["prenom"]?></td>
+                        <td><a href="index.php?route=affichage&id=<?= $ligne["id_inscrit"] ?>"><?= $ligne["nom"]?></a></td>
+                        <td><a href="index.php?route=affichage&id=<?= $ligne["id_inscrit"] ?>"><?= $ligne["prenom"]?></a></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
                         <td>
@@ -90,8 +90,8 @@ if (isset($_SESSION["login"])){
                 if($ligne["statut"] == 0){
                     ?>
                     <tr>
-                        <td><?= $ligne["nom"]?></td>
-                        <td><?= $ligne["prenom"]?></td>
+                        <td><a href="index.php?route=affichage&id=<?= $ligne["id_inscrit"] ?>"><?= $ligne["nom"]?></a></td>
+                        <td><a href="index.php?route=affichage&id=<?= $ligne["id_inscrit"] ?>"><?= $ligne["prenom"]?></a></td>
                         <td><?= $ligne["name_acc"]?></td>
                         <td><?= rowCount($mysqlConnection,"SELECT * FROM rdv WHERE fk_id_inscrit_rdv = $id_insc") ?></td>
                         <td>
