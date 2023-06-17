@@ -388,7 +388,7 @@ if (isset($_SESSION["login"]))
 
         const labelNomEnfant = document.createElement('label');
         labelNomEnfant.htmlFor = `nom_enfant`;
-        labelNomEnfant.textContent = `Nom prénom de l'enfant ${i + 1} : `;
+        labelNomEnfant.textContent = `Nom prénom de l'enfant ${i + 1} : `; 
 
         const inputNomEnfant = document.createElement('input');
         inputNomEnfant.type = 'text';
