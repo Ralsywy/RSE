@@ -37,7 +37,7 @@ if (isset($_SESSION["login"])){
         <!--    Si oui   -->
     <div id="centre_num">
         <label id="num_" class="decale" for="num">N° : <span class="obligatoire">*</span></label>
-        <input class="input_suivis" type="text" id="num" name="numero">
+        <input class="input_suivis" type="text" pattern="^\d+$" id="num" name="numero">
 
         <label id="centre" for="centre">Centre : <span class="obligatoire">*</span></label>
         <input class="input_suivis" type="text" id="centre" name="centre">
@@ -181,7 +181,7 @@ if (isset($_SESSION["login"])){
 
 
         <label class="decaler" for="zipcode">Code Postal : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="text" id="zipcode" name="code_postal"  >
+        <input class="decaler" type="text" pattern="^\d+$" id="zipcode" name="code_postal"  >
         <div id="error-message" style="display: none; color: #f55;"></div>
         <div class="input_boxe">
         <label class="decaler" for="city">Ville : <span class="obligatoire">*</span></label>
@@ -191,10 +191,10 @@ if (isset($_SESSION["login"])){
         <div class="input_boxe">
 
         <label class="decaler" for="tel">Téléphone : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="text" id="tel" name="telephone">
+        <input class="decaler" type="text" pattern="^\d+$" id="tel" name="telephone">
 
         <label class="decaler" for="email">E-mail : <span class="obligatoire">*</span></label>
-        <input class="decaler" type="mail" id="email" name="email">
+        <input class="decaler" type="mail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="email" name="email">
         </div>
         
     </div>
@@ -498,10 +498,6 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="a1">A1</option>
             <option value="a2">A2</option>
         </select>
-        <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
-            </div>
         </div>
         <!--    Si auto   -->
         <div class="input_boxe" id="auto">
@@ -512,10 +508,6 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="b1">B1</option>
             <option value="be">BE</option>
         </select>
-        <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
-            </div>
         </div>
         <!--    Si march   -->
         <div class="input_boxe" id="march">
@@ -531,11 +523,11 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="d1">D1</option>
             <option value="d1e">D1E</option>
         </select>
-        <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
-            </div>
         </div>
+        <div class="input_boxe" id="autre_permis">
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" name="autre_permis" placeholder="Facultatif">
+            </div>
 
         <!--    
             Véhicule disponible  -------------------------------------------------------------

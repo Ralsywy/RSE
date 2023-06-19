@@ -850,10 +850,6 @@ if (isset($_SESSION["login"]))
                     }
                     ?>>A2</option>
             </select>
-            <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
-            </div>
             </div>
             <?php
                     }
@@ -882,10 +878,6 @@ if (isset($_SESSION["login"]))
                     }
                     ?>>BE</option>
             </select>
-            <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
-            </div>
             </div>
             <?php
                     }
@@ -940,9 +932,9 @@ if (isset($_SESSION["login"]))
                     ?>>D1E</option>
    
             </select>
-            <div>
+            <div class="input_boxe" id="autre_permis">
             <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
+            <input type="text" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
             </div>
             </div>
             <?php

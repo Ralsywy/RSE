@@ -1165,3 +1165,7 @@ p.form-control {
 input[type="file"]{
   display: none;
 }
+#autre_permis {
+  margin-top: 10px;
+  display: none;
+}

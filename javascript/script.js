@@ -197,16 +197,19 @@ document.addEventListener('DOMContentLoaded', function() {
   function hideshowpermis() {
     var permis = document.getElementById("permis").value;
     if (permis == "motos1") {
+      document.getElementById('autre_permis').style.display = 'block';
       document.getElementById('motos').style.display = 'block';
       document.getElementById('auto').style.display = 'none';
       document.getElementById('march').style.display = 'none';
     }
     if (permis == "auto1") {
+      document.getElementById('autre_permis').style.display = 'block';
       document.getElementById('auto').style.display = 'block';
       document.getElementById('motos').style.display = 'none';
       document.getElementById('march').style.display = 'none';
     }
     if (permis == "march1") {
+      document.getElementById('autre_permis').style.display = 'block';
       document.getElementById('march').style.display = 'block';
       document.getElementById('auto').style.display = 'none';
       document.getElementById('motos').style.display = 'none';
@@ -214,9 +217,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (permis == "aucun") {
       document.getElementById('march').style.display = 'none';
       document.getElementById('auto').style.display = 'none';
+      document.getElementById('autre_permis').style.display = 'none';
       document.getElementById('motos').style.display = 'none';
     }
     if (permis == "rien") {
+      document.getElementById('autre_permis').style.display = 'none';
       document.getElementById('march').style.display = 'none';
       document.getElementById('auto').style.display = 'none';
       document.getElementById('motos').style.display = 'none';
