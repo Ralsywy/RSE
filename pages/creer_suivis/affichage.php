@@ -205,7 +205,7 @@ if (isset($_SESSION["login"]))
                 }}
                 ?>
             </select>
-            <p class="oblig">(<span class="obligatoire">*</span> : obligatoire)</p>
+
 
             </div>
 
