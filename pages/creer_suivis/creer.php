@@ -524,7 +524,9 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="d1e">D1E</option>
         </select>
         </div>
-
+<script>
+    
+</script>
         <!--    
             Véhicule disponible  -------------------------------------------------------------
         -->
