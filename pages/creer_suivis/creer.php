@@ -23,7 +23,7 @@ if (isset($_SESSION["login"])){
         </div>
         <div class="input_boxe">
         <label for="origine_contact">Origine du contact : <span class="obligatoire">*</span></label>
-        <input type="text" name="origine_contact" id="origine_contact"  >
+        <input type="text" name="origine_contact" id="origine_contact">
         </div>
     </div>
 
@@ -498,6 +498,10 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="a1">A1</option>
             <option value="a2">A2</option>
         </select>
+        <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
+            </div>
         </div>
         <!--    Si auto   -->
         <div class="input_boxe" id="auto">
@@ -508,6 +512,10 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="b1">B1</option>
             <option value="be">BE</option>
         </select>
+        <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
+            </div>
         </div>
         <!--    Si march   -->
         <div class="input_boxe" id="march">
@@ -523,10 +531,12 @@ inputNombreEnfant.addEventListener('change', () => {
             <option value="d1">D1</option>
             <option value="d1e">D1E</option>
         </select>
+        <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
+            </div>
         </div>
-<script>
-    
-</script>
+
         <!--    
             Véhicule disponible  -------------------------------------------------------------
         -->

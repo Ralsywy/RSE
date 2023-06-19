@@ -109,10 +109,10 @@ $requete = null;
 
 // PERMIS //
 $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET moto = :moto,auto = :auto,
-transport = :transport
+transport = :transport,autre_permis = :autre_permis
 WHERE fk_id_inscrit_permis = '$id'");
 //execution de la requete
-$requete->execute(["moto"=>NULL,"auto"=>NULL,"transport"=>NULL]);
+$requete->execute(["moto"=>NULL,"auto"=>NULL,"transport"=>NULL,"permis_autre"=>NULL]);
 $requete = null;
 
 // POLE EMPLOI //
@@ -416,9 +416,9 @@ else
 if($permis_voiture=="motos1")
 {
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET moto = :moto WHERE fk_id_inscrit_permis = '$id'");
+    $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET moto = :moto,autre_permis = :autre_permis WHERE fk_id_inscrit_permis = '$id'");
     // execution de la requete
-    $requete->execute(["moto"=>$_POST["moto"]]);
+    $requete->execute(["moto"=>$_POST["moto"],"autre_permis"=>$_POST["autre_permis"]]);
     $requete = null;
 }
 else
@@ -426,17 +426,17 @@ else
     if($permis_voiture=="auto1")
     {
         // ordre de mission
-        $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET auto = :auto WHERE fk_id_inscrit_permis = '$id'");
+        $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET auto,autre_permis = :autre_permis = :auto WHERE fk_id_inscrit_permis = '$id'");
         // execution de la requete
-        $requete->execute(["auto"=>$_POST["auto"]]);
+        $requete->execute(["auto"=>$_POST["auto"],"autre_permis"=>$_POST["autre_permis"]]);
         $requete = null;
     }
     else{
         if($permis_voiture=="march1"){
             // ordre de mission
-            $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET transport = :transport WHERE fk_id_inscrit_permis = '$id'");
+            $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET transport = :transport,autre_permis = :autre_permis WHERE fk_id_inscrit_permis = '$id'");
             // execution de la requete
-            $requete->execute(["transport"=>$_POST["marchandise"]]);
+            $requete->execute(["transport"=>$_POST["marchandise"],"autre_permis"=>$_POST["autre_permis"]]);
             $requete = null;
         }
     }

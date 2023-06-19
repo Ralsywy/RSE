@@ -849,11 +849,15 @@ if (isset($_SESSION["login"]))
                         echo "selected";
                     }
                     ?>>A2</option>
-                <?php
-                }
-                ?>
             </select>
+            <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
             </div>
+            </div>
+            <?php
+                    }
+                ?>
             <!--    Si auto   -->
             <div class="input_boxe" id="auto">
             <label for="aut">Permis autos : <span class="obligatoire">*</span></label>
@@ -877,11 +881,15 @@ if (isset($_SESSION["login"]))
                         echo "selected";
                     }
                     ?>>BE</option>
-                <?php
-                }
-                ?>
             </select>
+            <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
             </div>
+            </div>
+            <?php
+                    }
+                ?>
             <!--    Si march   -->
             <div class="input_boxe" id="march">
             <label for="marchandise">Permis pour le transport de marchandises ou de personnes : <span class="obligatoire">*</span></label>
@@ -930,12 +938,16 @@ if (isset($_SESSION["login"]))
                         echo "selected";
                     }
                     ?>>D1E</option>
-                <?php
-                }
-                ?>
+   
             </select>
+            <div>
+            <label for="autre_permis">Autres permis : </label>
+            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif" disabled value="<?php echo $ligne_permis["autre_permis"] ?>">
             </div>
-
+            </div>
+            <?php
+                    }
+                ?>
             <!--    
                 Véhicule disponible  -------------------------------------------------------------
             -->

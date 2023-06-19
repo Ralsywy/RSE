@@ -246,25 +246,25 @@ else
     $permis_voiture = $_POST['permis_voiture'];
     if($permis_voiture == "motos1"){
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(moto,fk_id_inscrit_permis) VALUES (:moto,:fk_id_inscrit_permis)");
+        $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(moto,fk_id_inscrit_permis,autre_permis) VALUES (:moto,:fk_id_inscrit_permis,:autre_permis)");
         // execution de la requete
-        $requete->execute(["moto"=>$_POST["moto"],"fk_id_inscrit_permis"=>$id_rdc]);
+        $requete->execute(["autre_permis"=>$_POST["autre_permis"],"moto"=>$_POST["moto"],"fk_id_inscrit_permis"=>$id_rdc]);
         $requete = null;
     }
     else{
         if($permis_voiture == "auto1"){
         // ordre de mission
-        $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(auto,fk_id_inscrit_permis) VALUES (:auto,:fk_id_inscrit_permis)");
+        $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(auto,fk_id_inscrit_permis,autre_permis) VALUES (:auto,:fk_id_inscrit_permis,:autre_permis)");
         // execution de la requete
-        $requete->execute(["auto"=>$_POST["auto"],"fk_id_inscrit_permis"=>$id_rdc]);
+        $requete->execute(["auto"=>$_POST["auto"],"autre_permis"=>$_POST["autre_permis"],"fk_id_inscrit_permis"=>$id_rdc]);
         $requete = null;
         }
         else{
             if($permis_voiture == "march1"){
                 // ordre de mission
-                $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(transport,fk_id_inscrit_permis) VALUES (:transport,:fk_id_inscrit_permis)");
+                $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(transport,fk_id_inscrit_permis,autre_permis) VALUES (:transport,:fk_id_inscrit_permis,:autre_permis)");
                 // execution de la requete
-                $requete->execute(["transport"=>$_POST["marchandise"],"fk_id_inscrit_permis"=>$id_rdc]);
+                $requete->execute(["transport"=>$_POST["marchandise"],"autre_permis"=>$_POST["autre_permis"],"fk_id_inscrit_permis"=>$id_rdc]);
                 $requete = null;
             }
             else{
