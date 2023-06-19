@@ -796,10 +796,6 @@ if (isset($_SESSION["login"]))
                 }
                 ?>
             </select>
-            <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
-            </div>
             </div>
             <!--    Si auto   -->
             <div class="input_boxe" id="auto">
@@ -828,10 +824,6 @@ if (isset($_SESSION["login"]))
                 }
                 ?>
             </select>
-            <div>
-            <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
-            </div>
             </div>
             <!--    Si march   -->
             <div class="input_boxe" id="march">
@@ -885,9 +877,9 @@ if (isset($_SESSION["login"]))
                 }
                 ?>
             </select>
-            <div>
+            <div class="input_boxe" id="autre_permis">
             <label for="autre_permis">Autres permis : </label>
-            <input type="text" id="autre_permis" name="autre_permis" placeholder="Facultatif">
+            <input type="text" name="autre_permis" placeholder="Facultatif">
             </div>
             </div>
 

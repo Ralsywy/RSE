@@ -1161,3 +1161,7 @@ p.form-control {
   display: flex;
   justify-content: center;
 }
+#autre_permis {
+  margin-top: 10px;
+  display: none;
+}
