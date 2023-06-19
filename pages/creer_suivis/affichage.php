@@ -780,7 +780,8 @@ if (isset($_SESSION["login"]))
         </div>
         <div id="cv">
             <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : <span class="obligatoire">*</span></label> 
-            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["names"] ?>"disabled>
+            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["file_url"] ?>"disabled>
+            <label for="file"><?php echo $ligne_files["names"] ?></label>
         </div>
 
 

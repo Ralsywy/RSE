@@ -1161,3 +1161,7 @@ p.form-control {
   display: flex;
   justify-content: center;
 }
+
+input[type="file"]{
+  display: none;
+}
