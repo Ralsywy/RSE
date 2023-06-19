@@ -248,7 +248,7 @@ else
         // ordre de mission
         $requete = $mysqlConnection->prepare("INSERT INTO permis_conduire(autre_permis,moto,fk_id_inscrit_permis) VALUES (:autre_permis,:moto,:fk_id_inscrit_permis)");
         // execution de la requete
-        $requete->execute(["autre_permis"=>$_POST["autre_permis"],"moto"=>$_POST["moto"],"fk_id_inscrit_permis"=>$id_rdc]);
+        $requete->execute(["moto"=>$_POST["moto"],"fk_id_inscrit_permis"=>$id_rdc,"autre_permis"=>$_POST["autre_permis"]]);
         $requete = null;
     }
     else{

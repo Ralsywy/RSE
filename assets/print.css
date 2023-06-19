@@ -1,19 +1,54 @@
+
 @page
 {
     size:A4;
     margin: 20px;
-    
 }
 #print-btn
 {
     display: none;
     visibility: none;
 }
+#btn_top{
+    display: none;
+    visibility: none;
+}
 body{
     background: none;
-    color: #ffffff;
+    color: black;
+    zoom:65%;
 }
 
 header{
     display: none;
 }
+
+.addsuivis .titrecreer {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    top: 0;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+font-family: "Gill Sans MT";
+align-content: stretch;
+flex-wrap: wrap;
+}
+
+.block_enligne {
+    position: block;
+  
+  
+  }
+  .block_enligne input {
+    margin-top: 10px;
+  } 
+
+  
