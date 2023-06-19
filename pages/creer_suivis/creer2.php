@@ -23,7 +23,7 @@ if (isset($_SESSION["login"])){
     <table class="table" id="monTableau">
     <thead>
         <tr>
-            <th scope="col">ID</th>
+
             <th scope="col">Actions à mener</th>
             <th scope="col">Objectifs</th>
             <th scope="col">Moyens mis en oeuvre</th>
@@ -34,7 +34,7 @@ if (isset($_SESSION["login"])){
     <tbody>
         <tr>
             <form method="post" id="plan_act" action="index.php?route=store_plan&id=<?=$_GET["id"]?>">
-                <td></td>
+
                 <td><input type="text" class="form-control" id="action_menee" name="action_menee"></td>
                 <td><input type="text" class="form-control" id="objectif" name="objectif"></td>
                 <td><input type="text" class="form-control" id="moyen_oeuvre" name="moyen_oeuvre"></td>
@@ -46,7 +46,6 @@ if (isset($_SESSION["login"])){
         foreach ($plan_action as $ligne){
         ?>
             <tr>
-                <td><?= $ligne["id_plan_action"]?></td>
                 <td><?= $ligne["action_menee"]?></td>
                 <td><?= $ligne["objectif"]?></td>
                 <td><?= $ligne["moyen_oeuvre"]?></td>
@@ -74,7 +73,6 @@ if (isset($_SESSION["login"])){
     <table class="table" id="monTableau">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Date</th>
             <th scope="col"></th>
             <th></th>
@@ -83,7 +81,6 @@ if (isset($_SESSION["login"])){
     <tbody>
         <tr>
             <form method="post" id="plan_act" action="index.php?route=store_rdv&id=<?=$_GET["id"]?>">
-                <td></td>
                 <td><input type="date" id="rdv" name="rdv"></td>
                 <td><textarea class="form-control" id="context" name="context"></textarea></td>
                 <td><button type="submit" class="btn_modifier">Ajouter</button></td>
@@ -93,7 +90,6 @@ if (isset($_SESSION["login"])){
         foreach ($rdv as $ligne){
         ?>
             <tr>
-                <td><?= $ligne["id_rdv"]?></td>
                 <td><?= $ligne["rdv"]?></td>
                 <td class="acti"><?= $ligne["context"]?></td>
                 <td><a href="index.php?route=delete_rdv&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>

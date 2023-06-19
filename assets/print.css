@@ -2,7 +2,7 @@
 @page
 {
     size:A4;
-    margin: 20px;
+    margin:0px;
 }
 #print-btn
 {
@@ -16,7 +16,7 @@
 body{
     background: none;
     color: black;
-    zoom:65%;
+    zoom:100%
 }
 
 header{
@@ -104,3 +104,6 @@ select {
     top: -10px;
 }
   
+#plan_action{
+    page-break-before: always;
+}
