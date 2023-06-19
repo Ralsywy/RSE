@@ -106,7 +106,7 @@ if (isset($_SESSION["login"]))
     <div class="addsuivis">
         <h1 class="titrecreer">MODIFICATION DU SUIVI</h1>
         <h2 class="information">Informations personnelles</h2>
-        <form class="form" method="post" id="suiviss" action="index.php?route=store_update&id=<?=$_GET["id"]?>" enctype="multipart/form-data">
+        <form class="form" method="post" id="suiviss" enctype="multipart/form-data">
             <!--    Information personnelles    -->
         <div class="block_enligne">
             <div class="input_boxe">
@@ -279,7 +279,6 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <label class="decaler" for="city">Ville : <span class="obligatoire">*</span></label>
             <select class="form-control" id="city" placeholder="Ville" name="ville" value="<?php echo $ligne_inscrit["ville"] ?>"disabled></select>
-            <p class="ital" style="color : red;">Si la ville ne correspond pas, re-selectionner la ville</p>
             </div>
             </div>
             <div class="input_boxe">
@@ -1600,7 +1599,10 @@ if (isset($_SESSION["login"]))
             </div>
             <div>
             </div>
-        </form>      
+        </form>
+        <div class="btn_print">
+            <button onclick="window.print();" class="btn btn-primary" id="print-btn">Imprimer</button>
+        </div>
     </div>
     <?php
     }
