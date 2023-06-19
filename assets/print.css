@@ -107,3 +107,7 @@ select {
 #plan_action{
     page-break-before: always;
 }
+
+input[type="file"]{
+    display: none;
+  }
