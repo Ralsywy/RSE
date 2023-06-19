@@ -1,0 +1,19 @@
+@page
+{
+    size:A4;
+    margin: 20px;
+    
+}
+#print-btn
+{
+    display: none;
+    visibility: none;
+}
+body{
+    background: none;
+    color: #ffffff;
+}
+
+header{
+    display: none;
+}

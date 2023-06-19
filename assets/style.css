@@ -1,3 +1,8 @@
+*:disabled {
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
 
 .navbar-nav > li{
   padding-right:100px;
@@ -1146,4 +1151,13 @@ p.form-control {
 .tableau a:visited {
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+.btn_print .btn{
+  width: 20%;
+}
+
+.btn_print{
+  display: flex;
+  justify-content: center;
 }
