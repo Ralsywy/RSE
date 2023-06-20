@@ -45,6 +45,18 @@ WHERE id_cma = '$id'");
 $requete->execute(["dte_inscription_cma"=>NULL,"nom_referent_cma"=>NULL,"dte_realisation_cma"=>NULL,"commentaire_cma"=>NULL]);
 $requete = null;
 
+// ordre de mission
+$requete = $mysqlConnection->prepare('SELECT * FROM files WHERE id_files=:id');
+//execution de la requete
+$requete->execute(["id"=>$_GET["id"]]);
+$files = $requete->fetchAll();
+$requete = null;
+foreach($files as $files_ligne){
+    $filespdf = $files_ligne["names"];
+    $file_pointer = "pages/creer_suivis/pdf/'$filespdf'";
+    unlink($file_pointer);
+}
+
 // FILES //
 $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url = :file_url,
 dte_travailler_cv = :dte_travailler_cv
@@ -52,6 +64,7 @@ WHERE id_files = '$id'");
 //execution de la requete
 $requete->execute(["names"=>NULL,"file_url"=>NULL,"dte_travailler_cv"=>NULL]);
 $requete = null;
+
 
 // INSCRIT //
 $requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
