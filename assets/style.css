@@ -583,7 +583,7 @@ html{
 
 .partie3 {
   position: relative;
-  top: -150px;
+  top: -250px;
 }
 
 .btn_term {
@@ -1160,6 +1160,10 @@ p.form-control {
 .btn_print{
   display: flex;
   justify-content: center;
+}
+
+input[type="file"]{
+  display: none;
 }
 #autre_permis {
   margin-top: 10px;

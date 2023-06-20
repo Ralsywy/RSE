@@ -45,6 +45,18 @@ WHERE id_cma = '$id'");
 $requete->execute(["dte_inscription_cma"=>NULL,"nom_referent_cma"=>NULL,"dte_realisation_cma"=>NULL,"commentaire_cma"=>NULL]);
 $requete = null;
 
+// ordre de mission
+$requete = $mysqlConnection->prepare('SELECT * FROM files WHERE id_files=:id');
+//execution de la requete
+$requete->execute(["id"=>$_GET["id"]]);
+$files = $requete->fetchAll();
+$requete = null;
+foreach($files as $files_ligne){
+    $filespdf = $files_ligne["names"];
+    $file_pointer = "pages/creer_suivis/pdf/'$filespdf'";
+    unlink($file_pointer);
+}
+
 // FILES //
 $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url = :file_url,
 dte_travailler_cv = :dte_travailler_cv
@@ -52,6 +64,7 @@ WHERE id_files = '$id'");
 //execution de la requete
 $requete->execute(["names"=>NULL,"file_url"=>NULL,"dte_travailler_cv"=>NULL]);
 $requete = null;
+
 
 // INSCRIT //
 $requete = $mysqlConnection->prepare("UPDATE inscrit SET dte_contact = :dte_contact,
@@ -112,7 +125,7 @@ $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET moto = :moto,au
 transport = :transport,autre_permis = :autre_permis
 WHERE fk_id_inscrit_permis = '$id'");
 //execution de la requete
-$requete->execute(["moto"=>NULL,"auto"=>NULL,"transport"=>NULL,"permis_autre"=>NULL]);
+$requete->execute(["moto"=>NULL,"auto"=>NULL,"transport"=>NULL,"autre_permis"=>NULL]);
 $requete = null;
 
 // POLE EMPLOI //
@@ -179,24 +192,28 @@ else
     $requete->execute(["dte_realisation_cma"=>$_POST["dte_realisation_cma"],"commentaire_cma"=>$_POST["commentaire_cma"]]);
     $requete = null;
 }
-
-// CV //
-if($cv_oui_non=="oui")
-{
-    $pdfFile = $_POST['pdfFile'];
-    $file_name = $_FILES['pdfFile']['name'];
-    $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
-    $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
-    $file_type = $_FILES['pdfFile']['type'];
-    $file_extension = strrchr($file_name, ".");
-
-    $extensions_autorisees = array('.pdf', '.PDF');
-    if(in_array($file_extension, $extensions_autorisees)) {
+if($cv_oui_non == "oui"){
     // ordre de mission
-    $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url=:file_url WHERE id_files = '$id'");
-    // execution de la requete
-    $requete->execute(["names"=>$file_name,"file_url"=>$file_dest]);
-    $requete = null;
+    if(!empty($_FILES)) {
+        $pdfFile = $_POST['pdfFile'];
+        $file_name = $_FILES['pdfFile']['name'];
+        $file_tmp_name = $_FILES['pdfFile']['tmp_name'];
+        $file_dest = 'pages/creer_suivis/pdf/'.$file_name;
+        $file_type = $_FILES['pdfFile']['type'];
+        $file_extension = strrchr($file_name, ".");
+
+        $extensions_autorisees = array('.pdf', '.PDF');
+
+        if(in_array($file_extension, $extensions_autorisees)) {
+            if(move_uploaded_file($file_tmp_name, $file_dest)) {
+                $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url=:file_url WHERE id_files = '$id'");
+                // execution de la requete
+                $requete->execute(["names"=>$file_name,"file_url"=>$file_dest]);
+                $requete = null;
+
+                echo 'Fichier envoyé';
+            }
+        }
     }
 }
 else
@@ -222,7 +239,7 @@ secteur_activite = :secteur_activite,secteur_geo = :secteur_geo,
 moment_journee = :moment_journee,
 benevole_rdc = :benevole_rdc,nom_diplome = :nom_diplome,
 atelier_fr = :atelier_fr,
-date_vehicule = :date_vehicule,autre_langue = :autre_langue,if_autre = :if_autre
+autre_langue = :autre_langue,if_autre = :if_autre
 WHERE id_inscrit = '$id'");
 //execution de la requete
 $requete->execute(["dte_contact"=>$_POST["dte_contact"],
@@ -240,7 +257,7 @@ $requete->execute(["dte_contact"=>$_POST["dte_contact"],
 "moment_journee"=>$_POST["moment_journee"],"benevole_rdc"=>$_POST["benevole_rdc"],
 "nom_diplome"=>$_POST["nom_diplome"],
 "atelier_fr"=>$_POST["atelier_fr"],
-"date_vehicule"=>$_POST["date_vehicule"],"autre_langue"=>$_POST["autre_langue"],"if_autre"=>$_POST["if_autre"]]);
+"autre_langue"=>$_POST["autre_langue"],"if_autre"=>$_POST["if_autre"]]);
 $requete = null;
 
 ////    FORMATION PRO    //// 
@@ -495,6 +512,14 @@ else
     $requete = $mysqlConnection->prepare("UPDATE soelis SET dte_realisation_soelis = :dte_realisation_soelis,commentaire_soelis=:commentaire_soelis WHERE id_soelis = '$id'");
     // execution de la requete
     $requete->execute(["dte_realisation_soelis"=>$_POST["dte_realisation_soelis"],"commentaire_soelis"=>$_POST["commentaire_soelis"]]);
+    $requete = null;
+}
+
+if($achat_prevu == "oui"){
+    // ordre de mission
+    $requete = $mysqlConnection->prepare("UPDATE inscrit SET date_vehicule = :date_vehicule WHERE id_inscrit = '$id'");
+    // execution de la requete
+    $requete->execute(["date_vehicule"=>$_POST["date_vehicule"]]);
     $requete = null;
 }
 

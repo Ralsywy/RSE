@@ -774,13 +774,15 @@ if (isset($_SESSION["login"]))
             <div class="input_boxe">
             <!--    Si oui   -->
             <?php
+            
             foreach($files as $ligne_files)
                 {
             ?>
         </div>
         <div id="cv">
             <label for="pdfFile">Insérer le cv scanné (format PDF uniquement) : <span class="obligatoire">*</span></label> 
-            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["names"] ?>"disabled>
+            <input type="file" id="pdfFile" name="pdfFile" accept="cv/pdf" value="<?php echo $ligne_files["file_url"] ?>">
+            <a target="_blank" href="http://127.0.0.1/RSE/pages/creer_suivis/pdf/<?php echo $ligne_files["names"]?>"><?php echo $ligne_files["names"] ?></a>
         </div>
 
 
