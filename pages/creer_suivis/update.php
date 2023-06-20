@@ -878,10 +878,11 @@ if (isset($_SESSION["login"]))
                 }
                 ?>
             </select>
+            
+            </div>
             <div class="input_boxe" id="autre_permis">
             <label for="autre_permis">Autres permis : </label>
-            <input type="text" name="autre_permis" placeholder="Facultatif">
-            </div>
+            <input type="text" name="autre_permis" value="<?php echo $ligne_permis["autre_permis"] ?>">
             </div>
 
             <!--    

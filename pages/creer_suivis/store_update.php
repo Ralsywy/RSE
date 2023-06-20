@@ -51,11 +51,6 @@ $requete = $mysqlConnection->prepare('SELECT * FROM files WHERE id_files=:id');
 $requete->execute(["id"=>$_GET["id"]]);
 $files = $requete->fetchAll();
 $requete = null;
-foreach($files as $files_ligne){
-    $filespdf = $files_ligne["names"];
-    $file_pointer = "pages/creer_suivis/pdf/'$filespdf'";
-    unlink($file_pointer);
-}
 
 // FILES //
 $requete = $mysqlConnection->prepare("UPDATE files SET names = :names,file_url = :file_url,
@@ -443,7 +438,7 @@ else
     if($permis_voiture=="auto1")
     {
         // ordre de mission
-        $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET auto,autre_permis = :autre_permis = :auto WHERE fk_id_inscrit_permis = '$id'");
+        $requete = $mysqlConnection->prepare("UPDATE permis_conduire SET auto= :auto,autre_permis = :autre_permis WHERE fk_id_inscrit_permis = '$id'");
         // execution de la requete
         $requete->execute(["auto"=>$_POST["auto"],"autre_permis"=>$_POST["autre_permis"]]);
         $requete = null;
