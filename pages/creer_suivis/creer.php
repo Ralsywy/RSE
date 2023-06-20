@@ -633,7 +633,7 @@ inputNombreEnfant.addEventListener('change', () => {
 </div>
 <div id="niveau">
         <label for="dipl_aucun">Nombre d'années d'études : <span class="obligatoire">*</span></label>
-        <input type="text" id="dipl_aucun" name="nb_annee_scolarisation">
+        <input type="text" id="dipl_aucun" pattern="^\d+$" name="nb_annee_scolarisation">
     
     
         <label for="dipl_niveau">Renseigner le niveau : <span class="obligatoire">*</span></label>
