@@ -50,7 +50,7 @@ if (isset($_SESSION["login"])){
                 <td><?= $ligne["objectif"]?></td>
                 <td><?= $ligne["moyen_oeuvre"]?></td>
                 <td><?= $ligne["echeance"]?></td>
-                <td><a href="index.php?route=delete_plan_action&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+                <td><a onclick='return check_del()' href="index.php?route=delete_plan_action&id=<?= $ligne["id_plan_action"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
         }?>
@@ -92,7 +92,7 @@ if (isset($_SESSION["login"])){
             <tr>
                 <td><?= $ligne["rdv"]?></td>
                 <td class="acti"><?= $ligne["context"]?></td>
-                <td><a href="index.php?route=delete_rdv&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
+                <td><a onclick='return check_del()' href="index.php?route=delete_rdv&id=<?= $ligne["id_rdv"] ?>"><button class="btn_modifier" id="suppr_creer">Supprimer</button></a></td>
             </tr>
         <?php
         }?>

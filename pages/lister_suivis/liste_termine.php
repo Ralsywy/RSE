@@ -60,7 +60,7 @@ if (isset($_SESSION["login"])){
                             <?php
                             if (isset($_SESSION["is_admin"])){
                             ?>
-                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <a onclick='return check_del()' href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                             <?php
                             }
                             ?>
@@ -93,7 +93,7 @@ if (isset($_SESSION["login"])){
                             <?php
                             if (isset($_SESSION["is_admin"])){
                             ?>
-                            <a href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
+                            <a onclick='return check_del()' href="index.php?route=supp_inscrit&id=<?= $ligne["id_inscrit"]?>"><button class="btn_supp">Supprimer</button></a>
                             <?php
                             }
                             ?>

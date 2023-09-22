@@ -1,5 +1,8 @@
 // Scripts créer suivis
-
+function check_del()
+{
+    return confirm('Êtes-vous sûre de supprimer ?')
+}
 
 // centre num
 // Vérifier l'état initial des boutons radio au chargement de la page

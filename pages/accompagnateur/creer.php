@@ -39,14 +39,14 @@ if (isset($_SESSION["login"])){
             <!-- UN ACCOMPAGNATEUR -->
             <?php
             foreach ($accompagnateurs as $ligne){
-                if($ligne["is_admin"]==0){
+                if($ligne["name_acc"]!="Admin"){
                     ?>
                     <div class="un_acc">
                     <div class="box_liste_acc">
                         <label class="liste_name_acc"><?= $ligne["name_acc"] ?></label>
                     </div>
                     <div class="btn_liste_acc">
-                        <a href="index.php?route=supp_accompagnateur&id=<?= $ligne["id_accompagnateur"] ?>" class="btn_acc_s">Supprimer</a>
+                        <a onclick='return check_del()' href="index.php?route=supp_accompagnateur&id=<?= $ligne["id_accompagnateur"] ?>" class="btn_acc_s">Supprimer</a>
                     </div>
                     </div>
                 <?php
