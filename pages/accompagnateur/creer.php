@@ -19,7 +19,7 @@ if (isset($_SESSION["login"])){
 
     <div class="page_acc">
         <div class="creer_acc">
-            <h1 class="titre_acc">Créer un accompagnateur</h1>
+            <h1 class="titre_acc">CRÉER UN ACCOMPAGNATEUR</h1>
                 <form action="index.php?route=store_accompagnateur" class="form_acc" method="post">
                     <div class="input-box_acc">
                         <label for="libelle_acc" class="acc_name">NOM Prénom</label>
@@ -35,7 +35,7 @@ if (isset($_SESSION["login"])){
                 </form>
         </div>
         <section class="liste_acc">
-            <h1 class="titre_acc">Liste des accompagnateurs</h1>
+            <h1 class="titre_acc">LISTE DES ACCOMPAGNATEURS</h1>
             <!-- UN ACCOMPAGNATEUR -->
             <?php
             foreach ($accompagnateurs as $ligne){
